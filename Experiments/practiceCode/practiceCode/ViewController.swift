@@ -10,11 +10,15 @@ import UIKit
 
 class ViewController: UIViewController {
     var button = UIButton()
+    var slider = UISlider()
     
     @IBOutlet weak var loginButton: UIButton!
     
     @IBOutlet weak var loginLabel: UILabel!
     
+    @IBOutlet weak var redSlider: UISlider!
+    @IBOutlet weak var greenSlider: UISlider!
+    @IBOutlet weak var blueSlider: UISlider!
     
     @IBAction func pressedLogin(_ sender: Any) {
         
