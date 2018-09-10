@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		473911B421463C6100157808 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473911B321463C6100157808 /* HomeViewController.swift */; };
 		47A9F21E2145BB7100C7FC39 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A9F21D2145BB7100C7FC39 /* AppDelegate.swift */; };
 		47A9F2202145BB7100C7FC39 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A9F21F2145BB7100C7FC39 /* ViewController.swift */; };
 		47A9F2232145BB7100C7FC39 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47A9F2212145BB7100C7FC39 /* Main.storyboard */; };
@@ -26,6 +27,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		473911B321463C6100157808 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		47A9F21A2145BB7100C7FC39 /* Habitat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Habitat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		47A9F21D2145BB7100C7FC39 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		47A9F21F2145BB7100C7FC39 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 				47A9F2242145BB7100C7FC39 /* Assets.xcassets */,
 				47A9F2262145BB7100C7FC39 /* LaunchScreen.storyboard */,
 				47A9F2292145BB7100C7FC39 /* Info.plist */,
+				473911B321463C6100157808 /* HomeViewController.swift */,
 			);
 			path = Habitat;
 			sourceTree = "<group>";
@@ -203,6 +206,7 @@
 			files = (
 				47A9F2202145BB7100C7FC39 /* ViewController.swift in Sources */,
 				47A9F21E2145BB7100C7FC39 /* AppDelegate.swift in Sources */,
+				473911B421463C6100157808 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -412,6 +416,7 @@
 				47A9F2392145BB7100C7FC39 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		47A9F23A2145BB7100C7FC39 /* Build configuration list for PBXNativeTarget "HabitatTests" */ = {
 			isa = XCConfigurationList;
@@ -420,6 +425,7 @@
 				47A9F23C2145BB7100C7FC39 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
