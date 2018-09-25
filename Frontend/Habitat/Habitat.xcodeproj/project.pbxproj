@@ -8,12 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		DA7632272141780B007CA9DC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7632262141780B007CA9DC /* AppDelegate.swift */; };
-		DA7632292141780B007CA9DC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7632282141780B007CA9DC /* ViewController.swift */; };
 		DA76322C2141780B007CA9DC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA76322A2141780B007CA9DC /* Main.storyboard */; };
 		DA76322E2141780E007CA9DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA76322D2141780E007CA9DC /* Assets.xcassets */; };
 		DA7632312141780E007CA9DC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA76322F2141780E007CA9DC /* LaunchScreen.storyboard */; };
 		DA76323C2141780E007CA9DC /* HabitatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA76323B2141780E007CA9DC /* HabitatTests.swift */; };
 		DA7632472141780E007CA9DC /* HabitatUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7632462141780E007CA9DC /* HabitatUITests.swift */; };
+		DADBB81F2152EBF8000C231C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADBB81E2152EBF8000C231C /* HomeViewController.swift */; };
+		DAEC48CB2159DB89002C16B8 /* ChatHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEC48CA2159DB89002C16B8 /* ChatHomeViewController.swift */; };
+		DAEC48CD2159DC0B002C16B8 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEC48CC2159DC0B002C16B8 /* ProfileViewController.swift */; };
+		DAEC48D12159E1D5002C16B8 /* MaintenanceRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEC48D02159E1D5002C16B8 /* MaintenanceRequestViewController.swift */; };
+		DAEC48D52159E34F002C16B8 /* FinancialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEC48D42159E34F002C16B8 /* FinancialViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +40,6 @@
 /* Begin PBXFileReference section */
 		DA7632232141780B007CA9DC /* Habitat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Habitat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA7632262141780B007CA9DC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DA7632282141780B007CA9DC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		DA76322B2141780B007CA9DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DA76322D2141780E007CA9DC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DA7632302141780E007CA9DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +50,11 @@
 		DA7632422141780E007CA9DC /* HabitatUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HabitatUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA7632462141780E007CA9DC /* HabitatUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitatUITests.swift; sourceTree = "<group>"; };
 		DA7632482141780E007CA9DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DADBB81E2152EBF8000C231C /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		DAEC48CA2159DB89002C16B8 /* ChatHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatHomeViewController.swift; sourceTree = "<group>"; };
+		DAEC48CC2159DC0B002C16B8 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		DAEC48D02159E1D5002C16B8 /* MaintenanceRequestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaintenanceRequestViewController.swift; sourceTree = "<group>"; };
+		DAEC48D42159E34F002C16B8 /* FinancialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancialViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +86,7 @@
 			isa = PBXGroup;
 			children = (
 				DA7632252141780B007CA9DC /* Habitat */,
+				DAEC48D62159E38A002C16B8 /* ViewControllers */,
 				DA76323A2141780E007CA9DC /* HabitatTests */,
 				DA7632452141780E007CA9DC /* HabitatUITests */,
 				DA7632242141780B007CA9DC /* Products */,
@@ -98,7 +107,6 @@
 			isa = PBXGroup;
 			children = (
 				DA7632262141780B007CA9DC /* AppDelegate.swift */,
-				DA7632282141780B007CA9DC /* ViewController.swift */,
 				DA76322A2141780B007CA9DC /* Main.storyboard */,
 				DA76322D2141780E007CA9DC /* Assets.xcassets */,
 				DA76322F2141780E007CA9DC /* LaunchScreen.storyboard */,
@@ -123,6 +131,18 @@
 				DA7632482141780E007CA9DC /* Info.plist */,
 			);
 			path = HabitatUITests;
+			sourceTree = "<group>";
+		};
+		DAEC48D62159E38A002C16B8 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				DAEC48D42159E34F002C16B8 /* FinancialViewController.swift */,
+				DADBB81E2152EBF8000C231C /* HomeViewController.swift */,
+				DAEC48CA2159DB89002C16B8 /* ChatHomeViewController.swift */,
+				DAEC48D02159E1D5002C16B8 /* MaintenanceRequestViewController.swift */,
+				DAEC48CC2159DC0B002C16B8 /* ProfileViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,8 +276,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DA7632292141780B007CA9DC /* ViewController.swift in Sources */,
 				DA7632272141780B007CA9DC /* AppDelegate.swift in Sources */,
+				DAEC48CD2159DC0B002C16B8 /* ProfileViewController.swift in Sources */,
+				DAEC48D52159E34F002C16B8 /* FinancialViewController.swift in Sources */,
+				DAEC48D12159E1D5002C16B8 /* MaintenanceRequestViewController.swift in Sources */,
+				DADBB81F2152EBF8000C231C /* HomeViewController.swift in Sources */,
+				DAEC48CB2159DB89002C16B8 /* ChatHomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
