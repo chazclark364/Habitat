@@ -1,24 +1,123 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Ypr-qg-zfd">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--ChatHome-->
+        <scene sceneID="99J-Cf-oVv">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                <viewController title="ChatHome" id="10B-hc-lTI" customClass="ChatHomeViewController" customModule="Habitat" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WLY-nM-yDG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" red="1" green="0.72941176470000002" blue="0.36078431370000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="Kzk-64-51L"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="" image="chat" selectedImage="chat" id="LpF-rD-rEl"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aLj-B6-y8d" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-775" y="106"/>
+        </scene>
+        <!--Financial View Controller-->
+        <scene sceneID="EjH-sP-3M9">
+            <objects>
+                <viewController id="Ocv-pT-bCX" customClass="FinancialViewController" customModule="Habitat" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="q0f-aK-JMW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="0.72941176470000002" blue="0.36078431370000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="iWg-g0-HCY"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="money" id="n7o-Tt-qHc"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cRo-md-Sbx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1714" y="-636"/>
+        </scene>
+        <!--Maintenance Request View Controller-->
+        <scene sceneID="TMe-7F-ShS">
+            <objects>
+                <viewController id="s4Z-FA-iA5" customClass="MaintenanceRequestViewController" customModule="Habitat" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vDN-YM-MpM">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="0.72941176470000002" blue="0.36078431370000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="iUi-1A-5Kd"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="tool" id="eTD-VY-r9j"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="exz-55-pxH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-775" y="902"/>
+        </scene>
+        <!--Profile-->
+        <scene sceneID="XmK-Dd-9pb">
+            <objects>
+                <viewController title="Profile" id="qz8-lo-5IF" customClass="ProfileViewController" customModule="Habitat" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="UFR-xq-Bfl">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="0.72941176470000002" blue="0.36078431370000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="7v2-Jq-crW"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="profile" selectedImage="profile" id="BTG-BL-SsF"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HON-3J-Soi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1714" y="902"/>
+        </scene>
+        <!--Home View Controller-->
+        <scene sceneID="npD-Cj-F7k">
+            <objects>
+                <viewController id="e2x-e2-qNF" customClass="HomeViewController" customModule="Habitat" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pFh-Ao-qvu">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="0.72941176470000002" blue="0.36078431370000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="Agu-hy-X8v"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="home" selectedImage="home" id="XWa-ZO-jNg"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3KU-hJ-ghC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-774" y="-648"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="QEO-5g-Jb5">
+            <objects>
+                <tabBarController id="Ypr-qg-zfd" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ima-RX-ztQ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="e2x-e2-qNF" kind="relationship" relationship="viewControllers" id="f5l-DE-w1h"/>
+                        <segue destination="10B-hc-lTI" kind="relationship" relationship="viewControllers" id="7qF-w1-W4K"/>
+                        <segue destination="qz8-lo-5IF" kind="relationship" relationship="viewControllers" id="2LB-q8-Wvt"/>
+                        <segue destination="Ocv-pT-bCX" kind="relationship" relationship="viewControllers" id="tqk-tx-SzP"/>
+                        <segue destination="s4Z-FA-iA5" kind="relationship" relationship="viewControllers" id="Qoc-Zd-Avd"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yIg-WZ-XOW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1713" y="106"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="chat" width="36" height="36"/>
+        <image name="home" width="36" height="36"/>
+        <image name="money" width="36" height="36"/>
+        <image name="profile" width="36" height="36"/>
+        <image name="tool" width="36" height="36"/>
+    </resources>
 </document>
