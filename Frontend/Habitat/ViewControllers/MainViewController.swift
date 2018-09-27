@@ -1,15 +1,15 @@
 //
-//  FinancialViewController.swift
+//  MainViewController.swift
 //  Habitat
 //
-//  Created by Chaz Clark on 9/24/18.
+//  Created by Travis Stanger on 9/26/18.
 //  Copyright © 2018 PP1. All rights reserved.
 //
 
 import Foundation
 import UIKit
 
-class FinancialViewController: UIViewController {
+class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
