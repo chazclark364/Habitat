@@ -11,6 +11,9 @@ import UIKit
 
 class ProfileViewController: UIViewController {
     
+    @IBOutlet weak var profilePicImageView: UIImageView!
+    
+    @IBOutlet weak var userNameValueLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
