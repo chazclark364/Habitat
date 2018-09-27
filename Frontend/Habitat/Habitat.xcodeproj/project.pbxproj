@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A90884D9215C5804005F47AC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90884D8215C5804005F47AC /* LoginViewController.swift */; };
+		A90884DB215C58E8005F47AC /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90884DA215C58E8005F47AC /* MainViewController.swift */; };
+		A90884DD215C596E005F47AC /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90884DC215C596E005F47AC /* SignupViewController.swift */; };
 		DA7632272141780B007CA9DC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7632262141780B007CA9DC /* AppDelegate.swift */; };
 		DA76322C2141780B007CA9DC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA76322A2141780B007CA9DC /* Main.storyboard */; };
 		DA76322E2141780E007CA9DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA76322D2141780E007CA9DC /* Assets.xcassets */; };
@@ -38,6 +41,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A90884D8215C5804005F47AC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		A90884DA215C58E8005F47AC /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		A90884DC215C596E005F47AC /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		DA7632232141780B007CA9DC /* Habitat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Habitat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA7632262141780B007CA9DC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DA76322B2141780B007CA9DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -141,6 +147,9 @@
 				DAEC48CA2159DB89002C16B8 /* ChatHomeViewController.swift */,
 				DAEC48D02159E1D5002C16B8 /* MaintenanceRequestViewController.swift */,
 				DAEC48CC2159DC0B002C16B8 /* ProfileViewController.swift */,
+				A90884D8215C5804005F47AC /* LoginViewController.swift */,
+				A90884DA215C58E8005F47AC /* MainViewController.swift */,
+				A90884DC215C596E005F47AC /* SignupViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -276,12 +285,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A90884DD215C596E005F47AC /* SignupViewController.swift in Sources */,
+				A90884D9215C5804005F47AC /* LoginViewController.swift in Sources */,
 				DA7632272141780B007CA9DC /* AppDelegate.swift in Sources */,
 				DAEC48CD2159DC0B002C16B8 /* ProfileViewController.swift in Sources */,
 				DAEC48D52159E34F002C16B8 /* FinancialViewController.swift in Sources */,
 				DAEC48D12159E1D5002C16B8 /* MaintenanceRequestViewController.swift in Sources */,
 				DADBB81F2152EBF8000C231C /* HomeViewController.swift in Sources */,
 				DAEC48CB2159DB89002C16B8 /* ChatHomeViewController.swift in Sources */,
+				A90884DB215C58E8005F47AC /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -454,7 +466,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Habitat/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -462,6 +476,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = PP1.Habitat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -471,7 +486,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Habitat/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -479,6 +496,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = PP1.Habitat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
