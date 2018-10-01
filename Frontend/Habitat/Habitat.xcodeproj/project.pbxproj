@@ -13,6 +13,7 @@
 		A90884DB215C58E8005F47AC /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90884DA215C58E8005F47AC /* MainViewController.swift */; };
 		A90884DD215C596E005F47AC /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90884DC215C596E005F47AC /* SignupViewController.swift */; };
 		B815ECB573DE62187B6ED17A /* Pods_HabitatTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E6B535E602E44FDC3C61B2E /* Pods_HabitatTests.framework */; };
+		DA503EC221619F01006EE76F /* MaintenanceRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA503EC121619F01006EE76F /* MaintenanceRequest.swift */; };
 		DA7632272141780B007CA9DC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7632262141780B007CA9DC /* AppDelegate.swift */; };
 		DA76322C2141780B007CA9DC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA76322A2141780B007CA9DC /* Main.storyboard */; };
 		DA76322E2141780E007CA9DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA76322D2141780E007CA9DC /* Assets.xcassets */; };
@@ -59,6 +60,7 @@
 		A90884DC215C596E005F47AC /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		C45A5DA9003E72826D5E9EA3 /* Pods-HabitatUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HabitatUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HabitatUITests/Pods-HabitatUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		CA38BD6AB006EABC04A3A0A2 /* Pods-HabitatTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HabitatTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HabitatTests/Pods-HabitatTests.debug.xcconfig"; sourceTree = "<group>"; };
+		DA503EC121619F01006EE76F /* MaintenanceRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaintenanceRequest.swift; sourceTree = "<group>"; };
 		DA7632232141780B007CA9DC /* Habitat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Habitat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA7632262141780B007CA9DC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DA76322B2141780B007CA9DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -215,6 +217,7 @@
 			isa = PBXGroup;
 			children = (
 				DAEC48E0215FF044002C16B8 /* User.swift */,
+				DA503EC121619F01006EE76F /* MaintenanceRequest.swift */,
 			);
 			path = HabitatObjectModels;
 			sourceTree = "<group>";
@@ -454,6 +457,7 @@
 				DAEC48D52159E34F002C16B8 /* FinancialViewController.swift in Sources */,
 				DAEC48D12159E1D5002C16B8 /* MaintenanceRequestViewController.swift in Sources */,
 				DAEC48E1215FF044002C16B8 /* User.swift in Sources */,
+				DA503EC221619F01006EE76F /* MaintenanceRequest.swift in Sources */,
 				DADBB81F2152EBF8000C231C /* HomeViewController.swift in Sources */,
 				DAEC48CB2159DB89002C16B8 /* ChatHomeViewController.swift in Sources */,
 				A90884DB215C58E8005F47AC /* MainViewController.swift in Sources */,

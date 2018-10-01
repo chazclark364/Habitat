@@ -10,6 +10,22 @@ import Foundation
 
 
 //This is a Habitat User Object. Set properties of the User in this class
-class User  {
+class User: NSObject  {
+    var userId: Int?
+    var dateCreated: Date?
+    var firstName: String?
+    var lastName: String?
+    var email: String?
+//    var dob: Date?
+    var phoneNumber: String?
+//    var password: String?
     
+    
+    func User(_ iD: Int, _ date: Date,_ fName: String, _ lName: String, _ pNumber: String) {
+        userId = iD
+        dateCreated = date
+        firstName = fName
+        lastName = lName
+        phoneNumber = pNumber
+    }
 }
