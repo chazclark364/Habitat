@@ -9,6 +9,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface TenantRepository extends CrudRepository<Tenant, Integer>{
     Collection<Tenant> findall();
-    Collection<Tenant> findById(@Param("id") int id);
+    Collection<Tenant> findById(@Param("id_tenant") int id);
     Tenant save(Tenant tenant);
 }
