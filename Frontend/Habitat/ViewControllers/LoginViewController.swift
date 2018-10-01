@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 
 class LoginViewController: UIViewController {
+    //TODO: Construct a user object 
     
     override func viewDidLoad() {
         super.viewDidLoad()

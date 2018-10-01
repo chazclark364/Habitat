@@ -1,0 +1,6 @@
+framework module Pods_Habitat {
+  umbrella header "Pods-Habitat-umbrella.h"
+
+  export *
+  module * { export * }
+}
