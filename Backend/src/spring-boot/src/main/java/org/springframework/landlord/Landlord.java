@@ -32,4 +32,11 @@ public class Landlord{
     public void setAddress(String address) {
         this.address = address;
     }
+
+    @Override
+    public String toString(){
+        return new ToStringCreator(this)
+                .append("id", this.getId()).append("new", this.isNew())
+                .append("address", this.getLandlord())
+    }
 }
