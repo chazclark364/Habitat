@@ -10,15 +10,19 @@ import org.springframework.core.style.ToStringCreator;
 public class Tenant {
     @Id
     @GeneratedValue(strategy = GenerationType.Identity)
+    @Column(name = id_tenant)
     private Integer id;
 
     @NotEmpty
+    @Column(name = landlord)
     private String landlord;
 
     @NotEmpty
+    @Column(name = residence)
     private String residence;
 
     @NotEmpty
+    @Column(name = monthly_rent)
     private Integer monthly_rent;
 
     public Integer getId(){
