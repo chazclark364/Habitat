@@ -14,7 +14,7 @@ public class Landlord{
     private Integer id;
 
     @NotEmpty
-    @Column(name = address)
+    //@Column(name = address)
     private String address;
 
     public Integer getId() {
@@ -33,10 +33,10 @@ public class Landlord{
         this.address = address;
     }
 
-    @Override
+    /*@Override
     public String toString(){
         return new ToStringCreator(this)
                 .append("id", this.getId()).append("new", this.isNew())
                 .append("address", this.getLandlord())
-    }
+    }*/
 }

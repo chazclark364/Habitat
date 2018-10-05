@@ -14,15 +14,15 @@ public class Tenant {
     private Integer id;
 
     @NotEmpty
-    @Column(name = landlord)
+    //@Column(name = landlord)
     private String landlord;
 
     @NotEmpty
-    @Column(name = residence)
+    //@Column(name = residence)
     private String residence;
 
     @NotEmpty
-    @Column(name = monthly_rent)
+    //@Column(name = monthly_rent)
     private Integer monthly_rent;
 
     public Integer getId(){
@@ -61,11 +61,11 @@ public class Tenant {
         this.monthly_rent = monthly_rent;
     }
 
-    @Override
+    /*@Override
     public String toString(){
         return new ToStringCreator(this)
                 .append("id", this.getId()).append("new", this.isNew())
                 .append("landlord", this.getLandlord())
                 .append("residence", this.getResidence())
-    }
+    }*/
 }
