@@ -37,4 +37,76 @@ class HabitiatAPI {
     }
     }
     
+    let status = Alamofire.request("https://httpbin.org/get", parameters: ["foo": "bar"])
+    .validate(statusCode: 200..<300)
+    .validate(contentType: ["application/json"])
+    .response { response in
+    // response handling code
+    }
+    
 }
+
+class UserAPI {
+//    func createUser(user: User,
+//                progressCompletion: @escaping (_ percent: Float) -> Void,
+//                completion: @escaping (_ userReturned: User?) -> Void) {
+//        // 1
+//        guard let imageData = UIImageJPEGRepresentation(image, 0.5) else {
+//            print("Could not get JPEG representation of UIImage")
+//            return
+//        }
+//        
+//        // 2
+//        Alamofire.upload(multipartFormData: { multipartFormData in
+//            multipartFormData.append(imageData,
+//                                     withName: "imagefile",
+//                                     fileName: "image.jpg",
+//                                     mimeType: "image/jpeg")
+//        },
+//                         //Insert API Rout below
+//                         to: "http://api.imagga.com/v1/content",
+//                         //Decide what authorization for user not created yet
+//                        //probably should turn off authorization off
+//                         headers: ["Authorization": "Basic xxx"],
+//                         encodingCompletion: { encodingResult in
+//                            //Should call log in api
+//        })
+//    }
+//    
+}
+
+//let parameters: [String: AnyObject] = [
+//    "IdQuiz" : 102,
+//    "IdUser" : "iosclient",
+//    "User" : "iosclient",
+//    "List": [
+//        [
+//            "IdQuestion" : 5,
+//            "IdProposition": 2,
+//            "Time" : 32
+//        ],
+//        [
+//            "IdQuestion" : 4,
+//            "IdProposition": 3,
+//            "Time" : 9
+//        ]
+//    ]
+//]
+//
+//Alamofire.request(.POST, "http://myserver.com", parameters: parameters, encoding: .JSON)
+//    .responseJSON { request, response, JSON, error in
+//        print(response)
+//        print(JSON)
+//        print(error)
+//}
+
+
+
+//
+//let parameters = [
+//    "username": "foo",
+//    "password": "123456"
+//]
+//
+//Alamofire.request(.POST, "https://httpbin.org/post", parameters: parameters, encoding: .JSON)
+//// -> HTTP body: {"foo": [1, 2, 3], "bar": {"baz": "qux"}}
