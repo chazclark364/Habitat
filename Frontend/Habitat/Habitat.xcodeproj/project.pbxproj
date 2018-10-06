@@ -27,7 +27,6 @@
 		DAEC48D12159E1D5002C16B8 /* MaintenanceRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEC48D02159E1D5002C16B8 /* MaintenanceRequestViewController.swift */; };
 		DAEC48D52159E34F002C16B8 /* FinancialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEC48D42159E34F002C16B8 /* FinancialViewController.swift */; };
 		DAEC48DC215FDEA7002C16B8 /* HabitatAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEC48DB215FDEA7002C16B8 /* HabitatAPI.swift */; };
-		DAEC48DE215FEDEA002C16B8 /* FormatAPIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEC48DD215FEDEA002C16B8 /* FormatAPIData.swift */; };
 		DAEC48E1215FF044002C16B8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEC48E0215FF044002C16B8 /* User.swift */; };
 /* End PBXBuildFile section */
 
@@ -81,7 +80,6 @@
 		DAEC48D02159E1D5002C16B8 /* MaintenanceRequestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaintenanceRequestViewController.swift; sourceTree = "<group>"; };
 		DAEC48D42159E34F002C16B8 /* FinancialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancialViewController.swift; sourceTree = "<group>"; };
 		DAEC48DB215FDEA7002C16B8 /* HabitatAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitatAPI.swift; sourceTree = "<group>"; };
-		DAEC48DD215FEDEA002C16B8 /* FormatAPIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatAPIData.swift; sourceTree = "<group>"; };
 		DAEC48E0215FF044002C16B8 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -219,7 +217,6 @@
 			isa = PBXGroup;
 			children = (
 				DAEC48DB215FDEA7002C16B8 /* HabitatAPI.swift */,
-				DAEC48DD215FEDEA002C16B8 /* FormatAPIData.swift */,
 			);
 			path = NetworkingAPIs;
 			sourceTree = "<group>";
@@ -460,7 +457,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				DAEC48DC215FDEA7002C16B8 /* HabitatAPI.swift in Sources */,
-				DAEC48DE215FEDEA002C16B8 /* FormatAPIData.swift in Sources */,
 				A90884DD215C596E005F47AC /* SignupViewController.swift in Sources */,
 				A90884D9215C5804005F47AC /* LoginViewController.swift in Sources */,
 				DA7632272141780B007CA9DC /* AppDelegate.swift in Sources */,

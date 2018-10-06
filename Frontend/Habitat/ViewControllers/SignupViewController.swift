@@ -89,20 +89,17 @@ class SignupViewController: UIViewController {
         user.phoneNumber = pNumberTextField.text
         user.type = getTypeValue()
         user.password = passwordTextField.text
-        
-        
-        possibleUserID = UserAPI().createUser(user: user)
+
+        possibleUserID = HabitiatAPI.UserAPI().createUser(user: user)
         //Means the creation was succesful
         if let userID = possibleUserID {
-            if userID != -1 {
+            if userID != 0 {
                 user.userId = userID
-    
                 //Save locally
                 saveData(user: user)
                 
                 //Segue into home view or profile view for demo 2
-                
-                
+  
             }
         } else {
             //Alert with error message if anything goes wrong
@@ -114,12 +111,16 @@ class SignupViewController: UIViewController {
     
     
     func saveData(user: User) {
+        /*Programming note: saveData is just referencing UserDefaults.standard
+         it is not creating a newobject everytime function is called
+         */
         let savedData = UserDefaults.standard
         savedData.set(user.firstName, forKey: "userFirstName")
         savedData.set(user.lastName, forKey:"userLastName")
         savedData.set(user.email, forKey: "userEmail")
         savedData.set(user.phoneNumber, forKey: "userPhoneNumber")
         savedData.set(user.type, forKey: "userType")
+        savedData.set(user.userId, forKey: "userID")
     }
 }
 
