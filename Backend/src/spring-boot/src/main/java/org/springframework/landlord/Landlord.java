@@ -7,6 +7,7 @@ import javax.validation.constraints.NotEmpty;
 @Table(name = "landlord")
 public class Landlord{
     @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name = "id_landlord")
     private Integer id;
 

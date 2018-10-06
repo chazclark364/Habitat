@@ -1,4 +1,4 @@
-package org.springframework.landlord;
+package org.springframework.property;
 
 import javax.persistence.*;
 import javax.validation.constraints.Digits;
@@ -9,28 +9,28 @@ import org.springframework.core.style.ToStringCreator;
 @Table(name = "property")
 public class Property{
     @Id
-    @GeneratedValue(strategy = GenerationType.Identity)
-    @Column(name = id_property)
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @Column(name = "id_property")
     private Integer id;
 
     @NotEmpty
-    @Column(name = landlord)
+    @Column(name = "landlord")
     private String landlord;
 
     @NotEmpty
-    @Column(name = living_status)
+    @Column(name = "living_status")
     private String living_status;
 
     @NotEmpty
-    @Column(name = address)
+    @Column(name = "address")
     private String address;
 
     @NotEmpty
-    @Column(name = worker)
+    @Column(name = "worker")
     private String worker;
 
     @NotEmpty
-    @Column(name = rent_due_date)
+    @Column(name = "rent_due_date")
     private String rent_due_date; //UNSURE ON DATA TYPE //TODO
 
     public Integer getId() {

@@ -9,6 +9,7 @@ import org.springframework.core.style.ToStringCreator;
 @Table(name = "tenant")
 public class Tenant {
     @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name = "id_tenant")
     private Integer id;
 
