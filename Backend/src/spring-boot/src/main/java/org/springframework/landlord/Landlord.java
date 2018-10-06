@@ -1,16 +1,13 @@
 package org.springframework.landlord;
 
 import javax.persistence.*;
-import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotEmpty;
-import org.springframework.core.style.ToStringCreator;
 
 @Entity
 @Table(name = "landlord")
 public class Landlord{
     @Id
-    @GeneratedValue(strategy = GenerationType.Identity)
-    @Column(name = id_landlord)
+    @Column(name = "id_landlord")
     private Integer id;
 
     @NotEmpty
