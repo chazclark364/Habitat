@@ -104,6 +104,9 @@ class SignupViewController: UIViewController {
                 
                 
             }
+        } else {
+            //Alert with error message if anything goes wrong
+            self.present(AlertViews().didNotCreateUserAlert(), animated: true)
         }
         
         
