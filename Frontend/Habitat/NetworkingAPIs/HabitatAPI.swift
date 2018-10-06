@@ -47,6 +47,24 @@ class HabitiatAPI {
 }
 
 class UserAPI {
+    
+    func createUser(user: User) -> Int {
+        
+        //set the JSON parameters here
+        let parameters: [String: AnyObject] = [
+            "firstName" : user.firstName as AnyObject,
+            "lastName" : user.lastName as AnyObject,
+            "email" : user.email as AnyObject,
+            "password" : user.password as AnyObject,
+            "userType" : user.type as AnyObject,
+            "phoneNumber" : user.phoneNumber as AnyObject
+        ]
+        //Is this request done asynchronously
+        Alamofire.request("insert my api route", method: .post, parameters: parameters, encoding: JSONEncoding.default)
+
+        
+        
+    }
 //    func createUser(user: User,
 //                progressCompletion: @escaping (_ percent: Float) -> Void,
 //                completion: @escaping (_ userReturned: User?) -> Void) {
@@ -75,23 +93,7 @@ class UserAPI {
 //    
 }
 
-//let parameters: [String: AnyObject] = [
-//    "IdQuiz" : 102,
-//    "IdUser" : "iosclient",
-//    "User" : "iosclient",
-//    "List": [
-//        [
-//            "IdQuestion" : 5,
-//            "IdProposition": 2,
-//            "Time" : 32
-//        ],
-//        [
-//            "IdQuestion" : 4,
-//            "IdProposition": 3,
-//            "Time" : 9
-//        ]
-//    ]
-//]
+
 //
 //Alamofire.request(.POST, "http://myserver.com", parameters: parameters, encoding: .JSON)
 //    .responseJSON { request, response, JSON, error in

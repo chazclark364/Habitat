@@ -76,13 +76,51 @@ class SignupViewController: UIViewController {
         
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        <#code#>
+    }
+    
     private func createUser() {
         var user = User()
+        var possibleUserID: Int?
         user.firstName = fNameTextField.text
         user.lastName = lNameTextField.text
         user.email = emailTextField.text
         user.phoneNumber = pNumberTextField.text
         user.type = getTypeValue()
+        user.password = passwordTextField.text
+        
+        
+        possibleUserID = UserAPI().createUser(user: user)
+        //Means the creation was succesful
+        if let userID = possibleUserID {
+            if userID != -1 {
+                user.userId = userID
+    
+                //Save locally
+                saveData(user: user)
+                
+                //Segue into home view or profile view for demo 2
+                
+                
+            }
+        }
+        
         
     }
+    
+    
+    func saveData(user: User) {
+        let savedData = UserDefaults.standard
+        savedData.set(user.firstName, forKey: "userFirstName")
+        savedData.set(user.lastName, forKey:"userLastName")
+        savedData.set(user.email, forKey: "userEmail")
+        savedData.set(user.phoneNumber, forKey: "userPhoneNumber")
+        savedData.set(user.type, forKey: "userType")
+    }
 }
+
+extension SignupViewController {
+    @IBAction func signIn(_ segue: UIStoryboardSegue) { }
+}
+
