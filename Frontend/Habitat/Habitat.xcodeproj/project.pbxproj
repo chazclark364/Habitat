@@ -22,13 +22,13 @@
 		DA7632312141780E007CA9DC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA76322F2141780E007CA9DC /* LaunchScreen.storyboard */; };
 		DA76323C2141780E007CA9DC /* HabitatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA76323B2141780E007CA9DC /* HabitatTests.swift */; };
 		DA7632472141780E007CA9DC /* HabitatUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7632462141780E007CA9DC /* HabitatUITests.swift */; };
+		DAC60A562169620E00080A48 /* AlertViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC60A552169620E00080A48 /* AlertViews.swift */; };
 		DADBB81F2152EBF8000C231C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADBB81E2152EBF8000C231C /* HomeViewController.swift */; };
 		DAEC48CB2159DB89002C16B8 /* ChatHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEC48CA2159DB89002C16B8 /* ChatHomeViewController.swift */; };
 		DAEC48CD2159DC0B002C16B8 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEC48CC2159DC0B002C16B8 /* ProfileViewController.swift */; };
 		DAEC48D12159E1D5002C16B8 /* MaintenanceRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEC48D02159E1D5002C16B8 /* MaintenanceRequestViewController.swift */; };
 		DAEC48D52159E34F002C16B8 /* FinancialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEC48D42159E34F002C16B8 /* FinancialViewController.swift */; };
 		DAEC48DC215FDEA7002C16B8 /* HabitatAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEC48DB215FDEA7002C16B8 /* HabitatAPI.swift */; };
-		DAEC48DE215FEDEA002C16B8 /* FormatAPIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEC48DD215FEDEA002C16B8 /* FormatAPIData.swift */; };
 		DAEC48E1215FF044002C16B8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEC48E0215FF044002C16B8 /* User.swift */; };
 /* End PBXBuildFile section */
 
@@ -77,13 +77,13 @@
 		DA7632422141780E007CA9DC /* HabitatUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HabitatUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA7632462141780E007CA9DC /* HabitatUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitatUITests.swift; sourceTree = "<group>"; };
 		DA7632482141780E007CA9DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DAC60A552169620E00080A48 /* AlertViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViews.swift; sourceTree = "<group>"; };
 		DADBB81E2152EBF8000C231C /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		DAEC48CA2159DB89002C16B8 /* ChatHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatHomeViewController.swift; sourceTree = "<group>"; };
 		DAEC48CC2159DC0B002C16B8 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		DAEC48D02159E1D5002C16B8 /* MaintenanceRequestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaintenanceRequestViewController.swift; sourceTree = "<group>"; };
 		DAEC48D42159E34F002C16B8 /* FinancialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancialViewController.swift; sourceTree = "<group>"; };
 		DAEC48DB215FDEA7002C16B8 /* HabitatAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitatAPI.swift; sourceTree = "<group>"; };
-		DAEC48DD215FEDEA002C16B8 /* FormatAPIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatAPIData.swift; sourceTree = "<group>"; };
 		DAEC48E0215FF044002C16B8 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -141,6 +141,7 @@
 		DA76321A2141780B007CA9DC = {
 			isa = PBXGroup;
 			children = (
+				DAC60A54216961E900080A48 /* Views */,
 				DAEC48DF215FEF77002C16B8 /* HabitatObjectModels */,
 				DAEC48DA215FDE1F002C16B8 /* NetworkingAPIs */,
 				DA7632252141780B007CA9DC /* Habitat */,
@@ -193,6 +194,14 @@
 			path = HabitatUITests;
 			sourceTree = "<group>";
 		};
+		DAC60A54216961E900080A48 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DAC60A552169620E00080A48 /* AlertViews.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		DAEC48D62159E38A002C16B8 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -214,7 +223,6 @@
 			isa = PBXGroup;
 			children = (
 				DAEC48DB215FDEA7002C16B8 /* HabitatAPI.swift */,
-				DAEC48DD215FEDEA002C16B8 /* FormatAPIData.swift */,
 			);
 			path = NetworkingAPIs;
 			sourceTree = "<group>";
@@ -455,8 +463,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				DAEC48DC215FDEA7002C16B8 /* HabitatAPI.swift in Sources */,
-				A9546E8821683CEF002FC076 /* ProfileEditViewController.swift in Sources */,
-				DAEC48DE215FEDEA002C16B8 /* FormatAPIData.swift in Sources */,
 				A90884DD215C596E005F47AC /* SignupViewController.swift in Sources */,
 				A958D1A32165ABAB00B5D283 /* LeaseViewController.swift in Sources */,
 				A90884D9215C5804005F47AC /* LoginViewController.swift in Sources */,
@@ -465,6 +471,7 @@
 				DAEC48D52159E34F002C16B8 /* FinancialViewController.swift in Sources */,
 				DAEC48D12159E1D5002C16B8 /* MaintenanceRequestViewController.swift in Sources */,
 				DAEC48E1215FF044002C16B8 /* User.swift in Sources */,
+				DAC60A562169620E00080A48 /* AlertViews.swift in Sources */,
 				DA503EC221619F01006EE76F /* MaintenanceRequest.swift in Sources */,
 				DADBB81F2152EBF8000C231C /* HomeViewController.swift in Sources */,
 				DAEC48CB2159DB89002C16B8 /* ChatHomeViewController.swift in Sources */,
