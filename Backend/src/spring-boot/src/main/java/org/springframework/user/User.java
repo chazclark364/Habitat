@@ -3,10 +3,8 @@ package org.springframework.user;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
-
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Component;
-
 import java.io.Serializable;
 import java.time.LocalDate;
 
