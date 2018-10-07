@@ -1,19 +1,20 @@
 //
-//  HomeViewController.swift
+//  LeaseViewController.swift
 //  Habitat
 //
-//  Created by Chaz Clark on 9/19/18.
+//  Created by Travis Stanger on 10/3/18.
 //  Copyright © 2018 PP1. All rights reserved.
 //
 
 import Foundation
 import UIKit
 
-class HomeViewController: UIViewController {
+class LeaseViewController: UIViewController {
+    //TODO: Construct a user object
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.        
+        // Do any additional setup after loading the view, typically from a nib.
     }
     
     override func didReceiveMemoryWarning() {
