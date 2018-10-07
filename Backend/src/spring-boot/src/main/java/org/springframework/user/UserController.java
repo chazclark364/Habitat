@@ -38,10 +38,14 @@ public class UserController {
 
     @RequestMapping(path = "/login", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON)
     public @ResponseBody User getUserFromLogin(@RequestBody User user){
-        User loginAttempt = this.users.findByEmail(user.getEmail());
-        if(user.getPassword() == loginAttempt.getPassword()){
-            return loginAttempt;
-        }else{
+        try {
+            User loginAttempt = this.users.findByEmail(user.getEmail());
+            if (user.getPassword() == loginAttempt.getPassword()) {
+                return loginAttempt;
+            } else {
+                return null;
+            }
+        }catch (Exception e){
             return null;
         }
     }
