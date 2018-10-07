@@ -21,7 +21,7 @@ import Alamofire
  
  */
 
-class HabitiatAPI {
+class HabitatAPI {
     
     var HabitatURL = "proj309-pp-01.misc.iastate.edu:8080"
     var newCall = Alamofire.request("https://httpbin.org/get")

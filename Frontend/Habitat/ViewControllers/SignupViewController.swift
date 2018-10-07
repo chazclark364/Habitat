@@ -85,7 +85,7 @@ class SignupViewController: UIViewController {
         user.type = getTypeValue()
         user.password = passwordTextField.text
 
-        possibleUser = HabitiatAPI.UserAPI().createUser(user: user)
+        possibleUser = HabitatAPI.UserAPI().createUser(user: user)
         //Means the creation was succesful
         if let newUser = possibleUser {
             //Save locally

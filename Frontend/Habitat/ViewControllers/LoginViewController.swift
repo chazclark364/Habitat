@@ -71,7 +71,7 @@ class LoginViewController: UIViewController {
  
     @IBAction func didPressLogin(_ sender: Any) {
         if let email = emailTextField.text, let password = passwordTextField.text {
-            if let user = HabitiatAPI.UserAPI().loginUser(email: email, password: password) {
+            if let user = HabitatAPI.UserAPI().loginUser(email: email, password: password) {
                 saveData(user: user)
                 //segue
             } else {
