@@ -28,4 +28,5 @@ class User: NSObject  {
         lastName = lName
         phoneNumber = pNumber
     }
+    
 }

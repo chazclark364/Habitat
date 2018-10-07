@@ -47,7 +47,7 @@ class HabitiatAPI {
     }
     class UserAPI {
         //TODO: Return user once passed test
-        func createUser(user: User) -> Int {
+        func createUser(user: User) -> User? {
             
             //set the JSON parameters here
             let parameters: [String: AnyObject] = [
@@ -59,7 +59,9 @@ class HabitiatAPI {
                 "phoneNumber" : user.phoneNumber as AnyObject
             ]
             //Is this request done asynchronously
-            Alamofire.request("proj309-pp-01.misc.iastate.edu:8080/user/create", method: .post, parameters: parameters, encoding: JSONEncoding.default)
+            //Unsupported URL
+            Alamofire.request("https://proj309-pp-01.misc.iastate.edu:8080/user/new", method: .post, parameters: parameters, encoding: JSONEncoding.default)
+                
                 
                 // 2
                 .responseJSON { response in
@@ -67,19 +69,44 @@ class HabitiatAPI {
                     switch response.result {
                     case .success:
                         print("Validation Successful")
-                       return 1
+                      // return 1
                     case .failure(let error):
                         print(error)
-                        return 0
+                      //  return 0
                     }
                     
                     if let json = response.result.value {
                         print("JSON: \(json)") // serialized json response
+                        
+                        //userFromJSON(json: json as! NSDictionary)
                     }
+             
             }
-            return 1
+            //Returning 0 will always default to error
+            return User()
         }
-  
+        
+        func loginUser(email: String, password: String) -> User? {
+//            let user = "user"
+//            let password = "password"
+//            
+//            Alamofire.request("https://httpbin.org/basic-auth/\(user)/\(password)")
+//                .authenticate(user: user, password: password)
+//                .responseJSON { response in
+//                    debugPrint(response)
+//            }
+         return User()
+        }
+        
+        func userFromJSON(json: NSDictionary) -> User? {
+            let user = User()
+            user.firstName = json.object(forKey: "firstName") as? String
+            user.lastName = json.object(forKey: "lastName") as? String
+            user.phoneNumber = json.object(forKey: "phoneNumber") as? String
+            user.type = json.object(forKey: "userType") as? String
+            user.email = json.object(forKey: "email") as? String
+            return user
+        }
         
     }
  

@@ -14,6 +14,13 @@ class AlertViews: UIAlertController {
     
     func didNotCreateUserAlert() -> UIAlertController {
         let alert = UIAlertController(title: "Something went wrong", message: "Could not sign up user", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+        return alert
+    }
+    
+    func didNotLogin() -> UIAlertController {
+        let alert = UIAlertController(title: "Something went wrong", message: "Please check credentials", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
         return alert
     }
     

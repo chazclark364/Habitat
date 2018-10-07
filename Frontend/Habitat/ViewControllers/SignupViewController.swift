@@ -13,19 +13,12 @@ class SignupViewController: UIViewController {
     
     @IBOutlet weak var fNameTextField: UITextField!
     @IBOutlet weak var lNameTextField: UITextField!
-    
     @IBOutlet weak var emailTextField: UITextField!
-    
     @IBOutlet weak var passwordTextField: UITextField!
-    
     @IBOutlet weak var rePasswordField: UITextField!
-    
     @IBOutlet weak var pNumberTextField: UITextField!
-    
     @IBOutlet weak var userTypeSegment: UISegmentedControl!
-    
     @IBOutlet weak var submitButton: UIButton!
-    
     @IBOutlet var signUpView: UIView!
    
     override func viewDidLoad() {
@@ -35,12 +28,12 @@ class SignupViewController: UIViewController {
         submitButton.clipsToBounds = true
         let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap))
         signUpView.addGestureRecognizer(tap)
-
     }
     
     @IBAction func pressedSubmit(_ sender: Any) {
         createUser()
     }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -49,9 +42,12 @@ class SignupViewController: UIViewController {
     @objc func handleTap(sender: UITapGestureRecognizer? = nil) {
        updateDisplay()
     }
-     func updateDisplay() {
+    
+    func updateDisplay() {
         submitButton.isEnabled = validation()
+        dismissKeyboard()
     }
+    
     //Returns true if all fields are filled out appropiatley
     private func validation() -> Bool {
         if(fNameTextField.text != "" && lNameTextField.text != "" && emailTextField.text != "" && pNumberTextField.text != "") {
@@ -65,24 +61,23 @@ class SignupViewController: UIViewController {
     private func getTypeValue() -> String {
         switch userTypeSegment.selectedSegmentIndex {
         case 0:
-            return "Tenant"
+            return "tenant"
         case 1:
-            return "Landlord"
-        case 3:
-            return "Service"
+            return "landlord"
+        case 2:
+            return "worker"
         default:
-            return "Tenant"
+            return "tenant"
         }
-        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        <#code#>
+        
     }
     
     private func createUser() {
-        var user = User()
-        var possibleUserID: Int?
+        let user = User()
+        var possibleUser: User?
         user.firstName = fNameTextField.text
         user.lastName = lNameTextField.text
         user.email = emailTextField.text
@@ -90,26 +85,21 @@ class SignupViewController: UIViewController {
         user.type = getTypeValue()
         user.password = passwordTextField.text
 
-        possibleUserID = HabitiatAPI.UserAPI().createUser(user: user)
+        possibleUser = HabitiatAPI.UserAPI().createUser(user: user)
         //Means the creation was succesful
-        if let userID = possibleUserID {
-            if userID != 0 {
-                user.userId = userID
-                //Save locally
-                saveData(user: user)
-                
-                //Segue into home view or profile view for demo 2
-  
-            }
+        if let newUser = possibleUser {
+            //Save locally
+            saveData(user: newUser)
+            
+            //Segue into home view or profile view for demo 2
+            
+            
         } else {
             //Alert with error message if anything goes wrong
             self.present(AlertViews().didNotCreateUserAlert(), animated: true)
         }
-        
-        
     }
-    
-    
+
     func saveData(user: User) {
         /*Programming note: saveData is just referencing UserDefaults.standard
          it is not creating a newobject everytime function is called
@@ -126,5 +116,10 @@ class SignupViewController: UIViewController {
 
 extension SignupViewController {
     @IBAction func signIn(_ segue: UIStoryboardSegue) { }
+    
+    func dismissKeyboard() {
+        view.endEditing(true)
+    }
+    
 }
 
