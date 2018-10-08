@@ -62,40 +62,48 @@ class HabitatAPI {
             //Unsupported URL
             Alamofire.request("https://proj309-pp-01.misc.iastate.edu:8080/user/new", method: .post, parameters: parameters, encoding: JSONEncoding.default)
                 
-                
                 // 2
                 .responseJSON { response in
                     //See if status is good
                     switch response.result {
                     case .success:
                         print("Validation Successful")
-                      // return 1
+                       
+                    // return 1
                     case .failure(let error):
                         print(error)
-                      //  return 0
+                        //  return 0
                     }
                     
                     if let json = response.result.value {
                         print("JSON: \(json)") // serialized json response
-                        
                         //userFromJSON(json: json as! NSDictionary)
                     }
-             
+                    
             }
             //Returning 0 will always default to error
             return User()
         }
         
         func loginUser(email: String, password: String) -> User? {
-//            let user = "user"
-//            let password = "password"
-//            
-//            Alamofire.request("https://httpbin.org/basic-auth/\(user)/\(password)")
-//                .authenticate(user: user, password: password)
-//                .responseJSON { response in
-//                    debugPrint(response)
-//            }
-         return User()
+            //            let user = "user"
+            //            let password = "password"
+            //
+            //            Alamofire.request("https://httpbin.org/basic-auth/\(user)/\(password)")
+            //                .authenticate(user: user, password: password)
+            //                .responseJSON { response in
+            //                    debugPrint(response)
+            //            }
+            return User()
+        }
+        
+        func getUserInfo(userNum: Int?) -> User? {
+            var userURL = "/users/"
+            if let userId = userNum {
+                userURL += String(userId)
+            }
+            Alamofire.request(userURL)
+            return User()
         }
         
         func userFromJSON(json: NSDictionary) -> User? {
@@ -105,12 +113,13 @@ class HabitatAPI {
             user.phoneNumber = json.object(forKey: "phoneNumber") as? String
             user.type = json.object(forKey: "userType") as? String
             user.email = json.object(forKey: "email") as? String
+            user.userId = json.object(forKey: "userId") as? Int
             return user
         }
         
     }
- 
-
+    
+    
     //let parameters = [
     //    "username": "foo",
     //    "password": "123456"
@@ -118,12 +127,12 @@ class HabitatAPI {
     //
     //Alamofire.request(.POST, "https://httpbin.org/post", parameters: parameters, encoding: .JSON)
     //// -> HTTP body: {"foo": [1, 2, 3], "bar": {"baz": "qux"}}
-
-//Alamofire.request(.POST, "http://myserver.com", parameters: parameters, encoding: .JSON)
-//    .responseJSON { request, response, JSON, error in
-//        print(response)
-//        print(JSON)
-//        print(error)
-//}
-
+    
+    //Alamofire.request(.POST, "http://myserver.com", parameters: parameters, encoding: .JSON)
+    //    .responseJSON { request, response, JSON, error in
+    //        print(response)
+    //        print(JSON)
+    //        print(error)
+    //}
+    
 }

@@ -150,7 +150,7 @@
                                     <constraint firstAttribute="width" constant="180" id="aAg-2K-gI8"/>
                                     <constraint firstAttribute="height" constant="30" id="eby-6X-Vws"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -160,7 +160,7 @@
                                     <constraint firstAttribute="width" constant="180" id="EZa-Si-rb3"/>
                                     <constraint firstAttribute="height" constant="30" id="wXh-RV-FuZ"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -193,7 +193,7 @@
                                     <constraint firstAttribute="width" constant="180" id="Lgg-EH-TYN"/>
                                     <constraint firstAttribute="height" constant="30" id="TvR-AC-pXV"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -591,7 +591,11 @@
                     <connections>
                         <outlet property="backgroundBottom" destination="hYp-MK-nfF" id="NV4-CE-z1B"/>
                         <outlet property="backgroundTop" destination="ErI-zh-apo" id="QV3-HN-EJn"/>
+                        <outlet property="email" destination="qeF-zN-jFy" id="Cvh-MO-Cif"/>
+                        <outlet property="nameFirstLast" destination="pGX-xC-u76" id="YGN-yR-tYI"/>
+                        <outlet property="phone" destination="Vih-CQ-49O" id="cTp-Yz-H3c"/>
                         <outlet property="profileImage" destination="DVB-MM-kDq" id="CPK-df-7cd"/>
+                        <outlet property="type" destination="2f7-Pf-wLh" id="RIs-Ip-lqz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HON-3J-Soi" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -716,12 +720,24 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8do-ms-2qR">
+                                <rect key="frame" x="0.0" y="20" width="94" height="60"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <state key="normal" title="TEST">
+                                    <color key="titleColor" red="1" green="0.73510687750000003" blue="0.3662995054" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="qz8-lo-5IF" kind="show" id="pcw-Uj-YG1"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.72941176470000002" blue="0.36078431370000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="8do-ms-2qR" firstAttribute="leading" secondItem="kRP-tC-NO2" secondAttribute="leading" id="3mi-vz-b0X"/>
                             <constraint firstItem="4Vo-b6-b7N" firstAttribute="centerX" secondItem="sfL-tF-z9O" secondAttribute="centerX" id="AMo-uj-TJ0"/>
                             <constraint firstItem="JJO-BO-fre" firstAttribute="centerY" secondItem="sfL-tF-z9O" secondAttribute="centerY" id="JYF-LL-kZ4"/>
                             <constraint firstItem="Kb5-b5-L82" firstAttribute="top" secondItem="kRP-tC-NO2" secondAttribute="top" constant="200" id="RjN-4e-Zrv" userLabel="Log in.top = Safe Area.top + 150"/>
+                            <constraint firstItem="8do-ms-2qR" firstAttribute="top" secondItem="kRP-tC-NO2" secondAttribute="top" id="Zjc-Jf-Gbi"/>
                             <constraint firstItem="JJO-BO-fre" firstAttribute="centerX" secondItem="sfL-tF-z9O" secondAttribute="centerX" id="hZ3-Hd-Cza"/>
                             <constraint firstItem="kRP-tC-NO2" firstAttribute="bottom" secondItem="4Vo-b6-b7N" secondAttribute="bottom" constant="200" id="oAu-5y-qvT" userLabel="Safe Area.bottom = Sign up.bottom + 150"/>
                             <constraint firstItem="Kb5-b5-L82" firstAttribute="centerX" secondItem="sfL-tF-z9O" secondAttribute="centerX" id="wWy-7f-NDZ"/>
@@ -804,6 +820,7 @@
                                 <rect key="frame" x="165" y="170" width="120" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="120" id="bfF-e3-Ldb"/>
+                                    <constraint firstAttribute="height" constant="30" id="iw8-dD-OdA"/>
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -813,13 +830,12 @@
                         <color key="backgroundColor" red="1" green="0.72941176470588232" blue="0.36078431372549019" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="fna-d5-ElZ" firstAttribute="top" secondItem="mXk-eP-Xyh" secondAttribute="bottom" constant="50" id="3Yr-9J-A8B"/>
-                            <constraint firstItem="fna-d5-ElZ" firstAttribute="leading" secondItem="F7I-tf-6Iw" secondAttribute="trailing" constant="25" id="8UW-v3-Iw1" userLabel="Password Text Field.leading = Password.trailing + 25"/>
                             <constraint firstItem="kT3-5m-BY8" firstAttribute="top" secondItem="xw9-Nb-pjx" secondAttribute="top" constant="25" id="8q0-6d-mgo"/>
-                            <constraint firstItem="mXk-eP-Xyh" firstAttribute="leading" secondItem="JuA-BF-YbR" secondAttribute="trailing" constant="25" id="EMO-mE-I0n"/>
                             <constraint firstItem="JuA-BF-YbR" firstAttribute="leading" secondItem="xw9-Nb-pjx" secondAttribute="leading" constant="50" id="FVQ-uY-Kug"/>
                             <constraint firstItem="F7I-tf-6Iw" firstAttribute="top" secondItem="JuA-BF-YbR" secondAttribute="bottom" constant="50" id="HVO-36-PhR"/>
                             <constraint firstItem="fna-d5-ElZ" firstAttribute="top" secondItem="JuA-BF-YbR" secondAttribute="bottom" constant="50" id="Iwj-82-IwP" userLabel="Password Text Field.top = Username.bottom + 50"/>
                             <constraint firstItem="F7I-tf-6Iw" firstAttribute="leading" secondItem="xw9-Nb-pjx" secondAttribute="leading" constant="50" id="JoW-zb-08e"/>
+                            <constraint firstItem="xw9-Nb-pjx" firstAttribute="trailing" secondItem="fna-d5-ElZ" secondAttribute="trailing" constant="90" id="R0q-63-L31"/>
                             <constraint firstItem="JuA-BF-YbR" firstAttribute="top" secondItem="xw9-Nb-pjx" secondAttribute="top" constant="150" id="Sui-FQ-AgB" userLabel="Username.top = Safe Area.top + 150"/>
                             <constraint firstItem="xw9-Nb-pjx" firstAttribute="bottom" secondItem="uFb-hO-jbd" secondAttribute="bottom" constant="150" id="bLM-fL-xdf"/>
                             <constraint firstItem="JuA-BF-YbR" firstAttribute="top" secondItem="kT3-5m-BY8" secondAttribute="bottom" constant="84" id="ddJ-eF-AUM"/>
@@ -872,6 +888,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="gZv-0k-gHo"/>
-        <segue reference="tiD-tZ-iRa"/>
+        <segue reference="pcw-Uj-YG1"/>
     </inferredMetricsTieBreakers>
 </document>
