@@ -1,13 +1,7 @@
 package com.example.demo;
 
-import java.util.Map;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
-import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 
 import io.micrometer.core.instrument.util.MediaType;
@@ -36,13 +30,9 @@ public class UserController {
 
     @RequestMapping(path = "/users/{id_users}", method = RequestMethod.GET)
     public @ResponseBody User getUserProfile(@PathVariable("id_users") Integer id_users, Model model){
-        if(this.users.findByID(id_users) != null){
-        	User user = this.users.findByID(id_users);
-            model.addAttribute(user);
-            return user;
-        }else{
-        	return null;
-        }
+    	User user = this.users.findByID(id_users);
+        model.addAttribute(user);
+        return user;
     }
 
     @RequestMapping(path = "/login", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON)
