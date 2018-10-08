@@ -61,11 +61,4 @@ public class Tenant {
         this.monthly_rent = monthly_rent;
     }
 
-    /*@Override
-    public String toString(){
-        return new ToStringCreator(this)
-                .append("id", this.getId()).append("new", this.isNew())
-                .append("landlord", this.getLandlord())
-                .append("residence", this.getResidence())
-    }*/
 }

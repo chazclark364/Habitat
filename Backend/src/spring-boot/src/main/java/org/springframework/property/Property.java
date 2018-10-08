@@ -80,7 +80,4 @@ public class Property{
     public void setRent_due_date(String rent_due_date) {
         this.rent_due_date = rent_due_date;
     }
-
-    //TODO
-    //CREATE OVERRIDE STATEMENT IF NEEDED
 }

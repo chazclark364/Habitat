@@ -1,4 +1,4 @@
-package org.springframework.user;
+package com.example.demo;
 
 
 import javax.persistence.*;

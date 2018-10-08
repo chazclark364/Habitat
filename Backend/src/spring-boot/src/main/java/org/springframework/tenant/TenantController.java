@@ -19,7 +19,7 @@ class TenantController{
 
     }*/
 
-    /*@GetMapping("/users/tenant/{id_tenant}"")
+    /*@GetMapping("/users/tenant/{id_tenant}")
     public String getTenant(@PathVariable("id_tenant") int id_tenant){
         Tenant tenant = this.tenants.findById(id_tenant);
     }*/

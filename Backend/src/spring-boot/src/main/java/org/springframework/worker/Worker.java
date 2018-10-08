@@ -30,11 +30,4 @@ public class Worker{
     public void setCompany(String company) {
         this.company = company;
     }
-
-    /*@Override
-    public String toString(){
-        return new ToStringCreator(this)
-                .append("id", this.getId()).append("new", this.isNew())
-                .append("company", this.getCompany())
-    }*/
 }
