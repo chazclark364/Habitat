@@ -25,15 +25,24 @@ public class UserController {
 
     @RequestMapping(method = RequestMethod.POST, path = "/users/new", consumes = MediaType.APPLICATION_JSON)
     public @ResponseBody User createUser(@RequestBody User user){
-        this.users.save(user);
-        return user;
+    	String email = user.getEmail();
+    	if(this.users.findByEmail(email) == null){
+    		this.users.save(user);
+            return user;
+    	}else{
+    		return null;
+    	}
     }
 
     @RequestMapping(path = "/users/{id_users}", method = RequestMethod.GET)
     public @ResponseBody User getUserProfile(@PathVariable("id_users") Integer id_users, Model model){
-        User user = this.users.findByID(id_users);
-        model.addAttribute(user);
-        return user;
+        if(this.users.findByID(id_users) != null){
+        	User user = this.users.findByID(id_users);
+            model.addAttribute(user);
+            return user;
+        }else{
+        	return null;
+        }
     }
 
     @RequestMapping(path = "/login", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON)
