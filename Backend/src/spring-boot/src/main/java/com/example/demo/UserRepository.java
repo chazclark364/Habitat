@@ -15,5 +15,8 @@ public interface UserRepository extends Repository<User, Integer>{
     @Query("select u from User u where u.email = :email")
     @Transactional(readOnly = true)
     public User findByEmail(@Param("email") String email);
-
+    
+    /*@Query("select u from User u where u.email and u.password = :email , password")
+    @Transactional(readOnly = true)
+    public User findUser(@Param("email") String email, @Param("password") String password);*/
 }

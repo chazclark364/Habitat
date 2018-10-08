@@ -1,12 +1,19 @@
 package com.example.demo;
 
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 
 import io.micrometer.core.instrument.util.MediaType;
 
 
+@RestController
 public class UserController {
 
     @Autowired
@@ -17,11 +24,9 @@ public class UserController {
     }
 
     @RequestMapping(method = RequestMethod.POST, path = "/users/new", consumes = MediaType.APPLICATION_JSON)
-    public String createUser(@RequestBody User user){
-
+    public @ResponseBody User createUser(@RequestBody User user){
         this.users.save(user);
-        return "User created";
-
+        return user;
     }
 
     @RequestMapping(path = "/users/{id_users}", method = RequestMethod.GET)
@@ -33,16 +38,20 @@ public class UserController {
 
     @RequestMapping(path = "/login", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON)
     public @ResponseBody User getUserFromLogin(@RequestBody User user){
-        try {
-            User loginAttempt = this.users.findByEmail(user.getEmail());
-            if (user.getPassword() == loginAttempt.getPassword()) {
-                return loginAttempt;
-            } else {
-                return null;
-            }
-        }catch (Exception e){
-            return null;
-        }
+    	String email = user.getEmail();
+    	String password = user.getPassword();
+    	User databaseUser;
+    	if(this.users.findByEmail(email) == null){
+    		return null;
+    	}else{
+    		databaseUser = this.users.findByEmail(email);
+    	}
+    	String databasePassword = databaseUser.getPassword();
+    	if(password.equals(databasePassword)){
+    		return databaseUser;
+    	}else{
+    		return null;
+    	}
     }
 
 }
