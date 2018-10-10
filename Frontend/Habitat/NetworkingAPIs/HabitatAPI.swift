@@ -72,6 +72,7 @@ class HabitatAPI {
                         print("Validation Successful")
                     case .failure(let error):
                         print(error)
+                        completion(returnedUser)
                     }
                     
                     if let json = response.result.value {
@@ -80,6 +81,29 @@ class HabitatAPI {
                         completion(returnedUser)
                     }
             }
+        }
+        
+        func getUserInfo(userId: Int, completion: @escaping (User?) -> Void) {
+            var returnedUser: User?
+            var userURL = "http://proj309-pp-01.misc.iastate.edu:8080/users/"
+            userURL += String(userId)
+            Alamofire.request(userURL)
+                .responseJSON { response in
+                    //See if status is good
+                    switch response.result {
+                    case .success:
+                        print("Validation Successful")
+                    case .failure(let error):
+                        print(error)
+                    }
+                    
+                    if let json = response.result.value {
+                        print("JSON: \(json)") // serialized json response
+                        returnedUser = self.userFromJSON(json: json as! NSDictionary)
+                        completion(returnedUser)
+                    }
+            }
+            
         }
         
         func userFromJSON(json: NSDictionary) -> User? {
