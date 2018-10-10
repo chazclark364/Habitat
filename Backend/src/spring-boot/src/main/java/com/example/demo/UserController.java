@@ -20,7 +20,9 @@ public class UserController {
     @RequestMapping(method = RequestMethod.POST, path = "/users/new", consumes = MediaType.APPLICATION_JSON)
     public @ResponseBody User createUser(@RequestBody User user){
     	String email = user.getEmail();
-    	if(this.users.findByEmail(email) == null){
+    	if(!(email.contains("@"))){
+    		return null;
+    	}else if(this.users.findByEmail(email) == null){
     		this.users.save(user);
             return user;
     	}else{
