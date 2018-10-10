@@ -20,7 +20,7 @@ class User: NSObject  {
     var password: String?
     var type: String?
     
-    
+    //TODO: This should have an Init function
     func User(_ iD: Int, _ date: Date,_ fName: String, _ lName: String, _ pNumber: String) {
         userId = iD
         dateCreated = date

@@ -85,19 +85,23 @@ class SignupViewController: UIViewController {
         user.type = getTypeValue()
         user.password = passwordTextField.text
 
-        possibleUser = HabitatAPI.UserAPI().createUser(user: user)
-        //Means the creation was succesful
-        if let newUser = possibleUser {
-            //Save locally
-            saveData(user: newUser)
+         HabitatAPI.UserAPI().createUser(user: user, completion: {  user in
+           possibleUser = user
+            //Means the creation was succesful
+            if let newUser = possibleUser {
+                //Save locally
+                self.saveData(user: newUser)
+                
+                //Segue into home view or profile view for demo 2
+                self.performSegue(withIdentifier: "signUpToProfile", sender: nil)
+                
+            } else {
+                //Alert with error message if anything goes wrong
+                self.present(AlertViews().didNotCreateUserAlert(), animated: true)
+            }
+        })
             
-            //Segue into home view or profile view for demo 2
-            
-            
-        } else {
-            //Alert with error message if anything goes wrong
-            self.present(AlertViews().didNotCreateUserAlert(), animated: true)
-        }
+       
     }
 
     func saveData(user: User) {
@@ -115,8 +119,7 @@ class SignupViewController: UIViewController {
 }
 
 extension SignupViewController {
-    @IBAction func signIn(_ segue: UIStoryboardSegue) { }
-    
+  
     func dismissKeyboard() {
         view.endEditing(true)
     }
