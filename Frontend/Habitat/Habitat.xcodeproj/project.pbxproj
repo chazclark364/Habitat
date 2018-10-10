@@ -7,17 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		792D05848776DFBA3B7A65D9 /* Pods_Habitat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12613F7C358A20677FD2CA85 /* Pods_Habitat.framework */; };
+		A59BB7EE7DC1F1035752CA74 /* Pods_HabitatUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52DFECBAF5AE9AAA53A1592C /* Pods_HabitatUITests.framework */; };
+		A90884D9215C5804005F47AC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90884D8215C5804005F47AC /* LoginViewController.swift */; };
+		A90884DB215C58E8005F47AC /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90884DA215C58E8005F47AC /* MainViewController.swift */; };
+		A90884DD215C596E005F47AC /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90884DC215C596E005F47AC /* SignupViewController.swift */; };
+		A90E88FB216E86BE004C864E /* ProfileEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9546E8721683CEF002FC076 /* ProfileEditViewController.swift */; };
+		A958D1A32165ABAB00B5D283 /* LeaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A958D1A22165ABAB00B5D283 /* LeaseViewController.swift */; };
+		B815ECB573DE62187B6ED17A /* Pods_HabitatTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E6B535E602E44FDC3C61B2E /* Pods_HabitatTests.framework */; };
+		DA503EC221619F01006EE76F /* MaintenanceRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA503EC121619F01006EE76F /* MaintenanceRequest.swift */; };
 		DA7632272141780B007CA9DC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7632262141780B007CA9DC /* AppDelegate.swift */; };
 		DA76322C2141780B007CA9DC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA76322A2141780B007CA9DC /* Main.storyboard */; };
 		DA76322E2141780E007CA9DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA76322D2141780E007CA9DC /* Assets.xcassets */; };
 		DA7632312141780E007CA9DC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA76322F2141780E007CA9DC /* LaunchScreen.storyboard */; };
 		DA76323C2141780E007CA9DC /* HabitatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA76323B2141780E007CA9DC /* HabitatTests.swift */; };
 		DA7632472141780E007CA9DC /* HabitatUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7632462141780E007CA9DC /* HabitatUITests.swift */; };
+		DAC60A562169620E00080A48 /* AlertViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC60A552169620E00080A48 /* AlertViews.swift */; };
 		DADBB81F2152EBF8000C231C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADBB81E2152EBF8000C231C /* HomeViewController.swift */; };
 		DAEC48CB2159DB89002C16B8 /* ChatHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEC48CA2159DB89002C16B8 /* ChatHomeViewController.swift */; };
 		DAEC48CD2159DC0B002C16B8 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEC48CC2159DC0B002C16B8 /* ProfileViewController.swift */; };
 		DAEC48D12159E1D5002C16B8 /* MaintenanceRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEC48D02159E1D5002C16B8 /* MaintenanceRequestViewController.swift */; };
 		DAEC48D52159E34F002C16B8 /* FinancialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEC48D42159E34F002C16B8 /* FinancialViewController.swift */; };
+		DAEC48DC215FDEA7002C16B8 /* HabitatAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEC48DB215FDEA7002C16B8 /* HabitatAPI.swift */; };
+		DAEC48E1215FF044002C16B8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEC48E0215FF044002C16B8 /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +50,21 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		12613F7C358A20677FD2CA85 /* Pods_Habitat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Habitat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1E6B535E602E44FDC3C61B2E /* Pods_HabitatTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HabitatTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		39B40E1856FDF27F984F04A6 /* Pods-Habitat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Habitat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Habitat/Pods-Habitat.debug.xcconfig"; sourceTree = "<group>"; };
+		52DFECBAF5AE9AAA53A1592C /* Pods_HabitatUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HabitatUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		558A95E0285BB4CF5686381B /* Pods-HabitatUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HabitatUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HabitatUITests/Pods-HabitatUITests.release.xcconfig"; sourceTree = "<group>"; };
+		5BF154D1F6CE34041269346F /* Pods-HabitatTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HabitatTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HabitatTests/Pods-HabitatTests.release.xcconfig"; sourceTree = "<group>"; };
+		7EF1CBDD0BE2294C3BF506A7 /* Pods-Habitat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Habitat.release.xcconfig"; path = "Pods/Target Support Files/Pods-Habitat/Pods-Habitat.release.xcconfig"; sourceTree = "<group>"; };
+		A90884D8215C5804005F47AC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		A90884DA215C58E8005F47AC /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		A90884DC215C596E005F47AC /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
+		A9546E8721683CEF002FC076 /* ProfileEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditViewController.swift; sourceTree = "<group>"; };
+		A958D1A22165ABAB00B5D283 /* LeaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaseViewController.swift; sourceTree = "<group>"; };
+		C45A5DA9003E72826D5E9EA3 /* Pods-HabitatUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HabitatUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HabitatUITests/Pods-HabitatUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		CA38BD6AB006EABC04A3A0A2 /* Pods-HabitatTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HabitatTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HabitatTests/Pods-HabitatTests.debug.xcconfig"; sourceTree = "<group>"; };
+		DA503EC121619F01006EE76F /* MaintenanceRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaintenanceRequest.swift; sourceTree = "<group>"; };
 		DA7632232141780B007CA9DC /* Habitat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Habitat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA7632262141780B007CA9DC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DA76322B2141780B007CA9DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -50,11 +77,14 @@
 		DA7632422141780E007CA9DC /* HabitatUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HabitatUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA7632462141780E007CA9DC /* HabitatUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitatUITests.swift; sourceTree = "<group>"; };
 		DA7632482141780E007CA9DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DAC60A552169620E00080A48 /* AlertViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViews.swift; sourceTree = "<group>"; };
 		DADBB81E2152EBF8000C231C /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		DAEC48CA2159DB89002C16B8 /* ChatHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatHomeViewController.swift; sourceTree = "<group>"; };
 		DAEC48CC2159DC0B002C16B8 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		DAEC48D02159E1D5002C16B8 /* MaintenanceRequestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaintenanceRequestViewController.swift; sourceTree = "<group>"; };
 		DAEC48D42159E34F002C16B8 /* FinancialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancialViewController.swift; sourceTree = "<group>"; };
+		DAEC48DB215FDEA7002C16B8 /* HabitatAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitatAPI.swift; sourceTree = "<group>"; };
+		DAEC48E0215FF044002C16B8 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +92,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				792D05848776DFBA3B7A65D9 /* Pods_Habitat.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,6 +100,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B815ECB573DE62187B6ED17A /* Pods_HabitatTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,20 +108,49 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A59BB7EE7DC1F1035752CA74 /* Pods_HabitatUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1782D6232BB3465D5DFAFA54 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				39B40E1856FDF27F984F04A6 /* Pods-Habitat.debug.xcconfig */,
+				7EF1CBDD0BE2294C3BF506A7 /* Pods-Habitat.release.xcconfig */,
+				CA38BD6AB006EABC04A3A0A2 /* Pods-HabitatTests.debug.xcconfig */,
+				5BF154D1F6CE34041269346F /* Pods-HabitatTests.release.xcconfig */,
+				C45A5DA9003E72826D5E9EA3 /* Pods-HabitatUITests.debug.xcconfig */,
+				558A95E0285BB4CF5686381B /* Pods-HabitatUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		8C9CE741101338C8B536DAA8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				12613F7C358A20677FD2CA85 /* Pods_Habitat.framework */,
+				1E6B535E602E44FDC3C61B2E /* Pods_HabitatTests.framework */,
+				52DFECBAF5AE9AAA53A1592C /* Pods_HabitatUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		DA76321A2141780B007CA9DC = {
 			isa = PBXGroup;
 			children = (
+				DAC60A54216961E900080A48 /* Views */,
+				DAEC48DF215FEF77002C16B8 /* HabitatObjectModels */,
+				DAEC48DA215FDE1F002C16B8 /* NetworkingAPIs */,
 				DA7632252141780B007CA9DC /* Habitat */,
 				DAEC48D62159E38A002C16B8 /* ViewControllers */,
 				DA76323A2141780E007CA9DC /* HabitatTests */,
 				DA7632452141780E007CA9DC /* HabitatUITests */,
 				DA7632242141780B007CA9DC /* Products */,
+				1782D6232BB3465D5DFAFA54 /* Pods */,
+				8C9CE741101338C8B536DAA8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -133,6 +194,14 @@
 			path = HabitatUITests;
 			sourceTree = "<group>";
 		};
+		DAC60A54216961E900080A48 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DAC60A552169620E00080A48 /* AlertViews.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		DAEC48D62159E38A002C16B8 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -141,8 +210,30 @@
 				DAEC48CA2159DB89002C16B8 /* ChatHomeViewController.swift */,
 				DAEC48D02159E1D5002C16B8 /* MaintenanceRequestViewController.swift */,
 				DAEC48CC2159DC0B002C16B8 /* ProfileViewController.swift */,
+				A90884D8215C5804005F47AC /* LoginViewController.swift */,
+				A90884DA215C58E8005F47AC /* MainViewController.swift */,
+				A90884DC215C596E005F47AC /* SignupViewController.swift */,
+				A958D1A22165ABAB00B5D283 /* LeaseViewController.swift */,
+				A9546E8721683CEF002FC076 /* ProfileEditViewController.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		DAEC48DA215FDE1F002C16B8 /* NetworkingAPIs */ = {
+			isa = PBXGroup;
+			children = (
+				DAEC48DB215FDEA7002C16B8 /* HabitatAPI.swift */,
+			);
+			path = NetworkingAPIs;
+			sourceTree = "<group>";
+		};
+		DAEC48DF215FEF77002C16B8 /* HabitatObjectModels */ = {
+			isa = PBXGroup;
+			children = (
+				DAEC48E0215FF044002C16B8 /* User.swift */,
+				DA503EC121619F01006EE76F /* MaintenanceRequest.swift */,
+			);
+			path = HabitatObjectModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -152,9 +243,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DA76324B2141780E007CA9DC /* Build configuration list for PBXNativeTarget "Habitat" */;
 			buildPhases = (
+				2B8F6E04B9D3BAC435985125 /* [CP] Check Pods Manifest.lock */,
 				DA76321F2141780B007CA9DC /* Sources */,
 				DA7632202141780B007CA9DC /* Frameworks */,
 				DA7632212141780B007CA9DC /* Resources */,
+				C40075CADA9256486DC76AF5 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -169,6 +262,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DA76324E2141780E007CA9DC /* Build configuration list for PBXNativeTarget "HabitatTests" */;
 			buildPhases = (
+				E1C50CF3785D3119C77FF523 /* [CP] Check Pods Manifest.lock */,
 				DA7632332141780E007CA9DC /* Sources */,
 				DA7632342141780E007CA9DC /* Frameworks */,
 				DA7632352141780E007CA9DC /* Resources */,
@@ -187,6 +281,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DA7632512141780E007CA9DC /* Build configuration list for PBXNativeTarget "HabitatUITests" */;
 			buildPhases = (
+				D9CD9509D19333C852BA1D74 /* [CP] Check Pods Manifest.lock */,
 				DA76323E2141780E007CA9DC /* Sources */,
 				DA76323F2141780E007CA9DC /* Frameworks */,
 				DA7632402141780E007CA9DC /* Resources */,
@@ -271,17 +366,117 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2B8F6E04B9D3BAC435985125 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Habitat-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C40075CADA9256486DC76AF5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Habitat/Pods-Habitat-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Habitat/Pods-Habitat-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D9CD9509D19333C852BA1D74 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HabitatUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E1C50CF3785D3119C77FF523 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HabitatTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		DA76321F2141780B007CA9DC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DAEC48DC215FDEA7002C16B8 /* HabitatAPI.swift in Sources */,
+				A90E88FB216E86BE004C864E /* ProfileEditViewController.swift in Sources */,
+				A90884DD215C596E005F47AC /* SignupViewController.swift in Sources */,
+				A958D1A32165ABAB00B5D283 /* LeaseViewController.swift in Sources */,
+				A90884D9215C5804005F47AC /* LoginViewController.swift in Sources */,
 				DA7632272141780B007CA9DC /* AppDelegate.swift in Sources */,
 				DAEC48CD2159DC0B002C16B8 /* ProfileViewController.swift in Sources */,
 				DAEC48D52159E34F002C16B8 /* FinancialViewController.swift in Sources */,
 				DAEC48D12159E1D5002C16B8 /* MaintenanceRequestViewController.swift in Sources */,
+				DAEC48E1215FF044002C16B8 /* User.swift in Sources */,
+				DAC60A562169620E00080A48 /* AlertViews.swift in Sources */,
+				DA503EC221619F01006EE76F /* MaintenanceRequest.swift in Sources */,
 				DADBB81F2152EBF8000C231C /* HomeViewController.swift in Sources */,
 				DAEC48CB2159DB89002C16B8 /* ChatHomeViewController.swift in Sources */,
+				A90884DB215C58E8005F47AC /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -452,9 +647,12 @@
 		};
 		DA76324C2141780E007CA9DC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 39B40E1856FDF27F984F04A6 /* Pods-Habitat.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Habitat/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -462,6 +660,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = PP1.Habitat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -469,9 +668,12 @@
 		};
 		DA76324D2141780E007CA9DC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7EF1CBDD0BE2294C3BF506A7 /* Pods-Habitat.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Habitat/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -479,6 +681,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = PP1.Habitat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -486,6 +689,7 @@
 		};
 		DA76324F2141780E007CA9DC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CA38BD6AB006EABC04A3A0A2 /* Pods-HabitatTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -506,6 +710,7 @@
 		};
 		DA7632502141780E007CA9DC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5BF154D1F6CE34041269346F /* Pods-HabitatTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -526,6 +731,7 @@
 		};
 		DA7632522141780E007CA9DC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C45A5DA9003E72826D5E9EA3 /* Pods-HabitatUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -545,6 +751,7 @@
 		};
 		DA7632532141780E007CA9DC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 558A95E0285BB4CF5686381B /* Pods-HabitatUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

@@ -1,0 +1,27 @@
+# Uncomment the next line to define a global platform for your project
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '10.0'
+workspace 'Habitat'
+use_frameworks!
+target 'Habitat' do
+  pod 'Alamofire', '~> 4.7'
+  
+
+  # Pods for Habitat
+
+  target 'HabitatTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'HabitatUITests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+
+
+    
+
+
+end
