@@ -38,15 +38,16 @@ class LoginViewController: UIViewController {
     
     private func validation() -> Bool {
         if(emailTextField.text != "" && passwordTextField.text != "") {
-                return true
-            }
-         return false
+            return true
+        }
+        return false
     }
     
     func updateDisplay() {
         loginButton.isEnabled = validation()
         dismissKeyboard()
     }
+    
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         
         emailTextField.resignFirstResponder()
@@ -68,16 +69,19 @@ class LoginViewController: UIViewController {
         savedData.set(user.type, forKey: "userType")
         savedData.set(user.userId, forKey: "userID")
     }
- 
+    
     @IBAction func didPressLogin(_ sender: Any) {
         if let email = emailTextField.text, let password = passwordTextField.text {
-            if let user = HabitatAPI.UserAPI().loginUser(email: email, password: password) {
-                saveData(user: user)
-                //segue
-            } else {
-                //alert user wrong credentials
-                self.present(AlertViews().didNotLogin(), animated: true)
-            }
+            HabitatAPI.UserAPI().loginUser(email: email, password: password, completion: {  user in
+                if let userReturned = user {
+                    self.saveData(user: userReturned)
+                    self.performSegue(withIdentifier: "loginToProfile", sender: nil)
+                    //segue
+                } else {
+                    //alert user wrong credentials
+                    self.present(AlertViews().didNotLogin(), animated: true)
+                }
+            })
         }
     }
 }

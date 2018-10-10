@@ -50,10 +50,35 @@ class SignupViewController: UIViewController {
     
     //Returns true if all fields are filled out appropiatley
     private func validation() -> Bool {
-        if(fNameTextField.text != "" && lNameTextField.text != "" && emailTextField.text != "" && pNumberTextField.text != "") {
-            if(passwordTextField.text != "" && (passwordTextField.text == rePasswordField.text)) {
-                return true
-            }
+        if (fNameTextField.text == "") {
+            self.present(AlertViews().enterFirstName(), animated: true)
+        }
+        if (lNameTextField.text == "") {
+            self.present(AlertViews().enterLastName(), animated: true)
+        }
+        if (emailTextField.text == "") {
+            self.present(AlertViews().enterEmail(), animated: true)
+        }
+        if (emailTextField.text?.contains("@") == false || emailTextField.text?.contains(".") == false) {
+            self.present(AlertViews().invalidEmail(), animated:  true)
+        }
+        if (passwordTextField.text == "") {
+            self.present(AlertViews().enterPassword(), animated: true)
+        }
+        if (rePasswordField.text == "") {
+            self.present(AlertViews().reenterPassword(), animated: true)
+        }
+        if (passwordTextField.text != rePasswordField.text) {
+            self.present(AlertViews().passwordNoMatch(), animated:  true)
+        }
+        if (pNumberTextField.text == "") {
+            self.present(AlertViews().enterPhoneNumber(), animated: true)
+        }
+        if (pNumberTextField.text?.count != 10) {
+            self.present(AlertViews().phoneNumberLength(), animated:  true)
+        }
+        if(fNameTextField.text != "" && lNameTextField.text != "" && emailTextField.text != "" && pNumberTextField.text != "" && pNumberTextField.text?.count == 10 && passwordTextField.text != "" && passwordTextField.text == rePasswordField.text) {
+            return true
         }
         return false
     }
@@ -61,13 +86,13 @@ class SignupViewController: UIViewController {
     private func getTypeValue() -> String {
         switch userTypeSegment.selectedSegmentIndex {
         case 0:
-            return "tenant"
+            return "Tenant"
         case 1:
-            return "landlord"
+            return "Landlord"
         case 2:
-            return "worker"
+            return "Worker"
         default:
-            return "tenant"
+            return "Tenant"
         }
     }
     
@@ -85,19 +110,23 @@ class SignupViewController: UIViewController {
         user.type = getTypeValue()
         user.password = passwordTextField.text
 
-        possibleUser = HabitatAPI.UserAPI().createUser(user: user)
-        //Means the creation was succesful
-        if let newUser = possibleUser {
-            //Save locally
-            saveData(user: newUser)
+         HabitatAPI.UserAPI().createUser(user: user, completion: {  user in
+           possibleUser = user
+            //Means the creation was succesful
+            if let newUser = possibleUser {
+                //Save locally
+                self.saveData(user: newUser)
+                
+                //Segue into home view or profile view for demo 2
+                self.performSegue(withIdentifier: "signUpToProfile", sender: nil)
+                
+            } else {
+                //Alert with error message if anything goes wrong
+                self.present(AlertViews().didNotCreateUserAlert(), animated: true)
+            }
+        })
             
-            //Segue into home view or profile view for demo 2
-            
-            
-        } else {
-            //Alert with error message if anything goes wrong
-            self.present(AlertViews().didNotCreateUserAlert(), animated: true)
-        }
+       
     }
 
     func saveData(user: User) {
@@ -115,8 +144,7 @@ class SignupViewController: UIViewController {
 }
 
 extension SignupViewController {
-    @IBAction func signIn(_ segue: UIStoryboardSegue) { }
-    
+  
     func dismissKeyboard() {
         view.endEditing(true)
     }
