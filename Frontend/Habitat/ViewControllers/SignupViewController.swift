@@ -23,7 +23,6 @@ class SignupViewController: UIViewController {
    
     override func viewDidLoad() {
         super.viewDidLoad()
-        submitButton.isEnabled = false
         submitButton.layer.cornerRadius = 5
         submitButton.clipsToBounds = true
         let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap))
@@ -31,7 +30,10 @@ class SignupViewController: UIViewController {
     }
     
     @IBAction func pressedSubmit(_ sender: Any) {
-        createUser()
+        checkEntries()
+        if(validation()) {
+            createUser()
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -44,12 +46,18 @@ class SignupViewController: UIViewController {
     }
     
     func updateDisplay() {
-        submitButton.isEnabled = validation()
         dismissKeyboard()
     }
     
     //Returns true if all fields are filled out appropiatley
     private func validation() -> Bool {
+        if(fNameTextField.text != "" && lNameTextField.text != "" && emailTextField.text != "" && pNumberTextField.text != "" && pNumberTextField.text?.count == 10 && passwordTextField.text != "" && passwordTextField.text == rePasswordField.text) {
+            return true
+        }
+        return false
+    }
+    
+    private func checkEntries() {
         if (fNameTextField.text == "") {
             self.present(AlertViews().enterFirstName(), animated: true)
         }
@@ -59,7 +67,8 @@ class SignupViewController: UIViewController {
         if (emailTextField.text == "") {
             self.present(AlertViews().enterEmail(), animated: true)
         }
-        if (emailTextField.text?.contains("@") == false || emailTextField.text?.contains(".") == false) {
+        if (emailTextField.text?.contains("@") == false || emailTextField.text?.contains(".") == false)
+        {
             self.present(AlertViews().invalidEmail(), animated:  true)
         }
         if (passwordTextField.text == "") {
@@ -74,13 +83,12 @@ class SignupViewController: UIViewController {
         if (pNumberTextField.text == "") {
             self.present(AlertViews().enterPhoneNumber(), animated: true)
         }
-        if (pNumberTextField.text?.count != 10) {
-            self.present(AlertViews().phoneNumberLength(), animated:  true)
+        if (pNumberTextField.text?.count ?? 0 > 10) {
+            self.present(AlertViews().phoneNumberTooLong(), animated:  true)
         }
-        if(fNameTextField.text != "" && lNameTextField.text != "" && emailTextField.text != "" && pNumberTextField.text != "" && pNumberTextField.text?.count == 10 && passwordTextField.text != "" && passwordTextField.text == rePasswordField.text) {
-            return true
+        if (pNumberTextField.text?.count ?? 0 < 10) {
+            self.present(AlertViews().phoneNumberTooShort(), animated:  true)
         }
-        return false
     }
     
     private func getTypeValue() -> String {
@@ -97,7 +105,6 @@ class SignupViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
     }
     
     private func createUser() {
@@ -116,17 +123,13 @@ class SignupViewController: UIViewController {
             if let newUser = possibleUser {
                 //Save locally
                 self.saveData(user: newUser)
-                
                 //Segue into home view or profile view for demo 2
                 self.performSegue(withIdentifier: "signUpToProfile", sender: nil)
-                
             } else {
                 //Alert with error message if anything goes wrong
                 self.present(AlertViews().didNotCreateUserAlert(), animated: true)
             }
         })
-            
-       
     }
 
     func saveData(user: User) {
@@ -144,10 +147,7 @@ class SignupViewController: UIViewController {
 }
 
 extension SignupViewController {
-  
     func dismissKeyboard() {
         view.endEditing(true)
     }
-    
 }
-

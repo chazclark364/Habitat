@@ -79,7 +79,12 @@ class LoginViewController: UIViewController {
                     //segue
                 } else {
                     //alert user wrong credentials
-                    self.present(AlertViews().didNotLogin(), animated: true)
+                    if ((email.contains("@") == false) || (email.contains(".") == false)) {
+                        self.present(AlertViews().invalidEmail(), animated: true)
+                    }
+                    else {
+                        self.present(AlertViews().didNotLogin(), animated: true)
+                    }
                 }
             })
         }

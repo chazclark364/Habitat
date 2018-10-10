@@ -19,7 +19,7 @@ class AlertViews: UIAlertController {
     }
     
     func didNotLogin() -> UIAlertController {
-        let alert = UIAlertController(title: "Something went wrong", message: "Please check credentials.", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Something went wrong", message: "Incorrect email or password.", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
         return alert
     }
@@ -54,8 +54,14 @@ class AlertViews: UIAlertController {
         return alert
     }
     
-    func phoneNumberLength() -> UIAlertController {
+    func phoneNumberTooShort() -> UIAlertController {
         let alert = UIAlertController(title: "Something went wrong", message: "Please include an area code on your phone number.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+        return alert
+    }
+    
+    func phoneNumberTooLong() -> UIAlertController {
+        let alert = UIAlertController(title: "Something went wrong", message: "Please verify that your phone number is correct.", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
         return alert
     }

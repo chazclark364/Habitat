@@ -12,7 +12,7 @@
 		A90884D9215C5804005F47AC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90884D8215C5804005F47AC /* LoginViewController.swift */; };
 		A90884DB215C58E8005F47AC /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90884DA215C58E8005F47AC /* MainViewController.swift */; };
 		A90884DD215C596E005F47AC /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90884DC215C596E005F47AC /* SignupViewController.swift */; };
-		A9546E8821683CEF002FC076 /* ProfileEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9546E8721683CEF002FC076 /* ProfileEditViewController.swift */; };
+		A90E88FB216E86BE004C864E /* ProfileEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9546E8721683CEF002FC076 /* ProfileEditViewController.swift */; };
 		A958D1A32165ABAB00B5D283 /* LeaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A958D1A22165ABAB00B5D283 /* LeaseViewController.swift */; };
 		B815ECB573DE62187B6ED17A /* Pods_HabitatTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E6B535E602E44FDC3C61B2E /* Pods_HabitatTests.framework */; };
 		DA503EC221619F01006EE76F /* MaintenanceRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA503EC121619F01006EE76F /* MaintenanceRequest.swift */; };
@@ -463,6 +463,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DAEC48DC215FDEA7002C16B8 /* HabitatAPI.swift in Sources */,
+				A90E88FB216E86BE004C864E /* ProfileEditViewController.swift in Sources */,
 				A90884DD215C596E005F47AC /* SignupViewController.swift in Sources */,
 				A958D1A32165ABAB00B5D283 /* LeaseViewController.swift in Sources */,
 				A90884D9215C5804005F47AC /* LoginViewController.swift in Sources */,
