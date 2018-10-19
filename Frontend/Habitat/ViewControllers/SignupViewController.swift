@@ -124,7 +124,7 @@ class SignupViewController: UIViewController {
                 //Save locally
                 self.saveData(user: newUser)
                 //Segue into home view or profile view for demo 2
-                self.performSegue(withIdentifier: "signUpToProfile", sender: nil)
+                self.performSegue(withIdentifier: "signUpToHome", sender: nil)
             } else {
                 //Alert with error message if anything goes wrong
                 self.present(AlertViews().didNotCreateUserAlert(), animated: true)

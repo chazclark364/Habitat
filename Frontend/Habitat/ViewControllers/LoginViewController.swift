@@ -75,7 +75,7 @@ class LoginViewController: UIViewController {
             HabitatAPI.UserAPI().loginUser(email: email, password: password, completion: {  user in
                 if let userReturned = user {
                     self.saveData(user: userReturned)
-                    self.performSegue(withIdentifier: "loginToProfile", sender: nil)
+                    self.performSegue(withIdentifier: "loginToHome", sender: nil)
                     //segue
                 } else {
                     //alert user wrong credentials

@@ -1091,15 +1091,15 @@
         </scene>
     </scenes>
     <resources>
-        <image name="chat" width="18" height="18"/>
-        <image name="home" width="18" height="18"/>
-        <image name="money" width="18" height="18"/>
-        <image name="profile" width="18" height="18"/>
-        <image name="tool" width="18" height="18"/>
+        <image name="chat" width="36" height="36"/>
+        <image name="home" width="36" height="36"/>
+        <image name="money" width="36" height="36"/>
+        <image name="profile" width="36" height="36"/>
+        <image name="tool" width="36" height="36"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="zKT-Mf-ZBf"/>
-        <segue reference="UGg-YX-57o"/>
-        <segue reference="wJI-AW-YHy"/>
+        <segue reference="5Rn-j6-Z63"/>
+        <segue reference="gZv-0k-gHo"/>
+        <segue reference="vgr-eV-Yit"/>
     </inferredMetricsTieBreakers>
 </document>
