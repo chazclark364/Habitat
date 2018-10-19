@@ -51,7 +51,8 @@ class HabitatAPI {
                     
                     if let json = response.result.value {
                         print("JSON: \(json)") // serialized json response
-                        returnedUser = self.userFromJSON(json: json as! NSDictionary)
+                         //TODO: Test new USER to JSON Function
+                        returnedUser = User().userFromJSON(json: json as! NSDictionary)
                         completion(returnedUser)
                     }
             }
@@ -77,7 +78,8 @@ class HabitatAPI {
                     
                     if let json = response.result.value {
                         print("JSON: \(json)") // serialized json response
-                        returnedUser = self.userFromJSON(json: json as! NSDictionary)
+                         //TODO: Test new USER to JSON Function
+                        returnedUser = User().userFromJSON(json: json as! NSDictionary)
                         completion(returnedUser)
                     }
             }
@@ -99,22 +101,13 @@ class HabitatAPI {
                     
                     if let json = response.result.value {
                         print("JSON: \(json)") // serialized json response
-                        returnedUser = self.userFromJSON(json: json as! NSDictionary)
+                        //TODO: Test new USER to JSON Function
+                        returnedUser = User().userFromJSON(json: json as! NSDictionary)
                         completion(returnedUser)
                     }
             }
             
         }
         
-        func userFromJSON(json: NSDictionary) -> User? {
-            let user = User()
-            user.firstName = json.object(forKey: "firstName") as? String
-            user.lastName = json.object(forKey: "lastName") as? String
-            user.phoneNumber = json.object(forKey: "phoneNumber") as? String
-            user.type = json.object(forKey: "userType") as? String
-            user.email = json.object(forKey: "email") as? String
-            user.userId = json.object(forKey: "idUsers") as? Int
-            return user
-        }
     }
 }
