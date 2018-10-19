@@ -29,6 +29,17 @@ public class UserController {
     		return null;
     	}
     }
+     
+    //NEED TO TEST FUNCTIONALITY
+    @RequestMapping(method = RequestMethod.POST, path = "/users/update", consumes = MediaType.APPLICATION_JSON)
+    public @ResponseBody User updateUser(@RequestBody User user){
+    	if(this.users.findByID(user.getIdUsers()) == null){
+    		return null;
+    	}else{
+    		this.users.save(user);
+    		return user;
+    	}
+    }
 
     @RequestMapping(path = "/users/{id_users}", method = RequestMethod.GET)
     public @ResponseBody User getUserProfile(@PathVariable("id_users") Integer id_users, Model model){
