@@ -37,7 +37,7 @@ public class RequestController {
     		return null;
     	}else{
     		this.request.save(request);
-    		return request;
+    		return this.request.findRequestByID(request.getIdRequest());
     	}
     }
     
