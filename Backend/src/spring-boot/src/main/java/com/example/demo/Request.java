@@ -26,13 +26,13 @@ public class Request {
     private DateTimeFormat date_requested;
 
     @Column(name = "requestee")
-    private String requestee;
+    private Integer requestee;
 
     @Column(name = "landlord")
-    private String landlord;
+    private Integer landlord;
 
     @Column(name = "worker")
-    private String worker;
+    private Integer worker;
 
     @Column(name = "status")
     private String status;
@@ -53,15 +53,15 @@ public class Request {
         return date_requested;
     }
 
-    public String getRequestee(){
+    public Integer getRequestee(){
         return requestee;
     }
 
-    public String getLandlord(){
+    public Integer getLandlord(){
         return landlord;
     }
 
-    public String getWorker(){
+    public Integer getWorker(){
         return worker;
     }
 
@@ -86,15 +86,15 @@ public class Request {
         this.date_requested = date_requested;
     }
 
-    public void setRequestee(String requestee) {
+    public void setRequestee(Integer requestee) {
         this.requestee = requestee;
     }
 
-    public void setLandlord(String landlord) {
+    public void setLandlord(Integer landlord) {
         this.landlord = landlord;
     }
 
-    public void setWorker(String worker) {
+    public void setWorker(Integer worker) {
         this.worker = worker;
     }
 
