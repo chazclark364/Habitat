@@ -5,6 +5,7 @@ import javax.validation.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Component;
 import java.io.Serializable;
+import java.util.Date;
 import java.time.LocalDate;
 
 @Component
@@ -23,7 +24,8 @@ public class Request {
     private String description;
 
     @Column(name = "date_requested")
-    private DateTimeFormat date_requested;
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private Date date_requested;
 
     @Column(name = "requestee")
     private Integer requestee;
@@ -49,7 +51,7 @@ public class Request {
         return description;
     }
 
-    public DateTimeFormat getDateRequested(){
+    public Date getDateRequested(){
         return date_requested;
     }
 
@@ -82,7 +84,7 @@ public class Request {
         this.description = description;
     }
 
-    public void setDateRequested(DateTimeFormat date_requested) {
+    public void setDateRequested(Date date_requested) {
         this.date_requested = date_requested;
     }
 
