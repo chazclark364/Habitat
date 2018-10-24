@@ -1,27 +1,27 @@
 package com.example.demo;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import io.micrometer.core.instrument.util.MediaType;
 
 @RestController
 class TenantController{
-    @Autowired
-    private final TenantRepository tenants;
+    
+	@Autowired
+    private final TenantRepository tenant;
 
-    @Autowired
-    public TenantController(TenantRepository habitat) {
-        this.tenants = habitat;
+    public TenantController(TenantRepository tenant) {
+        this.tenant = tenant;
     }
 
-    /*
-    @PostMapping("/users/tenant/save")
-    public String saveTenant(){
-
-    }*/
-
-    /*@GetMapping("/users/tenant/{id_tenant}")
-    public String getTenant(@PathVariable("id_tenant") int id_tenant){
-        Tenant tenant = this.tenants.findById(id_tenant);
-    }*/
-
+    @RequestMapping(method = RequestMethod.POST, path = "/tenant/update", consumes = MediaType.APPLICATION_JSON)
+    public @ResponseBody Tenant updateTenant(@RequestBody Tenant tenant){
+    	if(this.tenant.findTenantByID(tenant.getIdTenant()) == null){
+    		return null;
+    	}else{
+    		this.tenant.save(tenant);
+    		return tenant;
+    	}
+    }
 }

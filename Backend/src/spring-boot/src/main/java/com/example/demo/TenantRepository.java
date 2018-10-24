@@ -1,14 +1,16 @@
 package com.example.demo;
 
-import java.util.Collection;
-
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.Repository;
 import org.springframework.data.repository.query.Param;
-import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
-@Repository
-public interface TenantRepository extends CrudRepository<Tenant, Integer>{
-    Collection<Tenant> findall();
-    Collection<Tenant> findById(@Param("id_tenant") int id);
-    Tenant save(Tenant tenant);
+
+public interface TenantRepository extends Repository<Tenant, Integer>{
+	public void save(Tenant tenant);
+	
+    @Query("select t from Tenant t where t.id_tenant = :id_tenant")
+    @Transactional(readOnly = true)
+    public Request findTenantByID(@Param("id_request") Integer id_request);
+	
 }
