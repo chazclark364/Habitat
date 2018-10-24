@@ -1,4 +1,4 @@
-package org.springframework.landlord;
+package com.example.demo;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;

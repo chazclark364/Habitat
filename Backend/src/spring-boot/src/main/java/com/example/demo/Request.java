@@ -23,10 +23,6 @@ public class Request {
     @Column(name = "description")
     private String description;
 
-    @Column(name = "date_requested")
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    private Date date_requested;
-
     @Column(name = "requestee")
     private Integer requestee;
 
@@ -49,10 +45,6 @@ public class Request {
 
     public String getDescription(){
         return description;
-    }
-
-    public Date getDateRequested(){
-        return date_requested;
     }
 
     public Integer getRequestee(){
@@ -82,10 +74,6 @@ public class Request {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public void setDateRequested(Date date_requested) {
-        this.date_requested = date_requested;
     }
 
     public void setRequestee(Integer requestee) {

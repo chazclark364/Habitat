@@ -1,4 +1,4 @@
-package org.springframework.tenant;
+package com.example.demo;
 
 import java.util.Collection;
 
