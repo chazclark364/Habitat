@@ -1,14 +1,14 @@
 package com.example.demo;
 
-import java.util.Collection;
-
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.Repository;
 import org.springframework.data.repository.query.Param;
-import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
-@Repository
-public interface WorkerRepository extends CrudRepository<Worker, Integer>{
-    Collection<Worker> findall();
-    Collection<Worker> findById(@Param("id_worker") int id);
-    Worker save(Worker worker);
+public interface WorkerRepository extends Repository<Worker, Integer>{
+    public void save(Worker worker);
+    
+    @Query("select w from Worker w where w.id_worker = :id_worker")
+    @Transactional(readOnly = true)
+    public Worker findWorkerByID(@Param("id_worker") Integer id_worker);
 }

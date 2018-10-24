@@ -189,3 +189,8 @@ java.sql.SQLIntegrityConstraintViolationException: Column 'description' cannot b
 2018-10-23 19:15:57.665  WARN 1220 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=11m29s113ms).
 2018-10-23 19:38:00.711  WARN 1220 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=22m3s46ms).
 2018-10-23 20:11:55.997  WARN 1220 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=33m55s286ms).
+2018-10-23 20:55:55.597  WARN 1220 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=3m58s227ms).
+2018-10-23 20:57:06.141  WARN 1220 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m10s545ms).
+2018-10-23 21:06:30.996  WARN 1220 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=3m24s651ms).
+2018-10-23 21:17:49.706  WARN 1220 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m18s665ms).
+2018-10-23 21:32:22.453  WARN 1220 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=3m2s432ms).

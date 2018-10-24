@@ -11,6 +11,6 @@ public interface TenantRepository extends Repository<Tenant, Integer>{
 	
     @Query("select t from Tenant t where t.id_tenant = :id_tenant")
     @Transactional(readOnly = true)
-    public Request findTenantByID(@Param("id_request") Integer id_request);
+    public Tenant findTenantByID(@Param("id_tenant") Integer id_tenant);
 	
 }

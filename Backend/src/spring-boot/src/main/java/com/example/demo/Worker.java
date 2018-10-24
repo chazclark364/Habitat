@@ -9,18 +9,17 @@ public class Worker{
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name = "id_worker")
-    private Integer id;
+    private Integer id_worker;
 
-    @NotEmpty
     @Column(name = "company")
     private String company;
 
-    public Integer getId() {
-        return id;
+    public Integer getIdWorker() {
+        return id_worker;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setId(Integer id_worker) {
+        this.id_worker = id_worker;
     }
 
     public String getCompany() {

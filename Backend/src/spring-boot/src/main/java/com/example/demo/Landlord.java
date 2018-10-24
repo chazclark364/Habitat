@@ -2,6 +2,8 @@ package com.example.demo;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.stereotype.Component;
 
 @Entity
 @Table(name = "landlord")
@@ -9,18 +11,17 @@ public class Landlord{
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name = "id_landlord")
-    private Integer id;
+    private Integer id_landlord;
 
-    @NotEmpty
-    //@Column(name = address)
+    @Column(name = "address")
     private String address;
 
-    public Integer getId() {
-        return id;
+    public Integer getIdLandlord() {
+        return id_landlord;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setIdLandlord(Integer id_landlord) {
+        this.id_landlord = id_landlord;
     }
 
     public String getAddress() {
