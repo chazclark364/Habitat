@@ -13,15 +13,12 @@ public class Tenant {
     @Column(name = "id_tenant")
     private Integer id_tenant;
 
-    @NotEmpty
     @Column(name = "landlord")
     private Integer landlord;
 
-    @NotEmpty
     @Column(name = "residence")
     private String residence;
 
-    @NotEmpty
     @Column(name = "monthly_rent")
     private Integer monthly_rent;
 

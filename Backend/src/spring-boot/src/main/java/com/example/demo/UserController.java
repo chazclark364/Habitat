@@ -30,7 +30,6 @@ public class UserController {
     	}
     }
      
-    //NEED TO TEST FUNCTIONALITY
     @RequestMapping(method = RequestMethod.POST, path = "/users/update", consumes = MediaType.APPLICATION_JSON)
     public @ResponseBody User updateUser(@RequestBody User user){
     	if(this.users.findByID(user.getIdUsers()) == null){

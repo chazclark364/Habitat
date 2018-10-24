@@ -18,7 +18,7 @@ public class Worker{
         return id_worker;
     }
 
-    public void setId(Integer id_worker) {
+    public void setIdWorker(Integer id_worker) {
         this.id_worker = id_worker;
     }
 

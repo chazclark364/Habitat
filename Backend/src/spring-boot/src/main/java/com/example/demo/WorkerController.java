@@ -16,7 +16,7 @@ class WorkerController{
     }
 	
 	@RequestMapping(method = RequestMethod.POST, path = "/worker/update", consumes = MediaType.APPLICATION_JSON)
-    public @ResponseBody Worker updateRequest(@RequestBody Worker worker){
+    public @ResponseBody Worker updateWorker(@RequestBody Worker worker){
     	if(this.worker.findWorkerByID(worker.getIdWorker()) == null){
     		return null;
     	}else{
