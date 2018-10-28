@@ -4,7 +4,9 @@ import javax.persistence.*;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotEmpty;
 import org.springframework.core.style.ToStringCreator;
+import org.springframework.stereotype.Component;
 
+@Component
 @Entity
 @Table(name = "tenant")
 public class Tenant {

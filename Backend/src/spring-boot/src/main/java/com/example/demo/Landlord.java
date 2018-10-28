@@ -5,6 +5,7 @@ import javax.validation.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Component;
 
+@Component
 @Entity
 @Table(name = "landlord")
 public class Landlord{

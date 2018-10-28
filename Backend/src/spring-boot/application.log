@@ -606,3 +606,32 @@ javax.validation.UnexpectedTypeException: HV000030: No validator could be found 
 2018-10-23 22:10:40.766  INFO 1975 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2018-10-23 22:10:40.766  INFO 1975 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2018-10-23 22:10:40.773  INFO 1975 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 7 ms
+2018-10-23 22:13:23.624  INFO 1975 --- [RMI TCP Connection(2)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2018-10-23 22:13:23.627  INFO 1975 --- [RMI TCP Connection(2)-127.0.0.1] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2018-10-23 22:13:23.628  INFO 1975 --- [RMI TCP Connection(2)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2018-10-23 22:13:23.630  INFO 1975 --- [RMI TCP Connection(2)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2018-10-23 22:13:23.633  INFO 1975 --- [RMI TCP Connection(2)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2018-10-23 22:13:46.709  INFO 1991 --- [main] com.example.demo.ApplicationTests        : Starting ApplicationTests on Matthews-MBP.local with PID 1991 (started by MatthewMartin in /Users/MatthewMartin/Documents/School Documents/Fall_2018/COMS309/PP_1/Backend/src/spring-boot)
+2018-10-23 22:13:46.710  INFO 1991 --- [main] com.example.demo.ApplicationTests        : No active profile set, falling back to default profiles: default
+2018-10-23 22:13:47.475  INFO 1991 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2018-10-23 22:13:47.531  INFO 1991 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 49ms. Found 5 repository interfaces.
+2018-10-23 22:13:47.937  INFO 1991 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$2bd464ce] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-10-23 22:13:48.130  INFO 1991 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2018-10-23 22:13:48.594  INFO 1991 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2018-10-23 22:13:48.648  INFO 1991 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-10-23 22:13:48.700  INFO 1991 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.6.Final}
+2018-10-23 22:13:48.701  INFO 1991 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2018-10-23 22:13:48.809  INFO 1991 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2018-10-23 22:13:48.930  INFO 1991 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2018-10-23 22:13:49.502  INFO 1991 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-10-23 22:13:49.730  INFO 1991 --- [main] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2018-10-23 22:13:50.063  INFO 1991 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2018-10-23 22:13:50.393  WARN 1991 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2018-10-23 22:13:51.247  INFO 1991 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2018-10-23 22:13:51.301  INFO 1991 --- [main] com.example.demo.ApplicationTests        : Started ApplicationTests in 4.821 seconds (JVM running for 5.516)
+2018-10-23 22:13:51.390  INFO 1991 --- [Thread-5] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2018-10-23 22:13:51.392  INFO 1991 --- [Thread-5] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2018-10-23 22:13:51.394  INFO 1991 --- [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2018-10-23 22:13:51.401  INFO 1991 --- [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

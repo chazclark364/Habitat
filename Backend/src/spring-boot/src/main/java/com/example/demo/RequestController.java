@@ -4,12 +4,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import io.micrometer.core.instrument.util.MediaType;
+import java.util.Collection;
 
 @RestController
 public class RequestController {
 
     @Autowired
     private RequestRepository request;
+    @Autowired
+    private UserRepository users;
+
 
     public RequestController(RequestRepository request){
         this.request = request;
@@ -38,5 +42,29 @@ public class RequestController {
     		return request;
     	}
     }
+    
+    @RequestMapping(path = "/users/{id_users}/requests", method = RequestMethod.GET)
+    public @ResponseBody Collection<Request> getUserRequests(@PathVariable("id_users") Integer id_users, Model model){
+    	
+    	Collection<Request> requests = null;
+    	String type = this.users.findByID(id_users).getUserType();
+    	
+    	if(type.equalsIgnoreCase("tenant")){
+    		requests = this.request.findRequestByRequestee(id_users);
+    		model.addAttribute(requests);
+    	}
+    	else if(type.equalsIgnoreCase("landlord")){
+    		requests = this.request.findRequestByLandlord(id_users);
+    		model.addAttribute(requests);
+    	}
+    	else if(type.equalsIgnoreCase("worker")){
+    		requests = this.request.findRequestByWorker(id_users);
+    		model.addAttribute(requests);
+    	}
+    	
+        return requests;
+    	
+    }
+
     
 }

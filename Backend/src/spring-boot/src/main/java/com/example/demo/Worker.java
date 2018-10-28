@@ -2,7 +2,9 @@ package com.example.demo;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
+import org.springframework.stereotype.Component;
 
+@Component
 @Entity
 @Table(name = "worker")
 public class Worker{
