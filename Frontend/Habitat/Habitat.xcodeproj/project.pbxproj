@@ -17,9 +17,9 @@
 		A9ED5598217533C90085D39E /* RequestDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9ED5597217533C90085D39E /* RequestDetailsViewController.swift */; };
 		A9ED559A217535330085D39E /* RequestCreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9ED5599217535330085D39E /* RequestCreateViewController.swift */; };
 		A9ED559C217536450085D39E /* RequestUpdateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9ED559B217536450085D39E /* RequestUpdateViewController.swift */; };
-		A9ED559E217536B70085D39E /* RequestHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9ED559D217536B70085D39E /* RequestHistoryViewController.swift */; };
 		B815ECB573DE62187B6ED17A /* Pods_HabitatTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E6B535E602E44FDC3C61B2E /* Pods_HabitatTests.framework */; };
 		DA503EC221619F01006EE76F /* MaintenanceRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA503EC121619F01006EE76F /* MaintenanceRequest.swift */; };
+		DA5A0303218BE9FA00A0387C /* RequestHistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5A0302218BE9FA00A0387C /* RequestHistoryTableViewController.swift */; };
 		DA7632272141780B007CA9DC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7632262141780B007CA9DC /* AppDelegate.swift */; };
 		DA76322C2141780B007CA9DC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA76322A2141780B007CA9DC /* Main.storyboard */; };
 		DA76322E2141780E007CA9DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA76322D2141780E007CA9DC /* Assets.xcassets */; };
@@ -69,10 +69,10 @@
 		A9ED5597217533C90085D39E /* RequestDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestDetailsViewController.swift; sourceTree = "<group>"; };
 		A9ED5599217535330085D39E /* RequestCreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestCreateViewController.swift; sourceTree = "<group>"; };
 		A9ED559B217536450085D39E /* RequestUpdateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestUpdateViewController.swift; sourceTree = "<group>"; };
-		A9ED559D217536B70085D39E /* RequestHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestHistoryViewController.swift; sourceTree = "<group>"; };
 		C45A5DA9003E72826D5E9EA3 /* Pods-HabitatUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HabitatUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HabitatUITests/Pods-HabitatUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		CA38BD6AB006EABC04A3A0A2 /* Pods-HabitatTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HabitatTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HabitatTests/Pods-HabitatTests.debug.xcconfig"; sourceTree = "<group>"; };
 		DA503EC121619F01006EE76F /* MaintenanceRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaintenanceRequest.swift; sourceTree = "<group>"; };
+		DA5A0302218BE9FA00A0387C /* RequestHistoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestHistoryTableViewController.swift; sourceTree = "<group>"; };
 		DA7632232141780B007CA9DC /* Habitat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Habitat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA7632262141780B007CA9DC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DA76322B2141780B007CA9DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -149,6 +149,7 @@
 		DA76321A2141780B007CA9DC = {
 			isa = PBXGroup;
 			children = (
+				DAEFE9FB218228AC003BFC8C /* TableViews */,
 				DAC60A54216961E900080A48 /* Views */,
 				DAEC48DF215FEF77002C16B8 /* HabitatObjectModels */,
 				DAEC48DA215FDE1F002C16B8 /* NetworkingAPIs */,
@@ -226,7 +227,6 @@
 				A9ED5597217533C90085D39E /* RequestDetailsViewController.swift */,
 				A9ED5599217535330085D39E /* RequestCreateViewController.swift */,
 				A9ED559B217536450085D39E /* RequestUpdateViewController.swift */,
-				A9ED559D217536B70085D39E /* RequestHistoryViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -246,6 +246,14 @@
 				DA503EC121619F01006EE76F /* MaintenanceRequest.swift */,
 			);
 			path = HabitatObjectModels;
+			sourceTree = "<group>";
+		};
+		DAEFE9FB218228AC003BFC8C /* TableViews */ = {
+			isa = PBXGroup;
+			children = (
+				DA5A0302218BE9FA00A0387C /* RequestHistoryTableViewController.swift */,
+			);
+			path = TableViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -474,6 +482,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA5A0303218BE9FA00A0387C /* RequestHistoryTableViewController.swift in Sources */,
 				DAEC48DC215FDEA7002C16B8 /* HabitatAPI.swift in Sources */,
 				A90E88FB216E86BE004C864E /* ProfileEditViewController.swift in Sources */,
 				A90884DD215C596E005F47AC /* SignupViewController.swift in Sources */,
@@ -482,7 +491,6 @@
 				DA7632272141780B007CA9DC /* AppDelegate.swift in Sources */,
 				DAEC48CD2159DC0B002C16B8 /* ProfileViewController.swift in Sources */,
 				A9ED5598217533C90085D39E /* RequestDetailsViewController.swift in Sources */,
-				A9ED559E217536B70085D39E /* RequestHistoryViewController.swift in Sources */,
 				DAEC48D52159E34F002C16B8 /* FinancialViewController.swift in Sources */,
 				DAEC48D12159E1D5002C16B8 /* MaintenanceRequestViewController.swift in Sources */,
 				A9ED559A217535330085D39E /* RequestCreateViewController.swift in Sources */,

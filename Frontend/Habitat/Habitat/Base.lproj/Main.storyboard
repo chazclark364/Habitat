@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Qmu-bJ-AKd">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Qmu-bJ-AKd">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -307,21 +307,33 @@
             </objects>
             <point key="canvasLocation" x="-3442" y="1385"/>
         </scene>
-        <!--Maintenance Request View Controller-->
-        <scene sceneID="TMe-7F-ShS">
+        <!--Request History Table View Controller-->
+        <scene sceneID="1gG-h2-01g">
             <objects>
-                <viewController id="s4Z-FA-iA5" customClass="MaintenanceRequestViewController" customModule="Habitat" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="vDN-YM-MpM">
+                <tableViewController id="tsx-wc-ed8" customClass="RequestHistoryTableViewController" customModule="Habitat" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="0oA-TD-OR1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="0.72941176470000002" blue="0.36078431370000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="iUi-1A-5Kd"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="" image="tool" id="eTD-VY-r9j"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="exz-55-pxH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="P4t-Dj-ikZ">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="P4t-Dj-ikZ" id="VEi-tl-9zf">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="tsx-wc-ed8" id="lQf-SQ-fm5"/>
+                            <outlet property="delegate" destination="tsx-wc-ed8" id="XS7-Jl-ea4"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IDW-PW-9kV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2972" y="616"/>
+            <point key="canvasLocation" x="-2843" y="623"/>
         </scene>
         <!--Request Details View Controller-->
         <scene sceneID="3ve-pR-8Ve">
@@ -1082,7 +1094,6 @@
                         <segue destination="10B-hc-lTI" kind="relationship" relationship="viewControllers" id="7qF-w1-W4K"/>
                         <segue destination="qz8-lo-5IF" kind="relationship" relationship="viewControllers" id="2LB-q8-Wvt"/>
                         <segue destination="Ocv-pT-bCX" kind="relationship" relationship="viewControllers" id="tqk-tx-SzP"/>
-                        <segue destination="s4Z-FA-iA5" kind="relationship" relationship="viewControllers" id="Qoc-Zd-Avd"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yIg-WZ-XOW" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1095,11 +1106,10 @@
         <image name="home" width="36" height="36"/>
         <image name="money" width="36" height="36"/>
         <image name="profile" width="36" height="36"/>
-        <image name="tool" width="36" height="36"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="5Rn-j6-Z63"/>
         <segue reference="gZv-0k-gHo"/>
-        <segue reference="vgr-eV-Yit"/>
+        <segue reference="Kwz-aC-gg3"/>
     </inferredMetricsTieBreakers>
 </document>
