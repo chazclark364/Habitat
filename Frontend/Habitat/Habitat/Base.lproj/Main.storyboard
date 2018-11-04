@@ -313,7 +313,7 @@
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="tsx-wc-ed8" kind="show" id="SPt-H5-J2b"/>
+                                    <segue destination="tsx-wc-ed8" kind="show" identifier="createToHistory" id="SPt-H5-J2b"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gcR-6h-opc">
@@ -335,6 +335,9 @@
                                 <state key="normal" title="Submit">
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="didPressSubmit:" destination="bx9-rS-9EJ" eventType="touchUpInside" id="vAc-1v-4tL"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please provide a detailed description:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fzq-fj-hlQ">
                                 <rect key="frame" x="40" y="197" width="295" height="21"/>
@@ -373,6 +376,7 @@
                         <viewLayoutGuide key="safeArea" id="bV8-qL-pfG"/>
                     </view>
                     <connections>
+                        <outlet property="descriptionTextView" destination="ljC-SF-ZsD" id="qH2-Xq-4Yx"/>
                         <outlet property="submitButton" destination="HxH-Gp-12b" id="HRp-4N-HM0"/>
                         <outlet property="titleTextField" destination="gcR-6h-opc" id="2Ll-y5-xEA"/>
                     </connections>

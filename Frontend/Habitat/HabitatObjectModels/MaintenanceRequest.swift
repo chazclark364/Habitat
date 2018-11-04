@@ -13,11 +13,11 @@ class MaintenanceRequest: NSObject  {
     var title: String?
     var requestDescription: String?
     var dateRequested: Date?
-    var requestee: String?
-    var landlord: String?
-    var worker: String?
+    var requestee: Int?
+    var landlord: Int?
+    var worker: Int?
     //TODO: Change database to Int
-    var status: Int?
+    var status: String?
  
     //TODO: Create request function
     func requestFromJSON(json: NSDictionary) -> MaintenanceRequest? {
@@ -25,10 +25,9 @@ class MaintenanceRequest: NSObject  {
         request.requestId = json.object(forKey: "requestId") as? Int
         request.title = json.object(forKey: "title") as? String
         request.requestDescription = json.object(forKey: "description") as? String
-        request.dateRequested = json.object(forKey: "date") as? Date
-        request.requestee = json.object(forKey: "requestee") as? String
-        request.landlord = json.object(forKey: "landlord") as? String
-        request.status = json.object(forKey: "status") as? Int
+        request.requestee = json.object(forKey: "requestee") as? Int
+        request.landlord = json.object(forKey: "landlord") as? Int
+        request.status = json.object(forKey: "status") as? String
         return request
     }
     

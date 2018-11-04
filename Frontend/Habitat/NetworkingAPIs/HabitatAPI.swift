@@ -112,6 +112,39 @@ class HabitatAPI {
     }
     
     class RequestAPI {
+        
+        func createRequest(request: MaintenanceRequest?, completion: @escaping (MaintenanceRequest?) -> Void) {
+              var returnedRequest: MaintenanceRequest?
+            
+            let parameters: [String: AnyObject] = [
+                "title" : request?.title as AnyObject,
+                "idRequest" : request?.requestId as AnyObject,
+                "requestee" : request?.requestee as AnyObject,
+                "landlord" : request?.landlord as AnyObject,
+                "description" : request?.requestDescription as AnyObject,
+                "status" : request?.status as AnyObject
+            ]
+            
+            Alamofire.request("http://proj309-pp-01.misc.iastate.edu:8080/request/new", method: .post, parameters: parameters, encoding: JSONEncoding.default)
+                .responseJSON { response in
+                    //See if status is good
+                    switch response.result {
+                    case .success:
+                        print("Validation Successful")
+                    case .failure(let error):
+                        print(error)
+                    }
+                    
+                    if let json = response.result.value {
+                        print("JSON: \(json)") // serialized json response
+                        //TODO: Test new USER to JSON Function
+                        returnedRequest = MaintenanceRequest().requestFromJSON(json: json as! NSDictionary)
+                        completion(returnedRequest)
+                    }
+            }
+            
+        }
+        
         func getRequestForId(userId: Int, completion: @escaping ([MaintenanceRequest]?) -> Void) {
             var request: [MaintenanceRequest]?
             var userURL = "http://proj309-pp-01.misc.iastate.edu:8080/users/\(userId)/requests"
