@@ -19,6 +19,9 @@ import UIKit
 class RequestCreateViewController: UIViewController {
     //TODO: Construct a user object
     
+    @IBOutlet weak var descriptionTextField: UITextField!
+    @IBOutlet weak var titleTextField: UITextField!
+    @IBOutlet weak var submitButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
