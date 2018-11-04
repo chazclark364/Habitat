@@ -18,7 +18,7 @@ class MaintenanceRequest: NSObject  {
     var worker: String?
     //TODO: Change database to Int
     var status: Int?
-    
+ 
     //TODO: Create request function
     func requestFromJSON(json: NSDictionary) -> MaintenanceRequest? {
         let request = MaintenanceRequest()
