@@ -14,6 +14,7 @@
 import Foundation
 import UIKit
 
+
 class RequestDetailsViewController: UIViewController {
     //TODO: Construct a user object
     @IBOutlet weak var stageSubmitted: UIView!
