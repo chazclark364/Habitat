@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArraySet;
 
 import javax.websocket.OnClose;
@@ -23,73 +24,36 @@ import org.springframework.stereotype.Component;
 @ServerEndpoint("/websocket/{username}")
 @Component
 public class WebSocketServer {
-	//Code for notifications here
+	private static Map<Session, String> sessionUsernameMap = new HashMap<>();
+    private static Map<String, Session> usernameSessionMap = new HashMap<>();
 	
+	@OnOpen
+	public void onOpen(Session session, @PathParam("username") String username) throws IOException{
+		sessionUsernameMap.put(session, username);
+        usernameSessionMap.put(username, session);
+
+	}
 	
+	@OnClose
+	public void onClose(Session session) throws IOException{
+		String username = sessionUsernameMap.get(session);
+    	sessionUsernameMap.remove(session);
+    	usernameSessionMap.remove(username);
+	}
 	
+	/*
+	 *   Method used by the PushUpdate class to send a Push alert
+	 *   to members associated with a request that has been updated
+	 *   in the MYSQL database.
+	 */
+	public static void sendRequestUpdate(Integer assoiciatedID){
+		synchronized (usernameSessionMap) {
+			/*for (Map maps : usernameSessionMap) {
+                if (maps.isOpen()) {//Change to user ID stuff
+                    
+                }
+            }*/
+		}
+	}
 	
-	
-	
-	
-	
-	/*private Session session;
-    private static Set<WebSocketServer> chatEndpoints = new CopyOnWriteArraySet<>();
-    private static Map<String, String> users = new HashMap();
-    private final Logger logger = LoggerFactory.getLogger(WebSocketServer.class);
-    
-    @OnOpen
-    public void onOpen(Session session, @PathParam("username") String username) throws IOException {
-        logger.info("Entered into Open");
-		this.session = session;
-        chatEndpoints.add(this);
-        users.put(session.getId(), username);
-        
-        String message="User:" + username +"Has Joined the Chat";
-        	broadcast(message);
-		
-    }
- 
-    @OnMessage
-    public void onMessage(Session session, String message) throws IOException {
-        // Handle new messages
-    	logger.info("Entered into Message: Got Message:"+message);
-    	String echo="This is the received Text:"+message;
-    	sendMessageToPArticularUser(session,echo);
-    	//broadcast(message);
-    }
- 
-    @OnClose
-    public void onClose(Session session) throws IOException{
-    	logger.info("Entered into Close");
-        chatEndpoints.remove(this);
-        String message="Disconnected";
-        broadcast(message);
-    }
- 
-    @OnError
-    public void onError(Session session, Throwable throwable) {
-        // Do error handling here
-    	logger.info("Entered into Error");
-    }
-    
-    private void sendMessageToPArticularUser(Session session,String message) {
-    	try {
-            session.getBasicRemote().sendText(message);
-        } catch (IOException e) {
-        	logger.info("Exception: " + e.getMessage().toString());
-            e.printStackTrace();
-        }
-    }
-    
-    private static void broadcast(String message) throws IOException {
-    	  chatEndpoints.forEach(endpoint -> {
-    		  synchronized (endpoint) {
-    			  try {
-    				  endpoint.session.getBasicRemote().sendText(message);
-    	          } catch (IOException e) {
-    	              e.printStackTrace();
-    	          }
-    	       }
-    	    });
-    }*/
 }
