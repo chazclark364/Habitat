@@ -35,6 +35,9 @@ public class Request {
     @Column(name = "status")
     private String status;
 
+    @Column(name = "last_updated")
+    private Integer last_updated; 
+    
     public Integer getIdRequest() {
         return id_request;
     }
@@ -63,6 +66,9 @@ public class Request {
         return status;
     }
 
+    public Integer getLastUpdated(){
+    	return last_updated;
+    }
 
     public void setIdRequest(Integer id_request) {
         this.id_request = id_request;
@@ -90,5 +96,9 @@ public class Request {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+    
+    public void setLastUpdated(Integer last_updated){
+    	this.last_updated = last_updated;
     }
 }

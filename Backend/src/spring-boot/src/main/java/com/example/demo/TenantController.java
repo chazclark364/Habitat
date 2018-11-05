@@ -24,4 +24,11 @@ class TenantController{
     		return tenant;
     	}
     }
+    
+    @RequestMapping(path = "/tenant/{id_tenant}", method = RequestMethod.GET)
+    public @ResponseBody Tenant getTenantProfile(@PathVariable("id_tenant") Integer id_tenant, Model model){
+    	Tenant tenant = this.tenant.findTenantByID(id_tenant);
+        model.addAttribute(tenant);
+        return tenant;
+    }
 }
