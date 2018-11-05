@@ -9,7 +9,6 @@ import org.springframework.stereotype.Component;
 @Table(name = "worker")
 public class Worker{
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name = "id_worker")
     private Integer id_worker;
 
