@@ -63,7 +63,7 @@ class RequestCreateViewController: UIViewController {
         
         newRequest.requestDescription = descriptionTextView.text
         newRequest.title = titleTextField.text
-        newRequest.status = "In progress"
+        newRequest.status = "Submitted"
         newRequest.requestee = UserDefaults.standard.object(forKey: "userID") as! Int
         newRequest.landlord = UserDefaults.standard.object(forKey: "landlord") as! Int
         

@@ -474,13 +474,41 @@
                     <view key="view" contentMode="scaleToFill" id="9rW-X4-kVH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ser-Sl-s2d">
+                                <rect key="frame" x="33" y="72" width="47" height="49"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="P42-JI-nWm">
+                                <rect key="frame" x="264" y="72" width="47" height="49"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GtO-g5-bb3">
+                                <rect key="frame" x="186" y="72" width="47" height="49"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Py0-cF-WVl">
+                                <rect key="frame" x="111" y="72" width="47" height="49"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="0.72941176470588232" blue="0.36078431372549019" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="JOW-UP-Ia4"/>
                     </view>
+                    <connections>
+                        <outlet property="stageApproved" destination="Py0-cF-WVl" id="Piu-Zf-sWv"/>
+                        <outlet property="stageCompleted" destination="P42-JI-nWm" id="KvN-sw-AEj"/>
+                        <outlet property="stageInProgress" destination="GtO-g5-bb3" id="fEq-QT-0Mg"/>
+                        <outlet property="stageSubmitted" destination="ser-Sl-s2d" id="ss5-JP-15P"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rks-MS-g6A" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2081" y="616"/>
+            <point key="canvasLocation" x="-2082.4000000000001" y="615.74212893553226"/>
         </scene>
         <!--Request Update View Controller-->
         <scene sceneID="3zZ-Dd-QDc">
@@ -1242,9 +1270,10 @@
         <image name="profile" width="36" height="36"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="zKT-Mf-ZBf"/>
-        <segue reference="UGg-YX-57o"/>
-        <segue reference="tiD-tZ-iRa"/>
+        <segue reference="HcT-KV-gt8"/>
+        <segue reference="5Rn-j6-Z63"/>
+        <segue reference="gZv-0k-gHo"/>
+        <segue reference="vgr-eV-Yit"/>
         <segue reference="SPt-H5-J2b"/>
     </inferredMetricsTieBreakers>
 </document>

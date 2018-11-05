@@ -16,11 +16,24 @@ import UIKit
 
 class RequestDetailsViewController: UIViewController {
     //TODO: Construct a user object
+    @IBOutlet weak var stageSubmitted: UIView!
+    @IBOutlet weak var stageInProgress: UIView!
+    @IBOutlet weak var stageApproved: UIView!
+    @IBOutlet weak var stageCompleted: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        stageSubmitted.layer.cornerRadius = 5
+        stageSubmitted.clipsToBounds = true
+        stageInProgress.layer.cornerRadius = 5
+        stageInProgress.clipsToBounds = true
+        stageApproved.layer.cornerRadius = 5
+        stageApproved.clipsToBounds = true
+        stageCompleted.layer.cornerRadius = 5
+        stageCompleted.clipsToBounds = true
     }
+    
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
