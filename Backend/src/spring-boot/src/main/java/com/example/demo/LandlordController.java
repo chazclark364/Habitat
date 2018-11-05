@@ -1,5 +1,7 @@
 package com.example.demo;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -23,5 +25,12 @@ class LandlordController{
     		this.landlord.save(landlord);
     		return landlord;
     	}
+    }
+    
+    @RequestMapping(path = "/landlords/all", method = RequestMethod.GET)
+    public @ResponseBody Collection<Landlord> getAllLandlords(Model model){
+    	Collection<Landlord> landlordList = this.landlord.findAllLandlords();
+        model.addAttribute(landlordList);
+        return landlordList;
     }
 }

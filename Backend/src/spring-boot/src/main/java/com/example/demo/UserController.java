@@ -1,5 +1,7 @@
 package com.example.demo;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -72,6 +74,13 @@ public class UserController {
         return user;
     }
 
+    @RequestMapping(path = "/users/all", method = RequestMethod.GET)
+    public @ResponseBody Collection<User> getAllUsers(Model model){
+    	Collection<User> userList = this.users.findAllUsers();
+        model.addAttribute(userList);
+        return userList;
+    }
+    
     @RequestMapping(path = "/login", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON)
     public @ResponseBody User getUserFromLogin(@RequestBody User user){
     	String email = user.getEmail();
@@ -90,4 +99,5 @@ public class UserController {
     	}
     }
 
+    
 }
