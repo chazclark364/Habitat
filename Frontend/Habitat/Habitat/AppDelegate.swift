@@ -15,6 +15,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        if (UserDefaults.standard.string(forKey: "email") != "" && UserDefaults.standard.string(forKey: "password") != "") {
+            if let email = UserDefaults.standard.string(forKey: "email"), let password = UserDefaults.standard.string(forKey: "password") {
+                HabitatAPI.UserAPI().loginUser(email: email, password: password, completion: {  user in
+                    if let userReturned = user {
+                        UserDefaults.standard.set(userReturned.firstName, forKey: "userFirstName")
+                        UserDefaults.standard.set(userReturned.lastName, forKey:"userLastName")
+                        UserDefaults.standard.set(userReturned.email, forKey: "userEmail")
+                        UserDefaults.standard.set(userReturned.phoneNumber, forKey: "userPhoneNumber")
+                        UserDefaults.standard.set(userReturned.type, forKey: "userType")
+                        UserDefaults.standard.set(userReturned.userId, forKey: "userID")
+                        UserDefaults.standard.set(userReturned.password, forKey: "password")
+                        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                        var profileViewController: ProfileViewController = mainStoryboard.instantiateViewController(withIdentifier: "ProfileController") as! ProfileViewController
+
+                        self.window?.rootViewController = profileViewController
+                        self.window?.makeKeyAndVisible()
+                    }
+                })
+            }
+        }
         // Override point for customization after application launch.
         return true
     }

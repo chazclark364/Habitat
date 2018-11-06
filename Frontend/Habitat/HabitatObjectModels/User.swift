@@ -21,12 +21,13 @@ class User: NSObject  {
     var type: String?
     
     //TODO: This should have an Init function
-    func User(_ iD: Int, _ date: Date,_ fName: String, _ lName: String, _ pNumber: String) {
+    func User(_ iD: Int, _ date: Date,_ fName: String, _ lName: String, _ pNumber: String, pWord: String) {
         userId = iD
         dateCreated = date
         firstName = fName
         lastName = lName
         phoneNumber = pNumber
+        password = pWord
     }
     
 }

@@ -33,6 +33,10 @@ class ProfileViewController: UIViewController {
         getUserInfo()
     }
     
+    @IBAction func logoutAction(_ sender: Any) {
+        UserDefaults.standard.set(false, forKey: "isLoggedIn")
+        clearData()
+    }
     func getUserInfo() {
         var possibleUser: User?
         let userId = UserDefaults.standard.integer(forKey: "userID")
@@ -45,9 +49,20 @@ class ProfileViewController: UIViewController {
                 self.updateDisplay()
             } else {
                 //Alert with error message if anything goes wrong
-                self.present(AlertViews().didNotCreateUserAlert(), animated: true)
+                self.present(AlertViews().errorAlert(msg: "Could not sign up user."), animated: true)
             }
         })
+    }
+    
+    func clearData() {
+        let savedData = UserDefaults.standard
+        savedData.set("", forKey: "userFirstName")
+        savedData.set("", forKey: "userLastName")
+        savedData.set("", forKey: "userEmail")
+        savedData.set("", forKey: "userPhoneNumber")
+        savedData.set("", forKey: "userType")
+        savedData.set("", forKey: "userID")
+        UserDefaults.standard.synchronize()
     }
     
     func saveData(user: User) {
@@ -61,6 +76,7 @@ class ProfileViewController: UIViewController {
         savedData.set(user.phoneNumber, forKey: "userPhoneNumber")
         savedData.set(user.type, forKey: "userType")
         savedData.set(user.userId, forKey: "userID")
+        UserDefaults.standard.synchronize()
     }
     
     func updateDisplay() {
