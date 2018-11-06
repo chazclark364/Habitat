@@ -16,9 +16,6 @@
 		A958D1A32165ABAB00B5D283 /* LeaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A958D1A22165ABAB00B5D283 /* LeaseViewController.swift */; };
 		A99FEF04218FEEB300089A0E /* PasswordChangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99FEF03218FEEB300089A0E /* PasswordChangeViewController.swift */; };
 		A99FEF06218FEEC500089A0E /* LandlordSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99FEF05218FEEC500089A0E /* LandlordSelectViewController.swift */; };
-		A9B1611F2190D9E200118296 /* Landlord.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B1611E2190D9E200118296 /* Landlord.swift */; };
-		A9B161212190E06E00118296 /* Tenant.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B161202190E06E00118296 /* Tenant.swift */; };
-		A9B161232190E07800118296 /* Worker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B161222190E07800118296 /* Worker.swift */; };
 		A9ED5598217533C90085D39E /* RequestDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9ED5597217533C90085D39E /* RequestDetailsViewController.swift */; };
 		A9ED559A217535330085D39E /* RequestCreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9ED5599217535330085D39E /* RequestCreateViewController.swift */; };
 		A9ED559C217536450085D39E /* RequestUpdateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9ED559B217536450085D39E /* RequestUpdateViewController.swift */; };
@@ -26,6 +23,8 @@
 		DA503EC221619F01006EE76F /* MaintenanceRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA503EC121619F01006EE76F /* MaintenanceRequest.swift */; };
 		DA5A0303218BE9FA00A0387C /* RequestHistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5A0302218BE9FA00A0387C /* RequestHistoryTableViewController.swift */; };
 		DA5A03052190C88700A0387C /* Tenant.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5A03042190C88700A0387C /* Tenant.swift */; };
+		DA5A03092191C89100A0387C /* Landlord.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5A03082191C89100A0387C /* Landlord.swift */; };
+		DA5A030B2191C8AC00A0387C /* Worker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5A030A2191C8AB00A0387C /* Worker.swift */; };
 		DA7632272141780B007CA9DC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7632262141780B007CA9DC /* AppDelegate.swift */; };
 		DA76322C2141780B007CA9DC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA76322A2141780B007CA9DC /* Main.storyboard */; };
 		DA76322E2141780E007CA9DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA76322D2141780E007CA9DC /* Assets.xcassets */; };
@@ -85,6 +84,8 @@
 		DA503EC121619F01006EE76F /* MaintenanceRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaintenanceRequest.swift; sourceTree = "<group>"; };
 		DA5A0302218BE9FA00A0387C /* RequestHistoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestHistoryTableViewController.swift; sourceTree = "<group>"; };
 		DA5A03042190C88700A0387C /* Tenant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tenant.swift; sourceTree = "<group>"; };
+		DA5A03082191C89100A0387C /* Landlord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Landlord.swift; sourceTree = "<group>"; };
+		DA5A030A2191C8AB00A0387C /* Worker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Worker.swift; sourceTree = "<group>"; };
 		DA7632232141780B007CA9DC /* Habitat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Habitat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA7632262141780B007CA9DC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DA76322B2141780B007CA9DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -158,6 +159,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		DA5A03072191C76000A0387C /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				A9B161222190E07800118296 /* Worker.swift */,
+				A9B161202190E06E00118296 /* Tenant.swift */,
+				A9B1611E2190D9E200118296 /* Landlord.swift */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
 		DA76321A2141780B007CA9DC = {
 			isa = PBXGroup;
 			children = (
@@ -172,6 +183,7 @@
 				DA7632242141780B007CA9DC /* Products */,
 				1782D6232BB3465D5DFAFA54 /* Pods */,
 				8C9CE741101338C8B536DAA8 /* Frameworks */,
+				DA5A03072191C76000A0387C /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -239,7 +251,6 @@
 				A9ED5597217533C90085D39E /* RequestDetailsViewController.swift */,
 				A9ED5599217535330085D39E /* RequestCreateViewController.swift */,
 				A9ED559B217536450085D39E /* RequestUpdateViewController.swift */,
-				A9ED559D217536B70085D39E /* RequestHistoryViewController.swift */,
 				A99FEF03218FEEB300089A0E /* PasswordChangeViewController.swift */,
 				A99FEF05218FEEC500089A0E /* LandlordSelectViewController.swift */,
 			);
@@ -257,6 +268,8 @@
 		DAEC48DF215FEF77002C16B8 /* HabitatObjectModels */ = {
 			isa = PBXGroup;
 			children = (
+				DA5A030A2191C8AB00A0387C /* Worker.swift */,
+				DA5A03082191C89100A0387C /* Landlord.swift */,
 				DAEC48E0215FF044002C16B8 /* User.swift */,
 				DA503EC121619F01006EE76F /* MaintenanceRequest.swift */,
 				DA5A03042190C88700A0387C /* Tenant.swift */,
@@ -500,14 +513,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA5A030B2191C8AC00A0387C /* Worker.swift in Sources */,
+				DA5A03092191C89100A0387C /* Landlord.swift in Sources */,
 				DA5A0303218BE9FA00A0387C /* RequestHistoryTableViewController.swift in Sources */,
 				DAEC48DC215FDEA7002C16B8 /* HabitatAPI.swift in Sources */,
-				A9B161232190E07800118296 /* Worker.swift in Sources */,
 				A90E88FB216E86BE004C864E /* ProfileEditViewController.swift in Sources */,
 				A90884DD215C596E005F47AC /* SignupViewController.swift in Sources */,
 				A958D1A32165ABAB00B5D283 /* LeaseViewController.swift in Sources */,
 				A90884D9215C5804005F47AC /* LoginViewController.swift in Sources */,
-				A9B161212190E06E00118296 /* Tenant.swift in Sources */,
 				DA7632272141780B007CA9DC /* AppDelegate.swift in Sources */,
 				DAEC48CD2159DC0B002C16B8 /* ProfileViewController.swift in Sources */,
 				A99FEF06218FEEC500089A0E /* LandlordSelectViewController.swift in Sources */,
@@ -522,7 +535,6 @@
 				DADBB81F2152EBF8000C231C /* HomeViewController.swift in Sources */,
 				A9ED559C217536450085D39E /* RequestUpdateViewController.swift in Sources */,
 				A99FEF04218FEEB300089A0E /* PasswordChangeViewController.swift in Sources */,
-				A9B1611F2190D9E200118296 /* Landlord.swift in Sources */,
 				DAEC48CB2159DB89002C16B8 /* ChatHomeViewController.swift in Sources */,
 				A90884DB215C58E8005F47AC /* MainViewController.swift in Sources */,
 			);

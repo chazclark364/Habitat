@@ -15,10 +15,10 @@ class Tenant: NSObject  {
     var residence: String?
     var monthlyRent: Int?
     
-    func Tenant(_ idTenant: Int, _ idLandlord: Int, _ res: String, rent: Int) {
-        tenantId = idTenant
-        landlordId = idLandlord
-        residence = res
-        monthlyRent = rent
+    
+    
+    func tenantFromJSON(json: NSDictionary) -> Tenant {
+        //TODO: parse json object like in User
+        return Tenant()
     }
 }

@@ -108,10 +108,10 @@ class ProfileEditViewController: UIViewController {
         user.password = pWord
         
         if (user.type == "Landlord") {
-            updateLandlord(id: user.userId ?? 0)
+          //  updateLandlord(id: user.userId ?? 0)
         }
         else if (user.type == "Worker") {
-            updateWorker(id: user.userId ?? 0)
+          //  updateWorker(id: user.userId ?? 0)
         }
         
         HabitatAPI.UserAPI().updateUserInfo(user: user, completion: {  user in
@@ -129,39 +129,39 @@ class ProfileEditViewController: UIViewController {
         })
     }
 
-    func updateLandlord(id: Int) {
-        let landlord = Landlord()
-        var possibleLandlord: Landlord?
-        landlord.landlordId = id
-        landlord.address = mutableField.text
-        HabitatAPI.UserAPI().updateLandlord(landlord: landlord, completion: { landlord in
-            possibleLandlord = landlord
-            if let updateLandlord = possibleLandlord {
-                UserDefaults.standard.set(updateLandlord.address, forKey: "landlordAddress")
-                UserDefaults.standard.synchronize()
-            }
-            else {
-                self.present(AlertViews().errorAlert(msg: "Could not update information."), animated: true)
-            }
-        })
-    }
+//    func updateLandlord(id: Int) {
+//        let landlord = Landlord()
+//        var possibleLandlord: Landlord?
+//        landlord.landlordId = id
+//        landlord.address = mutableField.text
+//        HabitatAPI.UserAPI().updateLandlord(landlord: landlord, completion: { landlord in
+//            possibleLandlord = landlord
+//            if let updateLandlord = possibleLandlord {
+//                UserDefaults.standard.set(updateLandlord.address, forKey: "landlordAddress")
+//                UserDefaults.standard.synchronize()
+//            }
+//            else {
+//                self.present(AlertViews().errorAlert(msg: "Could not update information."), animated: true)
+//            }
+//        })
+//    }
     
-    func updateWorker(id: Int) {
-        let worker = Worker()
-        var possibleWorker: Worker?
-        worker.workerId = id
-        worker.company = mutableField.text
-        HabitatAPI.UserAPI().updateWorker(worker: worker, completion: { worker in
-            possibleWorker = worker
-            if let updateWorker = possibleWorker {
-                UserDefaults.standard.set(updateWorker.company, forKey: "workerCompany")
-                UserDefaults.standard.synchronize()
-            }
-            else {
-                self.present(AlertViews().errorAlert(msg: "Could not update information."), animated: true)
-            }
-        })
-    }
+//    func updateWorker(id: Int) {
+//        let worker = Worker()
+//        var possibleWorker: Worker?
+//        worker.workerId = id
+//        worker.company = mutableField.text
+//        HabitatAPI.UserAPI().updateWorker(worker: worker, completion: { worker in
+//            possibleWorker = worker
+//            if let updateWorker = possibleWorker {
+//                UserDefaults.standard.set(updateWorker.company, forKey: "workerCompany")
+//                UserDefaults.standard.synchronize()
+//            }
+//            else {
+//                self.present(AlertViews().errorAlert(msg: "Could not update information."), animated: true)
+//            }
+//        })
+//    }
     
     func updateDisplay() {
         var firstNameString = "Loading..."
