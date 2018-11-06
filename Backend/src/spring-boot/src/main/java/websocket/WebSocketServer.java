@@ -28,26 +28,34 @@ import com.example.demo.Request;
 @ServerEndpoint("/websocket/{id_users}")
 @Component
 public class WebSocketServer {
-	private static Map<Session, String> sessionUsernameMap = new HashMap<>(); //Session is Key, UserID is value
-    private static Map<String, Session> usernameSessionMap = new HashMap<>(); //UserID is Key, Session is value
+	private static Map<Session, Integer> sessionUsernameMap = new HashMap<>(); //Session is Key, UserID is value
+    private static Map<Integer, Session> usernameSessionMap = new HashMap<>(); //UserID is Key, Session is value
     private final Logger logger = LoggerFactory.getLogger(WebSocketServer.class);
     
     @Autowired
     private static RequestRepository requests;
     
 	@OnOpen
-	public void onOpen(Session session, @PathParam("id_users") String id_users) throws IOException{
+	public void onOpen(Session session, @PathParam("id_users") Integer id_users) throws IOException{
 		sessionUsernameMap.put(session, id_users);
         usernameSessionMap.put(id_users, session);
-        logger.info(id_users);
+        logger.info(id_users.toString());
 	}
 	
 	@OnClose
 	public void onClose(Session session) throws IOException{
-		String id_users = sessionUsernameMap.get(session);
+		Integer id_users = sessionUsernameMap.get(session);
     	sessionUsernameMap.remove(session);
     	usernameSessionMap.remove(id_users);
 	}
+	
+	@OnError
+    public void onError(Session session, Throwable throwable) 
+    {
+        // Do error handling here
+    	logger.info("Entered into Error");
+    }
+
 	
 	/*
 	 *   Method used by the PushUpdate class to send a Push alert
@@ -61,7 +69,9 @@ public class WebSocketServer {
 		Request requestChanged = requests.findRequestByID(assoiciatedID);
 		
 		/*
-		 *   The 2 different users to notify on an update to a request
+		 *   The 2 different users to notify on an update to a request.
+		 *   There are only 3 different types of users so at most 2
+		 *   people would need notified.
 		 */
 		Integer notify1 = null;
 		Integer notify2 = null;
