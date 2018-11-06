@@ -27,6 +27,7 @@ class RequestCreateViewController: UIViewController {
         let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap))
         view.addGestureRecognizer(tap)
         submitButton.isEnabled = validation()
+        //TODO: Get TenatnID
     }
     
     override func didReceiveMemoryWarning() {
@@ -40,7 +41,7 @@ class RequestCreateViewController: UIViewController {
 
     private func validation() -> Bool {
         if(titleTextField.text != "" && descriptionTextView.text != "") {
-            if(UserDefaults.standard.object(forKey: "userType") as! String == "tenant") {
+            if(UserDefaults.standard.object(forKey: "userType") as! String == "Tenant") {
                 if(UserDefaults.standard.object(forKey: "landlord") != nil) {
                      return true
                 } else {
@@ -76,9 +77,10 @@ class RequestCreateViewController: UIViewController {
                     //alert user wrong credentials
                 }
             })
+    }
+    func getTenant() {
         
     }
-    
 }
 
 

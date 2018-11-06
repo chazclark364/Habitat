@@ -109,6 +109,30 @@ class HabitatAPI {
             
         }
         
+        func getTenant(userId: Int, completion: @escaping (Tenant?) -> Void) {
+            var returnedTenant: Tenant?
+            var userURL = "http://proj309-pp-01.misc.iastate.edu:8080/tenant/\(userId)"
+            userURL += String(userId)
+            Alamofire.request(userURL)
+                .responseJSON { response in
+                    //See if status is good
+                    switch response.result {
+                    case .success:
+                        print("Validation Successful")
+                    case .failure(let error):
+                        print(error)
+                    }
+                    
+                    if let json = response.result.value {
+                        print("JSON: \(json)") // serialized json response
+                        //TODO: Test new USER to JSON Function
+                        returnedTenant = Tenant().tenantFromJSON(json: json as! NSDictionary)
+                        completion(returnedTenant)
+                    }
+            }
+            
+        }
+        
     }
     
     class RequestAPI {
