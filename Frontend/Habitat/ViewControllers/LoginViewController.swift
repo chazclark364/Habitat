@@ -29,7 +29,7 @@ class LoginViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
+
     }
     
     @objc func handleTap(sender: UITapGestureRecognizer? = nil) {
@@ -52,8 +52,6 @@ class LoginViewController: UIViewController {
         
         emailTextField.resignFirstResponder()
         passwordTextField.resignFirstResponder()
-        //or
-        //self.view.endEditing(true)
         return true
     }
     
@@ -68,22 +66,27 @@ class LoginViewController: UIViewController {
         savedData.set(user.phoneNumber, forKey: "userPhoneNumber")
         savedData.set(user.type, forKey: "userType")
         savedData.set(user.userId, forKey: "userID")
+        savedData.set(passwordTextField.text, forKey: "password")
+        UserDefaults.standard.synchronize()
     }
     
     @IBAction func didPressLogin(_ sender: Any) {
         if let email = emailTextField.text, let password = passwordTextField.text {
             HabitatAPI.UserAPI().loginUser(email: email, password: password, completion: {  user in
                 if let userReturned = user {
+                    userReturned.password = self.passwordTextField.text
                     self.saveData(user: userReturned)
+                    UserDefaults.standard.set(true, forKey: "isLoggedIn")
+                    UserDefaults.standard.synchronize()
                     self.performSegue(withIdentifier: "loginToProfile", sender: nil)
                     //segue
                 } else {
                     //alert user wrong credentials
-                    if ((email.contains("@") == false) || (email.contains(".") == false)) {
-                        self.present(AlertViews().invalidEmail(), animated: true)
+                    if (!((email.contains("@") == true) && (email.contains(".") == true)) /*&& (email.firstIndex(of: "@"). email.firstIndex(of: ".")) && (email.firstIndex(of: ".") != email.count)*/) {
+                        self.present(AlertViews().errorAlert(msg: "Please enter a valid email address."), animated: true)
                     }
                     else {
-                        self.present(AlertViews().didNotLogin(), animated: true)
+                        self.present(AlertViews().errorAlert(msg: "Incorrect email or password."), animated: true)
                     }
                 }
             })

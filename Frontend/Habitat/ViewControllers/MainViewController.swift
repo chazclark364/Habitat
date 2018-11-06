@@ -13,7 +13,12 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if (UserDefaults.standard.bool(forKey: "isLoggedIn") == true) {
+            self.performSegue(withIdentifier: "mainToProfile", sender: nil)
+        }
     }
     
     override func didReceiveMemoryWarning() {
