@@ -17,7 +17,7 @@ class MainViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         if (UserDefaults.standard.bool(forKey: "isLoggedIn") == true) {
-            self.performSegue(withIdentifier: "mainToProfile", sender: nil)
+            self.performSegue(withIdentifier: "mainToHome", sender: nil)
         }
     }
     

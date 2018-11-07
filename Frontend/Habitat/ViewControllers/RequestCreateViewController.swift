@@ -22,6 +22,8 @@ class RequestCreateViewController: UIViewController {
     @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var submitButton: UIButton!
+    var delegate: NotificationDelegate?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap))
@@ -29,6 +31,7 @@ class RequestCreateViewController: UIViewController {
         submitButton.isEnabled = validation()
         //TODO: Get TenatnID
     }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -45,10 +48,9 @@ class RequestCreateViewController: UIViewController {
                 if(UserDefaults.standard.object(forKey: "landlord") != nil) {
                      return true
                 } else {
-                    //TODO: Set "Need a landlord" message
+                    self.present(AlertViews().errorAlert(msg: "Please select your landlord first"), animated: true)
                 }
             }
-           
         }
         return false
     }
@@ -70,11 +72,10 @@ class RequestCreateViewController: UIViewController {
         
             HabitatAPI.RequestAPI().createRequest(request: newRequest,  completion: {  request in
                 if let returnedRequest = request {
-                    //TODO: Add delegation to request
+                    self.delegate?.sendNotification(message: "\(String(describing: UserDefaults.standard.string(forKey: "firstName"))) Created a new Service Request")
                     self.performSegue(withIdentifier: "createToHistory", sender: nil)
-                    //segue
                 } else {
-                    //alert user wrong credentials
+                     self.present(AlertViews().errorAlert(msg: "Sorry, request could not be submitted"), animated: true)
                 }
             })
     }
@@ -82,7 +83,10 @@ class RequestCreateViewController: UIViewController {
         
     }
 }
-
+// MARK: -Notification protocol
+protocol NotificationDelegate {
+    func sendNotification(message: String)
+}
 
 extension RequestCreateViewController {
     func dismissKeyboard() {

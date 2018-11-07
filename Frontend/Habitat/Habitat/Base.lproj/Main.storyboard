@@ -500,6 +500,7 @@
                         <outlet property="descriptionTextView" destination="ljC-SF-ZsD" id="qH2-Xq-4Yx"/>
                         <outlet property="submitButton" destination="HxH-Gp-12b" id="HRp-4N-HM0"/>
                         <outlet property="titleTextField" destination="gcR-6h-opc" id="2Ll-y5-xEA"/>
+                        <segue destination="tsx-wc-ed8" kind="show" identifier="createToHistory" id="vhN-Ex-f2s"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OZ9-aN-thI" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -510,10 +511,10 @@
         <scene sceneID="1gG-h2-01g">
             <objects>
                 <tableViewController title="RequestHistory" id="tsx-wc-ed8" customClass="RequestHistoryTableViewController" customModule="Habitat" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="0oA-TD-OR1">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="0oA-TD-OR1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="1" green="0.72941176470000002" blue="0.36078431370000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" id="a6d-Ch-Beb">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
@@ -531,7 +532,8 @@
                                     </connections>
                                 </button>
                             </subviews>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="backgroundColor" red="1" green="0.72941176470000002" blue="0.36078431370000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstItem="TZf-bY-dkX" firstAttribute="trailing" secondItem="LlR-4g-vey" secondAttribute="trailing" constant="10" id="ZPa-HR-0Dg"/>
                                 <constraint firstItem="LlR-4g-vey" firstAttribute="top" secondItem="a6d-Ch-Beb" secondAttribute="top" constant="5" id="bn4-qe-TYe"/>
@@ -1377,7 +1379,7 @@
                         <viewLayoutGuide key="safeArea" id="kRP-tC-NO2"/>
                     </view>
                     <connections>
-                        <segue destination="qz8-lo-5IF" kind="show" identifier="mainToProfile" id="LKL-YK-0Kb"/>
+                        <segue destination="Ypr-qg-zfd" kind="show" identifier="mainToHome" id="ZlS-t7-IKl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MbH-Gp-dEs" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1522,10 +1524,11 @@
         <image name="profile" width="36" height="36"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="HcT-KV-gt8"/>
         <segue reference="khm-xz-xLu"/>
         <segue reference="gNa-Px-sf0"/>
         <segue reference="qLd-di-FKh"/>
         <segue reference="2LB-q8-Wvt"/>
+        <segue reference="JuX-2x-rQZ"/>
+        <segue reference="vhN-Ex-f2s"/>
     </inferredMetricsTieBreakers>
 </document>
