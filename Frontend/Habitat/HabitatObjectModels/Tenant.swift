@@ -17,8 +17,10 @@ class Tenant: NSObject  {
     
     
     
-    func tenantFromJSON(json: NSDictionary) -> Tenant {
-        //TODO: parse json object like in User
-        return Tenant()
+
+    
+    func tenantFromJSON(json: NSDictionary) -> Tenant? {
+        let tenant = Tenant()
+        return tenant
     }
 }

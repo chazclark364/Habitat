@@ -90,7 +90,7 @@ class HabitatAPI {
                         print("Validation Successful")
                     case .failure(let error):
                         print(error)
-                        AlertViews().errorAlert(msg: error.localizedDescription)
+                        //AlertViews().errorAlert(msg: error.localizedDescription)
                         completion(returnedUser)
                     }
                     
@@ -133,51 +133,51 @@ class HabitatAPI {
             }
         }
         
-//        func updateLandlord(landlord: Landlord, completion: @escaping (Landlord?) -> Void) {
-//            var returnedLandlord: Landlord?
-//            let parameters: [String: AnyObject] = [
-//                "id_landlord" : landlord.landlordId as AnyObject,
-//                "address" : landlord.address as AnyObject ]
-//            let updateURL = "http://proj309-pp-01.misc.iastate.edu:8080/landlord/update/"
-//            Alamofire.request(updateURL, method: .post, parameters: parameters, encoding: JSONEncoding.default)
-//                
-//                .responseJSON { response in
-//                switch response.result {
-//                case .success:
-//                    print("Update Landlord Successful")
-//                case .failure(let error):
-//                    print(error)
-//                }
-//                
-//                if let json = response.result.value {
-//                    print("JSON: \(json)")
-//                    returnedLandlord = self.landlordFromJSON(json: json as! NSDictionary)
-//                    completion(returnedLandlord)
-//                }
-//            }
-//        }
+        func updateLandlord(landlord: Landlord, completion: @escaping (Landlord?) -> Void) {
+            var returnedLandlord: Landlord?
+            let parameters: [String: AnyObject] = [
+                "id_landlord" : landlord.landlordId as AnyObject,
+                "address" : landlord.address as AnyObject ]
+            let updateURL = "http://proj309-pp-01.misc.iastate.edu:8080/landlord/update/"
+            Alamofire.request(updateURL, method: .post, parameters: parameters, encoding: JSONEncoding.default)
+                
+                .responseJSON { response in
+                switch response.result {
+                case .success:
+                    print("Update Landlord Successful")
+                case .failure(let error):
+                    print(error)
+                }
+                
+                if let json = response.result.value {
+                    print("JSON: \(json)")
+                    //returnedLandlord = self.landlordFromJSON(json: json as! NSDictionary)
+                    completion(returnedLandlord)
+                }
+            }
+        }
         
-//        func updateWorker(worker: Worker, completion: @escaping (Worker?) -> Void) {
-//            var returnedWorker: Worker?
-//            let parameters: [String: AnyObject] = [
-//                "id_worker" : worker.workerId as AnyObject,
-//                "company" : worker.company as AnyObject ]
-//            let updateURL = "http://proj309-pp-01.misc.iastate.edu:8080/worker/update/"
-//            Alamofire.request(updateURL, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
-//                switch response.result {
-//                case .success:
-//                    print("Update Worker Successful")
-//                case .failure(let error):
-//                    print(error)
-//                }
-//
-//                if let json = response.result.value {
-//                    print("JSON: \(json)")
-//                    returnedWorker = self.workerFromJSON(json: json as! NSDictionary)
-//                    completion(returnedWorker)
-//                }
-//            }
-//        }
+        func updateWorker(worker: Worker, completion: @escaping (Worker?) -> Void) {
+            var returnedWorker: Worker?
+            let parameters: [String: AnyObject] = [
+                "id_worker" : worker.workerId as AnyObject,
+                "company" : worker.company as AnyObject ]
+            let updateURL = "http://proj309-pp-01.misc.iastate.edu:8080/worker/update/"
+            Alamofire.request(updateURL, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
+                switch response.result {
+                case .success:
+                    print("Update Worker Successful")
+                case .failure(let error):
+                    print(error)
+                }
+
+                if let json = response.result.value {
+                    print("JSON: \(json)")
+                    //returnedWorker = self.workerFromJSON(json: json as! NSDictionary)
+                    completion(returnedWorker)
+                }
+            }
+        }
         
         func getUserInfo(userId: Int, completion: @escaping (User?) -> Void) {
             var returnedUser: User?
@@ -285,26 +285,6 @@ class HabitatAPI {
                         completion(request)
                     }
             }
-            
-        }
-        
-        func landlordFromJSON(json: NSDictionary) -> Landlord? {
-            let landlord = Landlord()
-            landlord.landlordId = json.object(forKey: "id_landlord") as? Int
-            landlord.address = json.object(forKey: "address") as? String
-            return landlord
-        }
-        
-        func workerFromJSON(json: NSDictionary) -> Worker? {
-            let worker = Worker()
-            worker.workerId = json.object(forKey: "id_worker") as? Int
-            worker.company = json.object(forKey: "company") as? String
-            return worker
-        }
-        
-        func tenantFromJSON(json: NSDictionary) -> Tenant? {
-            let tenant = Tenant()
-            return tenant
         }
     }
 }
