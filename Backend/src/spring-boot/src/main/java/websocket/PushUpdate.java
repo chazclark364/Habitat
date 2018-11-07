@@ -24,6 +24,6 @@ public class PushUpdate extends HttpServlet{
 	 */
 	//@Override
 	protected void doGet(@PathParam("requestID") Integer associatedID, HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException{
-		WebSocketServer.sendRequestUpdate(associatedID);
+		//WebSocketServer.sendRequestUpdate(associatedID);
 	}
 }

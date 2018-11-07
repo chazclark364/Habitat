@@ -26,7 +26,6 @@ public class RequestController {
         return request;
     }
     
-    //NEEDS DATE FUNCTIONALITY
     @RequestMapping(method = RequestMethod.POST, path = "/request/new", consumes = MediaType.APPLICATION_JSON)
     public @ResponseBody Request createRequest(@RequestBody Request request){
     	request.setLastUpdated(request.getRequestee());
