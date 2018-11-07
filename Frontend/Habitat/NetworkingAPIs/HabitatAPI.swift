@@ -58,20 +58,6 @@ class HabitatAPI {
             }
         }
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
         func landlordSearch(completion: @escaping ([Landlord]?) -> Void) {
             let landlordURL = "http://proj309-pp-01.misc.iastate.edu:8080/landlords/all"
             Alamofire.request(landlordURL).responseJSON { response in
@@ -88,20 +74,7 @@ class HabitatAPI {
                 }
             }
         }
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+
         func loginUser(email: String, password: String, completion: @escaping (User?) -> Void) {
             var returnedUser: User?
             let parameters: [String: AnyObject] = [
