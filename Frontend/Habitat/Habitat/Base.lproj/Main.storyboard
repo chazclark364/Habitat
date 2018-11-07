@@ -1378,6 +1378,7 @@
                     </view>
                     <connections>
                         <segue destination="qz8-lo-5IF" kind="show" identifier="mainToProfile" id="LKL-YK-0Kb"/>
+                        <segue destination="Ypr-qg-zfd" kind="show" identifier="mainToHome" id="Ptj-Tr-2rd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MbH-Gp-dEs" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1523,7 +1524,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="khm-xz-xLu"/>
-        <segue reference="5Rn-j6-Z63"/>
+        <segue reference="Ptj-Tr-2rd"/>
         <segue reference="UGg-YX-57o"/>
         <segue reference="LKL-YK-0Kb"/>
         <segue reference="uYn-tK-9dS"/>

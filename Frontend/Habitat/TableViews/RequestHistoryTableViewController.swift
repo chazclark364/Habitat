@@ -24,22 +24,22 @@ class RequestHistoryTableViewController: UITableViewController {
     var socket = WebSocket(url: URL(string: "ws://localhost:1337/")!, protocols: ["chat"])
     var message = ""
     
-    
     override func viewDidLoad() {
         socket.delegate = self
         socket.connect()
-        let userId = UserDefaults.standard.object(forKey: "userID")
-        HabitatAPI.RequestAPI().getRequestForId(userId: userId as! Int, completion: { request in
-            if let requestHistory = request {
-                self.request = requestHistory
-                self.tableView.reloadData()
-                //segue
-            } else {
-                //alert user wrong credentials
-//                self.present(AlertViews().didNotLogin(), animated: true)
-            
-            }
-        })
+        if let userId = UserDefaults.standard.object(forKey: "userID") {
+            HabitatAPI.RequestAPI().getRequestForId(userId: userId as! Int, completion: { request in
+                if let requestHistory = request {
+                    self.request = requestHistory
+                    self.tableView.reloadData()
+                    //segue
+                } else {
+                    //alert user wrong credentials
+                    //                self.present(AlertViews().didNotLogin(), animated: true)
+                    
+                }
+            })
+        }
     }
     
     deinit {
