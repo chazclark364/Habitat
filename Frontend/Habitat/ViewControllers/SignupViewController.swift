@@ -132,7 +132,7 @@ class SignupViewController: UIViewController {
                 newUser.password = self.passwordTextField.text
                 self.saveData(user: newUser)
                 UserDefaults.standard.set(true, forKey: "isLoggedIn")
-                self.performSegue(withIdentifier: "signUpToProfile", sender: nil)
+                self.performSegue(withIdentifier: "signUpToHome", sender: nil)
             } else {
                 //Alert with error message if anything goes wrong
                 self.present(AlertViews().errorAlert(msg: "Could not sign up user."), animated: true)

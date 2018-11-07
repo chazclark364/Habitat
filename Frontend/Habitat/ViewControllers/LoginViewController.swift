@@ -78,7 +78,7 @@ class LoginViewController: UIViewController {
                     self.saveData(user: userReturned)
                     UserDefaults.standard.set(true, forKey: "isLoggedIn")
                     UserDefaults.standard.synchronize()
-                    self.performSegue(withIdentifier: "loginToProfile", sender: nil)
+                    self.performSegue(withIdentifier: "loginToHome", sender: nil)
                     //segue
                 } else {
                     //alert user wrong credentials
