@@ -138,6 +138,7 @@ class HabitatAPI {
             let parameters: [String: AnyObject] = [
                 "id_landlord" : landlord.landlordId as AnyObject,
                 "address" : landlord.address as AnyObject ]
+            
             let updateURL = "http://proj309-pp-01.misc.iastate.edu:8080/landlord/update/"
             Alamofire.request(updateURL, method: .post, parameters: parameters, encoding: JSONEncoding.default)
                 
@@ -162,6 +163,7 @@ class HabitatAPI {
             let parameters: [String: AnyObject] = [
                 "id_worker" : worker.workerId as AnyObject,
                 "company" : worker.company as AnyObject ]
+            
             let updateURL = "http://proj309-pp-01.misc.iastate.edu:8080/worker/update/"
             Alamofire.request(updateURL, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
                 switch response.result {
@@ -170,11 +172,36 @@ class HabitatAPI {
                 case .failure(let error):
                     print(error)
                 }
-
+                
                 if let json = response.result.value {
                     print("JSON: \(json)")
                     //returnedWorker = self.workerFromJSON(json: json as! NSDictionary)
                     completion(returnedWorker)
+                }
+            }
+        }
+        
+        func updateTenant(tenant: Tenant, completion: @escaping (Tenant?) -> Void) {
+            var returnedTenant: Tenant?
+            let parameters: [String: AnyObject] = [
+                "id_tenant" : tenant.tenantId as AnyObject,
+                "landlord" : tenant.landlordId as AnyObject,
+                "residence" : tenant.residence as AnyObject,
+                "monthly_rent" : tenant.monthlyRent as AnyObject ]
+            
+            let updateURL = "http://proj309-pp-01.misc.iastate.edu:8080/tenant/update/"
+            Alamofire.request(updateURL, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
+                switch response.result {
+                case .success:
+                    print("Update Tenant Successful")
+                case .failure(let error):
+                    print(error)
+                }
+                
+                if let json = response.result.value {
+                    print("JSON: \(json)")
+                    //returnedWorker = self.workerFromJSON(json: json as! NSDictionary)
+                    completion(returnedTenant)
                 }
             }
         }

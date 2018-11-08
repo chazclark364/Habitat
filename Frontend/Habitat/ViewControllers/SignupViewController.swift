@@ -111,9 +111,6 @@ class SignupViewController: UIViewController {
         }
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    }
-    
     private func createUser() {
         let user = User()
         var possibleUser: User?

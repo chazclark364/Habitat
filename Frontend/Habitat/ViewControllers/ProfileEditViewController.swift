@@ -19,13 +19,33 @@ class ProfileEditViewController: UIViewController {
     @IBOutlet weak var submitButton: UIButton!
     @IBOutlet var profileEditView: UIView!
     @IBOutlet weak var mutableLabel: UILabel!
+    @IBOutlet weak var darkModeButton: UIButton!
+    @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var changePassButton: UIButton!
     @IBOutlet weak var mutableField: UITextField!
     @IBOutlet weak var landlordNameLabel: UILabel!
     var selectedLandlord: Landlord?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        submitButton.isEnabled = false
+        if (UserDefaults.standard.bool(forKey: "darkMode")) {
+            view.backgroundColor = #colorLiteral(red: 0.1568627451, green: 0.1568627451, blue: 0.2352941176, alpha: 1)
+            submitButton.backgroundColor = #colorLiteral(red: 0.2352941176, green: 0.2352941176, blue: 0.3529411765, alpha: 1)
+            buttonSelectLandlord.backgroundColor = #colorLiteral(red: 0.2352941176, green: 0.2352941176, blue: 0.3529411765, alpha: 1)
+            backButton.backgroundColor = #colorLiteral(red: 0.2352941176, green: 0.2352941176, blue: 0.3529411765, alpha: 1)
+            darkModeButton.backgroundColor = #colorLiteral(red: 0.2352941176, green: 0.2352941176, blue: 0.3529411765, alpha: 1)
+            changePassButton.backgroundColor = #colorLiteral(red: 0.2352941176, green: 0.2352941176, blue: 0.3529411765, alpha: 1)
+            darkModeButton.setTitle("Light Mode", for: .normal)
+        }
+        else {
+            view.backgroundColor = #colorLiteral(red: 1, green: 0.7294117647, blue: 0.3607843137, alpha: 1)
+            submitButton.backgroundColor = #colorLiteral(red: 1, green: 0.7916666667, blue: 0.5, alpha: 1)
+            buttonSelectLandlord.backgroundColor = #colorLiteral(red: 1, green: 0.7916666667, blue: 0.5, alpha: 1)
+            backButton.backgroundColor = #colorLiteral(red: 1, green: 0.7916666667, blue: 0.5, alpha: 1)
+            darkModeButton.backgroundColor = #colorLiteral(red: 1, green: 0.7916666667, blue: 0.5, alpha: 1)
+            changePassButton.backgroundColor = #colorLiteral(red: 1, green: 0.7916666667, blue: 0.5, alpha: 1)
+            darkModeButton.setTitle("Dark Mode", for: .normal)
+        }
         submitButton.layer.cornerRadius = 5
         submitButton.clipsToBounds = true
         let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap))
@@ -33,8 +53,34 @@ class ProfileEditViewController: UIViewController {
         getUserInfo()
     }
     
+    @IBAction func darkMode(_ sender: Any) {
+        UserDefaults.standard.set(!UserDefaults.standard.bool(forKey: "darkMode"), forKey: "darkMode")
+        UserDefaults.standard.synchronize()
+        if (UserDefaults.standard.bool(forKey: "darkMode")) {
+            view.backgroundColor = #colorLiteral(red: 0.1568627451, green: 0.1568627451, blue: 0.2352941176, alpha: 1)
+            submitButton.backgroundColor = #colorLiteral(red: 0.2352941176, green: 0.2352941176, blue: 0.3529411765, alpha: 1)
+            buttonSelectLandlord.backgroundColor = #colorLiteral(red: 0.2352941176, green: 0.2352941176, blue: 0.3529411765, alpha: 1)
+            backButton.backgroundColor = #colorLiteral(red: 0.2352941176, green: 0.2352941176, blue: 0.3529411765, alpha: 1)
+            darkModeButton.backgroundColor = #colorLiteral(red: 0.2352941176, green: 0.2352941176, blue: 0.3529411765, alpha: 1)
+            changePassButton.backgroundColor = #colorLiteral(red: 0.2352941176, green: 0.2352941176, blue: 0.3529411765, alpha: 1)
+            darkModeButton.setTitle("Light Mode", for: .normal)
+        }
+        else {
+            view.backgroundColor = #colorLiteral(red: 1, green: 0.7294117647, blue: 0.3607843137, alpha: 1)
+            submitButton.backgroundColor = #colorLiteral(red: 1, green: 0.7916666667, blue: 0.5, alpha: 1)
+            buttonSelectLandlord.backgroundColor = #colorLiteral(red: 1, green: 0.7916666667, blue: 0.5, alpha: 1)
+            backButton.backgroundColor = #colorLiteral(red: 1, green: 0.7916666667, blue: 0.5, alpha: 1)
+            darkModeButton.backgroundColor = #colorLiteral(red: 1, green: 0.7916666667, blue: 0.5, alpha: 1)
+            changePassButton.backgroundColor = #colorLiteral(red: 1, green: 0.7916666667, blue: 0.5, alpha: 1)
+            darkModeButton.setTitle("Dark Mode", for: .normal)
+        }
+    }
+    
     @IBAction func pressedUpdate(_ sender: Any) {
-        updateUserInfo()
+        checkEntries()
+        if (validation()) {
+            updateUserInfo()
+        }
     }
     
     @IBAction func typeChange(_ sender: Any) {
@@ -44,7 +90,8 @@ class ProfileEditViewController: UIViewController {
             mutableField.isHidden = true
             landlordNameLabel.text = UserDefaults.standard.string(forKey: "landlordName") ?? "Not Selected"
             landlordNameLabel.isHidden = false
-            
+            UserDefaults.standard.set("", forKey: "landlordAddress")
+            UserDefaults.standard.set("", forKey: "workerCompany")
         }
         else if (userTypeSegment.selectedSegmentIndex == 1){
             buttonSelectLandlord.isHidden = true
@@ -52,6 +99,10 @@ class ProfileEditViewController: UIViewController {
             mutableLabel.text = "Address"
             landlordNameLabel.text = ""
             landlordNameLabel.isHidden = true
+            UserDefaults.standard.set("", forKey: "workerCompany")
+            UserDefaults.standard.set("", forKey: "tenantLandlordId")
+            UserDefaults.standard.set("", forKey: "tenantResidence")
+            UserDefaults.standard.set("", forKey: "tenantMonthlyRent")
         }
         else {
             buttonSelectLandlord.isHidden = true
@@ -59,7 +110,10 @@ class ProfileEditViewController: UIViewController {
             mutableLabel.text = "Company"
             landlordNameLabel.text = ""
             landlordNameLabel.isHidden = true
-            
+            UserDefaults.standard.set("", forKey: "landlordAddress")
+            UserDefaults.standard.set("", forKey: "tenantLandlordId")
+            UserDefaults.standard.set("", forKey: "tenantResidence")
+            UserDefaults.standard.set("", forKey: "tenantMonthlyRent")
         }
     }
     
@@ -108,61 +162,64 @@ class ProfileEditViewController: UIViewController {
         user.userId = userId
         user.password = pWord
         
-        if (user.type == "Landlord") {
-          //  updateLandlord(id: user.userId ?? 0)
-        }
-        else if (user.type == "Worker") {
-          //  updateWorker(id: user.userId ?? 0)
-        }
-        
         HabitatAPI.UserAPI().updateUserInfo(user: user, completion: {  user in
             possibleUser = user
             if let updateUser = possibleUser {
                 updateUser.password = UserDefaults.standard.string(forKey: "password")
                 self.saveData(user: updateUser)
                 //self.present(AlertViews().updateAlert(msg: "User information updated successfully.", identifier: "editProfileToProfile"), animated: true)
-                self.performSegue(withIdentifier:
-                    "editProfileToProfile", sender: nil)
-
+                if (self.getTypeValue() == "Landlord") {
+                    self.updateLandlordInfo()
+                }
+                else if (self.getTypeValue() == "Worker") {
+                    self.updateWorkerInfo()
+                }
+                else {
+                    self.performSegue(withIdentifier: "editProfileToProfile", sender: nil)
+                }
             } else {
                 self.present(AlertViews().errorAlert(msg: "Could not update information."), animated: true)
             }
         })
     }
-
-//    func updateLandlord(id: Int) {
-//        let landlord = Landlord()
-//        var possibleLandlord: Landlord?
-//        landlord.landlordId = id
-//        landlord.address = mutableField.text
-//        HabitatAPI.UserAPI().updateLandlord(landlord: landlord, completion: { landlord in
-//            possibleLandlord = landlord
-//            if let updateLandlord = possibleLandlord {
-//                UserDefaults.standard.set(updateLandlord.address, forKey: "landlordAddress")
-//                UserDefaults.standard.synchronize()
-//            }
-//            else {
-//                self.present(AlertViews().errorAlert(msg: "Could not update information."), animated: true)
-//            }
-//        })
-//    }
     
-//    func updateWorker(id: Int) {
-//        let worker = Worker()
-//        var possibleWorker: Worker?
-//        worker.workerId = id
-//        worker.company = mutableField.text
-//        HabitatAPI.UserAPI().updateWorker(worker: worker, completion: { worker in
-//            possibleWorker = worker
-//            if let updateWorker = possibleWorker {
-//                UserDefaults.standard.set(updateWorker.company, forKey: "workerCompany")
-//                UserDefaults.standard.synchronize()
-//            }
-//            else {
-//                self.present(AlertViews().errorAlert(msg: "Could not update information."), animated: true)
-//            }
-//        })
-//    }
+    func updateLandlordInfo() {
+        let landlord = Landlord()
+        var possibleLandlord: Landlord?
+        let id = UserDefaults.standard.integer(forKey: "userID")
+        landlord.address = mutableField.text
+        landlord.landlordId = id
+        HabitatAPI.UserAPI().updateLandlord(landlord: landlord, completion: { landlord in
+            possibleLandlord = landlord
+            if let updateLandlord = possibleLandlord {
+                UserDefaults.standard.set(updateLandlord.address, forKey: "landlordAddress")
+                UserDefaults.standard.synchronize()
+                self.performSegue(withIdentifier: "editProfileToProfile", sender: nil)
+            }
+            else {
+                self.present(AlertViews().errorAlert(msg: "Could not update information."), animated: true)
+            }
+        })
+    }
+    
+    func updateWorkerInfo() {
+        let worker = Worker()
+        var possibleWorker: Worker?
+        let id = UserDefaults.standard.integer(forKey: "userID")
+        worker.company = mutableField.text
+        worker.workerId = id
+        HabitatAPI.UserAPI().updateWorker(worker: worker, completion: { worker in
+            possibleWorker = worker
+            if let updateWorker = possibleWorker {
+                UserDefaults.standard.set(updateWorker.company, forKey: "workerCompany")
+                UserDefaults.standard.synchronize()
+                self.performSegue(withIdentifier: "editProfileToProfile", sender: nil)
+            }
+            else {
+                self.present(AlertViews().errorAlert(msg: "Could not update information."), animated: true)
+            }
+        })
+    }
     
     func updateDisplay() {
         var firstNameString = "Loading..."
@@ -170,6 +227,7 @@ class ProfileEditViewController: UIViewController {
         var emailString = "Loading..."
         var phoneString = "Loading..."
         var typeString = "Loading..."
+        var mutableString = "Loading..."
         
         firstNameString = UserDefaults.standard.string(forKey: "userFirstName") ?? "Unknown"
         lastNameString = UserDefaults.standard.string(forKey: "userLastName") ?? "Unknown"
@@ -177,11 +235,21 @@ class ProfileEditViewController: UIViewController {
         phoneString = UserDefaults.standard.string(forKey: "userPhoneNumber") ?? "Unknown"
         typeString = UserDefaults.standard.string(forKey: "userType") ?? "Unknown"
         typeString = typeString.prefix(1).uppercased() + typeString.dropFirst()
+        if (UserDefaults.standard.integer(forKey: "userID") == 1) {
+            mutableString = UserDefaults.standard.string(forKey: "landlordAddress") ?? "Unknown"
+        }
+        else if (UserDefaults.standard.integer(forKey: "userID") == 2) {
+            mutableString = UserDefaults.standard.string(forKey: "workerCompany") ?? "Unknown"
+        }
+        else {
+            mutableString = ""
+        }
         
         firstNameField?.text = firstNameString
         lastNameField?.text = lastNameString
         emailField?.text = emailString
         phoneField?.text = phoneString
+        mutableField?.text = mutableString
         userTypeSegment.selectedSegmentIndex = getSegmentIndex(type: typeString)
         if (userTypeSegment.selectedSegmentIndex == 0) {
             buttonSelectLandlord.isHidden = false
@@ -231,11 +299,17 @@ class ProfileEditViewController: UIViewController {
     }
     
     func updateDisplayValidated() {
-        submitButton.isEnabled = validation()
         dismissKeyboard()
     }
     
-    private func validation() -> Bool {
+    func validation() -> Bool {
+        if(firstNameField.text != "" && lastNameField.text != "" && emailField.text != "" && phoneField.text != "" && phoneField.text?.count == 10 && ((mutableField.text != "" && getTypeValue() != "Tenant") || getTypeValue() == "Tenant")) {
+                return true
+        }
+        return false
+    }
+    
+    private func checkEntries() {
         var msgStr = ""
         if (firstNameField.text == "") {
             msgStr = "Please enter a first name."
@@ -261,13 +335,17 @@ class ProfileEditViewController: UIViewController {
         if (!(CharacterSet.decimalDigits.isSuperset(of: CharacterSet(charactersIn: phoneField.text ?? "Error")))) {
             msgStr = "Please only enter numbers for your phone number."
         }
-        if(firstNameField.text != "" && lastNameField.text != "" && emailField.text != "" && phoneField.text != "" && phoneField.text?.count == 10) {
-            submitButton.isEnabled = true
-            return true
+        if (mutableField.text == "" && getTypeValue() != "Tenant") {
+            if (getTypeValue() == "Landlord") {
+                msgStr = "Please enter an address."
+            }
+            else {
+                msgStr = "Please enter your company."
+            }
         }
-        self.present(AlertViews().errorAlert(msg: msgStr), animated: true)
-        submitButton.isEnabled = false
-        return false
+        if (msgStr != "") {
+            self.present(AlertViews().errorAlert(msg: msgStr), animated: true)
+        }
     }
     
     private func getTypeValue() -> String {

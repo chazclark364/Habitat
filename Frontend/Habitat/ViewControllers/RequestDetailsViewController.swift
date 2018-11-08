@@ -24,6 +24,12 @@ class RequestDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if (UserDefaults.standard.bool(forKey: "darkMode")) {
+            view.backgroundColor = #colorLiteral(red: 0.1568627451, green: 0.1568627451, blue: 0.2352941176, alpha: 1)
+        }
+        else {
+            view.backgroundColor = #colorLiteral(red: 1, green: 0.7294117647, blue: 0.3607843137, alpha: 1)
+        }
         stageSubmitted.layer.cornerRadius = 5
         stageSubmitted.clipsToBounds = true
         stageInProgress.layer.cornerRadius = 5
