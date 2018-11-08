@@ -1,4 +1,4 @@
-package websocket;
+package com.example.demo.websocket;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -11,4 +11,3 @@ public class WebSocketServerApplication {
 		SpringApplication.run(WebSocketServerApplication.class, args);
 	}
 }
-
