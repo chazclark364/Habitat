@@ -23,4 +23,10 @@ class AlertViews: UIAlertController {
         alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
         return alert
     }
+    
+    func notificationAlert(msg: String) -> UIAlertController {
+        let alert = UIAlertController(title: msg, message: "", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+        return alert
+    }
 }

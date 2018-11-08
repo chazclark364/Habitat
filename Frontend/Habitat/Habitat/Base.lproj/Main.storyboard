@@ -593,44 +593,69 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ser-Sl-s2d">
-                                <rect key="frame" x="33" y="72" width="47" height="49"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ser-Sl-s2d">
+                                <rect key="frame" x="40" y="72" width="60" height="49"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="UC5-Qe-Yga"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="P42-JI-nWm">
+                                <rect key="frame" x="280" y="72" width="55" height="49"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="P42-JI-nWm">
-                                <rect key="frame" x="264" y="72" width="47" height="49"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GtO-g5-bb3">
+                                <rect key="frame" x="200" y="72" width="60" height="49"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GtO-g5-bb3">
-                                <rect key="frame" x="186" y="72" width="47" height="49"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Py0-cF-WVl">
-                                <rect key="frame" x="111" y="72" width="47" height="49"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="xeX-HA-z9E"/>
+                                </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ayt-3v-8Cg">
-                                <rect key="frame" x="164" y="307" width="46" height="30"/>
+                                <rect key="frame" x="162" y="307" width="51" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="Update"/>
                                 <connections>
                                     <segue destination="crs-gQ-ucs" kind="show" id="khm-xz-xLu"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TOF-f7-fiP">
-                                <rect key="frame" x="33" y="34" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TOF-f7-fiP">
+                                <rect key="frame" x="30" y="50" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="BML-YP-Ykg"/>
+                                    <constraint firstAttribute="height" constant="30" id="sgs-yp-Hcb"/>
+                                </constraints>
+                                <state key="normal" title="Back"/>
                                 <connections>
-                                    <segue destination="Ypr-qg-zfd" kind="show" id="iQq-3k-U1Q"/>
+                                    <segue destination="tsx-wc-ed8" kind="show" id="CWc-bN-bNJ"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Submitted" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rgg-jm-Md2">
+                                <rect key="frame" x="38" y="159" width="80" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Py0-cF-WVl">
+                                <rect key="frame" x="120" y="72" width="60" height="49"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="rPb-Z1-qs9"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.72941176470588232" blue="0.36078431372549019" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="TOF-f7-fiP" firstAttribute="top" secondItem="JOW-UP-Ia4" secondAttribute="top" constant="30" id="0d5-dE-yZR"/>
+                            <constraint firstItem="ser-Sl-s2d" firstAttribute="leading" secondItem="JOW-UP-Ia4" secondAttribute="leading" constant="40" id="6r4-0k-7LI"/>
+                            <constraint firstItem="ser-Sl-s2d" firstAttribute="top" secondItem="JOW-UP-Ia4" secondAttribute="top" constant="100" id="PUs-Hz-jLu"/>
+                            <constraint firstItem="GtO-g5-bb3" firstAttribute="leading" secondItem="Py0-cF-WVl" secondAttribute="trailing" constant="20" id="YlN-xq-3Fw"/>
+                            <constraint firstItem="P42-JI-nWm" firstAttribute="leading" secondItem="GtO-g5-bb3" secondAttribute="trailing" constant="20" id="jNV-UC-Yjg"/>
+                            <constraint firstItem="JOW-UP-Ia4" firstAttribute="trailing" secondItem="P42-JI-nWm" secondAttribute="trailing" constant="40" id="lSZ-aA-gJP"/>
+                            <constraint firstItem="Py0-cF-WVl" firstAttribute="leading" secondItem="ser-Sl-s2d" secondAttribute="trailing" constant="20" id="lbV-KS-z0Z"/>
+                            <constraint firstItem="TOF-f7-fiP" firstAttribute="leading" secondItem="JOW-UP-Ia4" secondAttribute="leading" constant="30" id="ywh-bz-ndO"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="JOW-UP-Ia4"/>
                     </view>
                     <connections>
@@ -1552,5 +1577,6 @@
         <segue reference="UGg-YX-57o"/>
         <segue reference="LKL-YK-0Kb"/>
         <segue reference="yfV-XQ-E60"/>
+        <segue reference="CWc-bN-bNJ"/>
     </inferredMetricsTieBreakers>
 </document>

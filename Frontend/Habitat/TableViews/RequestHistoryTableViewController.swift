@@ -67,10 +67,36 @@ class RequestHistoryTableViewController: UITableViewController {
         return 1
     }
     
-    
+    func constructNotification() -> String {
+        var notification = String()
+        var type = UserDefaults.standard.string(forKey: "userType")
+        if type == "Tenant" {
+            let landlordId = UserDefaults.standard.string(forKey: "tenantLandlordId")
+            notification += "\(landlordId)"
+            notification += ","
+            //Service worker
+            notification += "1"
+            notification += ","
+            //Title of Notification
+            notification += message
+        } else if type == "Landlord" {
+            let tenantId = UserDefaults.standard.string(forKey: "tenantLandlordId")
+            notification += "\(tenantId)"
+            notification += ","
+            //Service worker
+            notification += "1"
+            notification += ","
+            //Title of Notification
+            notification += message
+        } else {
+            
+        }
+       return notification
+    }
     
     func messageReceived(_ message: String, senderName: String) {
-        //TODO: Display Notification
+        //Display Notification
+        self.present(AlertViews().notificationAlert(msg: message), animated: true)
     }
 
 }
