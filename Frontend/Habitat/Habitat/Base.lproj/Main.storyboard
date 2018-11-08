@@ -390,7 +390,6 @@
                         <outlet property="userTypeSegment" destination="ZGV-bk-Y68" id="e0M-il-Oas"/>
                         <outlet property="view" destination="hGJ-2X-7HK" id="aTy-10-wcR"/>
                         <segue destination="Ypr-qg-zfd" kind="show" identifier="signUpToHome" id="5Rn-j6-Z63"/>
-                        <segue destination="qz8-lo-5IF" kind="show" identifier="signUpToProfile" id="vgr-eV-Yit"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kBh-T2-U6Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1377,8 +1376,7 @@
                         <viewLayoutGuide key="safeArea" id="kRP-tC-NO2"/>
                     </view>
                     <connections>
-                        <segue destination="qz8-lo-5IF" kind="show" identifier="mainToProfile" id="LKL-YK-0Kb"/>
-                        <segue destination="Ypr-qg-zfd" kind="show" identifier="mainToHome" id="Ptj-Tr-2rd"/>
+                        <segue destination="Ypr-qg-zfd" kind="show" identifier="mainToHome" id="a18-wJ-8A2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MbH-Gp-dEs" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1487,7 +1485,6 @@
                         <outlet property="loginView" destination="gmY-62-1PK" id="WqG-EF-058"/>
                         <outlet property="passwordTextField" destination="fna-d5-ElZ" id="99O-HN-cct"/>
                         <segue destination="Ypr-qg-zfd" kind="show" identifier="loginToHome" id="zKT-Mf-ZBf"/>
-                        <segue destination="qz8-lo-5IF" kind="show" identifier="loginToProfile" id="wJI-AW-YHy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zDZ-Vf-jos" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1524,9 +1521,9 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="khm-xz-xLu"/>
-        <segue reference="Ptj-Tr-2rd"/>
-        <segue reference="UGg-YX-57o"/>
-        <segue reference="LKL-YK-0Kb"/>
+        <segue reference="a18-wJ-8A2"/>
+        <segue reference="qLd-di-FKh"/>
+        <segue reference="tiD-tZ-iRa"/>
         <segue reference="uYn-tK-9dS"/>
     </inferredMetricsTieBreakers>
 </document>

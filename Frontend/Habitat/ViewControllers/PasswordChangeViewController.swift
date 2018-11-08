@@ -20,7 +20,7 @@ class PasswordChangeViewController: UIViewController {
         super.viewDidLoad()
         let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap))
         view.addGestureRecognizer(tap)
-        updateButton.isEnabled = false
+        updateButton.isEnabled = validation()
     }
     
     @IBAction func pressedUpdatePassword(_ sender: Any) {

@@ -17,7 +17,6 @@
 		A96D54932192956D00DEC34D /* RequestHistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96D54912192955100DEC34D /* RequestHistoryTableViewController.swift */; };
 		A99FEF04218FEEB300089A0E /* PasswordChangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99FEF03218FEEB300089A0E /* PasswordChangeViewController.swift */; };
 		A99FEF06218FEEC500089A0E /* LandlordSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99FEF05218FEEC500089A0E /* LandlordSelectViewController.swift */; };
-		A9C923B32193523D007CA9BB /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C923B22193523D007CA9BB /* TabViewController.swift */; };
 		A9ED5598217533C90085D39E /* RequestDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9ED5597217533C90085D39E /* RequestDetailsViewController.swift */; };
 		A9ED559A217535330085D39E /* RequestCreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9ED5599217535330085D39E /* RequestCreateViewController.swift */; };
 		A9ED559C217536450085D39E /* RequestUpdateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9ED559B217536450085D39E /* RequestUpdateViewController.swift */; };
@@ -78,7 +77,6 @@
 		A9B1611E2190D9E200118296 /* Landlord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Landlord.swift; sourceTree = "<group>"; };
 		A9B161202190E06E00118296 /* Tenant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tenant.swift; sourceTree = "<group>"; };
 		A9B161222190E07800118296 /* Worker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Worker.swift; sourceTree = "<group>"; };
-		A9C923B22193523D007CA9BB /* TabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
 		A9ED5597217533C90085D39E /* RequestDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestDetailsViewController.swift; sourceTree = "<group>"; };
 		A9ED5599217535330085D39E /* RequestCreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestCreateViewController.swift; sourceTree = "<group>"; };
 		A9ED559B217536450085D39E /* RequestUpdateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestUpdateViewController.swift; sourceTree = "<group>"; };
@@ -263,7 +261,6 @@
 				A9ED559B217536450085D39E /* RequestUpdateViewController.swift */,
 				A99FEF03218FEEB300089A0E /* PasswordChangeViewController.swift */,
 				A99FEF05218FEEC500089A0E /* LandlordSelectViewController.swift */,
-				A9C923B22193523D007CA9BB /* TabViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -524,7 +521,6 @@
 				A90884DD215C596E005F47AC /* SignupViewController.swift in Sources */,
 				A958D1A32165ABAB00B5D283 /* LeaseViewController.swift in Sources */,
 				A90884D9215C5804005F47AC /* LoginViewController.swift in Sources */,
-				A9C923B32193523D007CA9BB /* TabViewController.swift in Sources */,
 				DA7632272141780B007CA9DC /* AppDelegate.swift in Sources */,
 				DAEC48CD2159DC0B002C16B8 /* ProfileViewController.swift in Sources */,
 				A99FEF06218FEEC500089A0E /* LandlordSelectViewController.swift in Sources */,

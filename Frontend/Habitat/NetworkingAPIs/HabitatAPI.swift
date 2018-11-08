@@ -75,7 +75,7 @@ class HabitatAPI {
             }
         }
 
-        func loginUser(email: String, password: String, completion: @escaping (User?) -> Void) {
+        func loginUser(email: String, password: String, viewController: UIViewController, completion: @escaping (User?) -> Void) {
             var returnedUser: User?
             let parameters: [String: AnyObject] = [
                 "email" : email as AnyObject,
@@ -90,7 +90,7 @@ class HabitatAPI {
                         print("Validation Successful")
                     case .failure(let error):
                         print(error)
-                        //AlertViews().errorAlert(msg: error.localizedDescription)
+                        viewController.present(AlertViews().errorAlert(msg: error.localizedDescription), animated: true)
                         completion(returnedUser)
                     }
                     

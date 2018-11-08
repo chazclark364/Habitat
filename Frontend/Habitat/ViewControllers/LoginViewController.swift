@@ -72,7 +72,7 @@ class LoginViewController: UIViewController {
     
     @IBAction func didPressLogin(_ sender: Any) {
         if let email = emailTextField.text, let password = passwordTextField.text {
-            HabitatAPI.UserAPI().loginUser(email: email, password: password, completion: {  user in
+            HabitatAPI.UserAPI().loginUser(email: email, password: password, viewController: self, completion: {  user in
                 if let userReturned = user {
                     userReturned.password = self.passwordTextField.text
                     self.saveData(user: userReturned)
