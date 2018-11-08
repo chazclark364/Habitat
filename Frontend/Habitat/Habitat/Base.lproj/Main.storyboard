@@ -1382,6 +1382,7 @@
                     </view>
                     <connections>
                         <outlet property="backButton" destination="BDY-P6-G9X" id="Dji-Nk-8TU"/>
+                        <outlet property="imageView" destination="eEg-uT-bid" id="6Sd-JR-0y7"/>
                         <outlet property="uploadButton" destination="o1n-N1-pRe" id="qJ6-tm-I58"/>
                     </connections>
                 </viewController>
@@ -1596,7 +1597,7 @@
         <segue reference="eyj-hf-GUo"/>
         <segue reference="gNa-Px-sf0"/>
         <segue reference="qLd-di-FKh"/>
-        <segue reference="Eh1-IB-keK"/>
+        <segue reference="Kwz-aC-gg3"/>
         <segue reference="uYn-tK-9dS"/>
     </inferredMetricsTieBreakers>
 </document>

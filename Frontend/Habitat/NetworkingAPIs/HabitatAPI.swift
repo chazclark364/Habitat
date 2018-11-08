@@ -152,7 +152,7 @@ class HabitatAPI {
                 
                 if let json = response.result.value {
                     print("JSON: \(json)")
-                    //returnedLandlord = self.landlordFromJSON(json: json as! NSDictionary)
+                    returnedLandlord = Landlord().landlordFromJSON(json: json as! NSDictionary)
                     completion(returnedLandlord)
                 }
             }
@@ -175,7 +175,7 @@ class HabitatAPI {
                 
                 if let json = response.result.value {
                     print("JSON: \(json)")
-                    //returnedWorker = self.workerFromJSON(json: json as! NSDictionary)
+                    returnedWorker = Worker().workerFromJSON(json: json as! NSDictionary)
                     completion(returnedWorker)
                 }
             }
