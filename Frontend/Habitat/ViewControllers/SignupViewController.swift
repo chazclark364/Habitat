@@ -58,36 +58,43 @@ class SignupViewController: UIViewController {
     }
     
     private func checkEntries() {
+        var msgStr = ""
         if (fNameTextField.text == "") {
-            self.present(AlertViews().enterFirstName(), animated: true)
+            msgStr = "Please enter a first name."
         }
         if (lNameTextField.text == "") {
-            self.present(AlertViews().enterLastName(), animated: true)
+            msgStr = "Please enter a last name."
         }
         if (emailTextField.text == "") {
-            self.present(AlertViews().enterEmail(), animated: true)
+            msgStr = "Please enter an email address."
         }
-        if (emailTextField.text?.contains("@") == false || emailTextField.text?.contains(".") == false)
-        {
-            self.present(AlertViews().invalidEmail(), animated:  true)
+        if (emailTextField.text?.contains("@") == false || emailTextField.text?.contains(".") == false) {
+            msgStr = "Please enter a valid email address."
         }
         if (passwordTextField.text == "") {
-            self.present(AlertViews().enterPassword(), animated: true)
+            msgStr = "Please enter a password."
         }
         if (rePasswordField.text == "") {
-            self.present(AlertViews().reenterPassword(), animated: true)
+            msgStr = "Please re-enter your password."
         }
         if (passwordTextField.text != rePasswordField.text) {
-            self.present(AlertViews().passwordNoMatch(), animated:  true)
+            msgStr = "Passwords do not match."
         }
         if (pNumberTextField.text == "") {
-            self.present(AlertViews().enterPhoneNumber(), animated: true)
+            msgStr = "Please enter a phone number."
         }
         if (pNumberTextField.text?.count ?? 0 > 10) {
-            self.present(AlertViews().phoneNumberTooLong(), animated:  true)
+            msgStr = "Please verify that your phone number is correct."
         }
         if (pNumberTextField.text?.count ?? 0 < 10) {
-            self.present(AlertViews().phoneNumberTooShort(), animated:  true)
+            msgStr = "Please include an area code on your phone number."
+        }
+        if (!(CharacterSet.decimalDigits.isSuperset(of: CharacterSet(charactersIn: pNumberTextField.text ?? "Error")))) {
+            msgStr = "Please only enter numbers for your phone number."
+        }
+
+        if (msgStr != "") {
+            self.present(AlertViews().errorAlert(msg: msgStr), animated: true)
         }
     }
     
@@ -102,9 +109,6 @@ class SignupViewController: UIViewController {
         default:
             return "Tenant"
         }
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     }
     
     private func createUser() {
@@ -122,12 +126,13 @@ class SignupViewController: UIViewController {
             //Means the creation was succesful
             if let newUser = possibleUser {
                 //Save locally
+                newUser.password = self.passwordTextField.text
                 self.saveData(user: newUser)
-                //Segue into home view or profile view for demo 2
-                self.performSegue(withIdentifier: "signUpToProfile", sender: nil)
+                UserDefaults.standard.set(true, forKey: "isLoggedIn")
+                self.performSegue(withIdentifier: "signUpToHome", sender: nil)
             } else {
                 //Alert with error message if anything goes wrong
-                self.present(AlertViews().didNotCreateUserAlert(), animated: true)
+                self.present(AlertViews().errorAlert(msg: "Could not sign up user."), animated: true)
             }
         })
     }
@@ -143,6 +148,8 @@ class SignupViewController: UIViewController {
         savedData.set(user.phoneNumber, forKey: "userPhoneNumber")
         savedData.set(user.type, forKey: "userType")
         savedData.set(user.userId, forKey: "userID")
+        savedData.set(passwordTextField.text, forKey: "password")
+        UserDefaults.standard.synchronize()
     }
 }
 

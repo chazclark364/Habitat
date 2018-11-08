@@ -14,8 +14,17 @@
 		A90884DD215C596E005F47AC /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90884DC215C596E005F47AC /* SignupViewController.swift */; };
 		A90E88FB216E86BE004C864E /* ProfileEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9546E8721683CEF002FC076 /* ProfileEditViewController.swift */; };
 		A958D1A32165ABAB00B5D283 /* LeaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A958D1A22165ABAB00B5D283 /* LeaseViewController.swift */; };
+		A96D54932192956D00DEC34D /* RequestHistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96D54912192955100DEC34D /* RequestHistoryTableViewController.swift */; };
+		A99FEF04218FEEB300089A0E /* PasswordChangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99FEF03218FEEB300089A0E /* PasswordChangeViewController.swift */; };
+		A99FEF06218FEEC500089A0E /* LandlordSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99FEF05218FEEC500089A0E /* LandlordSelectViewController.swift */; };
+		A9ED5598217533C90085D39E /* RequestDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9ED5597217533C90085D39E /* RequestDetailsViewController.swift */; };
+		A9ED559A217535330085D39E /* RequestCreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9ED5599217535330085D39E /* RequestCreateViewController.swift */; };
+		A9ED559C217536450085D39E /* RequestUpdateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9ED559B217536450085D39E /* RequestUpdateViewController.swift */; };
 		B815ECB573DE62187B6ED17A /* Pods_HabitatTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E6B535E602E44FDC3C61B2E /* Pods_HabitatTests.framework */; };
 		DA503EC221619F01006EE76F /* MaintenanceRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA503EC121619F01006EE76F /* MaintenanceRequest.swift */; };
+		DA5A03052190C88700A0387C /* Tenant.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5A03042190C88700A0387C /* Tenant.swift */; };
+		DA5A03092191C89100A0387C /* Landlord.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5A03082191C89100A0387C /* Landlord.swift */; };
+		DA5A030B2191C8AC00A0387C /* Worker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5A030A2191C8AB00A0387C /* Worker.swift */; };
 		DA7632272141780B007CA9DC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7632262141780B007CA9DC /* AppDelegate.swift */; };
 		DA76322C2141780B007CA9DC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA76322A2141780B007CA9DC /* Main.storyboard */; };
 		DA76322E2141780E007CA9DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA76322D2141780E007CA9DC /* Assets.xcassets */; };
@@ -62,9 +71,21 @@
 		A90884DC215C596E005F47AC /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		A9546E8721683CEF002FC076 /* ProfileEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditViewController.swift; sourceTree = "<group>"; };
 		A958D1A22165ABAB00B5D283 /* LeaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaseViewController.swift; sourceTree = "<group>"; };
+		A96D54912192955100DEC34D /* RequestHistoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestHistoryTableViewController.swift; sourceTree = "<group>"; };
+		A99FEF03218FEEB300089A0E /* PasswordChangeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordChangeViewController.swift; sourceTree = "<group>"; };
+		A99FEF05218FEEC500089A0E /* LandlordSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandlordSelectViewController.swift; sourceTree = "<group>"; };
+		A9B1611E2190D9E200118296 /* Landlord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Landlord.swift; sourceTree = "<group>"; };
+		A9B161202190E06E00118296 /* Tenant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tenant.swift; sourceTree = "<group>"; };
+		A9B161222190E07800118296 /* Worker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Worker.swift; sourceTree = "<group>"; };
+		A9ED5597217533C90085D39E /* RequestDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestDetailsViewController.swift; sourceTree = "<group>"; };
+		A9ED5599217535330085D39E /* RequestCreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestCreateViewController.swift; sourceTree = "<group>"; };
+		A9ED559B217536450085D39E /* RequestUpdateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestUpdateViewController.swift; sourceTree = "<group>"; };
 		C45A5DA9003E72826D5E9EA3 /* Pods-HabitatUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HabitatUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HabitatUITests/Pods-HabitatUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		CA38BD6AB006EABC04A3A0A2 /* Pods-HabitatTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HabitatTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HabitatTests/Pods-HabitatTests.debug.xcconfig"; sourceTree = "<group>"; };
 		DA503EC121619F01006EE76F /* MaintenanceRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaintenanceRequest.swift; sourceTree = "<group>"; };
+		DA5A03042190C88700A0387C /* Tenant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tenant.swift; sourceTree = "<group>"; };
+		DA5A03082191C89100A0387C /* Landlord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Landlord.swift; sourceTree = "<group>"; };
+		DA5A030A2191C8AB00A0387C /* Worker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Worker.swift; sourceTree = "<group>"; };
 		DA7632232141780B007CA9DC /* Habitat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Habitat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA7632262141780B007CA9DC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DA76322B2141780B007CA9DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -138,9 +159,28 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		A96D54902192955100DEC34D /* TableViews */ = {
+			isa = PBXGroup;
+			children = (
+				A96D54912192955100DEC34D /* RequestHistoryTableViewController.swift */,
+			);
+			path = TableViews;
+			sourceTree = "<group>";
+		};
+		DA5A03072191C76000A0387C /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				A9B161222190E07800118296 /* Worker.swift */,
+				A9B161202190E06E00118296 /* Tenant.swift */,
+				A9B1611E2190D9E200118296 /* Landlord.swift */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
 		DA76321A2141780B007CA9DC = {
 			isa = PBXGroup;
 			children = (
+				A96D54902192955100DEC34D /* TableViews */,
 				DAC60A54216961E900080A48 /* Views */,
 				DAEC48DF215FEF77002C16B8 /* HabitatObjectModels */,
 				DAEC48DA215FDE1F002C16B8 /* NetworkingAPIs */,
@@ -151,6 +191,7 @@
 				DA7632242141780B007CA9DC /* Products */,
 				1782D6232BB3465D5DFAFA54 /* Pods */,
 				8C9CE741101338C8B536DAA8 /* Frameworks */,
+				DA5A03072191C76000A0387C /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -215,6 +256,11 @@
 				A90884DC215C596E005F47AC /* SignupViewController.swift */,
 				A958D1A22165ABAB00B5D283 /* LeaseViewController.swift */,
 				A9546E8721683CEF002FC076 /* ProfileEditViewController.swift */,
+				A9ED5597217533C90085D39E /* RequestDetailsViewController.swift */,
+				A9ED5599217535330085D39E /* RequestCreateViewController.swift */,
+				A9ED559B217536450085D39E /* RequestUpdateViewController.swift */,
+				A99FEF03218FEEB300089A0E /* PasswordChangeViewController.swift */,
+				A99FEF05218FEEC500089A0E /* LandlordSelectViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -230,8 +276,11 @@
 		DAEC48DF215FEF77002C16B8 /* HabitatObjectModels */ = {
 			isa = PBXGroup;
 			children = (
+				DA5A030A2191C8AB00A0387C /* Worker.swift */,
+				DA5A03082191C89100A0387C /* Landlord.swift */,
 				DAEC48E0215FF044002C16B8 /* User.swift */,
 				DA503EC121619F01006EE76F /* MaintenanceRequest.swift */,
+				DA5A03042190C88700A0387C /* Tenant.swift */,
 			);
 			path = HabitatObjectModels;
 			sourceTree = "<group>";
@@ -399,12 +448,14 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Habitat/Pods-Habitat-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -462,6 +513,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A96D54932192956D00DEC34D /* RequestHistoryTableViewController.swift in Sources */,
+				DA5A030B2191C8AC00A0387C /* Worker.swift in Sources */,
+				DA5A03092191C89100A0387C /* Landlord.swift in Sources */,
 				DAEC48DC215FDEA7002C16B8 /* HabitatAPI.swift in Sources */,
 				A90E88FB216E86BE004C864E /* ProfileEditViewController.swift in Sources */,
 				A90884DD215C596E005F47AC /* SignupViewController.swift in Sources */,
@@ -469,12 +523,18 @@
 				A90884D9215C5804005F47AC /* LoginViewController.swift in Sources */,
 				DA7632272141780B007CA9DC /* AppDelegate.swift in Sources */,
 				DAEC48CD2159DC0B002C16B8 /* ProfileViewController.swift in Sources */,
+				A99FEF06218FEEC500089A0E /* LandlordSelectViewController.swift in Sources */,
+				A9ED5598217533C90085D39E /* RequestDetailsViewController.swift in Sources */,
 				DAEC48D52159E34F002C16B8 /* FinancialViewController.swift in Sources */,
 				DAEC48D12159E1D5002C16B8 /* MaintenanceRequestViewController.swift in Sources */,
+				A9ED559A217535330085D39E /* RequestCreateViewController.swift in Sources */,
 				DAEC48E1215FF044002C16B8 /* User.swift in Sources */,
+				DA5A03052190C88700A0387C /* Tenant.swift in Sources */,
 				DAC60A562169620E00080A48 /* AlertViews.swift in Sources */,
 				DA503EC221619F01006EE76F /* MaintenanceRequest.swift in Sources */,
 				DADBB81F2152EBF8000C231C /* HomeViewController.swift in Sources */,
+				A9ED559C217536450085D39E /* RequestUpdateViewController.swift in Sources */,
+				A99FEF04218FEEB300089A0E /* PasswordChangeViewController.swift in Sources */,
 				DAEC48CB2159DB89002C16B8 /* ChatHomeViewController.swift in Sources */,
 				A90884DB215C58E8005F47AC /* MainViewController.swift in Sources */,
 			);
@@ -652,7 +712,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = P72BFMED32;
 				INFOPLIST_FILE = Habitat/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -673,7 +733,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = P72BFMED32;
 				INFOPLIST_FILE = Habitat/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

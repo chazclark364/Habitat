@@ -1,5 +1,7 @@
 package com.example.demo;
 
+import java.util.Collection;
+
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.Repository;
 import org.springframework.data.repository.query.Param;
@@ -15,4 +17,8 @@ public interface UserRepository extends Repository<User, Integer>{
     @Query("select u from User u where u.email = :email")
     @Transactional(readOnly = true)
     public User findByEmail(@Param("email") String email);
+    
+    @Query("select u from User u")
+    @Transactional(readOnly = true)
+    public Collection<User> findAllUsers();
 }

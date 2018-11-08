@@ -23,6 +23,12 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if (UserDefaults.standard.bool(forKey: "darkMode")) {
+            view.backgroundColor = #colorLiteral(red: 0.1568627451, green: 0.1568627451, blue: 0.2352941176, alpha: 1)
+        }
+        else {
+            view.backgroundColor = #colorLiteral(red: 1, green: 0.7294117647, blue: 0.3607843137, alpha: 1)
+        }
         // Do any additional setup after loading the view, typically from a nib.
         backgroundBottom.layer.cornerRadius = 24
         backgroundBottom.clipsToBounds = true
@@ -33,6 +39,11 @@ class ProfileViewController: UIViewController {
         getUserInfo()
     }
     
+    @IBAction func logoutAction(_ sender: Any) {
+        UserDefaults.standard.set(false, forKey: "isLoggedIn")
+        UserDefaults.standard.set(false, forKey: "darkMode")
+        clearData()
+    }
     func getUserInfo() {
         var possibleUser: User?
         let userId = UserDefaults.standard.integer(forKey: "userID")
@@ -45,9 +56,20 @@ class ProfileViewController: UIViewController {
                 self.updateDisplay()
             } else {
                 //Alert with error message if anything goes wrong
-                self.present(AlertViews().didNotCreateUserAlert(), animated: true)
+                self.present(AlertViews().errorAlert(msg: "Could not sign up user."), animated: true)
             }
         })
+    }
+    
+    func clearData() {
+        let savedData = UserDefaults.standard
+        savedData.set("", forKey: "userFirstName")
+        savedData.set("", forKey: "userLastName")
+        savedData.set("", forKey: "userEmail")
+        savedData.set("", forKey: "userPhoneNumber")
+        savedData.set("", forKey: "userType")
+        savedData.set("", forKey: "userID")
+        UserDefaults.standard.synchronize()
     }
     
     func saveData(user: User) {
@@ -61,6 +83,7 @@ class ProfileViewController: UIViewController {
         savedData.set(user.phoneNumber, forKey: "userPhoneNumber")
         savedData.set(user.type, forKey: "userType")
         savedData.set(user.userId, forKey: "userID")
+        UserDefaults.standard.synchronize()
     }
     
     func updateDisplay() {

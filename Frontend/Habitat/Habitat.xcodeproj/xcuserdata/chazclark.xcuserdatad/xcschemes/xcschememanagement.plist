@@ -9,6 +9,29 @@
 			<key>orderHint</key>
 			<integer>4</integer>
 		</dict>
+		<key>Habitat.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>5</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>DA7632222141780B007CA9DC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DA7632362141780E007CA9DC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DA7632412141780E007CA9DC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 	</dict>
 </dict>
 </plist>
