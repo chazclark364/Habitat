@@ -28,14 +28,15 @@ class RequestHistoryTableViewController: UITableViewController {
     //ws://localhost:8080/websocket/userId
     
    
-    var socket = WebSocket(url: URL(string: "ws://localhost:8080/websocket/")!, protocols: nil)
+    var socket = WebSocket(url: URL(string: "ws://proj309-pp-01.misc.iastate.edu:8080/websocket/")!, protocols: nil)
     var message = ""
     
     
     override func viewDidLoad() {
         var userId = (UserDefaults.standard.string(forKey: "userID"))
-        var urlStr = "ws://localhost:8080/websocket/"
-        socket = WebSocket(url: URL(string: urlStr)!, protocols: [userId?.description ?? "0"] )
+        var urlStr = "ws://proj309-pp-01.misc.iastate.edu:8080/websocket/"
+        urlStr += userId?.description ?? "0"
+        socket = WebSocket(url: URL(string: urlStr)!, protocols: [])
         if (UserDefaults.standard.bool(forKey: "darkMode")) {
             view.backgroundColor = #colorLiteral(red: 0.1568627451, green: 0.1568627451, blue: 0.2352941176, alpha: 1)
             tbView.backgroundColor = #colorLiteral(red: 0.1568627451, green: 0.1568627451, blue: 0.2352941176, alpha: 1)
