@@ -9,9 +9,9 @@
 import Foundation
 import UIKit
 
-class LandlordSelectViewController: UIViewController, UITableViewDataSource {
+class LandlordSelectViewController: UITableViewController {
     
-    @IBOutlet weak var tableView: UITableView!
+  //  @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var topView: UIView!
 
     var landlords: [Landlord]?
@@ -38,11 +38,11 @@ class LandlordSelectViewController: UIViewController, UITableViewDataSource {
         })
     }
       
-    func numberOfSections(in tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let count = landlords?.count {
             return count - 1
         } else {
@@ -50,14 +50,14 @@ class LandlordSelectViewController: UIViewController, UITableViewDataSource {
         }
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell")! //1.
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell() //1.
         
         let landLord = landlords?[indexPath.row] //2.
         
         var possibleUser: User?
         let userId = landLord?.landlordId
-        
+        cell.textLabel?.text = userId?.description
         HabitatAPI.UserAPI().getUserInfo(userId: userId ?? 0, completion: {  user in
             possibleUser = user
             //Means the creation was succesful
@@ -85,18 +85,16 @@ class LandlordSelectViewController: UIViewController, UITableViewDataSource {
         
         return cell //4.
     }
-    
-     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selected = landlords?[indexPath.row]
         let landlordId = selected?.landlordId
-
+        
         let tenant = Tenant()
         var possibleTenant: Tenant?
         tenant.tenantId = UserDefaults.standard.integer(forKey: "userID")
         tenant.landlordId = selected?.landlordId
         tenant.monthlyRent = 309
-        tenant.residence = "Undefined"
+        tenant.residence = "123"
         
         HabitatAPI.UserAPI().updateTenant(tenant: tenant, completion: { tenant in
             possibleTenant = tenant
@@ -127,6 +125,7 @@ class LandlordSelectViewController: UIViewController, UITableViewDataSource {
         })
         self.performSegue(withIdentifier: "landlordSelectToProfile", sender: nil)
     }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

@@ -21,6 +21,9 @@ class RequestDetailsViewController: UIViewController {
     @IBOutlet weak var stageInProgress: UIView!
     @IBOutlet weak var stageApproved: UIView!
     @IBOutlet weak var stageCompleted: UIView!
+    var servicerRequest = MaintenanceRequest()
+    var nextStatus = String()
+    var updatedRequest: MaintenanceRequest?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +41,7 @@ class RequestDetailsViewController: UIViewController {
         stageApproved.clipsToBounds = true
         stageCompleted.layer.cornerRadius = 5
         stageCompleted.clipsToBounds = true
+        setProgressBar()
     }
     
     
@@ -45,5 +49,65 @@ class RequestDetailsViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func setProgressBar() {
+        let status = servicerRequest.status
+        if status == "Approved" {
+            stageApproved.backgroundColor = UIColor.blue
+        } else if status == "In Progress" {
+            stageApproved.backgroundColor = UIColor.blue
+            stageInProgress.backgroundColor = UIColor.blue
+        } else if status != "Submitted" {
+            stageApproved.backgroundColor = UIColor.blue
+            stageInProgress.backgroundColor = UIColor.blue
+            stageCompleted.backgroundColor = UIColor.blue
+        }
+    }
+    
+    func validation() -> Bool {
+        if(UserDefaults.standard.object(forKey: "userType") as? String == "Tenant") {
+            return false
+        }
+        if(UserDefaults.standard.object(forKey: "userType") as? String == "Landlord") &&  servicerRequest.status == "Submitted"{
+            servicerRequest.status = "Approved"
+            return true
+        }
+        if(UserDefaults.standard.object(forKey: "userType") as? String == "Worker") &&  servicerRequest.status == "In Progress"{
+             servicerRequest.status = "Completed"
+            return true
+        }
+
+        return false
+    }
+    
+    @IBAction func didPressUpdate(_ sender: Any) {
+        if(validation()) {
+            
+            let id = UserDefaults.standard.object(forKey: "userId") as? Int
+            HabitatAPI.RequestAPI().updateRequest(userId: id ?? 0, request: servicerRequest, completion: { serviceRequest in
+            if let requestUpdated = serviceRequest {
+                self.updatedRequest = requestUpdated
+                self.setServiceRequest(service: requestUpdated)
+                self.performSegue(withIdentifier: "updateToHistory", sender: nil)
+                //segue
+            } else {
+                //Or set a label stating there are no request
+                self.present(AlertViews().errorAlert(msg: "You're not allowed to update"), animated: true)
+            }
+        })
+            
+        }
+    }
+}
+
+extension RequestDetailsViewController: RequestDelegate {
+    func setServiceRequest(service: MaintenanceRequest) {
+        self.servicerRequest = service
+    }
+}
+extension RequestDetailsViewController: SelectedRequestDelegate {
+    func selectedRequest(service: MaintenanceRequest?) {
+        self.servicerRequest = service ?? MaintenanceRequest()
     }
 }

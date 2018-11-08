@@ -18,18 +18,24 @@ class RequestHistoryCell: UITableViewCell {
 }
 
 class RequestHistoryTableViewController: UITableViewController {
-    var request: [MaintenanceRequest]?
+    var requests: [MaintenanceRequest]?
     //Initialize WebSocket
     //Change protocal as needed
-    var userId = (String(describing: UserDefaults.standard.string(forKey: "userID")))
-
+   
+    var delagate: SelectedRequestDelegate?
     @IBOutlet weak var topView: UIView!
     @IBOutlet var tbView: UITableView!
     //ws://localhost:8080/websocket/userId
-    var socket = WebSocket(url: URL(string: "ws://localhost:8080/websocket/\(String(describing: UserDefaults.standard.string(forKey: "firstName")))")!, protocols: ["chat"])
+    
+   
+    var socket = WebSocket(url: URL(string: "ws://localhost:8080/websocket/")!, protocols: nil)
     var message = ""
     
+    
     override func viewDidLoad() {
+        var userId = (UserDefaults.standard.string(forKey: "userID"))
+        var urlStr = "ws://localhost:8080/websocket/"
+        socket = WebSocket(url: URL(string: urlStr)!, protocols: [userId?.description ?? "0"] )
         if (UserDefaults.standard.bool(forKey: "darkMode")) {
             view.backgroundColor = #colorLiteral(red: 0.1568627451, green: 0.1568627451, blue: 0.2352941176, alpha: 1)
             tbView.backgroundColor = #colorLiteral(red: 0.1568627451, green: 0.1568627451, blue: 0.2352941176, alpha: 1)
@@ -42,11 +48,12 @@ class RequestHistoryTableViewController: UITableViewController {
         }
         socket.delegate = self
         socket.connect()
-        if let userId = UserDefaults.standard.object(forKey: "userID") {
-            HabitatAPI.RequestAPI().getRequestForId(userId: userId as! Int, completion: { request in
+        if let userId = UserDefaults.standard.object(forKey: "userID") as? Int{
+            HabitatAPI.RequestAPI().getRequestForId(userId: userId, completion: { request in
                 if let requestHistory = request {
-                    self.request = requestHistory
+                    self.requests = requestHistory
                     self.tableView.reloadData()
+                    self.tableView.dataSource = self
                     //segue
                 } else {
                     //Or set a label stating there are no request
@@ -54,6 +61,7 @@ class RequestHistoryTableViewController: UITableViewController {
                 }
             })
         }
+        sendNotification(message: "")
     }
     
     deinit {
@@ -62,13 +70,17 @@ class RequestHistoryTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return request?.count ?? 0
+        if let count = requests?.count {
+            return count - 1
+        } else {
+            return 0
+        }
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "requestHistoryCell", for: indexPath) as! RequestHistoryCell
         
-            let maintenace = request?[indexPath.row]
+            let maintenace = requests?[indexPath.row]
             cell.titleLabel?.text = maintenace?.title
             cell.descriptionLabel?.text = maintenace?.requestDescription
      
@@ -78,6 +90,18 @@ class RequestHistoryTableViewController: UITableViewController {
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
+    
+   override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
+    {
+        return 100.0;
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let maintenace = requests?[indexPath.row]
+        delagate?.selectedRequest(service: maintenace)
+        RequestDetailsViewController().servicerRequest = maintenace ?? MaintenanceRequest()
+    }
+
     
     func constructNotification() -> String {
         var notification = String()
@@ -115,7 +139,9 @@ class RequestHistoryTableViewController: UITableViewController {
 // MARK: - WebSocketDelegate
 extension RequestHistoryTableViewController : WebSocketDelegate {
     func websocketDidConnect(socket: WebSocketClient) {
-        socket.write(string: UserDefaults.standard.string(forKey: "userId") ?? "Error")
+        print("Websoccket connected")
+        self.message = ""
+        socket.write(string: constructNotification())
     }
     
     func websocketDidDisconnect(socket: WebSocketClient, error: Error?) {
@@ -149,8 +175,12 @@ extension RequestHistoryTableViewController : WebSocketDelegate {
 // MARK: - notificationDelegate
 extension RequestHistoryTableViewController: NotificationDelegate {
     func sendNotification(message: String) {
-        socket.write(string: message)
+        self.message = message
+        socket.write(string: constructNotification())
     }
-    
+}
+
+protocol SelectedRequestDelegate {
+    func selectedRequest(service: MaintenanceRequest?)
 }
 //User 1, user 2, title of request (with no request)

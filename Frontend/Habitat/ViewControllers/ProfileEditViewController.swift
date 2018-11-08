@@ -177,7 +177,7 @@ class ProfileEditViewController: UIViewController {
                     self.updateWorkerInfo()
                 }
                 else {
-                    self.performSegue(withIdentifier: "editProfileToProfile", sender: nil)
+                    self.performSegue(withIdentifier: "editToHome", sender: nil)
                 }
             } else {
                 self.present(AlertViews().errorAlert(msg: "Could not update information."), animated: true)

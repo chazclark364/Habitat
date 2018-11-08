@@ -26,6 +26,7 @@ class RequestCreateViewController: UIViewController {
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var submitButton: UIButton!
     var delegate: NotificationDelegate?
+    var serviceDelegate: RequestDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,6 +47,7 @@ class RequestCreateViewController: UIViewController {
         let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap))
         view.addGestureRecognizer(tap)
         submitButton.isEnabled = validation()
+        
         //TODO: Get TenatnID
     }
     
@@ -62,7 +64,7 @@ class RequestCreateViewController: UIViewController {
     private func validation() -> Bool {
         if(titleTextField.text != "" && descriptionTextView.text != "") {
             if(UserDefaults.standard.object(forKey: "userType") as! String == "Tenant") {
-                if(UserDefaults.standard.object(forKey: "landlord") != nil) {
+                if(UserDefaults.standard.object(forKey: "tenantLandlordId") != nil) {
                      return true
                 } else {
                     self.present(AlertViews().errorAlert(msg: "Please select your landlord first"), animated: true)
@@ -84,13 +86,17 @@ class RequestCreateViewController: UIViewController {
         newRequest.requestDescription = descriptionTextView.text
         newRequest.title = titleTextField.text
         newRequest.status = "Submitted"
-        newRequest.requestee = UserDefaults.standard.object(forKey: "userID") as! Int
-        newRequest.landlord = UserDefaults.standard.object(forKey: "landlord") as! Int
+        newRequest.requestee = UserDefaults.standard.object(forKey: "userID") as? Int
+        newRequest.landlord = UserDefaults.standard.object(forKey: "tenantLandlordId") as? Int
         
             HabitatAPI.RequestAPI().createRequest(request: newRequest,  completion: {  request in
                 if let returnedRequest = request {
-                    self.delegate?.sendNotification(message: "\(String(describing: UserDefaults.standard.string(forKey: "firstName"))) Created a new Service Request")
-                    self.performSegue(withIdentifier: "createToHistory", sender: nil)
+                    //TODO: Check function
+                    self.delegate?.sendNotification(message: "There is a new Request")
+                    RequestHistoryTableViewController().sendNotification(message: "There is a new Request")
+                    //Sending request?
+                    self.serviceDelegate?.setServiceRequest(service: returnedRequest)
+                    self.performSegue(withIdentifier: "createToHistory", sender: returnedRequest)
                 } else {
                      self.present(AlertViews().errorAlert(msg: "Sorry, request could not be submitted"), animated: true)
                 }
@@ -103,6 +109,11 @@ class RequestCreateViewController: UIViewController {
 // MARK: -Notification protocol
 protocol NotificationDelegate {
     func sendNotification(message: String)
+}
+
+// MARK: -Request protocol
+protocol RequestDelegate {
+    func setServiceRequest(service: MaintenanceRequest)
 }
 
 extension RequestCreateViewController {
