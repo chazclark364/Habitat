@@ -18,7 +18,7 @@ public class Tenant {
     private Integer landlord;
 
     @Column(name = "residence")
-    private String residence;
+    private Integer residence;
 
     @Column(name = "monthly_rent")
     private Integer monthly_rent;
@@ -39,11 +39,11 @@ public class Tenant {
         this.landlord = landlord;
     }
 
-    public String getResidence(){
+    public Integer getResidence(){
         return this.residence;
     }
 
-    public void setResidence(String residence){
+    public void setResidence(Integer residence){
         this.residence = residence;
     }
 
