@@ -61,13 +61,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N5u-NJ-znC">
-                                <rect key="frame" x="15" y="36" width="54" height="36"/>
+                                <rect key="frame" x="15" y="36" width="68" height="36"/>
                                 <color key="backgroundColor" red="1" green="0.79166666669999997" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="54" id="u3x-Cb-1nH"/>
+                                    <constraint firstAttribute="width" constant="70" id="u3x-Cb-1nH"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="Back">
+                                <state key="normal" title="Cancel">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -132,7 +132,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wi6-Zl-IKr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5679" y="616"/>
+            <point key="canvasLocation" x="-5679.1999999999998" y="615.74212893553226"/>
         </scene>
         <!--ChatHome-->
         <scene sceneID="99J-Cf-oVv">
@@ -697,17 +697,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="koS-ns-jFX">
-                                <rect key="frame" x="15" y="35" width="54" height="36"/>
+                                <rect key="frame" x="15" y="35" width="70" height="36"/>
                                 <color key="backgroundColor" red="1" green="0.79166666669999997" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="54" id="lrt-jS-vW4"/>
+                                    <constraint firstAttribute="width" constant="70" id="lrt-jS-vW4"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="Back">
+                                <state key="normal" title="Cancel">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="qz8-lo-5IF" kind="show" id="0Bf-d1-jKb"/>
+                                    <segue destination="Ypr-qg-zfd" kind="show" id="jd7-St-cf3"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ewc-Va-ApU">
@@ -1595,9 +1595,9 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="eyj-hf-GUo"/>
-        <segue reference="gNa-Px-sf0"/>
+        <segue reference="jd7-St-cf3"/>
         <segue reference="qLd-di-FKh"/>
-        <segue reference="Kwz-aC-gg3"/>
+        <segue reference="2LB-q8-Wvt"/>
         <segue reference="uYn-tK-9dS"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -21,8 +21,6 @@ class LandlordSelectViewController: UIViewController, UITableViewDataSource {
         if (UserDefaults.standard.bool(forKey: "darkMode")) {
             view.backgroundColor = #colorLiteral(red: 0.1568627451, green: 0.1568627451, blue: 0.2352941176, alpha: 1)
             topView.backgroundColor = #colorLiteral(red: 0.2352941176, green: 0.2352941176, blue: 0.3529411765, alpha: 1)
-
-
         }
         else {
             view.backgroundColor = #colorLiteral(red: 1, green: 0.7294117647, blue: 0.3607843137, alpha: 1)
@@ -38,14 +36,6 @@ class LandlordSelectViewController: UIViewController, UITableViewDataSource {
                 self.present(AlertViews().errorAlert(msg: "There are no avilible landlords."), animated: true)
             }
         })
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destVC : ProfileEditViewController = segue.destination as! ProfileEditViewController
-        destVC.selectedLandlord = sender as? Landlord
-        //if let selected = selectedLandlord {
-        //    self.performSegue(withIdentifier: "landLordSelectionToEdit", sender: selected)
-        //}
     }
       
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -74,12 +64,12 @@ class LandlordSelectViewController: UIViewController, UITableViewDataSource {
             if let newUser = possibleUser {
                 //Save locally
                 var landlordString = "Loading..."
-                landlordString = newUser.firstName ?? " "
+                landlordString = newUser.firstName ?? ""
                 landlordString += " "
-                landlordString += newUser.lastName ?? " "
+                landlordString += newUser.lastName ?? ""
                 landlordString += " ("
                 if (landLord?.address != nil) {
-                    landlordString += landLord?.address ?? " "
+                    landlordString += landLord?.address ?? ""
                 }
                 else {
                     landlordString += "No Address"
@@ -99,41 +89,40 @@ class LandlordSelectViewController: UIViewController, UITableViewDataSource {
      func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         let selected = landlords?[indexPath.row]
-        UserDefaults.standard.set(selected?.landlordId, forKey: "tenantLandlordId")
-        UserDefaults.standard.synchronize()
-        getLandlordInfo()
-    }
-    
-    func getLandlordInfo() {
+        let landlordId = selected?.landlordId
+
         let tenant = Tenant()
-        var possibleUser: User?
-        tenant.landlordId = UserDefaults.standard.integer(forKey: "tenantLandlordId")
-        tenant.tenantId = UserDefaults.standard.integer(forKey: "userId")
+        var possibleTenant: Tenant?
+        tenant.tenantId = UserDefaults.standard.integer(forKey: "userID")
+        tenant.landlordId = selected?.landlordId
         tenant.monthlyRent = 309
         tenant.residence = "Undefined"
-        var possibleTenant: Tenant?
-        let landlordId = UserDefaults.standard.integer(forKey: "tenantLandlordId")
+        
         HabitatAPI.UserAPI().updateTenant(tenant: tenant, completion: { tenant in
             possibleTenant = tenant
-            if let newTenant = possibleTenant {
-                
+            if let updateTenant = possibleTenant {
+                UserDefaults.standard.set(updateTenant.landlordId, forKey: "tenantLandlordId")
+                UserDefaults.standard.synchronize()
             }
             else {
-                
+                self.present(AlertViews().errorAlert(msg: "Could not update information."), animated: true)
             }
         })
-        HabitatAPI.UserAPI().getUserInfo(userId: landlordId, completion: {  user in
+        
+        var possibleUser: User?
+        HabitatAPI.UserAPI().getUserInfo(userId: UserDefaults.standard.integer(forKey: "tenantLandlordId"), completion: {  user in
             possibleUser = user
             //Means the creation was succesful
             if let newUser = possibleUser {
-                var landlordName: String
-                landlordName = newUser.firstName ?? " "
-                landlordName += " "
-                landlordName += newUser.lastName ?? " "
-                UserDefaults.standard.set(landlordName, forKey: "landlordName")
-                UserDefaults.standard.synchronize()
+                //Save locally
+                var landlordString = ""
+                landlordString = newUser.firstName ?? ""
+                landlordString += " "
+                landlordString += newUser.lastName ?? ""
+                UserDefaults.standard.set(landlordString, forKey: "landlordName")
             } else {
-                self.present(AlertViews().errorAlert(msg: "Could not get information."), animated: true)
+                //Alert with error message if anything goes wrong
+                self.present(AlertViews().errorAlert(msg: "Could not select landlord."), animated: true)
             }
         })
         self.performSegue(withIdentifier: "landlordSelectToProfile", sender: nil)
