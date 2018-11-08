@@ -14,13 +14,13 @@ class Tenant: NSObject  {
     var landlordId: Int?
     var residence: String?
     var monthlyRent: Int?
-    
-    
-    
 
-    
     func tenantFromJSON(json: NSDictionary) -> Tenant? {
         let tenant = Tenant()
+        tenant.tenantId = json.object(forKey: "id_tenant") as? Int
+        tenant.landlordId = json.object(forKey: "landlord") as? Int
+        tenant.residence = json.object(forKey: "residence") as? String
+        tenant.monthlyRent = json.object(forKey: "monthly_rent") as? Int
         return tenant
     }
 }

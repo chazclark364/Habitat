@@ -23,11 +23,23 @@ class RequestHistoryTableViewController: UITableViewController {
     //Change protocal as needed
     var userId = (String(describing: UserDefaults.standard.string(forKey: "userID")))
 
+    @IBOutlet weak var topView: UIView!
+    @IBOutlet var tbView: UITableView!
     //ws://localhost:8080/websocket/userId
     var socket = WebSocket(url: URL(string: "ws://localhost:8080/websocket/\(String(describing: UserDefaults.standard.string(forKey: "firstName")))")!, protocols: ["chat"])
     var message = ""
     
     override func viewDidLoad() {
+        if (UserDefaults.standard.bool(forKey: "darkMode")) {
+            view.backgroundColor = #colorLiteral(red: 0.1568627451, green: 0.1568627451, blue: 0.2352941176, alpha: 1)
+            tbView.backgroundColor = #colorLiteral(red: 0.1568627451, green: 0.1568627451, blue: 0.2352941176, alpha: 1)
+            topView.backgroundColor = #colorLiteral(red: 0.1568627451, green: 0.1568627451, blue: 0.2352941176, alpha: 1)
+        }
+        else {
+            view.backgroundColor = #colorLiteral(red: 1, green: 0.7294117647, blue: 0.3607843137, alpha: 1)
+            tbView.backgroundColor = #colorLiteral(red: 1, green: 0.7294117647, blue: 0.3607843137, alpha: 1)
+            topView.backgroundColor = #colorLiteral(red: 1, green: 0.7294117647, blue: 0.3607843137, alpha: 1)
+        }
         socket.delegate = self
         socket.connect()
         if let userId = UserDefaults.standard.object(forKey: "userID") {
