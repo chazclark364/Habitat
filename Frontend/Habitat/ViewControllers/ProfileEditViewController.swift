@@ -21,6 +21,7 @@ class ProfileEditViewController: UIViewController {
     @IBOutlet weak var mutableLabel: UILabel!
     @IBOutlet weak var mutableField: UITextField!
     @IBOutlet weak var landlordNameLabel: UILabel!
+    var selectedLandlord: Landlord?
     
     override func viewDidLoad() {
         super.viewDidLoad()

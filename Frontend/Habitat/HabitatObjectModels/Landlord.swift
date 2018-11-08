@@ -20,7 +20,7 @@ class Landlord: NSObject  {
     
     func landlordFromJSON(json: NSDictionary) -> Landlord? {
         let landlord = Landlord()
-        landlord.landlordId = json.object(forKey: "id_landlord") as? Int
+        landlord.landlordId = json.object(forKey: "idLandlord") as? Int
         landlord.address = json.object(forKey: "address") as? String
         return landlord
     }

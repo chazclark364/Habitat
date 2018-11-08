@@ -226,6 +226,33 @@ class HabitatAPI {
             
         }
         
+        func getLandlords(completion: @escaping ([Landlord]?) -> Void) {
+            var landLords =  [Landlord()]
+            var count = 0
+            var userURL = "http://proj309-pp-01.misc.iastate.edu:8080/landlords/all"
+            Alamofire.request(userURL)
+                .responseJSON { response in
+                    //See if status is good
+                    switch response.result {
+                    case .success:
+                        print("Validation Successful")
+                    case .failure(let error):
+                        print(error)
+                    }
+                    
+                    if let json = response.result.value as? [Any] {
+                        print("JSON: \(json)") // serialized json response
+                        //TODO: See if this grabs all the request and parse properly
+                        for object in json {
+                            let boss = Landlord().landlordFromJSON(json: object as! NSDictionary) ?? Landlord()
+                            landLords.insert(boss, at: count)
+                            count += 1
+                        }
+                        completion(landLords)
+                    }
+            }
+        }
+        
     }
     
     class RequestAPI {
@@ -265,7 +292,6 @@ class HabitatAPI {
         func getRequestForId(userId: Int, completion: @escaping ([MaintenanceRequest]?) -> Void) {
             var request: [MaintenanceRequest]?
             var userURL = "http://proj309-pp-01.misc.iastate.edu:8080/users/\(userId)/requests"
-            userURL += String(userId)
             Alamofire.request(userURL)
                 .responseJSON { response in
                     //See if status is good

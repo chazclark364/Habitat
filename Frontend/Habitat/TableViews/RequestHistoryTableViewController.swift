@@ -14,14 +14,17 @@ class RequestHistoryCell: UITableViewCell {
    
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
-    
-    
+ 
 }
+
 class RequestHistoryTableViewController: UITableViewController {
     var request: [MaintenanceRequest]?
     //Initialize WebSocket
     //Change protocal as needed
-    var socket = WebSocket(url: URL(string: "ws://localhost:1337/")!, protocols: ["chat"])
+    var userId = (String(describing: UserDefaults.standard.string(forKey: "userID")))
+
+    //ws://localhost:8080/websocket/userId
+    var socket = WebSocket(url: URL(string: "ws://localhost:8080/websocket/\(String(describing: UserDefaults.standard.string(forKey: "firstName")))")!, protocols: ["chat"])
     var message = ""
     
     override func viewDidLoad() {
@@ -34,9 +37,8 @@ class RequestHistoryTableViewController: UITableViewController {
                     self.tableView.reloadData()
                     //segue
                 } else {
-                    //alert user wrong credentials
-                    //                self.present(AlertViews().didNotLogin(), animated: true)
-                    
+                    //Or set a label stating there are no request
+                   //self.present(AlertViews().errorAlert(msg: "There was a problem"), animated: true)
                 }
             })
         }
@@ -45,6 +47,10 @@ class RequestHistoryTableViewController: UITableViewController {
     deinit {
         socket.disconnect(forceTimeout: 0)
         socket.delegate = nil
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return request?.count ?? 0
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -57,12 +63,14 @@ class RequestHistoryTableViewController: UITableViewController {
         return cell
     }
     
-    func update(request: MaintenanceRequest) {
-        
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
     }
     
+    
+    
     func messageReceived(_ message: String, senderName: String) {
-        
+        //TODO: Display Notification
     }
 
 }
@@ -107,3 +115,4 @@ extension RequestHistoryTableViewController: NotificationDelegate {
     }
     
 }
+//User 1, user 2, title of request (with no request)
