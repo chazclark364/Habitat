@@ -1,5 +1,7 @@
 package com.example.demo;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -12,6 +14,13 @@ public class UserController {
 
     @Autowired
     private UserRepository users;
+    @Autowired
+    private TenantRepository tenants;
+    @Autowired
+    private LandlordRepository landlords;
+    @Autowired
+    private WorkerRepository workers;
+
 
     public UserController(UserRepository user){
         this.users = user;
@@ -24,9 +33,37 @@ public class UserController {
     		return null;
     	}else if(this.users.findByEmail(email) == null){
     		this.users.save(user);
+    		
+    		if(user.getUserType().equalsIgnoreCase("tenant")){
+    			Tenant tenant = new Tenant();
+    			tenant.setIdTenant(user.getIdUsers());
+    			this.tenants.save(tenant);
+    		}
+    		else if(user.getUserType().equalsIgnoreCase("landlord")){
+    			Landlord landlord = new Landlord();
+    			landlord.setIdLandlord(user.getIdUsers());
+    			this.landlords.save(landlord);
+    		}
+    		else if(user.getUserType().equalsIgnoreCase("worker")){
+    			Worker worker = new Worker();
+    			worker.setIdWorker(user.getIdUsers());
+    			this.workers.save(worker);
+    		}
+    		
             return user;
     	}else{
     		return null;
+    	}
+
+    }
+     
+    @RequestMapping(method = RequestMethod.POST, path = "/users/update", consumes = MediaType.APPLICATION_JSON)
+    public @ResponseBody User updateUser(@RequestBody User user){
+    	if(this.users.findByID(user.getIdUsers()) == null){
+    		return null;
+    	}else{
+    		this.users.save(user);
+    		return user;
     	}
     }
 
@@ -37,6 +74,13 @@ public class UserController {
         return user;
     }
 
+    @RequestMapping(path = "/users/all", method = RequestMethod.GET)
+    public @ResponseBody Collection<User> getAllUsers(Model model){
+    	Collection<User> userList = this.users.findAllUsers();
+        model.addAttribute(userList);
+        return userList;
+    }
+    
     @RequestMapping(path = "/login", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON)
     public @ResponseBody User getUserFromLogin(@RequestBody User user){
     	String email = user.getEmail();
@@ -55,4 +99,5 @@ public class UserController {
     	}
     }
 
+    
 }
