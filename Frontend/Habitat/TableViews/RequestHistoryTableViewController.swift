@@ -28,14 +28,15 @@ class RequestHistoryTableViewController: UITableViewController {
     //ws://localhost:8080/websocket/userId
     
    
-    var socket = WebSocket(url: URL(string: "ws://localhost:8080/websocket/")!, protocols: nil)
+    var socket = WebSocket(url: URL(string: "ws://proj309-pp-01.misc.iastate.edu:8080/websocket//")!, protocols: nil)
     var message = ""
     
     
     override func viewDidLoad() {
-        var userId = (UserDefaults.standard.string(forKey: "userID"))
-        var urlStr = "ws://localhost:8080/websocket/"
-        socket = WebSocket(url: URL(string: urlStr)!, protocols: [userId?.description ?? "0"] )
+        var urlStr = "ws://proj309-pp-01.misc.iastate.edu:8080/websocket/"
+        var userId = UserDefaults.standard.integer(forKey: "userID")
+        urlStr += userId.description ?? "0"
+        socket = WebSocket(url: URL(string: urlStr)!, protocols: [])
         if (UserDefaults.standard.bool(forKey: "darkMode")) {
             view.backgroundColor = #colorLiteral(red: 0.1568627451, green: 0.1568627451, blue: 0.2352941176, alpha: 1)
             tbView.backgroundColor = #colorLiteral(red: 0.1568627451, green: 0.1568627451, blue: 0.2352941176, alpha: 1)
@@ -48,6 +49,8 @@ class RequestHistoryTableViewController: UITableViewController {
         }
         socket.delegate = self
         socket.connect()
+        
+        
         if let userId = UserDefaults.standard.object(forKey: "userID") as? Int{
             HabitatAPI.RequestAPI().getRequestForId(userId: userId, completion: { request in
                 if let requestHistory = request {
@@ -61,7 +64,6 @@ class RequestHistoryTableViewController: UITableViewController {
                 }
             })
         }
-        sendNotification(message: "")
     }
     
     deinit {
@@ -102,35 +104,49 @@ class RequestHistoryTableViewController: UITableViewController {
         RequestDetailsViewController().servicerRequest = maintenace ?? MaintenanceRequest()
     }
 
-    
+    //Order should always go landlord/worker/Message
     func constructNotification() -> String {
         var notification = String()
         var type = UserDefaults.standard.string(forKey: "userType")
         if type == "Tenant" {
-            let landlordId = UserDefaults.standard.string(forKey: "tenantLandlordId")
-            notification += "\(landlordId)"
+            if let landlordId = UserDefaults.standard.string(forKey: "tenantLandlordId") {
+                notification += "\(landlordId)"
+            } else {
+                notification += "-1"
+            }
             notification += ","
             //Service worker
             notification += "1"
             notification += ","
             //Title of Notification
-            notification += message
+            if message.isEmpty {
+                notification += "New Request"
+            } else {
+                notification += message
+            }
         } else if type == "Landlord" {
-            let tenantId = UserDefaults.standard.string(forKey: "tenantLandlordId")
-            notification += "\(tenantId)"
+            if let landlordId = UserDefaults.standard.string(forKey: "userID") {
+                 notification += "\(landlordId)"
+            } else {
+                 notification += "-1"
+            }
             notification += ","
             //Service worker
             notification += "1"
             notification += ","
             //Title of Notification
-            notification += message
+            if message.isEmpty {
+                notification += "New Request"
+            } else {
+                notification += message
+            }
         } else {
             
         }
        return notification
     }
     
-    func messageReceived(_ message: String, senderName: String) {
+    func messageReceived(_ message: String) {
         //Display Notification
         self.present(AlertViews().notificationAlert(msg: message), animated: true)
     }
@@ -139,32 +155,29 @@ class RequestHistoryTableViewController: UITableViewController {
 // MARK: - WebSocketDelegate
 extension RequestHistoryTableViewController : WebSocketDelegate {
     func websocketDidConnect(socket: WebSocketClient) {
+        
         print("Websoccket connected")
-        self.message = ""
-        socket.write(string: constructNotification())
+        //TEST
+        socket.write(string: "81,1,Test")
+        //Place in
+//        self.message = ""
+//        socket.write(string: constructNotification())
+//        print(constructNotification())
     }
     
     func websocketDidDisconnect(socket: WebSocketClient, error: Error?) {
+        /*
+         The Websocket will disconeect if the other user is not currently availible
+         If the webscket disconnects when trying to send a notification reconnect. Place the
+         notification in a queue until it succesfully sent
+         */
         print("The websocket disconnected")
+        socket.connect()
+        print(error)
     }
     
     func websocketDidReceiveMessage(socket: WebSocketClient, text: String) {
-        // Check to see if valid message
-        guard let data = text.data(using: .utf16),
-            let jsonData = try? JSONSerialization.jsonObject(with: data),
-            let jsonDict = jsonData as? [String: Any],
-            let messageType = jsonDict["type"] as? String else {
-                return
-        }
-        
-        //If message is valid parse through it and notify user
-        if messageType == "message",
-            let messageData = jsonDict["data"] as? [String: Any],
-            let messageAuthor = messageData["author"] as? String,
-            let messageText = messageData["text"] as? String {
-            
-            messageReceived(messageText, senderName: messageAuthor)
-        }
+        messageReceived(text)
     }
     
     func websocketDidReceiveData(socket: WebSocketClient, data: Data) {
