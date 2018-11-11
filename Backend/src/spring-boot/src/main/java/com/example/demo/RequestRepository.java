@@ -27,5 +27,4 @@ public interface RequestRepository extends Repository<Request, Integer>{
     @Query("select r from Request r where r.worker = :id_users")
     @Transactional(readOnly = true)
     public Collection<Request> findRequestByWorker(@Param("id_users") Integer id_users);
-
 }

@@ -26,18 +26,19 @@ public class RequestController {
         return request;
     }
     
-    //NEEDS DATE FUNCTIONALITY
     @RequestMapping(method = RequestMethod.POST, path = "/request/new", consumes = MediaType.APPLICATION_JSON)
     public @ResponseBody Request createRequest(@RequestBody Request request){
+    	request.setLastUpdated(request.getRequestee());
     	this.request.save(request);
         return request;
     }
     
-    @RequestMapping(method = RequestMethod.POST, path = "/request/update", consumes = MediaType.APPLICATION_JSON)
-    public @ResponseBody Request updateRequest(@RequestBody Request request){
+    @RequestMapping(method = RequestMethod.POST, path = "/request/update/{id_users}", consumes = MediaType.APPLICATION_JSON)
+    public @ResponseBody Request updateRequest(@RequestBody Request request, @PathVariable("id_users") Integer id_users){
     	if(this.request.findRequestByID(request.getIdRequest()) == null){
     		return null;
     	}else{
+    		request.setLastUpdated(id_users);
     		this.request.save(request);
     		return request;
     	}
