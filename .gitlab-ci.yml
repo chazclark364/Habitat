@@ -1,0 +1,53 @@
+# Stages of pipeline, should match with stage tag inside each job.
+# Each stages executes in sequence, if previous job fails, then all the preceeding jobs are skipped.
+stages:
+  - mavenbuild
+  - maventest
+  - autodeploy
+  - iosbuild
+
+# tags: "shell" should match with the tag name provided to runner, for spring runner should execute in shell.
+# Notice that in petclinic project, the spring project is in root of master, if yours is in folder then cd to that folder.
+maven-build:
+  stage: mavenbuild
+  tags:
+    - backend_tag
+  script:
+    - cd var/www/html/
+    - mvn package -B
+  
+# artifacts are created when job executes successfully, and can be manually downloaded from GitLab GUI.
+# artifacts are not mandatory, buts it good practice, in case auto deploy fails, you can manually download the jar.
+maven-test:
+  stage: maventest
+  tags:
+    - backend_tag
+  script:
+    - cd var/www/html/
+    - mvn test
+  artifacts:
+    paths:
+      - var/www/html/*.jar
+
+# Below stage builds, deploys and executes the jar as service.
+# Make sure there is /target directory in your server, else script will fail, or use any other folder you like.
+# If you are changing the folder, reflect the change in systemd-web-demo service too.
+autoDeploy:
+  stage: autodeploy
+  tags:
+   - backend_tag
+  script:
+    - cd var/www/html/
+    - mvn package
+    - sudo mv var/www/html/*.jar var/www/html/web-demo.jar 
+    - sudo systemctl stop systemd-web-demo
+    - sudo systemctl start systemd-web-demo
+    
+# IOS Project
+iosbuild:
+  stage: iosbuild
+  tags:
+   - Frontend_tag
+  script:
+    - xcodebuild clean -project ProjectName.xcodeproj -scheme SchemeName | xcpretty
+    - xcodebuild test -project ProjectName.xcodeproj -scheme SchemeName -destination 'platform=iOS Simulator,name=iPhone 6s,OS=9.2' | xcpretty -s
