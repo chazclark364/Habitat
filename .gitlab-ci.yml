@@ -37,9 +37,9 @@ autoDeploy:
   tags:
    - backend_tag
   script:
-    - cd /var/www/html/
+    - cd Backend/src/spring-boot 
     - mvn package
-    - sudo mv /var/www/html/*.jar /var/www/html/web-demo.jar 
+    - sudo mv target/*.jar /var/www/html/web-demo.jar 
     - sudo systemctl stop systemd-web-demo
     - sudo systemctl start systemd-web-demo
     
