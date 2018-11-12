@@ -47,7 +47,7 @@ autoDeploy:
 iosbuild:
   stage: iosbuild
   tags:
-   - Frontend_tag
+   - backendend_tag
   script:
-    - xcodebuild clean -project ProjectName.xcodeproj -scheme SchemeName | xcpretty
-    - xcodebuild test -project ProjectName.xcodeproj -scheme SchemeName -destination 'platform=iOS Simulator,name=iPhone 6s,OS=9.2' | xcpretty -s
+    - xcodebuild clean -project Habitat.xcodeproj -scheme Habitat | xcpretty
+    - xcodebuild test -project Habitat.xcodeproj -scheme Habitat -destination 'platform=iOS Simulator,name=iPhone 6s,OS=9.2' | xcpretty -s
