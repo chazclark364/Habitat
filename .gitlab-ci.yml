@@ -13,7 +13,6 @@ maven-build:
   tags:
     - backend_tag
   script:
-    - cd /var/www/html/
     - mvn package -B
   
 # artifacts are created when job executes successfully, and can be manually downloaded from GitLab GUI.
