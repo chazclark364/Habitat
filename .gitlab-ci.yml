@@ -22,7 +22,6 @@ maven-test:
   tags:
     - backend_tag
   script:
-    - cd /var/www/html/
     - mvn test
   artifacts:
     paths:
