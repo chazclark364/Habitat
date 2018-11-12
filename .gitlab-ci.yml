@@ -13,7 +13,7 @@ maven-build:
   tags:
     - backend_tag
   script:
-    - cd var/www/html/
+    - cd /var/www/html/
     - mvn package -B
   
 # artifacts are created when job executes successfully, and can be manually downloaded from GitLab GUI.
@@ -23,11 +23,11 @@ maven-test:
   tags:
     - backend_tag
   script:
-    - cd var/www/html/
+    - cd /var/www/html/
     - mvn test
   artifacts:
     paths:
-      - var/www/html/*.jar
+      - /var/www/html/*.jar
 
 # Below stage builds, deploys and executes the jar as service.
 # Make sure there is /target directory in your server, else script will fail, or use any other folder you like.
@@ -37,9 +37,9 @@ autoDeploy:
   tags:
    - backend_tag
   script:
-    - cd var/www/html/
+    - cd /var/www/html/
     - mvn package
-    - sudo mv var/www/html/*.jar var/www/html/web-demo.jar 
+    - sudo mv /var/www/html/*.jar /var/www/html/web-demo.jar 
     - sudo systemctl stop systemd-web-demo
     - sudo systemctl start systemd-web-demo
     
