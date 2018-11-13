@@ -13,6 +13,7 @@
 
 import Foundation
 import UIKit
+import Starscream
 
 
 class RequestDetailsViewController: UIViewController {
@@ -107,6 +108,9 @@ extension RequestDetailsViewController: RequestDelegate {
     }
 }
 extension RequestDetailsViewController: SelectedRequestDelegate {
+    func setSocket(socket: WebSocketClient?) {
+    }
+    
     func selectedRequest(service: MaintenanceRequest?) {
         self.servicerRequest = service ?? MaintenanceRequest()
     }

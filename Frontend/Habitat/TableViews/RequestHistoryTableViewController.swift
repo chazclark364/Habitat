@@ -18,6 +18,8 @@ class RequestHistoryCell: UITableViewCell {
 }
 
 class RequestHistoryTableViewController: UITableViewController {
+   
+    
     var requests: [MaintenanceRequest]?
     //Initialize WebSocket
     //Change protocal as needed
@@ -33,10 +35,7 @@ class RequestHistoryTableViewController: UITableViewController {
     
     
     override func viewDidLoad() {
-        var urlStr = "ws://proj309-pp-01.misc.iastate.edu:8080/websocket/"
-        var userId = UserDefaults.standard.integer(forKey: "userID")
-        urlStr += userId.description ?? "0"
-        socket = WebSocket(url: URL(string: urlStr)!, protocols: [])
+       connectSocket()
         if (UserDefaults.standard.bool(forKey: "darkMode")) {
             view.backgroundColor = #colorLiteral(red: 0.1568627451, green: 0.1568627451, blue: 0.2352941176, alpha: 1)
             tbView.backgroundColor = #colorLiteral(red: 0.1568627451, green: 0.1568627451, blue: 0.2352941176, alpha: 1)
@@ -47,8 +46,7 @@ class RequestHistoryTableViewController: UITableViewController {
             tbView.backgroundColor = #colorLiteral(red: 1, green: 0.7294117647, blue: 0.3607843137, alpha: 1)
             topView.backgroundColor = #colorLiteral(red: 1, green: 0.7294117647, blue: 0.3607843137, alpha: 1)
         }
-        socket.delegate = self
-        socket.connect()
+        
         
         
         if let userId = UserDefaults.standard.object(forKey: "userID") as? Int{
@@ -66,11 +64,18 @@ class RequestHistoryTableViewController: UITableViewController {
         }
     }
     
-    deinit {
-        socket.disconnect(forceTimeout: 0)
-        socket.delegate = nil
+//    deinit {
+//        socket.disconnect(forceTimeout: 0)
+//        socket.delegate = nil
+//    }
+    func connectSocket() {
+        var urlStr = "ws://proj309-pp-01.misc.iastate.edu:8080/websocket/"
+        var userId = UserDefaults.standard.integer(forKey: "userID")
+        urlStr += userId.description ?? "0"
+        socket = WebSocket(url: URL(string: urlStr)!, protocols: [])
+        socket.delegate = self
+        socket.connect()
     }
-    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let count = requests?.count {
             return count - 1
@@ -103,7 +108,11 @@ class RequestHistoryTableViewController: UITableViewController {
         delagate?.selectedRequest(service: maintenace)
         RequestDetailsViewController().servicerRequest = maintenace ?? MaintenanceRequest()
     }
-
+    
+    @IBAction func didPressCreate(_ sender: Any) {
+        delagate?.setSocket(socket: socket)
+    }
+    
     //Order should always go landlord/worker/Message
     func constructNotification() -> String {
         var notification = String()
@@ -149,16 +158,31 @@ class RequestHistoryTableViewController: UITableViewController {
     func messageReceived(_ message: String) {
         //Display Notification
         self.present(AlertViews().notificationAlert(msg: message), animated: true)
+        if let userId = UserDefaults.standard.object(forKey: "userID") as? Int{
+            HabitatAPI.RequestAPI().getRequestForId(userId: userId, completion: { request in
+                if let requestHistory = request {
+                    self.requests = requestHistory
+                    self.tableView.reloadData()
+                    self.tableView.dataSource = self
+                    //segue
+                } else {
+                    //Or set a label stating there are no request
+                    //self.present(AlertViews().errorAlert(msg: "There was a problem"), animated: true)
+                }
+            })
+        }
     }
-
+    
+   
 }
 // MARK: - WebSocketDelegate
-extension RequestHistoryTableViewController : WebSocketDelegate {
+extension RequestHistoryTableViewController: WebSocketDelegate {
+    //TODO add message protocal
     func websocketDidConnect(socket: WebSocketClient) {
         
         print("Websoccket connected")
         //TEST
-        socket.write(string: "81,1,Test")
+    //    socket.write(string: "81,1,Test")
         //Place in
 //        self.message = ""
 //        socket.write(string: constructNotification())
@@ -187,13 +211,18 @@ extension RequestHistoryTableViewController : WebSocketDelegate {
 
 // MARK: - notificationDelegate
 extension RequestHistoryTableViewController: NotificationDelegate {
-    func sendNotification(message: String) {
+    func sendNotification( message: String) {
+        connectSocket()
         self.message = message
         socket.write(string: constructNotification())
     }
+    
+    
 }
 
 protocol SelectedRequestDelegate {
     func selectedRequest(service: MaintenanceRequest?)
+    func setSocket(socket: WebSocketClient?)
 }
 //User 1, user 2, title of request (with no request)
+

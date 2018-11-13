@@ -540,6 +540,7 @@
                                     </constraints>
                                     <state key="normal" image="add"/>
                                     <connections>
+                                        <action selector="didPressCreate:" destination="tsx-wc-ed8" eventType="touchUpInside" id="4J5-Tf-Zhf"/>
                                         <segue destination="bx9-rS-9EJ" kind="show" id="wk9-II-nGY"/>
                                     </connections>
                                 </button>
@@ -1701,6 +1702,7 @@
         <image name="profile" width="36" height="36"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="Ag7-Xj-LmG"/>
         <segue reference="vFc-dt-kBQ"/>
         <segue reference="qLd-di-FKh"/>
         <segue reference="ZqE-78-lti"/>
