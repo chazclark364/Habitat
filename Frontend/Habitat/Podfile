@@ -11,11 +11,15 @@ target 'Habitat' do
 
   target 'HabitatTests' do
     inherit! :search_paths
+    pod 'Alamofire', '~> 4.7'
+    pod 'Starscream', '~> 3.0.2'
     # Pods for testing
   end
 
   target 'HabitatUITests' do
     inherit! :search_paths
+    pod 'Alamofire', '~> 4.7'
+    pod 'Starscream', '~> 3.0.2'
     # Pods for testing
   end
 
