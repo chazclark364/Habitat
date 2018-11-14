@@ -47,7 +47,7 @@ autoDeploy:
 iosbuild:
   stage: iosbuild
   tags:
-   - backend_tag
+   - frontend_tag
   script:
     - cd Frontend
     - cd Habitat
