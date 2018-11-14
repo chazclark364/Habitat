@@ -7,7 +7,6 @@
 //
 
 import XCTest
-
 class HabitatUITests: XCTestCase {
         
     override func setUp() {

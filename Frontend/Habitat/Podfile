@@ -1,37 +1,13 @@
 # Uncomment the next line to define a global platform for your project
 source 'https://github.com/CocoaPods/Specs.git'
-platform :ios, '10.0'
+platform :ios, '9.0'
+inhibit_all_warnings!
 workspace 'Habitat'
 use_frameworks!
+
 target 'Habitat' do
   pod 'Alamofire', '~> 4.7'
   pod 'Starscream', '~> 3.0.2'
-
-  # Pods for Habitat
-
-  target 'HabitatTests' do
-    inherit! :search_paths
-    pod 'Alamofire', '~> 4.7'
-    pod 'Starscream', '~> 3.0.2'
-    # Pods for testing
-  end
-
-  target 'HabitatUITests' do
-    inherit! :search_paths
-    pod 'Alamofire', '~> 4.7'
-    pod 'Starscream', '~> 3.0.2'
-    # Pods for testing
-  end
-
-source 'https://github.com/CocoaPods/Specs.git'
-platform :ios, '9.0'
-use_frameworks!
-
-
-
-
-
-    
-
-
 end
+
+
