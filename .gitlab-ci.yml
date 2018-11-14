@@ -49,5 +49,7 @@ iosbuild:
   tags:
    - backend_tag
   script:
-    - xcodebuild clean -project Habitat.xcodeproj -scheme Habitat | xcpretty
-    - xcodebuild test -project Habitat.xcodeproj -scheme Habitat -destination 'platform=iOS Simulator,name=iPhone 6s,OS=9.2' | xcpretty -s
+    - cd Frontend
+    - cd Habitat
+    - xcodebuild clean -workspace Habitat.xcworkspace -scheme Habitat | xcpretty
+    - xcodebuild test -workspace Habitat.xcworkspace -scheme Habitat -destination 'platform=iOS Simulator,name=iPhone 6s,OS=12.1' | xcpretty -s
