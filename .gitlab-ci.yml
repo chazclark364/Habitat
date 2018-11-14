@@ -51,5 +51,6 @@ iosbuild:
   script:
     - cd Frontend
     - cd Habitat
+    - xcodebuild -list
     - xcodebuild clean -workspace Habitat.xcworkspace -scheme Habitat | xcpretty
     - xcodebuild test -workspace Habitat.xcworkspace -scheme Habitat -destination 'platform=iOS Simulator,name=iPhone 6s,OS=12.1' | xcpretty -s
