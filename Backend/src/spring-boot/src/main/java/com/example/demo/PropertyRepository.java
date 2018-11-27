@@ -1,4 +1,4 @@
-package org.springframework.property;
+package com.example.demo;
 
 import java.util.Collection;
 
