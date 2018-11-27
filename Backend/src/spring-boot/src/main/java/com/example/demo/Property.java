@@ -13,26 +13,21 @@ public class Property{
     @Column(name = "id_property")
     private Integer id;
 
-    @NotEmpty
     @Column(name = "landlord")
     private String landlord;
 
-    @NotEmpty
     @Column(name = "living_status")
     private String living_status;
 
-    @NotEmpty
     @Column(name = "address")
     private String address;
 
-    @NotEmpty
     @Column(name = "worker")
     private String worker;
 
-    @NotEmpty
     @Column(name = "rent_due_date")
-    private String rent_due_date; //UNSURE ON DATA TYPE //TODO
-
+    private String rent_due_date; 
+    
     public Integer getId() {
         return id;
     }
