@@ -9,5 +9,6 @@ import java.util.Collection;
 
 public interface PropertyRepository extends Repository<Property, Integer>{
     Property save(Property property);
+    //Test YAML
 
 }
