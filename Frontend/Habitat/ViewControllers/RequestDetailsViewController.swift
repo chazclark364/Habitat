@@ -59,25 +59,25 @@ class RequestDetailsViewController: UIViewController {
         modifiedDescription = descriptionTextView.text
         let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap))
         view.addGestureRecognizer(tap)
-        
-        var userId = (UserDefaults.standard.string(forKey: "userID"))
-        var urlStr = "ws://proj309-pp-01.misc.iastate.edu:8080/websocket/"
-        urlStr += userId?.description ?? "0"
-        socket = WebSocket(url: URL(string: urlStr)!, protocols: [])
-        
-        socket.delegate = self
-        socket.connect()
-        
+       connectSocket()
     }
-    
-    deinit {
-        socket.disconnect(forceTimeout: 0)
-        socket.delegate = nil
-    }
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func messageReceived(_ message: String) {
+        //Display Notification
+        self.present(AlertViews().notificationAlert(msg: message), animated: true)
+    }
+    
+    func connectSocket() {
+        var urlStr = "ws://proj309-pp-01.misc.iastate.edu:8080/websocket/"
+        var userId = UserDefaults.standard.integer(forKey: "userID")
+        urlStr += userId.description ?? "0"
+        socket = WebSocket(url: URL(string: urlStr)!, protocols: [])
+        socket.delegate = self
+        socket.connect()
     }
     
     @objc func handleTap(sender: UITapGestureRecognizer? = nil) {
@@ -108,6 +108,8 @@ class RequestDetailsViewController: UIViewController {
                  servicerRequest.status = "Approved"
             } else if(servicerRequest.status == "Approved") {
                  servicerRequest.status = "In Progress"
+            } else {
+                servicerRequest.status = "Completed"
             }
             return true
         }
@@ -213,30 +215,17 @@ extension RequestDetailsViewController: SelectedRequestDelegate {
 // MARK: - WebSocketDelegate
 extension RequestDetailsViewController : WebSocketDelegate {
     func websocketDidConnect(socket: WebSocketClient) {
-        print("Websoccket connected")
+        print("Websoccket connected in creating")
     }
     
     func websocketDidDisconnect(socket: WebSocketClient, error: Error?) {
         print("The websocket disconnected")
+        socket.connect()
+        print(error)
     }
     
     func websocketDidReceiveMessage(socket: WebSocketClient, text: String) {
-        // Check to see if valid message
-        guard let data = text.data(using: .utf16),
-            let jsonData = try? JSONSerialization.jsonObject(with: data),
-            let jsonDict = jsonData as? [String: Any],
-            let messageType = jsonDict["type"] as? String else {
-                return
-        }
-        
-        //If message is valid parse through it and notify user
-        if messageType == "message",
-            let messageData = jsonDict["data"] as? [String: Any],
-            let messageAuthor = messageData["author"] as? String,
-            let messageText = messageData["text"] as? String {
-            
-            messageReceived(messageText, senderName: messageAuthor)
-        }
+        messageReceived(text)
     }
     
     func websocketDidReceiveData(socket: WebSocketClient, data: Data) {

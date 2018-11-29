@@ -74,7 +74,7 @@ class RequestHistoryTableViewController: UITableViewController {
     
     func connectSocket() {
         var urlStr = "ws://proj309-pp-01.misc.iastate.edu:8080/websocket/"
-        var userId = UserDefaults.standard.integer(forKey: "userID")
+        let userId = UserDefaults.standard.integer(forKey: "userID")
         urlStr += userId.description ?? "0"
         socket = WebSocket(url: URL(string: urlStr)!, protocols: [])
         socket.delegate = self
