@@ -13,6 +13,7 @@
 
 import Foundation
 import UIKit
+import Starscream
 
 
 class RequestDetailsViewController: UIViewController {
@@ -29,6 +30,11 @@ class RequestDetailsViewController: UIViewController {
     var updatedRequest: MaintenanceRequest?
     var delegate: SelectedRequestDelegate?
     var modifiedDescription = ""
+    
+    //Websocket Essentials
+    var socket = WebSocket(url: URL(string: "ws://proj309-pp-01.misc.iastate.edu:8080/websocket/")!, protocols: nil)
+    var message = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         if (UserDefaults.standard.bool(forKey: "darkMode")) {
@@ -54,8 +60,20 @@ class RequestDetailsViewController: UIViewController {
         let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap))
         view.addGestureRecognizer(tap)
         
+        var userId = (UserDefaults.standard.string(forKey: "userID"))
+        var urlStr = "ws://proj309-pp-01.misc.iastate.edu:8080/websocket/"
+        urlStr += userId?.description ?? "0"
+        socket = WebSocket(url: URL(string: urlStr)!, protocols: [])
+        
+        socket.delegate = self
+        socket.connect()
+        
     }
     
+    deinit {
+        socket.disconnect(forceTimeout: 0)
+        socket.delegate = nil
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -85,11 +103,11 @@ class RequestDetailsViewController: UIViewController {
             return false
         }
         if(UserDefaults.standard.object(forKey: "userType") as? String == "Landlord") {
-            //Landlord should have permision to approve and complete
+            //Landlord should have permision to approve and complete and in progress
             if(servicerRequest.status == "Submitted") {
                  servicerRequest.status = "Approved"
-            } else {
-                 servicerRequest.status = "Completed"
+            } else if(servicerRequest.status == "Approved") {
+                 servicerRequest.status = "In Progress"
             }
             return true
         }
@@ -101,6 +119,35 @@ class RequestDetailsViewController: UIViewController {
         return false
     }
     
+    func constructNotification() -> String {
+        var notification = String()
+        message = servicerRequest.title ?? "Request"
+        var type = UserDefaults.standard.string(forKey: "userType")
+        if type == "Tenant" {
+            let landlordId = UserDefaults.standard.string(forKey: "tenantLandlordId")
+            notification += "\(landlordId)"
+            notification += ","
+            //Service worker
+            notification += "1"
+            notification += ","
+            //Title of Notification
+            notification += message
+        } else if type == "Landlord" {
+            let tenantId = servicerRequest.requestee ?? 0
+            notification += "\(tenantId)"
+            notification += ","
+            //Service worker
+            notification += "1"
+            notification += ","
+            //Title of Notification
+            notification += message
+        } else {
+            
+        }
+        print(notification)
+        return notification
+    }
+    
     @IBAction func didPressBack(_ sender: Any) {
         //Update Service Request if description was modified
         if(modifiedDescription != descriptionTextView.text) {
@@ -109,6 +156,7 @@ class RequestDetailsViewController: UIViewController {
             HabitatAPI.RequestAPI().updateRequest(userId: id ?? 0, request: servicerRequest, completion: { serviceRequest in
                 if let requestUpdated = serviceRequest {
                     self.updatedRequest = requestUpdated
+                    self.socket.write(string: self.constructNotification())
                     self.performSegue(withIdentifier: "updateToHistory", sender: nil)                    //segue
                 } else {
                     //Or set a label stating there are no request
@@ -129,6 +177,7 @@ class RequestDetailsViewController: UIViewController {
             if let requestUpdated = serviceRequest {
                 self.updatedRequest = requestUpdated
                 self.setServiceRequest(service: requestUpdated)
+                self.socket.write(string: self.constructNotification())
                 self.performSegue(withIdentifier: "updateToHistory", sender: nil)
                 //segue
             } else {
@@ -138,6 +187,11 @@ class RequestDetailsViewController: UIViewController {
         })
             
         }
+    }
+    
+    func messageReceived(_ message: String, senderName: String) {
+        //Display Notification
+        self.present(AlertViews().notificationAlert(msg: message), animated: true)
     }
 }
 
@@ -149,6 +203,41 @@ extension RequestDetailsViewController: RequestDelegate {
 extension RequestDetailsViewController: SelectedRequestDelegate {
     func selectedRequest(service: MaintenanceRequest?) {
         self.servicerRequest = service ?? MaintenanceRequest()
+    }
+}
+
+
+// MARK: - WebSocketDelegate
+extension RequestDetailsViewController : WebSocketDelegate {
+    func websocketDidConnect(socket: WebSocketClient) {
+        print("Websoccket connected")
+    }
+    
+    func websocketDidDisconnect(socket: WebSocketClient, error: Error?) {
+        print("The websocket disconnected")
+    }
+    
+    func websocketDidReceiveMessage(socket: WebSocketClient, text: String) {
+        // Check to see if valid message
+        guard let data = text.data(using: .utf16),
+            let jsonData = try? JSONSerialization.jsonObject(with: data),
+            let jsonDict = jsonData as? [String: Any],
+            let messageType = jsonDict["type"] as? String else {
+                return
+        }
+        
+        //If message is valid parse through it and notify user
+        if messageType == "message",
+            let messageData = jsonDict["data"] as? [String: Any],
+            let messageAuthor = messageData["author"] as? String,
+            let messageText = messageData["text"] as? String {
+            
+            messageReceived(messageText, senderName: messageAuthor)
+        }
+    }
+    
+    func websocketDidReceiveData(socket: WebSocketClient, data: Data) {
+        
     }
 }
 extension RequestDetailsViewController {

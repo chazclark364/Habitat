@@ -28,7 +28,7 @@ class RequestHistoryTableViewController: UITableViewController {
     //ws://localhost:8080/websocket/userId
     weak var maintenaceRequest: MaintenanceRequest?
     
-   
+   //Websocket Essentials
     var socket = WebSocket(url: URL(string: "ws://proj309-pp-01.misc.iastate.edu:8080/websocket/")!, protocols: nil)
     var message = ""
     
@@ -51,7 +51,8 @@ class RequestHistoryTableViewController: UITableViewController {
         socket.delegate = self
         socket.connect()
         getRequests()
-        sendNotification(message: "")
+        //Dont think we need this
+       // sendNotification(message: "")
     }
     
     func getRequests() {
@@ -74,12 +75,7 @@ class RequestHistoryTableViewController: UITableViewController {
         socket.disconnect(forceTimeout: 0)
         socket.delegate = nil
     }
-    override func viewWillAppear(_ animated: Bool) {
-        let previousView = self.presentationController
-        if  previousView as RequestDetailsViewController {
-            getRequests()
-        }
-    }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let count = requests?.count {
             return count - 1
