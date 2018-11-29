@@ -28,7 +28,7 @@ class RequestDetailsViewController: UIViewController {
     var nextStatus = String()
     var updatedRequest: MaintenanceRequest?
     var delegate: SelectedRequestDelegate?
-    
+    var modifiedDescription = ""
     override func viewDidLoad() {
         super.viewDidLoad()
         if (UserDefaults.standard.bool(forKey: "darkMode")) {
@@ -49,13 +49,21 @@ class RequestDetailsViewController: UIViewController {
         stageCompleted.clipsToBounds = true
         setProgressBar()
         requestTitle.text = servicerRequest.title ?? "Request"
+        descriptionTextView.text = servicerRequest.requestDescription
+        modifiedDescription = descriptionTextView.text
+        let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap))
+        view.addGestureRecognizer(tap)
+        
     }
-    
     
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @objc func handleTap(sender: UITapGestureRecognizer? = nil) {
+        dismissKeyboard()
     }
     
     func setProgressBar() {
@@ -76,22 +84,47 @@ class RequestDetailsViewController: UIViewController {
         if(UserDefaults.standard.object(forKey: "userType") as? String == "Tenant") {
             return false
         }
-        if(UserDefaults.standard.object(forKey: "userType") as? String == "Landlord") &&  servicerRequest.status == "Submitted"{
-            servicerRequest.status = "Approved"
+        if(UserDefaults.standard.object(forKey: "userType") as? String == "Landlord") {
+            //Landlord should have permision to approve and complete
+            if(servicerRequest.status == "Submitted") {
+                 servicerRequest.status = "Approved"
+            } else {
+                 servicerRequest.status = "Completed"
+            }
             return true
         }
-        if(UserDefaults.standard.object(forKey: "userType") as? String == "Worker") &&  servicerRequest.status == "In Progress"{
-             servicerRequest.status = "Completed"
+        if(UserDefaults.standard.object(forKey: "userType") as? String == "Worker") &&  servicerRequest.status == "Approved"{
+            servicerRequest.status = "In Progress"
             return true
         }
 
         return false
     }
     
+    @IBAction func didPressBack(_ sender: Any) {
+        //Update Service Request if description was modified
+        if(modifiedDescription != descriptionTextView.text) {
+            servicerRequest.requestDescription = descriptionTextView.text
+            let id = UserDefaults.standard.object(forKey: "userID") as? Int
+            HabitatAPI.RequestAPI().updateRequest(userId: id ?? 0, request: servicerRequest, completion: { serviceRequest in
+                if let requestUpdated = serviceRequest {
+                    self.updatedRequest = requestUpdated
+                    self.performSegue(withIdentifier: "updateToHistory", sender: nil)                    //segue
+                } else {
+                    //Or set a label stating there are no request
+                    self.present(AlertViews().errorAlert(msg: "Failed to update description"), animated: true)
+                    self.performSegue(withIdentifier: "updateToHistory", sender: nil)      
+                }
+            })
+        } else {
+             self.performSegue(withIdentifier: "updateToHistory", sender: nil)
+        }
+    }
+    
     @IBAction func didPressUpdate(_ sender: Any) {
         if(validation()) {
             
-            let id = UserDefaults.standard.object(forKey: "userId") as? Int
+            let id = UserDefaults.standard.object(forKey: "userID") as? Int
             HabitatAPI.RequestAPI().updateRequest(userId: id ?? 0, request: servicerRequest, completion: { serviceRequest in
             if let requestUpdated = serviceRequest {
                 self.updatedRequest = requestUpdated
@@ -116,5 +149,10 @@ extension RequestDetailsViewController: RequestDelegate {
 extension RequestDetailsViewController: SelectedRequestDelegate {
     func selectedRequest(service: MaintenanceRequest?) {
         self.servicerRequest = service ?? MaintenanceRequest()
+    }
+}
+extension RequestDetailsViewController {
+    func dismissKeyboard() {
+        view.endEditing(true)
     }
 }

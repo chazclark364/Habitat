@@ -50,6 +50,11 @@ class RequestHistoryTableViewController: UITableViewController {
         }
         socket.delegate = self
         socket.connect()
+        getRequests()
+        sendNotification(message: "")
+    }
+    
+    func getRequests() {
         if let userId = UserDefaults.standard.object(forKey: "userID") as? Int{
             HabitatAPI.RequestAPI().getRequestForId(userId: userId, completion: { request in
                 if let requestHistory = request {
@@ -59,18 +64,22 @@ class RequestHistoryTableViewController: UITableViewController {
                     //segue
                 } else {
                     //Or set a label stating there are no request
-                   //self.present(AlertViews().errorAlert(msg: "There was a problem"), animated: true)
+                    //self.present(AlertViews().errorAlert(msg: "There was a problem"), animated: true)
                 }
             })
         }
-        sendNotification(message: "")
     }
     
     deinit {
         socket.disconnect(forceTimeout: 0)
         socket.delegate = nil
     }
-    
+    override func viewWillAppear(_ animated: Bool) {
+        let previousView = self.presentationController
+        if  previousView as RequestDetailsViewController {
+            getRequests()
+        }
+    }
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let count = requests?.count {
             return count - 1
@@ -147,6 +156,7 @@ class RequestHistoryTableViewController: UITableViewController {
     func messageReceived(_ message: String, senderName: String) {
         //Display Notification
         self.present(AlertViews().notificationAlert(msg: message), animated: true)
+        getRequests()
     }
 
 }

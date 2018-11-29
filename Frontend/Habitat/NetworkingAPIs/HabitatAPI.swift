@@ -354,10 +354,12 @@ class HabitatAPI {
                 "requestee" : request?.requestee as AnyObject,
                 "landlord" : request?.landlord as AnyObject,
                 "description" : request?.requestDescription as AnyObject,
-                "status" : request?.status as AnyObject
+                "status" : request?.status as AnyObject,
+                "lastUpdated" : request?.requestId as AnyObject,
+                "worker" : request?.worker as AnyObject
             ]
             
-            Alamofire.request("http://proj309-pp-01.misc.iastate.edu:8080/request/request/update/\(userId)", method: .post, parameters: parameters, encoding: JSONEncoding.default)
+            Alamofire.request("http://proj309-pp-01.misc.iastate.edu:8080/request/update/\(userId)", method: .post, parameters: parameters, encoding: JSONEncoding.default)
                 .responseJSON { response in
                     //See if status is good
                     switch response.result {
