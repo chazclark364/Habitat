@@ -47,9 +47,16 @@ class RequestHistoryTableViewController: UITableViewController {
             tbView.backgroundColor = #colorLiteral(red: 1, green: 0.7294117647, blue: 0.3607843137, alpha: 1)
             topView.backgroundColor = #colorLiteral(red: 1, green: 0.7294117647, blue: 0.3607843137, alpha: 1)
         }
-        
-        
-        
+        getRequests()
+
+    }
+    
+//    deinit {
+//        socket.disconnect(forceTimeout: 0)
+//        socket.delegate = nil
+//    }
+    
+    func getRequests() {
         if let userId = UserDefaults.standard.object(forKey: "userID") as? Int{
             HabitatAPI.RequestAPI().getRequestForId(userId: userId, completion: { request in
                 if let requestHistory = request {
@@ -65,10 +72,6 @@ class RequestHistoryTableViewController: UITableViewController {
         }
     }
     
-//    deinit {
-//        socket.disconnect(forceTimeout: 0)
-//        socket.delegate = nil
-//    }
     func connectSocket() {
         var urlStr = "ws://proj309-pp-01.misc.iastate.edu:8080/websocket/"
         var userId = UserDefaults.standard.integer(forKey: "userID")
