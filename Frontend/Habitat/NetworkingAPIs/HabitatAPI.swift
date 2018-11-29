@@ -90,6 +90,7 @@ class HabitatAPI {
                         print("Validation Successful")
                     case .failure(let error):
                         print(error)
+                        print(response.response?.statusCode)
                         viewController.present(AlertViews().errorAlert(msg: error.localizedDescription), animated: true)
                         completion(returnedUser)
                     }

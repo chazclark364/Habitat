@@ -26,6 +26,7 @@ class RequestHistoryTableViewController: UITableViewController {
     @IBOutlet weak var topView: UIView!
     @IBOutlet var tbView: UITableView!
     //ws://localhost:8080/websocket/userId
+    weak var maintenaceRequest: MaintenanceRequest?
     
    
     var socket = WebSocket(url: URL(string: "ws://proj309-pp-01.misc.iastate.edu:8080/websocket/")!, protocols: nil)
@@ -98,9 +99,21 @@ class RequestHistoryTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let maintenace = requests?[indexPath.row]
-        delagate?.selectedRequest(service: maintenace)
-        RequestDetailsViewController().servicerRequest = maintenace ?? MaintenanceRequest()
+        maintenaceRequest = requests?[indexPath.row]
+        delagate?.selectedRequest(service: maintenaceRequest)
+        RequestDetailsViewController().servicerRequest = maintenaceRequest ?? MaintenanceRequest()
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? RequestDetailsViewController {
+            
+           if let indexPath = self.tableView.indexPathForSelectedRow {
+            destination.delegate = self as? SelectedRequestDelegate
+            destination.servicerRequest = requests?[indexPath.row] ?? MaintenanceRequest()
+            }
+            
+        }
     }
 
     

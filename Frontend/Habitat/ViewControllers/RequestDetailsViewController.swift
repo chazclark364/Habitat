@@ -21,9 +21,13 @@ class RequestDetailsViewController: UIViewController {
     @IBOutlet weak var stageInProgress: UIView!
     @IBOutlet weak var stageApproved: UIView!
     @IBOutlet weak var stageCompleted: UIView!
+    @IBOutlet weak var statusView: UIView!
+    @IBOutlet weak var requestTitle: UILabel!
     var servicerRequest = MaintenanceRequest()
+    @IBOutlet weak var descriptionTextView: UITextView!
     var nextStatus = String()
     var updatedRequest: MaintenanceRequest?
+    var delegate: SelectedRequestDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,15 +37,18 @@ class RequestDetailsViewController: UIViewController {
         else {
             view.backgroundColor = #colorLiteral(red: 1, green: 0.7294117647, blue: 0.3607843137, alpha: 1)
         }
-        stageSubmitted.layer.cornerRadius = 5
+        statusView.layer.cornerRadius = 5
+        statusView.clipsToBounds = true
+        stageSubmitted.layer.cornerRadius = 25
         stageSubmitted.clipsToBounds = true
-        stageInProgress.layer.cornerRadius = 5
+        stageInProgress.layer.cornerRadius = 25
         stageInProgress.clipsToBounds = true
-        stageApproved.layer.cornerRadius = 5
+        stageApproved.layer.cornerRadius = 25
         stageApproved.clipsToBounds = true
-        stageCompleted.layer.cornerRadius = 5
+        stageCompleted.layer.cornerRadius = 25
         stageCompleted.clipsToBounds = true
         setProgressBar()
+        requestTitle.text = servicerRequest.title ?? "Request"
     }
     
     
@@ -58,7 +65,7 @@ class RequestDetailsViewController: UIViewController {
         } else if status == "In Progress" {
             stageApproved.backgroundColor = UIColor.blue
             stageInProgress.backgroundColor = UIColor.blue
-        } else if status != "Submitted" {
+        } else if status == "Completed" {
             stageApproved.backgroundColor = UIColor.blue
             stageInProgress.backgroundColor = UIColor.blue
             stageCompleted.backgroundColor = UIColor.blue
