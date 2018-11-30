@@ -13,6 +13,7 @@
 
 import Foundation
 import UIKit
+import Starscream
 
 
 class RequestDetailsViewController: UIViewController {
@@ -21,9 +22,18 @@ class RequestDetailsViewController: UIViewController {
     @IBOutlet weak var stageInProgress: UIView!
     @IBOutlet weak var stageApproved: UIView!
     @IBOutlet weak var stageCompleted: UIView!
+    @IBOutlet weak var statusView: UIView!
+    @IBOutlet weak var requestTitle: UILabel!
     var servicerRequest = MaintenanceRequest()
+    @IBOutlet weak var descriptionTextView: UITextView!
     var nextStatus = String()
     var updatedRequest: MaintenanceRequest?
+    var delegate: SelectedRequestDelegate?
+    var modifiedDescription = ""
+    
+    //Websocket Essentials
+    var socket = WebSocket(url: URL(string: "ws://proj309-pp-01.misc.iastate.edu:8080/websocket/")!, protocols: nil)
+    var message = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,35 +43,59 @@ class RequestDetailsViewController: UIViewController {
         else {
             view.backgroundColor = #colorLiteral(red: 1, green: 0.7294117647, blue: 0.3607843137, alpha: 1)
         }
-        stageSubmitted.layer.cornerRadius = 5
+        statusView.layer.cornerRadius = 5
+        statusView.clipsToBounds = true
+        stageSubmitted.layer.cornerRadius = 25
         stageSubmitted.clipsToBounds = true
-        stageInProgress.layer.cornerRadius = 5
+        stageInProgress.layer.cornerRadius = 25
         stageInProgress.clipsToBounds = true
-        stageApproved.layer.cornerRadius = 5
+        stageApproved.layer.cornerRadius = 25
         stageApproved.clipsToBounds = true
-        stageCompleted.layer.cornerRadius = 5
+        stageCompleted.layer.cornerRadius = 25
         stageCompleted.clipsToBounds = true
         setProgressBar()
+        requestTitle.text = servicerRequest.title ?? "Request"
+        descriptionTextView.text = servicerRequest.requestDescription
+        modifiedDescription = descriptionTextView.text
+        let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap))
+        view.addGestureRecognizer(tap)
+        connectSocket()
     }
-    
-    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
+    func messageReceived(_ message: String) {
+        //Display Notification
+        self.present(AlertViews().notificationAlert(msg: message), animated: true)
+    }
+    
+    func connectSocket() {
+        var urlStr = "ws://proj309-pp-01.misc.iastate.edu:8080/websocket/"
+        var userId = UserDefaults.standard.integer(forKey: "userID")
+        urlStr += userId.description ?? "0"
+        socket = WebSocket(url: URL(string: urlStr)!, protocols: [])
+        socket.delegate = self
+        socket.connect()
+    }
+    
+    @objc func handleTap(sender: UITapGestureRecognizer? = nil) {
+        dismissKeyboard()
+    }
+    
     func setProgressBar() {
         let status = servicerRequest.status
         if status == "Approved" {
-            stageApproved.backgroundColor = UIColor.blue
+            stageApproved.backgroundColor = UIColor.lightGray
         } else if status == "In Progress" {
-            stageApproved.backgroundColor = UIColor.blue
-            stageInProgress.backgroundColor = UIColor.blue
-        } else if status != "Submitted" {
-            stageApproved.backgroundColor = UIColor.blue
-            stageInProgress.backgroundColor = UIColor.blue
-            stageCompleted.backgroundColor = UIColor.blue
+            stageApproved.backgroundColor = UIColor.lightGray
+            stageInProgress.backgroundColor = UIColor.lightGray
+        } else if status == "Completed" {
+            stageApproved.backgroundColor = UIColor.lightGray
+            stageInProgress.backgroundColor = UIColor.lightGray
+            stageCompleted.backgroundColor = UIColor.lightGray
         }
     }
     
@@ -69,35 +103,98 @@ class RequestDetailsViewController: UIViewController {
         if(UserDefaults.standard.object(forKey: "userType") as? String == "Tenant") {
             return false
         }
-        if(UserDefaults.standard.object(forKey: "userType") as? String == "Landlord") &&  servicerRequest.status == "Submitted"{
-            servicerRequest.status = "Approved"
+        if(UserDefaults.standard.object(forKey: "userType") as? String == "Landlord") {
+            //Landlord should have permision to approve and complete and in progress
+            if(servicerRequest.status == "Submitted") {
+                servicerRequest.status = "Approved"
+            } else if(servicerRequest.status == "Approved") {
+                servicerRequest.status = "In Progress"
+            } else {
+                servicerRequest.status = "Completed"
+            }
             return true
         }
-        if(UserDefaults.standard.object(forKey: "userType") as? String == "Worker") &&  servicerRequest.status == "In Progress"{
-             servicerRequest.status = "Completed"
+        if(UserDefaults.standard.object(forKey: "userType") as? String == "Worker") &&  servicerRequest.status == "Approved"{
+            servicerRequest.status = "In Progress"
             return true
         }
-
+        
         return false
+    }
+    
+    func constructNotification() -> String {
+        var notification = String()
+        message = servicerRequest.title ?? "Request"
+        var type = UserDefaults.standard.string(forKey: "userType")
+        if type == "Tenant" {
+            let landlordId = UserDefaults.standard.string(forKey: "tenantLandlordId")
+            notification += "\(landlordId)"
+            notification += ","
+            //Service worker
+            notification += "1"
+            notification += ","
+            //Title of Notification
+            notification += message
+        } else if type == "Landlord" {
+            let tenantId = servicerRequest.requestee ?? 0
+            notification += "\(tenantId)"
+            notification += ","
+            //Service worker
+            notification += "1"
+            notification += ","
+            //Title of Notification
+            notification += message
+        } else {
+            
+        }
+        print(notification)
+        return notification
+    }
+    
+    @IBAction func didPressBack(_ sender: Any) {
+        //Update Service Request if description was modified
+        if(modifiedDescription != descriptionTextView.text) {
+            servicerRequest.requestDescription = descriptionTextView.text
+            let id = UserDefaults.standard.object(forKey: "userID") as? Int
+            HabitatAPI.RequestAPI().updateRequest(userId: id ?? 0, request: servicerRequest, completion: { serviceRequest in
+                if let requestUpdated = serviceRequest {
+                    self.updatedRequest = requestUpdated
+                    self.socket.write(string: self.constructNotification())
+                    self.performSegue(withIdentifier: "updateToHistory", sender: nil)                    //segue
+                } else {
+                    //Or set a label stating there are no request
+                    self.present(AlertViews().errorAlert(msg: "Failed to update description"), animated: true)
+                    self.performSegue(withIdentifier: "updateToHistory", sender: nil)      
+                }
+            })
+        } else {
+            self.performSegue(withIdentifier: "updateToHistory", sender: nil)
+        }
     }
     
     @IBAction func didPressUpdate(_ sender: Any) {
         if(validation()) {
             
-            let id = UserDefaults.standard.object(forKey: "userId") as? Int
+            let id = UserDefaults.standard.object(forKey: "userID") as? Int
             HabitatAPI.RequestAPI().updateRequest(userId: id ?? 0, request: servicerRequest, completion: { serviceRequest in
-            if let requestUpdated = serviceRequest {
-                self.updatedRequest = requestUpdated
-                self.setServiceRequest(service: requestUpdated)
-                self.performSegue(withIdentifier: "updateToHistory", sender: nil)
-                //segue
-            } else {
-                //Or set a label stating there are no request
-                self.present(AlertViews().errorAlert(msg: "You're not allowed to update"), animated: true)
-            }
-        })
+                if let requestUpdated = serviceRequest {
+                    self.updatedRequest = requestUpdated
+                    self.setServiceRequest(service: requestUpdated)
+                    self.socket.write(string: self.constructNotification())
+                    self.performSegue(withIdentifier: "updateToHistory", sender: nil)
+                    //segue
+                } else {
+                    //Or set a label stating there are no request
+                    self.present(AlertViews().errorAlert(msg: "You're not allowed to update"), animated: true)
+                }
+            })
             
         }
+    }
+    
+    func messageReceived(_ message: String, senderName: String) {
+        //Display Notification
+        self.present(AlertViews().notificationAlert(msg: message), animated: true)
     }
 }
 
@@ -107,7 +204,37 @@ extension RequestDetailsViewController: RequestDelegate {
     }
 }
 extension RequestDetailsViewController: SelectedRequestDelegate {
+    func setSocket(socket: WebSocketClient?) {
+    }
+    
     func selectedRequest(service: MaintenanceRequest?) {
         self.servicerRequest = service ?? MaintenanceRequest()
+    }
+}
+
+
+// MARK: - WebSocketDelegate
+extension RequestDetailsViewController : WebSocketDelegate {
+    func websocketDidConnect(socket: WebSocketClient) {
+        print("Websoccket connected in creating")
+    }
+    
+    func websocketDidDisconnect(socket: WebSocketClient, error: Error?) {
+        print("The websocket disconnected")
+        socket.connect()
+        print(error)
+    }
+    
+    func websocketDidReceiveMessage(socket: WebSocketClient, text: String) {
+        messageReceived(text)
+    }
+    
+    func websocketDidReceiveData(socket: WebSocketClient, data: Data) {
+        
+    }
+}
+extension RequestDetailsViewController {
+    func dismissKeyboard() {
+        view.endEditing(true)
     }
 }
