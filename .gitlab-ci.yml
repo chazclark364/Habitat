@@ -39,14 +39,14 @@ autoDeploy:
   script:
     - cd Backend/src/spring-boot 
     - mvn package
-    - sudo mv target/*.jar /var/www/html/web-demo.jar 
+    - sudo mv /var/www/html/web-demo.jar /target/web-demo.jar 
     - sudo systemctl stop systemd-web-demo
     - sudo systemctl start systemd-web-demo
     
 # IOS Project
 #iosbuild:
 #  stage: iosbuild
-# tags:
+#  tags:
 #   - frontend_tag
 #  script:
 #    - cd Frontend
