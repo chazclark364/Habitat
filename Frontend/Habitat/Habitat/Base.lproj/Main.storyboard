@@ -568,25 +568,28 @@
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hgP-Nd-xeW">
                                                     <rect key="frame" x="0.0" y="0.0" width="341" height="23"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="50" id="YY5-zn-56z"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W9b-Uf-KJ9">
                                                     <rect key="frame" x="0.0" y="23" width="341" height="20.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="50" id="RLn-PP-1S4"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="W9b-Uf-KJ9" secondAttribute="trailing" id="0RN-4M-pOb"/>
-                                                <constraint firstItem="hgP-Nd-xeW" firstAttribute="leading" secondItem="dAh-Yj-LbN" secondAttribute="leading" id="0aV-He-9RL"/>
                                                 <constraint firstAttribute="bottom" secondItem="W9b-Uf-KJ9" secondAttribute="bottom" id="0d4-3S-fks"/>
-                                                <constraint firstItem="W9b-Uf-KJ9" firstAttribute="leading" secondItem="dAh-Yj-LbN" secondAttribute="leading" id="CtH-oS-ZRb"/>
-                                                <constraint firstItem="W9b-Uf-KJ9" firstAttribute="top" secondItem="hgP-Nd-xeW" secondAttribute="bottom" id="I9C-t4-a2l"/>
-                                                <constraint firstAttribute="trailing" secondItem="hgP-Nd-xeW" secondAttribute="trailing" id="iQa-1F-KuQ"/>
-                                                <constraint firstItem="hgP-Nd-xeW" firstAttribute="top" secondItem="dAh-Yj-LbN" secondAttribute="top" constant="5" id="zsC-fV-GEp"/>
+                                                <constraint firstItem="hgP-Nd-xeW" firstAttribute="leading" secondItem="dAh-Yj-LbN" secondAttribute="leading" constant="20" id="XUW-oF-kew"/>
+                                                <constraint firstItem="hgP-Nd-xeW" firstAttribute="top" secondItem="dAh-Yj-LbN" secondAttribute="top" id="oSG-BI-Dcs"/>
+                                                <constraint firstItem="W9b-Uf-KJ9" firstAttribute="leading" secondItem="dAh-Yj-LbN" secondAttribute="leading" constant="20" id="ovN-GW-AUh"/>
                                             </constraints>
                                         </stackView>
                                     </subviews>
@@ -746,7 +749,7 @@
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ser-Sl-s2d">
                                         <rect key="frame" x="19.5" y="10" width="60" height="60"/>
-                                        <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="0Ku-S4-bGN"/>
                                             <constraint firstAttribute="width" constant="60" id="kHT-Ei-01X"/>

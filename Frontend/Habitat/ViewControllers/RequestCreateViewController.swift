@@ -19,9 +19,6 @@ import Starscream
 
 class RequestCreateViewController: UIViewController {
     
-    
-    //TODO: Construct a user object
-    
     @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var problemText: UILabel!
@@ -33,8 +30,6 @@ class RequestCreateViewController: UIViewController {
     var socket = WebSocket(url: URL(string: "ws://proj309-pp-01.misc.iastate.edu:8080/websocket//")!, protocols: nil)
     var message = ""
     
-    
-
     override func viewDidLoad() {
         super.viewDidLoad()
         connectSocket()
@@ -58,7 +53,6 @@ class RequestCreateViewController: UIViewController {
         
         //TODO: Get TenatnID
     }
-    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -122,8 +116,6 @@ class RequestCreateViewController: UIViewController {
             } else {
                 notification += message
             }
-        } else {
-            
         }
         return notification
     }
@@ -140,11 +132,6 @@ class RequestCreateViewController: UIViewController {
         
             HabitatAPI.RequestAPI().createRequest(request: newRequest,  completion: {  request in
                 if let returnedRequest = request {
-                    //TODO: Check function
-//                    if let goodSocket = self.socket {
-//                        self.delegate?.sendNotification(socket: goodSocket, message: returnedRequest.requestDescription ?? "New Request")
-//                    }
-                    
                     self.socket.write(string: self.constructNotification())
                    // Sending request?
                     self.serviceDelegate?.setServiceRequest(service: returnedRequest)
@@ -154,10 +141,7 @@ class RequestCreateViewController: UIViewController {
                 }
             })
     }
-    
-    func getTenant() {
-        
-    }
+
     func messageReceived(_ message: String) {
         //Display Notification
         self.present(AlertViews().notificationAlert(msg: message), animated: true)
@@ -178,8 +162,6 @@ extension RequestCreateViewController: SelectedRequestDelegate {
     }
     
     func selectedRequest(service: MaintenanceRequest?) { }
-    
-    
 }
 
 // MARK: - WebSocketDelegate
@@ -198,9 +180,7 @@ extension RequestCreateViewController: WebSocketDelegate {
         messageReceived(text)
     }
     
-    func websocketDidReceiveData(socket: WebSocketClient, data: Data) {
-        
-    }
+    func websocketDidReceiveData(socket: WebSocketClient, data: Data) { }
     
 }
 

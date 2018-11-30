@@ -59,8 +59,9 @@ class RequestDetailsViewController: UIViewController {
         modifiedDescription = descriptionTextView.text
         let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap))
         view.addGestureRecognizer(tap)
-       connectSocket()
+        connectSocket()
     }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -87,14 +88,14 @@ class RequestDetailsViewController: UIViewController {
     func setProgressBar() {
         let status = servicerRequest.status
         if status == "Approved" {
-            stageApproved.backgroundColor = UIColor.blue
+            stageApproved.backgroundColor = UIColor.lightGray
         } else if status == "In Progress" {
-            stageApproved.backgroundColor = UIColor.blue
-            stageInProgress.backgroundColor = UIColor.blue
+            stageApproved.backgroundColor = UIColor.lightGray
+            stageInProgress.backgroundColor = UIColor.lightGray
         } else if status == "Completed" {
-            stageApproved.backgroundColor = UIColor.blue
-            stageInProgress.backgroundColor = UIColor.blue
-            stageCompleted.backgroundColor = UIColor.blue
+            stageApproved.backgroundColor = UIColor.lightGray
+            stageInProgress.backgroundColor = UIColor.lightGray
+            stageCompleted.backgroundColor = UIColor.lightGray
         }
     }
     
@@ -105,9 +106,9 @@ class RequestDetailsViewController: UIViewController {
         if(UserDefaults.standard.object(forKey: "userType") as? String == "Landlord") {
             //Landlord should have permision to approve and complete and in progress
             if(servicerRequest.status == "Submitted") {
-                 servicerRequest.status = "Approved"
+                servicerRequest.status = "Approved"
             } else if(servicerRequest.status == "Approved") {
-                 servicerRequest.status = "In Progress"
+                servicerRequest.status = "In Progress"
             } else {
                 servicerRequest.status = "Completed"
             }
@@ -117,7 +118,7 @@ class RequestDetailsViewController: UIViewController {
             servicerRequest.status = "In Progress"
             return true
         }
-
+        
         return false
     }
     
@@ -167,7 +168,7 @@ class RequestDetailsViewController: UIViewController {
                 }
             })
         } else {
-             self.performSegue(withIdentifier: "updateToHistory", sender: nil)
+            self.performSegue(withIdentifier: "updateToHistory", sender: nil)
         }
     }
     
@@ -176,17 +177,17 @@ class RequestDetailsViewController: UIViewController {
             
             let id = UserDefaults.standard.object(forKey: "userID") as? Int
             HabitatAPI.RequestAPI().updateRequest(userId: id ?? 0, request: servicerRequest, completion: { serviceRequest in
-            if let requestUpdated = serviceRequest {
-                self.updatedRequest = requestUpdated
-                self.setServiceRequest(service: requestUpdated)
-                self.socket.write(string: self.constructNotification())
-                self.performSegue(withIdentifier: "updateToHistory", sender: nil)
-                //segue
-            } else {
-                //Or set a label stating there are no request
-                self.present(AlertViews().errorAlert(msg: "You're not allowed to update"), animated: true)
-            }
-        })
+                if let requestUpdated = serviceRequest {
+                    self.updatedRequest = requestUpdated
+                    self.setServiceRequest(service: requestUpdated)
+                    self.socket.write(string: self.constructNotification())
+                    self.performSegue(withIdentifier: "updateToHistory", sender: nil)
+                    //segue
+                } else {
+                    //Or set a label stating there are no request
+                    self.present(AlertViews().errorAlert(msg: "You're not allowed to update"), animated: true)
+                }
+            })
             
         }
     }
