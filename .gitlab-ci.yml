@@ -39,7 +39,7 @@ autoDeploy:
   script:
     - cd Backend/src/spring-boot 
     - mvn package
-    - sudo mv /var/www/html/web-demo.jar /target/web-demo.jar 
+    - sudo mv /Backend/src/spring-boot/*.jar /target/web-demo.jar 
     - sudo systemctl stop systemd-web-demo
     - sudo systemctl start systemd-web-demo
     
