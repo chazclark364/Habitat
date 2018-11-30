@@ -7,6 +7,7 @@
 //
 
 import XCTest
+import Starscream
 @testable import Habitat
 
 class HabitatTests: XCTestCase {
