@@ -29,6 +29,10 @@
                                 <state key="normal" title="Update Password">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="pressedUpdatePassword:" destination="a2i-mu-Irz" eventType="touchUpInside" id="jAY-5J-gWd"/>
+                                    <segue destination="FWU-wF-Ci3" kind="show" identifier="passwordToProfile" id="Whq-qv-h2f"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zFX-eq-Zaf">
                                 <rect key="frame" x="210" y="101" width="150" height="30"/>
@@ -71,7 +75,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="FWU-wF-Ci3" kind="show" id="uYn-tK-9dS"/>
+                                    <segue destination="FWU-wF-Ci3" kind="show" id="cmP-0i-BFx"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sOK-6Z-aty">
@@ -128,6 +132,10 @@
                     </view>
                     <connections>
                         <outlet property="backButton" destination="N5u-NJ-znC" id="n3E-NN-hI7"/>
+                        <outlet property="currentPassField" destination="zFX-eq-Zaf" id="tB1-I6-cLZ"/>
+                        <outlet property="newPassField" destination="Rjp-Oo-KYt" id="3hP-4j-JuF"/>
+                        <outlet property="reenterPassField" destination="j9I-59-258" id="jTW-z9-Qgu"/>
+                        <outlet property="updateButton" destination="gih-R2-wKS" id="0gj-z7-YPs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wi6-Zl-IKr" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1779,10 +1787,9 @@
         <image name="profile" width="36" height="36"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Ag7-Xj-LmG"/>
-        <segue reference="vFc-dt-kBQ"/>
+        <segue reference="jd7-St-cf3"/>
         <segue reference="qLd-di-FKh"/>
         <segue reference="ZqE-78-lti"/>
-        <segue reference="KJH-mK-Q4r"/>
+        <segue reference="Whq-qv-h2f"/>
     </inferredMetricsTieBreakers>
 </document>
