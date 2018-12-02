@@ -1350,14 +1350,6 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qj8-Ow-xUw">
-                                        <rect key="frame" x="87" y="456" width="185" height="36"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <state key="normal" title="View/Upload Lease..."/>
-                                        <connections>
-                                            <segue destination="Sya-VV-xVX" kind="show" id="Uav-PG-eaQ"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <accessibility key="accessibilityConfiguration">
@@ -1368,7 +1360,6 @@
                                     <constraint firstItem="2f7-Pf-wLh" firstAttribute="leading" secondItem="SfB-Sd-1TI" secondAttribute="trailing" constant="16" id="33M-kA-aS9"/>
                                     <constraint firstItem="SfB-Sd-1TI" firstAttribute="leading" secondItem="aep-Xl-Ncl" secondAttribute="leading" constant="16" id="7Pk-oK-P0o"/>
                                     <constraint firstItem="qeF-zN-jFy" firstAttribute="trailing" secondItem="aep-Xl-Ncl" secondAttribute="trailing" constant="-16" id="AoR-PB-Vjw"/>
-                                    <constraint firstItem="qj8-Ow-xUw" firstAttribute="centerX" secondItem="hYp-MK-nfF" secondAttribute="centerX" id="UVb-W6-ZfR"/>
                                     <constraint firstItem="Sjj-IS-GtV" firstAttribute="top" secondItem="aep-Xl-Ncl" secondAttribute="top" constant="25" id="YQe-61-LiI"/>
                                     <constraint firstItem="Vih-CQ-49O" firstAttribute="top" secondItem="qeF-zN-jFy" secondAttribute="bottom" constant="50" id="Zyc-HY-aem"/>
                                     <constraint firstItem="Vih-CQ-49O" firstAttribute="leading" secondItem="TpK-Mm-UcP" secondAttribute="trailing" constant="16" id="aDU-oz-PHz"/>
@@ -1386,7 +1377,6 @@
                                     <constraint firstItem="qeF-zN-jFy" firstAttribute="top" secondItem="aep-Xl-Ncl" secondAttribute="top" constant="25" id="kBh-ZW-5Mf"/>
                                     <constraint firstItem="MRI-Wj-iSb" firstAttribute="bottom" secondItem="aep-Xl-Ncl" secondAttribute="bottom" id="m6j-II-gkT"/>
                                     <constraint firstItem="Vih-CQ-49O" firstAttribute="trailing" secondItem="aep-Xl-Ncl" secondAttribute="trailing" constant="-16" id="qpl-2Z-hz7"/>
-                                    <constraint firstItem="qj8-Ow-xUw" firstAttribute="bottom" secondItem="aep-Xl-Ncl" secondAttribute="bottom" constant="-8" id="vbf-kZ-lvR"/>
                                     <constraint firstItem="aep-Xl-Ncl" firstAttribute="trailing" secondItem="FnF-iC-bnl" secondAttribute="trailing" constant="16" id="wSt-Uy-zKY"/>
                                     <constraint firstItem="TpK-Mm-UcP" firstAttribute="top" secondItem="Sjj-IS-GtV" secondAttribute="bottom" constant="50" id="x8U-f9-deE"/>
                                 </constraints>
@@ -1477,69 +1467,6 @@
                 </view>
             </objects>
             <point key="canvasLocation" x="-5198" y="1385"/>
-        </scene>
-        <!--Lease View Controller-->
-        <scene sceneID="3VJ-GO-X6s">
-            <objects>
-                <viewController id="Sya-VV-xVX" customClass="LeaseViewController" customModule="Habitat" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Ceu-GA-YhU">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eEg-uT-bid">
-                                <rect key="frame" x="8" y="28" width="359" height="593"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BDY-P6-G9X">
-                                <rect key="frame" x="8" y="629" width="54" height="30"/>
-                                <color key="backgroundColor" red="1" green="0.79166666669999997" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="54" id="trY-zm-qbg"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="Back">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <segue destination="qz8-lo-5IF" kind="show" id="Kwz-aC-gg3"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o1n-N1-pRe">
-                                <rect key="frame" x="206" y="629" width="161" height="30"/>
-                                <color key="backgroundColor" red="1" green="0.79166666669999997" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="161" id="aek-hn-XQS"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="Upload new file...">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" red="1" green="0.72941176470588232" blue="0.36078431372549019" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="o1n-N1-pRe" firstAttribute="bottom" secondItem="325-cF-ozk" secondAttribute="bottom" constant="-8" id="6kt-r5-k2T"/>
-                            <constraint firstItem="o1n-N1-pRe" firstAttribute="trailing" secondItem="325-cF-ozk" secondAttribute="trailing" constant="-8" id="7yx-R6-i7Y"/>
-                            <constraint firstItem="eEg-uT-bid" firstAttribute="bottom" secondItem="325-cF-ozk" secondAttribute="bottom" constant="-46" id="GeH-ew-Nbf"/>
-                            <constraint firstItem="eEg-uT-bid" firstAttribute="leading" secondItem="325-cF-ozk" secondAttribute="leading" constant="8" id="QBl-cL-lPq"/>
-                            <constraint firstItem="BDY-P6-G9X" firstAttribute="leading" secondItem="325-cF-ozk" secondAttribute="leading" constant="8" id="aDN-wi-jNK"/>
-                            <constraint firstItem="eEg-uT-bid" firstAttribute="trailing" secondItem="325-cF-ozk" secondAttribute="trailing" constant="-8" id="fAg-3I-5PC"/>
-                            <constraint firstItem="BDY-P6-G9X" firstAttribute="bottom" secondItem="325-cF-ozk" secondAttribute="bottom" constant="-8" id="fVJ-5K-oFv"/>
-                            <constraint firstItem="o1n-N1-pRe" firstAttribute="top" secondItem="eEg-uT-bid" secondAttribute="bottom" constant="8" id="hx3-rH-Y54"/>
-                            <constraint firstItem="BDY-P6-G9X" firstAttribute="top" secondItem="eEg-uT-bid" secondAttribute="bottom" constant="8" id="ocm-Cr-GNx"/>
-                            <constraint firstItem="eEg-uT-bid" firstAttribute="top" secondItem="325-cF-ozk" secondAttribute="top" constant="8" id="rtS-Go-egZ"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="325-cF-ozk"/>
-                    </view>
-                    <connections>
-                        <outlet property="backButton" destination="BDY-P6-G9X" id="Dji-Nk-8TU"/>
-                        <outlet property="imageView" destination="eEg-uT-bid" id="6Sd-JR-0y7"/>
-                        <outlet property="uploadButton" destination="o1n-N1-pRe" id="qJ6-tm-I58"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="bxs-Ev-jMF" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-4359" y="1386"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="7so-j4-FHv">
@@ -1743,10 +1670,9 @@
         <image name="profile" width="36" height="36"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="NDL-O4-BYF"/>
         <segue reference="jd7-St-cf3"/>
         <segue reference="qLd-di-FKh"/>
         <segue reference="ZqE-78-lti"/>
-        <segue reference="deH-ug-xGH"/>
+        <segue reference="JuX-2x-rQZ"/>
     </inferredMetricsTieBreakers>
 </document>
