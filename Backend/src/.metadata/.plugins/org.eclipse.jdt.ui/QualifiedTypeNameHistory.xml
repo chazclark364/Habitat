@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
 <fullyQualifiedTypeName name="org.springframework.stereotype.Component"/>
+<fullyQualifiedTypeName name="com.example.demo.RequestRepository"/>
+<fullyQualifiedTypeName name="javax.websocket.server.PathParam"/>
 </qualifiedTypeNameHistroy>

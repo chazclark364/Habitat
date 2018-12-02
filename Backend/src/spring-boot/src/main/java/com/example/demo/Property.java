@@ -14,7 +14,7 @@ public class Property{
     private Integer id;
 
     @Column(name = "landlord")
-    private String landlord;
+    private Integer landlord;
 
     @Column(name = "living_status")
     private String living_status;
@@ -23,7 +23,7 @@ public class Property{
     private String address;
 
     @Column(name = "worker")
-    private String worker;
+    private Integer worker;
 
     @Column(name = "rent_due_date")
     private String rent_due_date; 
@@ -36,19 +36,19 @@ public class Property{
         this.id = id;
     }
 
-    public String getLandlord() {
+    public Integer getLandlord() {
         return landlord;
     }
 
-    public void setLandlord(String landlord) {
+    public void setLandlord(Integer landlord) {
         this.landlord = landlord;
     }
 
-    public String getLiving_status() {
+    public String getLivingStatus() {
         return living_status;
     }
 
-    public void setLiving_status(String living_status) {
+    public void setLivingStatus(String living_status) {
         this.living_status = living_status;
     }
 
@@ -60,19 +60,19 @@ public class Property{
         this.address = address;
     }
 
-    public String getWorker() {
+    public Integer getWorker() {
         return worker;
     }
 
-    public void setWorker(String worker) {
+    public void setWorker(Integer worker) {
         this.worker = worker;
     }
 
-    public String getRent_due_date() {
+    public String getRentDueDate() {
         return rent_due_date;
     }
 
-    public void setRent_due_date(String rent_due_date) {
+    public void setRentDueDate(String rent_due_date) {
         this.rent_due_date = rent_due_date;
     }
 }
