@@ -37,4 +37,13 @@ class PropertyController{
         model.addAttribute(propertyList);
         return propertyList;
     }
+	
+	
+	@RequestMapping(path = "/properties/{id_property}", method = RequestMethod.GET)
+    public @ResponseBody Property getProperty(@PathVariable("id_property") Integer id_property, Model model){
+    	Property property = this.properties.findProperty(id_property);
+        model.addAttribute(property);
+        return property;
+    }
+    
 }
