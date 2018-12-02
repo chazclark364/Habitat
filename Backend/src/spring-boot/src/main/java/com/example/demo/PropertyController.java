@@ -30,4 +30,11 @@ class PropertyController{
 		}
 	
     }
+	
+	@RequestMapping(path = "/properties/all", method = RequestMethod.GET)
+    public @ResponseBody Collection<Property> getAllProperties(Model model){
+    	Collection<Property> propertyList = this.properties.findAllProperties();;
+        model.addAttribute(propertyList);
+        return propertyList;
+    }
 }
