@@ -45,5 +45,11 @@ class PropertyController{
         model.addAttribute(property);
         return property;
     }
+	
+	@RequestMapping(path = "/properties/landlord/{id_landlord}", method = RequestMethod.GET)
+	public @ResponseBody Collection<Property> getLandlordsProperties(@PathVariable("id_landlord") Integer id_landlord, Model model){
+		Collection<Property> landlordProperties = this.properties.findPropertyByLandlord(id_landlord);
+		return landlordProperties;
+	}
     
 }
