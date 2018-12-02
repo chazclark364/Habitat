@@ -18,6 +18,8 @@
 		A9ED5598217533C90085D39E /* RequestDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9ED5597217533C90085D39E /* RequestDetailsViewController.swift */; };
 		A9ED559A217535330085D39E /* RequestCreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9ED5599217535330085D39E /* RequestCreateViewController.swift */; };
 		A9ED559C217536450085D39E /* RequestUpdateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9ED559B217536450085D39E /* RequestUpdateViewController.swift */; };
+		DA323C5221B1E15F00540AEA /* YelpBusiness.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA323C5121B1E15F00540AEA /* YelpBusiness.swift */; };
+		DA323C5421B251FD00540AEA /* RequestBusinessTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA323C5321B251FD00540AEA /* RequestBusinessTableViewController.swift */; };
 		DA503EC221619F01006EE76F /* MaintenanceRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA503EC121619F01006EE76F /* MaintenanceRequest.swift */; };
 		DA5A03052190C88700A0387C /* Tenant.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5A03042190C88700A0387C /* Tenant.swift */; };
 		DA5A03092191C89100A0387C /* Landlord.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5A03082191C89100A0387C /* Landlord.swift */; };
@@ -74,6 +76,8 @@
 		A9ED5597217533C90085D39E /* RequestDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestDetailsViewController.swift; sourceTree = "<group>"; };
 		A9ED5599217535330085D39E /* RequestCreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestCreateViewController.swift; sourceTree = "<group>"; };
 		A9ED559B217536450085D39E /* RequestUpdateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestUpdateViewController.swift; sourceTree = "<group>"; };
+		DA323C5121B1E15F00540AEA /* YelpBusiness.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YelpBusiness.swift; sourceTree = "<group>"; };
+		DA323C5321B251FD00540AEA /* RequestBusinessTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestBusinessTableViewController.swift; sourceTree = "<group>"; };
 		DA503EC121619F01006EE76F /* MaintenanceRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaintenanceRequest.swift; sourceTree = "<group>"; };
 		DA5A03042190C88700A0387C /* Tenant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tenant.swift; sourceTree = "<group>"; };
 		DA5A03082191C89100A0387C /* Landlord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Landlord.swift; sourceTree = "<group>"; };
@@ -149,6 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				A96D54912192955100DEC34D /* RequestHistoryTableViewController.swift */,
+				DA323C5321B251FD00540AEA /* RequestBusinessTableViewController.swift */,
 			);
 			path = TableViews;
 			sourceTree = "<group>";
@@ -266,6 +271,7 @@
 				DAEC48E0215FF044002C16B8 /* User.swift */,
 				DA503EC121619F01006EE76F /* MaintenanceRequest.swift */,
 				DA5A03042190C88700A0387C /* Tenant.swift */,
+				DA323C5121B1E15F00540AEA /* YelpBusiness.swift */,
 			);
 			path = HabitatObjectModels;
 			sourceTree = "<group>";
@@ -475,6 +481,8 @@
 				A99FEF04218FEEB300089A0E /* PasswordChangeViewController.swift in Sources */,
 				DAEC48CB2159DB89002C16B8 /* ChatHomeViewController.swift in Sources */,
 				A90884DB215C58E8005F47AC /* MainViewController.swift in Sources */,
+				DA323C5221B1E15F00540AEA /* YelpBusiness.swift in Sources */,
+				DA323C5421B251FD00540AEA /* RequestBusinessTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

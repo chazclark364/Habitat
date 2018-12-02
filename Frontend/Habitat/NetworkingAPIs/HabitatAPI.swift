@@ -379,4 +379,44 @@ class HabitatAPI {
             
         }
     }
+    
+    class YelpFusionAPI {
+        func loadRequest(completion: @escaping ([YelpBusiness]?) -> Void) {
+            var count = 0
+            var returnedBusiness = [YelpBusiness]()
+            let parameters: [String: AnyObject] = [
+                "term" : "Home Services" as AnyObject,
+                "location" : "Ames,Iowa" as AnyObject
+            ]
+            //3UXmzpnn_LWkGWQgFVCdMtzR_t9Rcdkrd0fo3fTNsZmKUXB_DYn74rgi2g3Uwu6B0aGIRE5jLUkWHQU8KhUDVDeMNNmhiIl9GDWfvvHqqQ-w1J23-WSY3HTAM50BXHYx
+            let headers: HTTPHeaders = [
+                "Authorization": "Bearer 3UXmzpnn_LWkGWQgFVCdMtzR_t9Rcdkrd0fo3fTNsZmKUXB_DYn74rgi2g3Uwu6B0aGIRE5jLUkWHQU8KhUDVDeMNNmhiIl9GDWfvvHqqQ-w1J23-WSY3HTAM50BXHYx"
+            ]
+            // https://api.yelp.com/v3/businesses/search?term=Home Services&location=Ames,Iowa
+            Alamofire.request("https://api.yelp.com/v3/businesses/search", parameters: parameters, headers: headers).responseJSON { response in
+                    //See if status is good
+                    switch response.result {
+                    case .success:
+                        print("Yelp Successful")
+                        print(response.data)
+                    case .failure(let error):
+                        print(error)
+                    }
+                
+                if let json = response.result.value {
+                    if let yelps = (json as AnyObject).object(forKey: "businesses") as? [NSDictionary] {
+                        for object in yelps {
+                            let service = YelpBusiness().requestFromJSON(json: (object as? NSDictionary))
+                            returnedBusiness.insert(service ?? YelpBusiness(), at: count)
+                            count += 1
+                        }
+                    }
+                }
+         
+                completion(returnedBusiness)
+                    
+                }
+            }
+        }
+    
 }
