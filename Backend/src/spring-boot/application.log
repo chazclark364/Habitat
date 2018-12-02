@@ -1292,3 +1292,615 @@ Caused by: org.hibernate.HibernateException: Access to DialectResolutionInfo can
 2018-12-01 21:29:10.826  INFO 3103 --- [RMI TCP Connection(2)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2018-12-01 21:29:10.830  INFO 3103 --- [RMI TCP Connection(2)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2018-12-01 21:29:10.839  INFO 3103 --- [RMI TCP Connection(2)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2018-12-01 21:52:40.642  INFO 3457 --- [restartedMain] com.example.demo.Application             : Starting Application on max-macbook with PID 3457 (/Users/maxminard/Documents/Code/309/PP_1/Backend/src/spring-boot/target/classes started by maxminard in /Users/maxminard/Documents/Code/309/PP_1/Backend/src/spring-boot)
+2018-12-01 21:52:40.645  INFO 3457 --- [restartedMain] com.example.demo.Application             : No active profile set, falling back to default profiles: default
+2018-12-01 21:52:40.694  INFO 3457 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2018-12-01 21:52:40.694  INFO 3457 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2018-12-01 21:52:41.801  INFO 3457 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2018-12-01 21:52:41.868  INFO 3457 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 60ms. Found 6 repository interfaces.
+2018-12-01 21:52:42.344  INFO 3457 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$57bb2f16] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-01 21:52:42.735  INFO 3457 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2018-12-01 21:52:42.755  INFO 3457 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-12-01 21:52:42.756  INFO 3457 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.12
+2018-12-01 21:52:42.761  INFO 3457 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/Users/maxminard/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+2018-12-01 21:52:42.869  INFO 3457 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-12-01 21:52:42.870  INFO 3457 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2175 ms
+2018-12-01 21:52:43.283  INFO 3457 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-12-01 21:52:43.283  INFO 3457 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'webMvcMetricsFilter' to: [/*]
+2018-12-01 21:52:43.283  INFO 3457 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-12-01 21:52:43.283  INFO 3457 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'formContentFilter' to: [/*]
+2018-12-01 21:52:43.283  INFO 3457 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-12-01 21:52:43.284  INFO 3457 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpTraceFilter' to: [/*]
+2018-12-01 21:52:43.284  INFO 3457 --- [restartedMain] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2018-12-01 21:52:43.478  INFO 3457 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2018-12-01 21:52:43.920  INFO 3457 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2018-12-01 21:52:43.958  INFO 3457 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-12-01 21:52:44.009  INFO 3457 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.6.Final}
+2018-12-01 21:52:44.011  INFO 3457 --- [restartedMain] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2018-12-01 21:52:44.125  INFO 3457 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2018-12-01 21:52:44.248  INFO 3457 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2018-12-01 21:52:44.875  INFO 3457 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-12-01 21:52:45.119  INFO 3457 --- [restartedMain] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2018-12-01 21:52:45.240  WARN 3457 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'propertyController' defined in file [/Users/maxminard/Documents/Code/309/PP_1/Backend/src/spring-boot/target/classes/com/example/demo/PropertyController.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'propertyRepository': Invocation of init method failed; nested exception is java.lang.IllegalArgumentException: Validation failed for query for method public abstract com.example.demo.Property com.example.demo.PropertyRepository.findProperty(java.lang.Integer)!
+2018-12-01 21:52:45.240  INFO 3457 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2018-12-01 21:52:45.242  INFO 3457 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2018-12-01 21:52:45.425  INFO 3457 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2018-12-01 21:52:45.427  INFO 3457 --- [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2018-12-01 21:52:45.443  INFO 3457 --- [restartedMain] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2018-12-01 21:52:45.456 ERROR 3457 --- [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'propertyController' defined in file [/Users/maxminard/Documents/Code/309/PP_1/Backend/src/spring-boot/target/classes/com/example/demo/PropertyController.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'propertyRepository': Invocation of init method failed; nested exception is java.lang.IllegalArgumentException: Validation failed for query for method public abstract com.example.demo.Property com.example.demo.PropertyRepository.findProperty(java.lang.Integer)!
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:767) ~[spring-beans-5.1.0.RELEASE.jar:5.1.0.RELEASE]
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:218) ~[spring-beans-5.1.0.RELEASE.jar:5.1.0.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1307) ~[spring-beans-5.1.0.RELEASE.jar:5.1.0.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1153) ~[spring-beans-5.1.0.RELEASE.jar:5.1.0.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:538) ~[spring-beans-5.1.0.RELEASE.jar:5.1.0.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:498) ~[spring-beans-5.1.0.RELEASE.jar:5.1.0.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320) ~[spring-beans-5.1.0.RELEASE.jar:5.1.0.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222) ~[spring-beans-5.1.0.RELEASE.jar:5.1.0.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318) ~[spring-beans-5.1.0.RELEASE.jar:5.1.0.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) ~[spring-beans-5.1.0.RELEASE.jar:5.1.0.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:848) ~[spring-beans-5.1.0.RELEASE.jar:5.1.0.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:865) ~[spring-context-5.1.0.RELEASE.jar:5.1.0.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:548) ~[spring-context-5.1.0.RELEASE.jar:5.1.0.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:140) ~[spring-boot-2.1.0.M4.jar:2.1.0.M4]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:797) [spring-boot-2.1.0.M4.jar:2.1.0.M4]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:421) [spring-boot-2.1.0.M4.jar:2.1.0.M4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:340) [spring-boot-2.1.0.M4.jar:2.1.0.M4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1291) [spring-boot-2.1.0.M4.jar:2.1.0.M4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1279) [spring-boot-2.1.0.M4.jar:2.1.0.M4]
+	at com.example.demo.Application.main(Application.java:12) [classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_131]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_131]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_131]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_131]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49) [spring-boot-devtools-2.1.0.M4.jar:2.1.0.M4]
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'propertyRepository': Invocation of init method failed; nested exception is java.lang.IllegalArgumentException: Validation failed for query for method public abstract com.example.demo.Property com.example.demo.PropertyRepository.findProperty(java.lang.Integer)!
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1744) ~[spring-beans-5.1.0.RELEASE.jar:5.1.0.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:576) ~[spring-beans-5.1.0.RELEASE.jar:5.1.0.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:498) ~[spring-beans-5.1.0.RELEASE.jar:5.1.0.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320) ~[spring-beans-5.1.0.RELEASE.jar:5.1.0.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222) ~[spring-beans-5.1.0.RELEASE.jar:5.1.0.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318) ~[spring-beans-5.1.0.RELEASE.jar:5.1.0.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) ~[spring-beans-5.1.0.RELEASE.jar:5.1.0.RELEASE]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:273) ~[spring-beans-5.1.0.RELEASE.jar:5.1.0.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1241) ~[spring-beans-5.1.0.RELEASE.jar:5.1.0.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1168) ~[spring-beans-5.1.0.RELEASE.jar:5.1.0.RELEASE]
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:855) ~[spring-beans-5.1.0.RELEASE.jar:5.1.0.RELEASE]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:758) ~[spring-beans-5.1.0.RELEASE.jar:5.1.0.RELEASE]
+	... 24 common frames omitted
+Caused by: java.lang.IllegalArgumentException: Validation failed for query for method public abstract com.example.demo.Property com.example.demo.PropertyRepository.findProperty(java.lang.Integer)!
+	at org.springframework.data.jpa.repository.query.SimpleJpaQuery.validateQuery(SimpleJpaQuery.java:93) ~[spring-data-jpa-2.1.0.RELEASE.jar:2.1.0.RELEASE]
+	at org.springframework.data.jpa.repository.query.SimpleJpaQuery.<init>(SimpleJpaQuery.java:63) ~[spring-data-jpa-2.1.0.RELEASE.jar:2.1.0.RELEASE]
+	at org.springframework.data.jpa.repository.query.JpaQueryFactory.fromMethodWithQueryString(JpaQueryFactory.java:76) ~[spring-data-jpa-2.1.0.RELEASE.jar:2.1.0.RELEASE]
+	at org.springframework.data.jpa.repository.query.JpaQueryFactory.fromQueryAnnotation(JpaQueryFactory.java:56) ~[spring-data-jpa-2.1.0.RELEASE.jar:2.1.0.RELEASE]
+	at org.springframework.data.jpa.repository.query.JpaQueryLookupStrategy$DeclaredQueryLookupStrategy.resolveQuery(JpaQueryLookupStrategy.java:139) ~[spring-data-jpa-2.1.0.RELEASE.jar:2.1.0.RELEASE]
+	at org.springframework.data.jpa.repository.query.JpaQueryLookupStrategy$CreateIfNotFoundQueryLookupStrategy.resolveQuery(JpaQueryLookupStrategy.java:206) ~[spring-data-jpa-2.1.0.RELEASE.jar:2.1.0.RELEASE]
+	at org.springframework.data.jpa.repository.query.JpaQueryLookupStrategy$AbstractQueryLookupStrategy.resolveQuery(JpaQueryLookupStrategy.java:79) ~[spring-data-jpa-2.1.0.RELEASE.jar:2.1.0.RELEASE]
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$QueryExecutorMethodInterceptor.lookupQuery(RepositoryFactorySupport.java:566) ~[spring-data-commons-2.1.0.RELEASE.jar:2.1.0.RELEASE]
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$QueryExecutorMethodInterceptor.lambda$mapMethodsToQuery$1(RepositoryFactorySupport.java:559) ~[spring-data-commons-2.1.0.RELEASE.jar:2.1.0.RELEASE]
+	at java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:193) ~[na:1.8.0_131]
+	at java.util.Iterator.forEachRemaining(Iterator.java:116) ~[na:1.8.0_131]
+	at java.util.Collections$UnmodifiableCollection$1.forEachRemaining(Collections.java:1049) ~[na:1.8.0_131]
+	at java.util.Spliterators$IteratorSpliterator.forEachRemaining(Spliterators.java:1801) ~[na:1.8.0_131]
+	at java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:481) ~[na:1.8.0_131]
+	at java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:471) ~[na:1.8.0_131]
+	at java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:708) ~[na:1.8.0_131]
+	at java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234) ~[na:1.8.0_131]
+	at java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:499) ~[na:1.8.0_131]
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$QueryExecutorMethodInterceptor.mapMethodsToQuery(RepositoryFactorySupport.java:561) ~[spring-data-commons-2.1.0.RELEASE.jar:2.1.0.RELEASE]
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$QueryExecutorMethodInterceptor.lambda$new$0(RepositoryFactorySupport.java:551) ~[spring-data-commons-2.1.0.RELEASE.jar:2.1.0.RELEASE]
+	at java.util.Optional.map(Optional.java:215) ~[na:1.8.0_131]
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$QueryExecutorMethodInterceptor.<init>(RepositoryFactorySupport.java:551) ~[spring-data-commons-2.1.0.RELEASE.jar:2.1.0.RELEASE]
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport.getRepository(RepositoryFactorySupport.java:324) ~[spring-data-commons-2.1.0.RELEASE.jar:2.1.0.RELEASE]
+	at org.springframework.data.repository.core.support.RepositoryFactoryBeanSupport.lambda$afterPropertiesSet$5(RepositoryFactoryBeanSupport.java:297) ~[spring-data-commons-2.1.0.RELEASE.jar:2.1.0.RELEASE]
+	at org.springframework.data.util.Lazy.getNullable(Lazy.java:211) ~[spring-data-commons-2.1.0.RELEASE.jar:2.1.0.RELEASE]
+	at org.springframework.data.util.Lazy.get(Lazy.java:94) ~[spring-data-commons-2.1.0.RELEASE.jar:2.1.0.RELEASE]
+	at org.springframework.data.repository.core.support.RepositoryFactoryBeanSupport.afterPropertiesSet(RepositoryFactoryBeanSupport.java:300) ~[spring-data-commons-2.1.0.RELEASE.jar:2.1.0.RELEASE]
+	at org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean.afterPropertiesSet(JpaRepositoryFactoryBean.java:119) ~[spring-data-jpa-2.1.0.RELEASE.jar:2.1.0.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1803) ~[spring-beans-5.1.0.RELEASE.jar:5.1.0.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1740) ~[spring-beans-5.1.0.RELEASE.jar:5.1.0.RELEASE]
+	... 35 common frames omitted
+Caused by: java.lang.IllegalArgumentException: org.hibernate.QueryException: could not resolve property: id_property of: com.example.demo.Property [select p from com.example.demo.Property p where p.id_property = :id_property]
+	at org.hibernate.internal.ExceptionConverterImpl.convert(ExceptionConverterImpl.java:138) ~[hibernate-core-5.3.6.Final.jar:5.3.6.Final]
+	at org.hibernate.internal.ExceptionConverterImpl.convert(ExceptionConverterImpl.java:181) ~[hibernate-core-5.3.6.Final.jar:5.3.6.Final]
+	at org.hibernate.internal.ExceptionConverterImpl.convert(ExceptionConverterImpl.java:188) ~[hibernate-core-5.3.6.Final.jar:5.3.6.Final]
+	at org.hibernate.internal.AbstractSharedSessionContract.createQuery(AbstractSharedSessionContract.java:713) ~[hibernate-core-5.3.6.Final.jar:5.3.6.Final]
+	at org.hibernate.internal.AbstractSessionImpl.createQuery(AbstractSessionImpl.java:23) ~[hibernate-core-5.3.6.Final.jar:5.3.6.Final]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_131]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_131]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_131]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_131]
+	at org.springframework.orm.jpa.ExtendedEntityManagerCreator$ExtendedEntityManagerInvocationHandler.invoke(ExtendedEntityManagerCreator.java:350) ~[spring-orm-5.1.0.RELEASE.jar:5.1.0.RELEASE]
+	at com.sun.proxy.$Proxy105.createQuery(Unknown Source) ~[na:na]
+	at org.springframework.data.jpa.repository.query.SimpleJpaQuery.validateQuery(SimpleJpaQuery.java:87) ~[spring-data-jpa-2.1.0.RELEASE.jar:2.1.0.RELEASE]
+	... 64 common frames omitted
+Caused by: org.hibernate.QueryException: could not resolve property: id_property of: com.example.demo.Property [select p from com.example.demo.Property p where p.id_property = :id_property]
+	at org.hibernate.QueryException.generateQueryException(QueryException.java:120) ~[hibernate-core-5.3.6.Final.jar:5.3.6.Final]
+	at org.hibernate.QueryException.wrapWithQueryString(QueryException.java:103) ~[hibernate-core-5.3.6.Final.jar:5.3.6.Final]
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.doCompile(QueryTranslatorImpl.java:219) ~[hibernate-core-5.3.6.Final.jar:5.3.6.Final]
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.compile(QueryTranslatorImpl.java:143) ~[hibernate-core-5.3.6.Final.jar:5.3.6.Final]
+	at org.hibernate.engine.query.spi.HQLQueryPlan.<init>(HQLQueryPlan.java:119) ~[hibernate-core-5.3.6.Final.jar:5.3.6.Final]
+	at org.hibernate.engine.query.spi.HQLQueryPlan.<init>(HQLQueryPlan.java:80) ~[hibernate-core-5.3.6.Final.jar:5.3.6.Final]
+	at org.hibernate.engine.query.spi.QueryPlanCache.getHQLQueryPlan(QueryPlanCache.java:153) ~[hibernate-core-5.3.6.Final.jar:5.3.6.Final]
+	at org.hibernate.internal.AbstractSharedSessionContract.getQueryPlan(AbstractSharedSessionContract.java:595) ~[hibernate-core-5.3.6.Final.jar:5.3.6.Final]
+	at org.hibernate.internal.AbstractSharedSessionContract.createQuery(AbstractSharedSessionContract.java:704) ~[hibernate-core-5.3.6.Final.jar:5.3.6.Final]
+	... 72 common frames omitted
+Caused by: org.hibernate.QueryException: could not resolve property: id_property of: com.example.demo.Property
+	at org.hibernate.persister.entity.AbstractPropertyMapping.propertyException(AbstractPropertyMapping.java:73) ~[hibernate-core-5.3.6.Final.jar:5.3.6.Final]
+	at org.hibernate.persister.entity.AbstractPropertyMapping.toType(AbstractPropertyMapping.java:67) ~[hibernate-core-5.3.6.Final.jar:5.3.6.Final]
+	at org.hibernate.persister.entity.AbstractEntityPersister.toType(AbstractEntityPersister.java:1982) ~[hibernate-core-5.3.6.Final.jar:5.3.6.Final]
+	at org.hibernate.hql.internal.ast.tree.FromElementType.getPropertyType(FromElementType.java:393) ~[hibernate-core-5.3.6.Final.jar:5.3.6.Final]
+	at org.hibernate.hql.internal.ast.tree.FromElement.getPropertyType(FromElement.java:509) ~[hibernate-core-5.3.6.Final.jar:5.3.6.Final]
+	at org.hibernate.hql.internal.ast.tree.DotNode.getDataType(DotNode.java:687) ~[hibernate-core-5.3.6.Final.jar:5.3.6.Final]
+	at org.hibernate.hql.internal.ast.tree.DotNode.prepareLhs(DotNode.java:270) ~[hibernate-core-5.3.6.Final.jar:5.3.6.Final]
+	at org.hibernate.hql.internal.ast.tree.DotNode.resolve(DotNode.java:210) ~[hibernate-core-5.3.6.Final.jar:5.3.6.Final]
+	at org.hibernate.hql.internal.ast.HqlSqlWalker.resolve(HqlSqlWalker.java:1045) ~[hibernate-core-5.3.6.Final.jar:5.3.6.Final]
+	at org.hibernate.hql.internal.antlr.HqlSqlBaseWalker.expr(HqlSqlBaseWalker.java:1290) ~[hibernate-core-5.3.6.Final.jar:5.3.6.Final]
+	at org.hibernate.hql.internal.antlr.HqlSqlBaseWalker.exprOrSubquery(HqlSqlBaseWalker.java:4706) ~[hibernate-core-5.3.6.Final.jar:5.3.6.Final]
+	at org.hibernate.hql.internal.antlr.HqlSqlBaseWalker.comparisonExpr(HqlSqlBaseWalker.java:4174) ~[hibernate-core-5.3.6.Final.jar:5.3.6.Final]
+	at org.hibernate.hql.internal.antlr.HqlSqlBaseWalker.logicalExpr(HqlSqlBaseWalker.java:2138) ~[hibernate-core-5.3.6.Final.jar:5.3.6.Final]
+	at org.hibernate.hql.internal.antlr.HqlSqlBaseWalker.whereClause(HqlSqlBaseWalker.java:815) ~[hibernate-core-5.3.6.Final.jar:5.3.6.Final]
+	at org.hibernate.hql.internal.antlr.HqlSqlBaseWalker.query(HqlSqlBaseWalker.java:609) ~[hibernate-core-5.3.6.Final.jar:5.3.6.Final]
+	at org.hibernate.hql.internal.antlr.HqlSqlBaseWalker.selectStatement(HqlSqlBaseWalker.java:313) ~[hibernate-core-5.3.6.Final.jar:5.3.6.Final]
+	at org.hibernate.hql.internal.antlr.HqlSqlBaseWalker.statement(HqlSqlBaseWalker.java:261) ~[hibernate-core-5.3.6.Final.jar:5.3.6.Final]
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.analyze(QueryTranslatorImpl.java:271) ~[hibernate-core-5.3.6.Final.jar:5.3.6.Final]
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.doCompile(QueryTranslatorImpl.java:191) ~[hibernate-core-5.3.6.Final.jar:5.3.6.Final]
+	... 78 common frames omitted
+
+2018-12-01 21:54:10.679  INFO 3458 --- [restartedMain] com.example.demo.Application             : Starting Application on max-macbook with PID 3458 (/Users/maxminard/Documents/Code/309/PP_1/Backend/src/spring-boot/target/classes started by maxminard in /Users/maxminard/Documents/Code/309/PP_1/Backend/src/spring-boot)
+2018-12-01 21:54:10.682  INFO 3458 --- [restartedMain] com.example.demo.Application             : No active profile set, falling back to default profiles: default
+2018-12-01 21:54:10.731  INFO 3458 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2018-12-01 21:54:10.732  INFO 3458 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2018-12-01 21:54:11.704  INFO 3458 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2018-12-01 21:54:11.768  INFO 3458 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 57ms. Found 6 repository interfaces.
+2018-12-01 21:54:12.167  INFO 3458 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$a863bbef] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-01 21:54:12.505  INFO 3458 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2018-12-01 21:54:12.521  INFO 3458 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-12-01 21:54:12.521  INFO 3458 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.12
+2018-12-01 21:54:12.526  INFO 3458 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/Users/maxminard/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+2018-12-01 21:54:12.609  INFO 3458 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-12-01 21:54:12.609  INFO 3458 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1877 ms
+2018-12-01 21:54:12.997  INFO 3458 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-12-01 21:54:12.998  INFO 3458 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'webMvcMetricsFilter' to: [/*]
+2018-12-01 21:54:12.998  INFO 3458 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-12-01 21:54:12.998  INFO 3458 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'formContentFilter' to: [/*]
+2018-12-01 21:54:12.998  INFO 3458 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-12-01 21:54:12.999  INFO 3458 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpTraceFilter' to: [/*]
+2018-12-01 21:54:12.999  INFO 3458 --- [restartedMain] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2018-12-01 21:54:13.188  INFO 3458 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2018-12-01 21:54:13.605  INFO 3458 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2018-12-01 21:54:13.643  INFO 3458 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-12-01 21:54:13.688  INFO 3458 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.6.Final}
+2018-12-01 21:54:13.689  INFO 3458 --- [restartedMain] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2018-12-01 21:54:13.793  INFO 3458 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2018-12-01 21:54:13.899  INFO 3458 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2018-12-01 21:54:14.473  INFO 3458 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-12-01 21:54:14.738  INFO 3458 --- [restartedMain] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2018-12-01 21:54:14.830  WARN 3458 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'propertyController' defined in file [/Users/maxminard/Documents/Code/309/PP_1/Backend/src/spring-boot/target/classes/com/example/demo/PropertyController.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'propertyRepository': Invocation of init method failed; nested exception is java.lang.IllegalArgumentException: Validation failed for query for method public abstract com.example.demo.Property com.example.demo.PropertyRepository.findProperty(java.lang.Integer)!
+2018-12-01 21:54:14.830  INFO 3458 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2018-12-01 21:54:14.831  INFO 3458 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2018-12-01 21:54:15.086  INFO 3458 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2018-12-01 21:54:15.088  INFO 3458 --- [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2018-12-01 21:54:15.105  INFO 3458 --- [restartedMain] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2018-12-01 21:54:15.117 ERROR 3458 --- [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'propertyController' defined in file [/Users/maxminard/Documents/Code/309/PP_1/Backend/src/spring-boot/target/classes/com/example/demo/PropertyController.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'propertyRepository': Invocation of init method failed; nested exception is java.lang.IllegalArgumentException: Validation failed for query for method public abstract com.example.demo.Property com.example.demo.PropertyRepository.findProperty(java.lang.Integer)!
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:767) ~[spring-beans-5.1.0.RELEASE.jar:5.1.0.RELEASE]
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:218) ~[spring-beans-5.1.0.RELEASE.jar:5.1.0.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1307) ~[spring-beans-5.1.0.RELEASE.jar:5.1.0.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1153) ~[spring-beans-5.1.0.RELEASE.jar:5.1.0.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:538) ~[spring-beans-5.1.0.RELEASE.jar:5.1.0.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:498) ~[spring-beans-5.1.0.RELEASE.jar:5.1.0.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320) ~[spring-beans-5.1.0.RELEASE.jar:5.1.0.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222) ~[spring-beans-5.1.0.RELEASE.jar:5.1.0.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318) ~[spring-beans-5.1.0.RELEASE.jar:5.1.0.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) ~[spring-beans-5.1.0.RELEASE.jar:5.1.0.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:848) ~[spring-beans-5.1.0.RELEASE.jar:5.1.0.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:865) ~[spring-context-5.1.0.RELEASE.jar:5.1.0.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:548) ~[spring-context-5.1.0.RELEASE.jar:5.1.0.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:140) ~[spring-boot-2.1.0.M4.jar:2.1.0.M4]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:797) [spring-boot-2.1.0.M4.jar:2.1.0.M4]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:421) [spring-boot-2.1.0.M4.jar:2.1.0.M4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:340) [spring-boot-2.1.0.M4.jar:2.1.0.M4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1291) [spring-boot-2.1.0.M4.jar:2.1.0.M4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1279) [spring-boot-2.1.0.M4.jar:2.1.0.M4]
+	at com.example.demo.Application.main(Application.java:12) [classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_131]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_131]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_131]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_131]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49) [spring-boot-devtools-2.1.0.M4.jar:2.1.0.M4]
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'propertyRepository': Invocation of init method failed; nested exception is java.lang.IllegalArgumentException: Validation failed for query for method public abstract com.example.demo.Property com.example.demo.PropertyRepository.findProperty(java.lang.Integer)!
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1744) ~[spring-beans-5.1.0.RELEASE.jar:5.1.0.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:576) ~[spring-beans-5.1.0.RELEASE.jar:5.1.0.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:498) ~[spring-beans-5.1.0.RELEASE.jar:5.1.0.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320) ~[spring-beans-5.1.0.RELEASE.jar:5.1.0.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222) ~[spring-beans-5.1.0.RELEASE.jar:5.1.0.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318) ~[spring-beans-5.1.0.RELEASE.jar:5.1.0.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) ~[spring-beans-5.1.0.RELEASE.jar:5.1.0.RELEASE]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:273) ~[spring-beans-5.1.0.RELEASE.jar:5.1.0.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1241) ~[spring-beans-5.1.0.RELEASE.jar:5.1.0.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1168) ~[spring-beans-5.1.0.RELEASE.jar:5.1.0.RELEASE]
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:855) ~[spring-beans-5.1.0.RELEASE.jar:5.1.0.RELEASE]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:758) ~[spring-beans-5.1.0.RELEASE.jar:5.1.0.RELEASE]
+	... 24 common frames omitted
+Caused by: java.lang.IllegalArgumentException: Validation failed for query for method public abstract com.example.demo.Property com.example.demo.PropertyRepository.findProperty(java.lang.Integer)!
+	at org.springframework.data.jpa.repository.query.SimpleJpaQuery.validateQuery(SimpleJpaQuery.java:93) ~[spring-data-jpa-2.1.0.RELEASE.jar:2.1.0.RELEASE]
+	at org.springframework.data.jpa.repository.query.SimpleJpaQuery.<init>(SimpleJpaQuery.java:63) ~[spring-data-jpa-2.1.0.RELEASE.jar:2.1.0.RELEASE]
+	at org.springframework.data.jpa.repository.query.JpaQueryFactory.fromMethodWithQueryString(JpaQueryFactory.java:76) ~[spring-data-jpa-2.1.0.RELEASE.jar:2.1.0.RELEASE]
+	at org.springframework.data.jpa.repository.query.JpaQueryFactory.fromQueryAnnotation(JpaQueryFactory.java:56) ~[spring-data-jpa-2.1.0.RELEASE.jar:2.1.0.RELEASE]
+	at org.springframework.data.jpa.repository.query.JpaQueryLookupStrategy$DeclaredQueryLookupStrategy.resolveQuery(JpaQueryLookupStrategy.java:139) ~[spring-data-jpa-2.1.0.RELEASE.jar:2.1.0.RELEASE]
+	at org.springframework.data.jpa.repository.query.JpaQueryLookupStrategy$CreateIfNotFoundQueryLookupStrategy.resolveQuery(JpaQueryLookupStrategy.java:206) ~[spring-data-jpa-2.1.0.RELEASE.jar:2.1.0.RELEASE]
+	at org.springframework.data.jpa.repository.query.JpaQueryLookupStrategy$AbstractQueryLookupStrategy.resolveQuery(JpaQueryLookupStrategy.java:79) ~[spring-data-jpa-2.1.0.RELEASE.jar:2.1.0.RELEASE]
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$QueryExecutorMethodInterceptor.lookupQuery(RepositoryFactorySupport.java:566) ~[spring-data-commons-2.1.0.RELEASE.jar:2.1.0.RELEASE]
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$QueryExecutorMethodInterceptor.lambda$mapMethodsToQuery$1(RepositoryFactorySupport.java:559) ~[spring-data-commons-2.1.0.RELEASE.jar:2.1.0.RELEASE]
+	at java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:193) ~[na:1.8.0_131]
+	at java.util.Iterator.forEachRemaining(Iterator.java:116) ~[na:1.8.0_131]
+	at java.util.Collections$UnmodifiableCollection$1.forEachRemaining(Collections.java:1049) ~[na:1.8.0_131]
+	at java.util.Spliterators$IteratorSpliterator.forEachRemaining(Spliterators.java:1801) ~[na:1.8.0_131]
+	at java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:481) ~[na:1.8.0_131]
+	at java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:471) ~[na:1.8.0_131]
+	at java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:708) ~[na:1.8.0_131]
+	at java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234) ~[na:1.8.0_131]
+	at java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:499) ~[na:1.8.0_131]
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$QueryExecutorMethodInterceptor.mapMethodsToQuery(RepositoryFactorySupport.java:561) ~[spring-data-commons-2.1.0.RELEASE.jar:2.1.0.RELEASE]
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$QueryExecutorMethodInterceptor.lambda$new$0(RepositoryFactorySupport.java:551) ~[spring-data-commons-2.1.0.RELEASE.jar:2.1.0.RELEASE]
+	at java.util.Optional.map(Optional.java:215) ~[na:1.8.0_131]
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$QueryExecutorMethodInterceptor.<init>(RepositoryFactorySupport.java:551) ~[spring-data-commons-2.1.0.RELEASE.jar:2.1.0.RELEASE]
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport.getRepository(RepositoryFactorySupport.java:324) ~[spring-data-commons-2.1.0.RELEASE.jar:2.1.0.RELEASE]
+	at org.springframework.data.repository.core.support.RepositoryFactoryBeanSupport.lambda$afterPropertiesSet$5(RepositoryFactoryBeanSupport.java:297) ~[spring-data-commons-2.1.0.RELEASE.jar:2.1.0.RELEASE]
+	at org.springframework.data.util.Lazy.getNullable(Lazy.java:211) ~[spring-data-commons-2.1.0.RELEASE.jar:2.1.0.RELEASE]
+	at org.springframework.data.util.Lazy.get(Lazy.java:94) ~[spring-data-commons-2.1.0.RELEASE.jar:2.1.0.RELEASE]
+	at org.springframework.data.repository.core.support.RepositoryFactoryBeanSupport.afterPropertiesSet(RepositoryFactoryBeanSupport.java:300) ~[spring-data-commons-2.1.0.RELEASE.jar:2.1.0.RELEASE]
+	at org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean.afterPropertiesSet(JpaRepositoryFactoryBean.java:119) ~[spring-data-jpa-2.1.0.RELEASE.jar:2.1.0.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1803) ~[spring-beans-5.1.0.RELEASE.jar:5.1.0.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1740) ~[spring-beans-5.1.0.RELEASE.jar:5.1.0.RELEASE]
+	... 35 common frames omitted
+Caused by: java.lang.IllegalArgumentException: org.hibernate.QueryException: could not resolve property: id_property of: com.example.demo.Property [select p from com.example.demo.Property p where p.id_property = :id_property]
+	at org.hibernate.internal.ExceptionConverterImpl.convert(ExceptionConverterImpl.java:138) ~[hibernate-core-5.3.6.Final.jar:5.3.6.Final]
+	at org.hibernate.internal.ExceptionConverterImpl.convert(ExceptionConverterImpl.java:181) ~[hibernate-core-5.3.6.Final.jar:5.3.6.Final]
+	at org.hibernate.internal.ExceptionConverterImpl.convert(ExceptionConverterImpl.java:188) ~[hibernate-core-5.3.6.Final.jar:5.3.6.Final]
+	at org.hibernate.internal.AbstractSharedSessionContract.createQuery(AbstractSharedSessionContract.java:713) ~[hibernate-core-5.3.6.Final.jar:5.3.6.Final]
+	at org.hibernate.internal.AbstractSessionImpl.createQuery(AbstractSessionImpl.java:23) ~[hibernate-core-5.3.6.Final.jar:5.3.6.Final]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_131]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_131]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_131]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_131]
+	at org.springframework.orm.jpa.ExtendedEntityManagerCreator$ExtendedEntityManagerInvocationHandler.invoke(ExtendedEntityManagerCreator.java:350) ~[spring-orm-5.1.0.RELEASE.jar:5.1.0.RELEASE]
+	at com.sun.proxy.$Proxy105.createQuery(Unknown Source) ~[na:na]
+	at org.springframework.data.jpa.repository.query.SimpleJpaQuery.validateQuery(SimpleJpaQuery.java:87) ~[spring-data-jpa-2.1.0.RELEASE.jar:2.1.0.RELEASE]
+	... 64 common frames omitted
+Caused by: org.hibernate.QueryException: could not resolve property: id_property of: com.example.demo.Property [select p from com.example.demo.Property p where p.id_property = :id_property]
+	at org.hibernate.QueryException.generateQueryException(QueryException.java:120) ~[hibernate-core-5.3.6.Final.jar:5.3.6.Final]
+	at org.hibernate.QueryException.wrapWithQueryString(QueryException.java:103) ~[hibernate-core-5.3.6.Final.jar:5.3.6.Final]
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.doCompile(QueryTranslatorImpl.java:219) ~[hibernate-core-5.3.6.Final.jar:5.3.6.Final]
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.compile(QueryTranslatorImpl.java:143) ~[hibernate-core-5.3.6.Final.jar:5.3.6.Final]
+	at org.hibernate.engine.query.spi.HQLQueryPlan.<init>(HQLQueryPlan.java:119) ~[hibernate-core-5.3.6.Final.jar:5.3.6.Final]
+	at org.hibernate.engine.query.spi.HQLQueryPlan.<init>(HQLQueryPlan.java:80) ~[hibernate-core-5.3.6.Final.jar:5.3.6.Final]
+	at org.hibernate.engine.query.spi.QueryPlanCache.getHQLQueryPlan(QueryPlanCache.java:153) ~[hibernate-core-5.3.6.Final.jar:5.3.6.Final]
+	at org.hibernate.internal.AbstractSharedSessionContract.getQueryPlan(AbstractSharedSessionContract.java:595) ~[hibernate-core-5.3.6.Final.jar:5.3.6.Final]
+	at org.hibernate.internal.AbstractSharedSessionContract.createQuery(AbstractSharedSessionContract.java:704) ~[hibernate-core-5.3.6.Final.jar:5.3.6.Final]
+	... 72 common frames omitted
+Caused by: org.hibernate.QueryException: could not resolve property: id_property of: com.example.demo.Property
+	at org.hibernate.persister.entity.AbstractPropertyMapping.propertyException(AbstractPropertyMapping.java:73) ~[hibernate-core-5.3.6.Final.jar:5.3.6.Final]
+	at org.hibernate.persister.entity.AbstractPropertyMapping.toType(AbstractPropertyMapping.java:67) ~[hibernate-core-5.3.6.Final.jar:5.3.6.Final]
+	at org.hibernate.persister.entity.AbstractEntityPersister.toType(AbstractEntityPersister.java:1982) ~[hibernate-core-5.3.6.Final.jar:5.3.6.Final]
+	at org.hibernate.hql.internal.ast.tree.FromElementType.getPropertyType(FromElementType.java:393) ~[hibernate-core-5.3.6.Final.jar:5.3.6.Final]
+	at org.hibernate.hql.internal.ast.tree.FromElement.getPropertyType(FromElement.java:509) ~[hibernate-core-5.3.6.Final.jar:5.3.6.Final]
+	at org.hibernate.hql.internal.ast.tree.DotNode.getDataType(DotNode.java:687) ~[hibernate-core-5.3.6.Final.jar:5.3.6.Final]
+	at org.hibernate.hql.internal.ast.tree.DotNode.prepareLhs(DotNode.java:270) ~[hibernate-core-5.3.6.Final.jar:5.3.6.Final]
+	at org.hibernate.hql.internal.ast.tree.DotNode.resolve(DotNode.java:210) ~[hibernate-core-5.3.6.Final.jar:5.3.6.Final]
+	at org.hibernate.hql.internal.ast.HqlSqlWalker.resolve(HqlSqlWalker.java:1045) ~[hibernate-core-5.3.6.Final.jar:5.3.6.Final]
+	at org.hibernate.hql.internal.antlr.HqlSqlBaseWalker.expr(HqlSqlBaseWalker.java:1290) ~[hibernate-core-5.3.6.Final.jar:5.3.6.Final]
+	at org.hibernate.hql.internal.antlr.HqlSqlBaseWalker.exprOrSubquery(HqlSqlBaseWalker.java:4706) ~[hibernate-core-5.3.6.Final.jar:5.3.6.Final]
+	at org.hibernate.hql.internal.antlr.HqlSqlBaseWalker.comparisonExpr(HqlSqlBaseWalker.java:4174) ~[hibernate-core-5.3.6.Final.jar:5.3.6.Final]
+	at org.hibernate.hql.internal.antlr.HqlSqlBaseWalker.logicalExpr(HqlSqlBaseWalker.java:2138) ~[hibernate-core-5.3.6.Final.jar:5.3.6.Final]
+	at org.hibernate.hql.internal.antlr.HqlSqlBaseWalker.whereClause(HqlSqlBaseWalker.java:815) ~[hibernate-core-5.3.6.Final.jar:5.3.6.Final]
+	at org.hibernate.hql.internal.antlr.HqlSqlBaseWalker.query(HqlSqlBaseWalker.java:609) ~[hibernate-core-5.3.6.Final.jar:5.3.6.Final]
+	at org.hibernate.hql.internal.antlr.HqlSqlBaseWalker.selectStatement(HqlSqlBaseWalker.java:313) ~[hibernate-core-5.3.6.Final.jar:5.3.6.Final]
+	at org.hibernate.hql.internal.antlr.HqlSqlBaseWalker.statement(HqlSqlBaseWalker.java:261) ~[hibernate-core-5.3.6.Final.jar:5.3.6.Final]
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.analyze(QueryTranslatorImpl.java:271) ~[hibernate-core-5.3.6.Final.jar:5.3.6.Final]
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.doCompile(QueryTranslatorImpl.java:191) ~[hibernate-core-5.3.6.Final.jar:5.3.6.Final]
+	... 78 common frames omitted
+
+2018-12-01 21:54:39.105  INFO 3459 --- [restartedMain] com.example.demo.Application             : Starting Application on max-macbook with PID 3459 (/Users/maxminard/Documents/Code/309/PP_1/Backend/src/spring-boot/target/classes started by maxminard in /Users/maxminard/Documents/Code/309/PP_1/Backend/src/spring-boot)
+2018-12-01 21:54:39.109  INFO 3459 --- [restartedMain] com.example.demo.Application             : No active profile set, falling back to default profiles: default
+2018-12-01 21:54:39.177  INFO 3459 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2018-12-01 21:54:39.178  INFO 3459 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2018-12-01 21:54:40.288  INFO 3459 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2018-12-01 21:54:40.360  INFO 3459 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 66ms. Found 6 repository interfaces.
+2018-12-01 21:54:40.832  INFO 3459 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$65c2603f] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-01 21:54:41.239  INFO 3459 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2018-12-01 21:54:41.257  INFO 3459 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-12-01 21:54:41.257  INFO 3459 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.12
+2018-12-01 21:54:41.262  INFO 3459 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/Users/maxminard/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+2018-12-01 21:54:41.358  INFO 3459 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-12-01 21:54:41.358  INFO 3459 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2180 ms
+2018-12-01 21:54:41.821  INFO 3459 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-12-01 21:54:41.822  INFO 3459 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'webMvcMetricsFilter' to: [/*]
+2018-12-01 21:54:41.822  INFO 3459 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-12-01 21:54:41.823  INFO 3459 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'formContentFilter' to: [/*]
+2018-12-01 21:54:41.823  INFO 3459 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-12-01 21:54:41.823  INFO 3459 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpTraceFilter' to: [/*]
+2018-12-01 21:54:41.823  INFO 3459 --- [restartedMain] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2018-12-01 21:54:42.026  INFO 3459 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2018-12-01 21:54:42.448  INFO 3459 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2018-12-01 21:54:42.489  INFO 3459 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-12-01 21:54:42.537  INFO 3459 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.6.Final}
+2018-12-01 21:54:42.538  INFO 3459 --- [restartedMain] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2018-12-01 21:54:42.646  INFO 3459 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2018-12-01 21:54:42.752  INFO 3459 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2018-12-01 21:54:43.339  INFO 3459 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-12-01 21:54:43.570  INFO 3459 --- [restartedMain] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2018-12-01 21:54:43.771  INFO 3459 --- [restartedMain] f.a.AutowiredAnnotationBeanPostProcessor : Autowired annotation is not supported on static fields: private static com.example.demo.RequestRepository com.example.demo.websocket.WebSocketServer.requests
+2018-12-01 21:54:43.788  INFO 3459 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2018-12-01 21:54:44.011  WARN 3459 --- [restartedMain] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2018-12-01 21:54:44.329  INFO 3459 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2018-12-01 21:54:44.338  INFO 3459 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2018-12-01 21:54:44.438  INFO 3459 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2018-12-01 21:54:44.442  INFO 3459 --- [restartedMain] com.example.demo.Application             : Started Application in 5.647 seconds (JVM running for 6.24)
+2018-12-01 21:54:47.144  INFO 3459 --- [RMI TCP Connection(2)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2018-12-01 21:54:47.155  INFO 3459 --- [RMI TCP Connection(2)-127.0.0.1] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2018-12-01 21:54:47.156  INFO 3459 --- [RMI TCP Connection(2)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2018-12-01 21:54:47.159  INFO 3459 --- [RMI TCP Connection(2)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2018-12-01 21:54:47.168  INFO 3459 --- [RMI TCP Connection(2)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2018-12-01 21:55:39.843  INFO 3460 --- [restartedMain] com.example.demo.Application             : Starting Application on max-macbook with PID 3460 (/Users/maxminard/Documents/Code/309/PP_1/Backend/src/spring-boot/target/classes started by maxminard in /Users/maxminard/Documents/Code/309/PP_1/Backend/src/spring-boot)
+2018-12-01 21:55:39.849  INFO 3460 --- [restartedMain] com.example.demo.Application             : No active profile set, falling back to default profiles: default
+2018-12-01 21:55:39.905  INFO 3460 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2018-12-01 21:55:39.905  INFO 3460 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2018-12-01 21:55:40.878  INFO 3460 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2018-12-01 21:55:40.946  INFO 3460 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 61ms. Found 6 repository interfaces.
+2018-12-01 21:55:41.356  INFO 3460 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$db8fdaad] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-01 21:55:41.709  INFO 3460 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2018-12-01 21:55:41.724  INFO 3460 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-12-01 21:55:41.725  INFO 3460 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.12
+2018-12-01 21:55:41.729  INFO 3460 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/Users/maxminard/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+2018-12-01 21:55:41.825  INFO 3460 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-12-01 21:55:41.825  INFO 3460 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1920 ms
+2018-12-01 21:55:42.212  INFO 3460 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-12-01 21:55:42.213  INFO 3460 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'webMvcMetricsFilter' to: [/*]
+2018-12-01 21:55:42.213  INFO 3460 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-12-01 21:55:42.213  INFO 3460 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'formContentFilter' to: [/*]
+2018-12-01 21:55:42.213  INFO 3460 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-12-01 21:55:42.214  INFO 3460 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpTraceFilter' to: [/*]
+2018-12-01 21:55:42.214  INFO 3460 --- [restartedMain] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2018-12-01 21:55:42.399  INFO 3460 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2018-12-01 21:55:42.831  INFO 3460 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2018-12-01 21:55:42.870  INFO 3460 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-12-01 21:55:42.914  INFO 3460 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.6.Final}
+2018-12-01 21:55:42.915  INFO 3460 --- [restartedMain] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2018-12-01 21:55:43.019  INFO 3460 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2018-12-01 21:55:43.132  INFO 3460 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2018-12-01 21:55:43.700  INFO 3460 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-12-01 21:55:43.938  INFO 3460 --- [restartedMain] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2018-12-01 21:55:44.048  WARN 3460 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'propertyController' defined in file [/Users/maxminard/Documents/Code/309/PP_1/Backend/src/spring-boot/target/classes/com/example/demo/PropertyController.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'propertyRepository': Invocation of init method failed; nested exception is java.lang.IllegalArgumentException: Validation failed for query for method public abstract com.example.demo.Property com.example.demo.PropertyRepository.findProperty(java.lang.Integer)!
+2018-12-01 21:55:44.049  INFO 3460 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2018-12-01 21:55:44.051  INFO 3460 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2018-12-01 21:55:44.285  INFO 3460 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2018-12-01 21:55:44.287  INFO 3460 --- [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2018-12-01 21:55:44.304  INFO 3460 --- [restartedMain] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2018-12-01 21:55:44.315 ERROR 3460 --- [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'propertyController' defined in file [/Users/maxminard/Documents/Code/309/PP_1/Backend/src/spring-boot/target/classes/com/example/demo/PropertyController.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'propertyRepository': Invocation of init method failed; nested exception is java.lang.IllegalArgumentException: Validation failed for query for method public abstract com.example.demo.Property com.example.demo.PropertyRepository.findProperty(java.lang.Integer)!
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:767) ~[spring-beans-5.1.0.RELEASE.jar:5.1.0.RELEASE]
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:218) ~[spring-beans-5.1.0.RELEASE.jar:5.1.0.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1307) ~[spring-beans-5.1.0.RELEASE.jar:5.1.0.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1153) ~[spring-beans-5.1.0.RELEASE.jar:5.1.0.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:538) ~[spring-beans-5.1.0.RELEASE.jar:5.1.0.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:498) ~[spring-beans-5.1.0.RELEASE.jar:5.1.0.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320) ~[spring-beans-5.1.0.RELEASE.jar:5.1.0.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222) ~[spring-beans-5.1.0.RELEASE.jar:5.1.0.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318) ~[spring-beans-5.1.0.RELEASE.jar:5.1.0.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) ~[spring-beans-5.1.0.RELEASE.jar:5.1.0.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:848) ~[spring-beans-5.1.0.RELEASE.jar:5.1.0.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:865) ~[spring-context-5.1.0.RELEASE.jar:5.1.0.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:548) ~[spring-context-5.1.0.RELEASE.jar:5.1.0.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:140) ~[spring-boot-2.1.0.M4.jar:2.1.0.M4]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:797) [spring-boot-2.1.0.M4.jar:2.1.0.M4]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:421) [spring-boot-2.1.0.M4.jar:2.1.0.M4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:340) [spring-boot-2.1.0.M4.jar:2.1.0.M4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1291) [spring-boot-2.1.0.M4.jar:2.1.0.M4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1279) [spring-boot-2.1.0.M4.jar:2.1.0.M4]
+	at com.example.demo.Application.main(Application.java:12) [classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_131]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_131]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_131]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_131]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49) [spring-boot-devtools-2.1.0.M4.jar:2.1.0.M4]
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'propertyRepository': Invocation of init method failed; nested exception is java.lang.IllegalArgumentException: Validation failed for query for method public abstract com.example.demo.Property com.example.demo.PropertyRepository.findProperty(java.lang.Integer)!
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1744) ~[spring-beans-5.1.0.RELEASE.jar:5.1.0.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:576) ~[spring-beans-5.1.0.RELEASE.jar:5.1.0.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:498) ~[spring-beans-5.1.0.RELEASE.jar:5.1.0.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320) ~[spring-beans-5.1.0.RELEASE.jar:5.1.0.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222) ~[spring-beans-5.1.0.RELEASE.jar:5.1.0.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318) ~[spring-beans-5.1.0.RELEASE.jar:5.1.0.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) ~[spring-beans-5.1.0.RELEASE.jar:5.1.0.RELEASE]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:273) ~[spring-beans-5.1.0.RELEASE.jar:5.1.0.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1241) ~[spring-beans-5.1.0.RELEASE.jar:5.1.0.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1168) ~[spring-beans-5.1.0.RELEASE.jar:5.1.0.RELEASE]
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:855) ~[spring-beans-5.1.0.RELEASE.jar:5.1.0.RELEASE]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:758) ~[spring-beans-5.1.0.RELEASE.jar:5.1.0.RELEASE]
+	... 24 common frames omitted
+Caused by: java.lang.IllegalArgumentException: Validation failed for query for method public abstract com.example.demo.Property com.example.demo.PropertyRepository.findProperty(java.lang.Integer)!
+	at org.springframework.data.jpa.repository.query.SimpleJpaQuery.validateQuery(SimpleJpaQuery.java:93) ~[spring-data-jpa-2.1.0.RELEASE.jar:2.1.0.RELEASE]
+	at org.springframework.data.jpa.repository.query.SimpleJpaQuery.<init>(SimpleJpaQuery.java:63) ~[spring-data-jpa-2.1.0.RELEASE.jar:2.1.0.RELEASE]
+	at org.springframework.data.jpa.repository.query.JpaQueryFactory.fromMethodWithQueryString(JpaQueryFactory.java:76) ~[spring-data-jpa-2.1.0.RELEASE.jar:2.1.0.RELEASE]
+	at org.springframework.data.jpa.repository.query.JpaQueryFactory.fromQueryAnnotation(JpaQueryFactory.java:56) ~[spring-data-jpa-2.1.0.RELEASE.jar:2.1.0.RELEASE]
+	at org.springframework.data.jpa.repository.query.JpaQueryLookupStrategy$DeclaredQueryLookupStrategy.resolveQuery(JpaQueryLookupStrategy.java:139) ~[spring-data-jpa-2.1.0.RELEASE.jar:2.1.0.RELEASE]
+	at org.springframework.data.jpa.repository.query.JpaQueryLookupStrategy$CreateIfNotFoundQueryLookupStrategy.resolveQuery(JpaQueryLookupStrategy.java:206) ~[spring-data-jpa-2.1.0.RELEASE.jar:2.1.0.RELEASE]
+	at org.springframework.data.jpa.repository.query.JpaQueryLookupStrategy$AbstractQueryLookupStrategy.resolveQuery(JpaQueryLookupStrategy.java:79) ~[spring-data-jpa-2.1.0.RELEASE.jar:2.1.0.RELEASE]
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$QueryExecutorMethodInterceptor.lookupQuery(RepositoryFactorySupport.java:566) ~[spring-data-commons-2.1.0.RELEASE.jar:2.1.0.RELEASE]
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$QueryExecutorMethodInterceptor.lambda$mapMethodsToQuery$1(RepositoryFactorySupport.java:559) ~[spring-data-commons-2.1.0.RELEASE.jar:2.1.0.RELEASE]
+	at java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:193) ~[na:1.8.0_131]
+	at java.util.Iterator.forEachRemaining(Iterator.java:116) ~[na:1.8.0_131]
+	at java.util.Collections$UnmodifiableCollection$1.forEachRemaining(Collections.java:1049) ~[na:1.8.0_131]
+	at java.util.Spliterators$IteratorSpliterator.forEachRemaining(Spliterators.java:1801) ~[na:1.8.0_131]
+	at java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:481) ~[na:1.8.0_131]
+	at java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:471) ~[na:1.8.0_131]
+	at java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:708) ~[na:1.8.0_131]
+	at java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234) ~[na:1.8.0_131]
+	at java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:499) ~[na:1.8.0_131]
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$QueryExecutorMethodInterceptor.mapMethodsToQuery(RepositoryFactorySupport.java:561) ~[spring-data-commons-2.1.0.RELEASE.jar:2.1.0.RELEASE]
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$QueryExecutorMethodInterceptor.lambda$new$0(RepositoryFactorySupport.java:551) ~[spring-data-commons-2.1.0.RELEASE.jar:2.1.0.RELEASE]
+	at java.util.Optional.map(Optional.java:215) ~[na:1.8.0_131]
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$QueryExecutorMethodInterceptor.<init>(RepositoryFactorySupport.java:551) ~[spring-data-commons-2.1.0.RELEASE.jar:2.1.0.RELEASE]
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport.getRepository(RepositoryFactorySupport.java:324) ~[spring-data-commons-2.1.0.RELEASE.jar:2.1.0.RELEASE]
+	at org.springframework.data.repository.core.support.RepositoryFactoryBeanSupport.lambda$afterPropertiesSet$5(RepositoryFactoryBeanSupport.java:297) ~[spring-data-commons-2.1.0.RELEASE.jar:2.1.0.RELEASE]
+	at org.springframework.data.util.Lazy.getNullable(Lazy.java:211) ~[spring-data-commons-2.1.0.RELEASE.jar:2.1.0.RELEASE]
+	at org.springframework.data.util.Lazy.get(Lazy.java:94) ~[spring-data-commons-2.1.0.RELEASE.jar:2.1.0.RELEASE]
+	at org.springframework.data.repository.core.support.RepositoryFactoryBeanSupport.afterPropertiesSet(RepositoryFactoryBeanSupport.java:300) ~[spring-data-commons-2.1.0.RELEASE.jar:2.1.0.RELEASE]
+	at org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean.afterPropertiesSet(JpaRepositoryFactoryBean.java:119) ~[spring-data-jpa-2.1.0.RELEASE.jar:2.1.0.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1803) ~[spring-beans-5.1.0.RELEASE.jar:5.1.0.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1740) ~[spring-beans-5.1.0.RELEASE.jar:5.1.0.RELEASE]
+	... 35 common frames omitted
+Caused by: java.lang.IllegalArgumentException: org.hibernate.QueryException: could not resolve property: id_property of: com.example.demo.Property [select p from com.example.demo.Property p where p.id_property = :id_property]
+	at org.hibernate.internal.ExceptionConverterImpl.convert(ExceptionConverterImpl.java:138) ~[hibernate-core-5.3.6.Final.jar:5.3.6.Final]
+	at org.hibernate.internal.ExceptionConverterImpl.convert(ExceptionConverterImpl.java:181) ~[hibernate-core-5.3.6.Final.jar:5.3.6.Final]
+	at org.hibernate.internal.ExceptionConverterImpl.convert(ExceptionConverterImpl.java:188) ~[hibernate-core-5.3.6.Final.jar:5.3.6.Final]
+	at org.hibernate.internal.AbstractSharedSessionContract.createQuery(AbstractSharedSessionContract.java:713) ~[hibernate-core-5.3.6.Final.jar:5.3.6.Final]
+	at org.hibernate.internal.AbstractSessionImpl.createQuery(AbstractSessionImpl.java:23) ~[hibernate-core-5.3.6.Final.jar:5.3.6.Final]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_131]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_131]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_131]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_131]
+	at org.springframework.orm.jpa.ExtendedEntityManagerCreator$ExtendedEntityManagerInvocationHandler.invoke(ExtendedEntityManagerCreator.java:350) ~[spring-orm-5.1.0.RELEASE.jar:5.1.0.RELEASE]
+	at com.sun.proxy.$Proxy105.createQuery(Unknown Source) ~[na:na]
+	at org.springframework.data.jpa.repository.query.SimpleJpaQuery.validateQuery(SimpleJpaQuery.java:87) ~[spring-data-jpa-2.1.0.RELEASE.jar:2.1.0.RELEASE]
+	... 64 common frames omitted
+Caused by: org.hibernate.QueryException: could not resolve property: id_property of: com.example.demo.Property [select p from com.example.demo.Property p where p.id_property = :id_property]
+	at org.hibernate.QueryException.generateQueryException(QueryException.java:120) ~[hibernate-core-5.3.6.Final.jar:5.3.6.Final]
+	at org.hibernate.QueryException.wrapWithQueryString(QueryException.java:103) ~[hibernate-core-5.3.6.Final.jar:5.3.6.Final]
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.doCompile(QueryTranslatorImpl.java:219) ~[hibernate-core-5.3.6.Final.jar:5.3.6.Final]
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.compile(QueryTranslatorImpl.java:143) ~[hibernate-core-5.3.6.Final.jar:5.3.6.Final]
+	at org.hibernate.engine.query.spi.HQLQueryPlan.<init>(HQLQueryPlan.java:119) ~[hibernate-core-5.3.6.Final.jar:5.3.6.Final]
+	at org.hibernate.engine.query.spi.HQLQueryPlan.<init>(HQLQueryPlan.java:80) ~[hibernate-core-5.3.6.Final.jar:5.3.6.Final]
+	at org.hibernate.engine.query.spi.QueryPlanCache.getHQLQueryPlan(QueryPlanCache.java:153) ~[hibernate-core-5.3.6.Final.jar:5.3.6.Final]
+	at org.hibernate.internal.AbstractSharedSessionContract.getQueryPlan(AbstractSharedSessionContract.java:595) ~[hibernate-core-5.3.6.Final.jar:5.3.6.Final]
+	at org.hibernate.internal.AbstractSharedSessionContract.createQuery(AbstractSharedSessionContract.java:704) ~[hibernate-core-5.3.6.Final.jar:5.3.6.Final]
+	... 72 common frames omitted
+Caused by: org.hibernate.QueryException: could not resolve property: id_property of: com.example.demo.Property
+	at org.hibernate.persister.entity.AbstractPropertyMapping.propertyException(AbstractPropertyMapping.java:73) ~[hibernate-core-5.3.6.Final.jar:5.3.6.Final]
+	at org.hibernate.persister.entity.AbstractPropertyMapping.toType(AbstractPropertyMapping.java:67) ~[hibernate-core-5.3.6.Final.jar:5.3.6.Final]
+	at org.hibernate.persister.entity.AbstractEntityPersister.toType(AbstractEntityPersister.java:1982) ~[hibernate-core-5.3.6.Final.jar:5.3.6.Final]
+	at org.hibernate.hql.internal.ast.tree.FromElementType.getPropertyType(FromElementType.java:393) ~[hibernate-core-5.3.6.Final.jar:5.3.6.Final]
+	at org.hibernate.hql.internal.ast.tree.FromElement.getPropertyType(FromElement.java:509) ~[hibernate-core-5.3.6.Final.jar:5.3.6.Final]
+	at org.hibernate.hql.internal.ast.tree.DotNode.getDataType(DotNode.java:687) ~[hibernate-core-5.3.6.Final.jar:5.3.6.Final]
+	at org.hibernate.hql.internal.ast.tree.DotNode.prepareLhs(DotNode.java:270) ~[hibernate-core-5.3.6.Final.jar:5.3.6.Final]
+	at org.hibernate.hql.internal.ast.tree.DotNode.resolve(DotNode.java:210) ~[hibernate-core-5.3.6.Final.jar:5.3.6.Final]
+	at org.hibernate.hql.internal.ast.HqlSqlWalker.resolve(HqlSqlWalker.java:1045) ~[hibernate-core-5.3.6.Final.jar:5.3.6.Final]
+	at org.hibernate.hql.internal.antlr.HqlSqlBaseWalker.expr(HqlSqlBaseWalker.java:1290) ~[hibernate-core-5.3.6.Final.jar:5.3.6.Final]
+	at org.hibernate.hql.internal.antlr.HqlSqlBaseWalker.exprOrSubquery(HqlSqlBaseWalker.java:4706) ~[hibernate-core-5.3.6.Final.jar:5.3.6.Final]
+	at org.hibernate.hql.internal.antlr.HqlSqlBaseWalker.comparisonExpr(HqlSqlBaseWalker.java:4174) ~[hibernate-core-5.3.6.Final.jar:5.3.6.Final]
+	at org.hibernate.hql.internal.antlr.HqlSqlBaseWalker.logicalExpr(HqlSqlBaseWalker.java:2138) ~[hibernate-core-5.3.6.Final.jar:5.3.6.Final]
+	at org.hibernate.hql.internal.antlr.HqlSqlBaseWalker.whereClause(HqlSqlBaseWalker.java:815) ~[hibernate-core-5.3.6.Final.jar:5.3.6.Final]
+	at org.hibernate.hql.internal.antlr.HqlSqlBaseWalker.query(HqlSqlBaseWalker.java:609) ~[hibernate-core-5.3.6.Final.jar:5.3.6.Final]
+	at org.hibernate.hql.internal.antlr.HqlSqlBaseWalker.selectStatement(HqlSqlBaseWalker.java:313) ~[hibernate-core-5.3.6.Final.jar:5.3.6.Final]
+	at org.hibernate.hql.internal.antlr.HqlSqlBaseWalker.statement(HqlSqlBaseWalker.java:261) ~[hibernate-core-5.3.6.Final.jar:5.3.6.Final]
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.analyze(QueryTranslatorImpl.java:271) ~[hibernate-core-5.3.6.Final.jar:5.3.6.Final]
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.doCompile(QueryTranslatorImpl.java:191) ~[hibernate-core-5.3.6.Final.jar:5.3.6.Final]
+	... 78 common frames omitted
+
+2018-12-01 22:05:16.577  INFO 3467 --- [restartedMain] com.example.demo.Application             : Starting Application on max-macbook with PID 3467 (/Users/maxminard/Documents/Code/309/PP_1/Backend/src/spring-boot/target/classes started by maxminard in /Users/maxminard/Documents/Code/309/PP_1/Backend/src/spring-boot)
+2018-12-01 22:05:16.579  INFO 3467 --- [restartedMain] com.example.demo.Application             : No active profile set, falling back to default profiles: default
+2018-12-01 22:05:16.626  INFO 3467 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2018-12-01 22:05:16.627  INFO 3467 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2018-12-01 22:05:17.597  INFO 3467 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2018-12-01 22:05:17.667  INFO 3467 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 63ms. Found 6 repository interfaces.
+2018-12-01 22:05:18.086  INFO 3467 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$c3ee5ed8] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-01 22:05:18.433  INFO 3467 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2018-12-01 22:05:18.451  INFO 3467 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-12-01 22:05:18.451  INFO 3467 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.12
+2018-12-01 22:05:18.455  INFO 3467 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/Users/maxminard/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+2018-12-01 22:05:18.548  INFO 3467 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-12-01 22:05:18.548  INFO 3467 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1921 ms
+2018-12-01 22:05:18.923  INFO 3467 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-12-01 22:05:18.923  INFO 3467 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'webMvcMetricsFilter' to: [/*]
+2018-12-01 22:05:18.923  INFO 3467 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-12-01 22:05:18.924  INFO 3467 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'formContentFilter' to: [/*]
+2018-12-01 22:05:18.924  INFO 3467 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-12-01 22:05:18.924  INFO 3467 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpTraceFilter' to: [/*]
+2018-12-01 22:05:18.924  INFO 3467 --- [restartedMain] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2018-12-01 22:05:19.118  INFO 3467 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2018-12-01 22:05:19.589  INFO 3467 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2018-12-01 22:05:19.628  INFO 3467 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-12-01 22:05:19.676  INFO 3467 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.6.Final}
+2018-12-01 22:05:19.678  INFO 3467 --- [restartedMain] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2018-12-01 22:05:19.785  INFO 3467 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2018-12-01 22:05:19.901  INFO 3467 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2018-12-01 22:05:20.470  INFO 3467 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-12-01 22:05:20.700  INFO 3467 --- [restartedMain] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2018-12-01 22:05:20.897  INFO 3467 --- [restartedMain] f.a.AutowiredAnnotationBeanPostProcessor : Autowired annotation is not supported on static fields: private static com.example.demo.RequestRepository com.example.demo.websocket.WebSocketServer.requests
+2018-12-01 22:05:20.913  INFO 3467 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2018-12-01 22:05:21.141  WARN 3467 --- [restartedMain] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2018-12-01 22:05:21.465  INFO 3467 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2018-12-01 22:05:21.474  INFO 3467 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2018-12-01 22:05:21.577  INFO 3467 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2018-12-01 22:05:21.581  INFO 3467 --- [restartedMain] com.example.demo.Application             : Started Application in 5.309 seconds (JVM running for 5.912)
+2018-12-01 22:05:33.313  INFO 3467 --- [RMI TCP Connection(2)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2018-12-01 22:05:33.320  INFO 3467 --- [RMI TCP Connection(2)-127.0.0.1] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2018-12-01 22:05:33.321  INFO 3467 --- [RMI TCP Connection(2)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2018-12-01 22:05:33.323  INFO 3467 --- [RMI TCP Connection(2)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2018-12-01 22:05:33.329  INFO 3467 --- [RMI TCP Connection(2)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2018-12-01 22:05:45.901  INFO 3469 --- [restartedMain] com.example.demo.Application             : Starting Application on max-macbook with PID 3469 (/Users/maxminard/Documents/Code/309/PP_1/Backend/src/spring-boot/target/classes started by maxminard in /Users/maxminard/Documents/Code/309/PP_1/Backend/src/spring-boot)
+2018-12-01 22:05:45.905  INFO 3469 --- [restartedMain] com.example.demo.Application             : No active profile set, falling back to default profiles: default
+2018-12-01 22:05:45.961  INFO 3469 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2018-12-01 22:05:45.962  INFO 3469 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2018-12-01 22:05:46.924  INFO 3469 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2018-12-01 22:05:46.994  INFO 3469 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 64ms. Found 6 repository interfaces.
+2018-12-01 22:05:47.424  INFO 3469 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$e044b5aa] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-01 22:05:47.796  INFO 3469 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2018-12-01 22:05:47.814  INFO 3469 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-12-01 22:05:47.814  INFO 3469 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.12
+2018-12-01 22:05:47.819  INFO 3469 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/Users/maxminard/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+2018-12-01 22:05:47.920  INFO 3469 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-12-01 22:05:47.920  INFO 3469 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1958 ms
+2018-12-01 22:05:48.320  INFO 3469 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-12-01 22:05:48.321  INFO 3469 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'webMvcMetricsFilter' to: [/*]
+2018-12-01 22:05:48.321  INFO 3469 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-12-01 22:05:48.321  INFO 3469 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'formContentFilter' to: [/*]
+2018-12-01 22:05:48.322  INFO 3469 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-12-01 22:05:48.322  INFO 3469 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpTraceFilter' to: [/*]
+2018-12-01 22:05:48.322  INFO 3469 --- [restartedMain] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2018-12-01 22:05:48.521  INFO 3469 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2018-12-01 22:05:48.963  INFO 3469 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2018-12-01 22:05:49.001  INFO 3469 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-12-01 22:05:49.054  INFO 3469 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.6.Final}
+2018-12-01 22:05:49.056  INFO 3469 --- [restartedMain] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2018-12-01 22:05:49.182  INFO 3469 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2018-12-01 22:05:49.305  INFO 3469 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2018-12-01 22:05:49.964  INFO 3469 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-12-01 22:05:50.348  INFO 3469 --- [restartedMain] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2018-12-01 22:05:50.610  INFO 3469 --- [restartedMain] f.a.AutowiredAnnotationBeanPostProcessor : Autowired annotation is not supported on static fields: private static com.example.demo.RequestRepository com.example.demo.websocket.WebSocketServer.requests
+2018-12-01 22:05:50.632  INFO 3469 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2018-12-01 22:05:50.983  WARN 3469 --- [restartedMain] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2018-12-01 22:05:51.373  INFO 3469 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2018-12-01 22:05:51.383  INFO 3469 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2018-12-01 22:05:51.487  INFO 3469 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2018-12-01 22:05:51.491  INFO 3469 --- [restartedMain] com.example.demo.Application             : Started Application in 6.03 seconds (JVM running for 7.031)
+2018-12-01 22:06:02.827  INFO 3469 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2018-12-01 22:06:02.827  INFO 3469 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2018-12-01 22:06:02.854  INFO 3469 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 26 ms
+2018-12-01 22:06:20.349  INFO 3469 --- [RMI TCP Connection(2)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2018-12-01 22:06:20.355  INFO 3469 --- [RMI TCP Connection(2)-127.0.0.1] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2018-12-01 22:06:20.357  INFO 3469 --- [RMI TCP Connection(2)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2018-12-01 22:06:20.359  INFO 3469 --- [RMI TCP Connection(2)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2018-12-01 22:06:20.365  INFO 3469 --- [RMI TCP Connection(2)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

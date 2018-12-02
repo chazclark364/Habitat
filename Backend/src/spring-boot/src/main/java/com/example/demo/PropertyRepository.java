@@ -14,5 +14,11 @@ public interface PropertyRepository extends Repository<Property, Integer>{
 	@Query("select p from Property p")
     @Transactional(readOnly = true)
     public Collection<Property> findAllProperties();
-
+	
+	
+	@Query("select p from Property p where p.id_property = :id_property")
+    @Transactional(readOnly = true)
+    public Property findProperty(@Param("id_property") Integer id_property);
+	
+	
 }

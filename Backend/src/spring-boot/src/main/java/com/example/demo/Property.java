@@ -11,7 +11,7 @@ public class Property{
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name = "id_property")
-    private Integer id;
+    private Integer id_property;
 
     @Column(name = "landlord")
     private Integer landlord;
@@ -28,12 +28,12 @@ public class Property{
     @Column(name = "rent_due_date")
     private String rent_due_date; 
     
-    public Integer getId() {
-        return id;
+    public Integer getIdProperty() {
+        return id_property;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setIdProperty(Integer id) {
+        this.id_property = id;
     }
 
     public Integer getLandlord() {
