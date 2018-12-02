@@ -24,4 +24,8 @@ public interface PropertyRepository extends Repository<Property, Integer>{
     @Transactional(readOnly = true)
     public Collection<Property> findPropertyByLandlord(@Param("id_landlord") Integer id_landlord);
 	
+	@Query("select p from Property p where p.living_status = :living_status")
+    @Transactional(readOnly = true)
+    public Collection<Property> findPropertyByLivingStatus(@Param("living_status") String living_status);
+	
 }

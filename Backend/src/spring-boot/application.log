@@ -1950,3 +1950,49 @@ Caused by: org.hibernate.QueryException: could not resolve property: id_property
 2018-12-02 11:24:37.118  INFO 1145 --- [RMI TCP Connection(2)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2018-12-02 11:24:37.119  INFO 1145 --- [RMI TCP Connection(2)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2018-12-02 11:24:37.123  INFO 1145 --- [RMI TCP Connection(2)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2018-12-02 11:51:32.560  INFO 1220 --- [restartedMain] com.example.demo.Application             : Starting Application on Matthews-MBP.local with PID 1220 (started by MatthewMartin in /Users/MatthewMartin/Documents/School Documents/Fall_2018/COMS309/PP_1/Backend/src/spring-boot)
+2018-12-02 11:51:32.562  INFO 1220 --- [restartedMain] com.example.demo.Application             : No active profile set, falling back to default profiles: default
+2018-12-02 11:51:32.591  INFO 1220 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2018-12-02 11:51:32.591  INFO 1220 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2018-12-02 11:51:33.259  INFO 1220 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2018-12-02 11:51:33.305  INFO 1220 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 42ms. Found 6 repository interfaces.
+2018-12-02 11:51:33.582  INFO 1220 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$ab652984] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-02 11:51:33.847  INFO 1220 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2018-12-02 11:51:33.860  INFO 1220 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-12-02 11:51:33.861  INFO 1220 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.12
+2018-12-02 11:51:33.864  INFO 1220 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/Users/MatthewMartin/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+2018-12-02 11:51:33.943  INFO 1220 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-12-02 11:51:33.944  INFO 1220 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1353 ms
+2018-12-02 11:51:34.214  INFO 1220 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-12-02 11:51:34.215  INFO 1220 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'webMvcMetricsFilter' to: [/*]
+2018-12-02 11:51:34.215  INFO 1220 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-12-02 11:51:34.215  INFO 1220 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'formContentFilter' to: [/*]
+2018-12-02 11:51:34.215  INFO 1220 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-12-02 11:51:34.215  INFO 1220 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpTraceFilter' to: [/*]
+2018-12-02 11:51:34.216  INFO 1220 --- [restartedMain] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2018-12-02 11:51:34.326  INFO 1220 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2018-12-02 11:51:34.693  INFO 1220 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2018-12-02 11:51:34.732  INFO 1220 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-12-02 11:51:34.772  INFO 1220 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.6.Final}
+2018-12-02 11:51:34.773  INFO 1220 --- [restartedMain] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2018-12-02 11:51:34.854  INFO 1220 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2018-12-02 11:51:34.935  INFO 1220 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2018-12-02 11:51:35.382  INFO 1220 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-12-02 11:51:35.552  INFO 1220 --- [restartedMain] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2018-12-02 11:51:35.679  INFO 1220 --- [restartedMain] f.a.AutowiredAnnotationBeanPostProcessor : Autowired annotation is not supported on static fields: private static com.example.demo.RequestRepository com.example.demo.websocket.WebSocketServer.requests
+2018-12-02 11:51:35.692  INFO 1220 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2018-12-02 11:51:35.882  WARN 1220 --- [restartedMain] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2018-12-02 11:51:36.161  INFO 1220 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2018-12-02 11:51:36.169  INFO 1220 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2018-12-02 11:51:36.255  INFO 1220 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2018-12-02 11:51:36.258  INFO 1220 --- [restartedMain] com.example.demo.Application             : Started Application in 3.929 seconds (JVM running for 4.406)
+2018-12-02 11:51:45.194  INFO 1220 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2018-12-02 11:51:45.194  INFO 1220 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2018-12-02 11:51:45.201  INFO 1220 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 7 ms
+2018-12-02 11:52:15.326  INFO 1220 --- [RMI TCP Connection(2)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2018-12-02 11:52:15.330  INFO 1220 --- [RMI TCP Connection(2)-127.0.0.1] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2018-12-02 11:52:15.332  INFO 1220 --- [RMI TCP Connection(2)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2018-12-02 11:52:15.333  INFO 1220 --- [RMI TCP Connection(2)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2018-12-02 11:52:15.337  INFO 1220 --- [RMI TCP Connection(2)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

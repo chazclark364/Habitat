@@ -51,5 +51,11 @@ class PropertyController{
 		Collection<Property> landlordProperties = this.properties.findPropertyByLandlord(id_landlord);
 		return landlordProperties;
 	}
+	
+	@RequestMapping(path = "/properties/vacant", method = RequestMethod.GET)
+	public @ResponseBody Collection<Property> getVacantProperties(Model model){
+		Collection<Property> landlordProperties = this.properties.findPropertyByLivingStatus("vacant");
+		return landlordProperties;
+	}
     
 }
