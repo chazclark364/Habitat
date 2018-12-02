@@ -8,7 +8,11 @@ import java.util.Collection;
 
 
 public interface PropertyRepository extends Repository<Property, Integer>{
-    Property save(Property property);
-    //Test YAML
+    
+	Property save(Property property);
+    
+	@Query("select p from Property p")
+    @Transactional(readOnly = true)
+    public Collection<Property> findAllProperties();
 
 }
