@@ -57,5 +57,15 @@ class PropertyController{
 		Collection<Property> landlordProperties = this.properties.findPropertyByLivingStatus("vacant");
 		return landlordProperties;
 	}
+	
+	@RequestMapping(method = RequestMethod.POST, path = "/properties/update/{id_property}", consumes = MediaType.APPLICATION_JSON)
+    public @ResponseBody Property updateProperty(@RequestBody Property property, @PathVariable("id_property") Integer id_property){
+		if(this.properties.findProperty(property.getIdProperty()) == null){
+    		return null;
+    	}else{
+    		this.properties.save(property);
+    		return property;
+    	}
+	}
     
 }
