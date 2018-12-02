@@ -48,7 +48,6 @@ class RequestHistoryTableViewController: UITableViewController {
             topView.backgroundColor = #colorLiteral(red: 1, green: 0.7294117647, blue: 0.3607843137, alpha: 1)
         }
         getRequests()
-
     }
     
 //    deinit {
@@ -80,6 +79,7 @@ class RequestHistoryTableViewController: UITableViewController {
         socket.delegate = self
         socket.connect()
     }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let count = requests?.count {
             return count - 1
