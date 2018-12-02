@@ -101,31 +101,29 @@ class LandlordSelectViewController: UITableViewController {
             if let updateTenant = possibleTenant {
                 UserDefaults.standard.set(updateTenant.landlordId, forKey: "tenantLandlordId")
                 UserDefaults.standard.synchronize()
+                var possibleUser: User?
+                HabitatAPI.UserAPI().getUserInfo(userId: UserDefaults.standard.integer(forKey: "tenantLandlordId"), completion: {  user in
+                    possibleUser = user
+                    //Means the creation was succesful
+                    if let newUser = possibleUser {
+                        //Save locally
+                        var landlordString = ""
+                        landlordString = newUser.firstName ?? ""
+                        landlordString += " "
+                        landlordString += newUser.lastName ?? ""
+                        UserDefaults.standard.set(landlordString, forKey: "landlordName")
+                        self.performSegue(withIdentifier: "selectToEditProfile", sender: nil)
+                    } else {
+                        //Alert with error message if anything goes wrong
+                        self.present(AlertViews().errorAlert(msg: "Could not select landlord."), animated: true)
+                    }
+                })
             }
             else {
                 self.present(AlertViews().errorAlert(msg: "Could not update information."), animated: true)
             }
         })
-        
-        var possibleUser: User?
-        HabitatAPI.UserAPI().getUserInfo(userId: UserDefaults.standard.integer(forKey: "tenantLandlordId"), completion: {  user in
-            possibleUser = user
-            //Means the creation was succesful
-            if let newUser = possibleUser {
-                //Save locally
-                var landlordString = ""
-                landlordString = newUser.firstName ?? ""
-                landlordString += " "
-                landlordString += newUser.lastName ?? ""
-                UserDefaults.standard.set(landlordString, forKey: "landlordName")
-            } else {
-                //Alert with error message if anything goes wrong
-                self.present(AlertViews().errorAlert(msg: "Could not select landlord."), animated: true)
-            }
-        })
-        self.performSegue(withIdentifier: "landlordSelectToProfile", sender: nil)
     }
-    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

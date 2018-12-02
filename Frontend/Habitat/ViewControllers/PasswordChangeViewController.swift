@@ -43,7 +43,7 @@ class PasswordChangeViewController: UIViewController {
         let firstName = UserDefaults.standard.string(forKey: "userFirstName")
         let lastName = UserDefaults.standard.string(forKey: "userLastName")
         let email = UserDefaults.standard.string(forKey: "userEmail")
-        let phone = UserDefaults.standard.string(forKey: "userPhone")
+        let phone = UserDefaults.standard.string(forKey: "userPhoneNumber")
         let type = UserDefaults.standard.string(forKey: "userType")
         let userId = UserDefaults.standard.integer(forKey: "userID")
         var possibleUser: User?
@@ -61,7 +61,7 @@ class PasswordChangeViewController: UIViewController {
                 updateUser.password = self.newPassField.text
                 self.saveData(user: updateUser)
                 //self.present(AlertViews().updateAlert(msg: "User information updated successfully.", identifier: "changePasswordToProfile"), animated: true)
-                self.performSegue(withIdentifier: "changePasswordToProfile", sender: nil)
+                self.performSegue(withIdentifier: "passwordToProfile", sender: nil)
             } else {
                 self.present(AlertViews().errorAlert(msg: "Could not update information."), animated: true)
             }
@@ -69,16 +69,7 @@ class PasswordChangeViewController: UIViewController {
     }
     
     func saveData(user: User) {
-        /*Programming note: saveData is just referencing UserDefaults.standard
-         it is not creating a newobject everytime function is called
-         */
         let savedData = UserDefaults.standard
-        savedData.set(user.firstName, forKey: "userFirstName")
-        savedData.set(user.lastName, forKey:"userLastName")
-        savedData.set(user.email, forKey: "userEmail")
-        savedData.set(user.phoneNumber, forKey: "userPhoneNumber")
-        savedData.set(user.type, forKey: "userType")
-        savedData.set(user.userId, forKey: "userID")
         savedData.set(user.password, forKey: "password")
         UserDefaults.standard.synchronize()
     }

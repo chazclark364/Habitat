@@ -12,7 +12,6 @@
 		A90884DB215C58E8005F47AC /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90884DA215C58E8005F47AC /* MainViewController.swift */; };
 		A90884DD215C596E005F47AC /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90884DC215C596E005F47AC /* SignupViewController.swift */; };
 		A90E88FB216E86BE004C864E /* ProfileEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9546E8721683CEF002FC076 /* ProfileEditViewController.swift */; };
-		A958D1A32165ABAB00B5D283 /* LeaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A958D1A22165ABAB00B5D283 /* LeaseViewController.swift */; };
 		A96D54932192956D00DEC34D /* RequestHistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96D54912192955100DEC34D /* RequestHistoryTableViewController.swift */; };
 		A99FEF04218FEEB300089A0E /* PasswordChangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99FEF03218FEEB300089A0E /* PasswordChangeViewController.swift */; };
 		A99FEF06218FEEC500089A0E /* LandlordSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99FEF05218FEEC500089A0E /* LandlordSelectViewController.swift */; };
@@ -68,7 +67,6 @@
 		A90884DA215C58E8005F47AC /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		A90884DC215C596E005F47AC /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		A9546E8721683CEF002FC076 /* ProfileEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditViewController.swift; sourceTree = "<group>"; };
-		A958D1A22165ABAB00B5D283 /* LeaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaseViewController.swift; sourceTree = "<group>"; };
 		A96D54912192955100DEC34D /* RequestHistoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestHistoryTableViewController.swift; sourceTree = "<group>"; };
 		A99FEF03218FEEB300089A0E /* PasswordChangeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordChangeViewController.swift; sourceTree = "<group>"; };
 		A99FEF05218FEEC500089A0E /* LandlordSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandlordSelectViewController.swift; sourceTree = "<group>"; };
@@ -247,7 +245,6 @@
 				A90884D8215C5804005F47AC /* LoginViewController.swift */,
 				A90884DA215C58E8005F47AC /* MainViewController.swift */,
 				A90884DC215C596E005F47AC /* SignupViewController.swift */,
-				A958D1A22165ABAB00B5D283 /* LeaseViewController.swift */,
 				A9546E8721683CEF002FC076 /* ProfileEditViewController.swift */,
 				A9ED5597217533C90085D39E /* RequestDetailsViewController.swift */,
 				A9ED5599217535330085D39E /* RequestCreateViewController.swift */,
@@ -467,7 +464,6 @@
 				DAEC48DC215FDEA7002C16B8 /* HabitatAPI.swift in Sources */,
 				A90E88FB216E86BE004C864E /* ProfileEditViewController.swift in Sources */,
 				A90884DD215C596E005F47AC /* SignupViewController.swift in Sources */,
-				A958D1A32165ABAB00B5D283 /* LeaseViewController.swift in Sources */,
 				A90884D9215C5804005F47AC /* LoginViewController.swift in Sources */,
 				DA7632272141780B007CA9DC /* AppDelegate.swift in Sources */,
 				DAEC48CD2159DC0B002C16B8 /* ProfileViewController.swift in Sources */,
