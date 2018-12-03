@@ -12,14 +12,18 @@ import Alamofire
 
 class ProfileViewController: UIViewController {
     
-    
-    @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var backgroundTop: UIView!
     @IBOutlet weak var backgroundBottom: UIView!
     @IBOutlet weak var nameFirstLast: UILabel!
     @IBOutlet weak var email: UILabel!
     @IBOutlet weak var phone: UILabel!
     @IBOutlet weak var type: UILabel!
+    @IBOutlet weak var addressLabel: UILabel!
+    @IBOutlet weak var addressValue: UILabel!
+    @IBOutlet weak var rentValue: UILabel!
+    @IBOutlet weak var rentLabel: UILabel!
+    @IBOutlet weak var landlordLabel: UILabel!
+    @IBOutlet weak var landlordValue: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,8 +38,6 @@ class ProfileViewController: UIViewController {
         backgroundBottom.clipsToBounds = true
         backgroundTop.layer.cornerRadius = 24
         backgroundTop.clipsToBounds = true
-        profileImage.layer.cornerRadius = 24
-        profileImage.clipsToBounds = true
         getUserInfo()
     }
     
@@ -103,6 +105,37 @@ class ProfileViewController: UIViewController {
         email?.text = emailString
         phone?.text = phoneString
         type?.text = userTypeString
+        if (UserDefaults.standard.string(forKey: "userType") == "Worker") {
+            addressLabel.text = "Company"
+            addressValue.text = UserDefaults.standard.string(forKey: "workerCompany")
+            rentLabel.isHidden = true
+            rentValue.isHidden = true
+            landlordLabel.isHidden = true
+            landlordValue.isHidden = true
+        } else {
+            addressLabel.text = "Address"
+            if (UserDefaults.standard.string(forKey: "userType") == "Tenant") {
+                rentLabel.isHidden = false
+                rentValue.isHidden = false
+                var rentString = UserDefaults.standard.string(forKey: "tenantMonthlyRent") ?? "???"
+                rentString += " ("
+                rentString += UserDefaults.standard.string(forKey: "tenantDueDate") ?? "N/A"
+                rentString += ")"
+                rentValue.text = rentString
+                landlordLabel.isHidden = false
+                landlordValue.isHidden = false
+                addressValue.text = UserDefaults.standard.string(forKey: "tenantResidence")
+                landlordValue.text = UserDefaults.standard.string(forKey: "landlordName")
+            }
+            else {
+                addressValue.text = UserDefaults.standard.string(forKey: "landlordAddress")
+                rentLabel.isHidden = true
+                rentValue.isHidden = true
+                landlordLabel.isHidden = true
+                landlordValue.isHidden = true
+            }
+        }
+        
     }
     
     override func didReceiveMemoryWarning() {

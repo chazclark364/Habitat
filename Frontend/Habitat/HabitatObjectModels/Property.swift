@@ -20,11 +20,11 @@ class Property: NSObject  {
     func propertyFromJSON(json: NSDictionary) -> Property? {
         let property = Property()
         property.propertyId = json.object(forKey: "idProperty") as? Int
-        property.landlordId = json.object(forKey: "idLandlord") as? Int
-        property.livingStatus = json.object(forKey: "status") as? String
+        property.landlordId = json.object(forKey: "landlord") as? Int
+        property.livingStatus = json.object(forKey: "livingStatus") as? String
         property.address = json.object(forKey: "address") as? String
-        property.workerId = json.object(forKey: "idWorker") as? Int
-        property.rentDueDate = json.object(forKey: "rentDue") as? String
+        property.workerId = json.object(forKey: "worker") as? Int
+        property.rentDueDate = json.object(forKey: "rentDueDate") as? String
         return property
     }
 }

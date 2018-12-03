@@ -26,6 +26,8 @@ class RequestDetailsViewController: UIViewController {
     @IBOutlet weak var requestTitle: UILabel!
     var servicerRequest = MaintenanceRequest()
     @IBOutlet weak var descriptionTextView: UITextView!
+    @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var updateButton: UIButton!
     var nextStatus = String()
     var updatedRequest: MaintenanceRequest?
     var delegate: SelectedRequestDelegate?
@@ -39,9 +41,23 @@ class RequestDetailsViewController: UIViewController {
         super.viewDidLoad()
         if (UserDefaults.standard.bool(forKey: "darkMode")) {
             view.backgroundColor = #colorLiteral(red: 0.1568627451, green: 0.1568627451, blue: 0.2352941176, alpha: 1)
+            backButton.backgroundColor = #colorLiteral(red: 0.2352941176, green: 0.2352941176, blue: 0.3529411765, alpha: 1)
+            updateButton.backgroundColor = #colorLiteral(red: 0.2352941176, green: 0.2352941176, blue: 0.3529411765, alpha: 1)
+            statusView.backgroundColor = #colorLiteral(red: 0.2352941176, green: 0.2352941176, blue: 0.3529411765, alpha: 1)
         }
         else {
             view.backgroundColor = #colorLiteral(red: 1, green: 0.7294117647, blue: 0.3607843137, alpha: 1)
+            backButton.backgroundColor = #colorLiteral(red: 1, green: 0.7916666667, blue: 0.5, alpha: 1)
+            updateButton.backgroundColor = #colorLiteral(red: 1, green: 0.7916666667, blue: 0.5, alpha: 1)
+            statusView.backgroundColor = #colorLiteral(red: 1, green: 0.7916666667, blue: 0.5, alpha: 1)
+        }
+        if (UserDefaults.standard.string(forKey: "userType") == "Landlord") {
+            updateButton.isHidden = false
+            descriptionTextView.isEditable = true
+        }
+        else {
+            updateButton.isHidden = true
+            descriptionTextView.isEditable = false
         }
         statusView.layer.cornerRadius = 5
         statusView.clipsToBounds = true
@@ -88,14 +104,14 @@ class RequestDetailsViewController: UIViewController {
     func setProgressBar() {
         let status = servicerRequest.status
         if status == "Approved" {
-            stageApproved.backgroundColor = UIColor.lightGray
+            stageApproved.backgroundColor = UIColor.green
         } else if status == "In Progress" {
-            stageApproved.backgroundColor = UIColor.lightGray
-            stageInProgress.backgroundColor = UIColor.lightGray
+            stageApproved.backgroundColor = UIColor.green
+            stageInProgress.backgroundColor = UIColor.green
         } else if status == "Completed" {
-            stageApproved.backgroundColor = UIColor.lightGray
-            stageInProgress.backgroundColor = UIColor.lightGray
-            stageCompleted.backgroundColor = UIColor.lightGray
+            stageApproved.backgroundColor = UIColor.green
+            stageInProgress.backgroundColor = UIColor.green
+            stageCompleted.backgroundColor = UIColor.green
         }
     }
     

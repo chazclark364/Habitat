@@ -26,6 +26,13 @@ class PropertySelectViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        UserDefaults.standard.set("", forKey: "selectedPropertyId")
+        UserDefaults.standard.set("", forKey: "selectedPropertyAddress")
+        UserDefaults.standard.set("", forKey: "selectedPropertyDueDate")
+        UserDefaults.standard.set("", forKey: "selectedPropertyStatus")
+        UserDefaults.standard.set("", forKey: "selectedPropertyWorkerId")
+        UserDefaults.standard.set("", forKey: "selectedPropertyLandlordId")
+        UserDefaults.standard.synchronize()
         if (UserDefaults.standard.bool(forKey: "darkMode")) {
             view.backgroundColor = #colorLiteral(red: 0.1568627451, green: 0.1568627451, blue: 0.2352941176, alpha: 1)
             backButton.backgroundColor = #colorLiteral(red: 0.2352941176, green: 0.2352941176, blue: 0.3529411765, alpha: 1)
@@ -37,8 +44,9 @@ class PropertySelectViewController: UITableViewController {
             newButton.backgroundColor = #colorLiteral(red: 1, green: 0.7916666667, blue: 0.5, alpha: 1)
         }
         tableView.dataSource = self
-        var propId = 0
+        var propId = 1
         if (UserDefaults.standard.string(forKey: "userType") == "Tenant") {
+            newButton.isHidden = true
             propId = UserDefaults.standard.integer(forKey: "tenantLandlordId")
             propertyLabel.text = "Tap a listing to select as your residence."
             HabitatAPI.UserAPI().vacantPropertiesTable(completion: { allProperties in
@@ -54,7 +62,7 @@ class PropertySelectViewController: UITableViewController {
         else {
             propId = UserDefaults.standard.integer(forKey: "userID")
             propertyLabel.text = "Tap a listing to edit."
-            HabitatAPI.UserAPI().landlordPropertiesTable(propId: propId, completion: {  allProperties in
+            HabitatAPI.UserAPI().landlordPropertiesTable(propId: propId, completion: { allProperties in
                 if let availableProperties = allProperties {
                     self.properties = availableProperties
                     self.tableView.reloadData()
@@ -94,6 +102,7 @@ class PropertySelectViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let selected = properties?[indexPath.row]
+        selected?.rentDueDate = UserDefaults.standard.string(forKey: "tenantDueDate")
         let propertyId = selected?.propertyId
         
         if (UserDefaults.standard.string(forKey: "userType") == "Tenant") {
@@ -112,13 +121,14 @@ class PropertySelectViewController: UITableViewController {
                     })
                 } else {
                     //Alert with error message if anything goes wrong
-                    self.present(AlertViews().errorAlert(msg: "There was an issue completing your request."),   animated: true)
+                    self.present(AlertViews().errorAlert(msg: "There was an issue completing your request."), animated: true)
                 }
             })
         
             // update new property to occupied
             selected?.livingStatus = "Occupied"
-            HabitatAPI.UserAPI().updateProperty(property: selected, propId: propertyId ?? 0, completion: { property in
+            selected?.workerId = 1
+            HabitatAPI.UserAPI().updateProperty(property: selected, propId: propertyId ?? 1, completion: { property in
                 
             })
 
@@ -133,6 +143,7 @@ class PropertySelectViewController: UITableViewController {
             UserDefaults.standard.set(selected?.livingStatus, forKey: "selectedPropertyStatus")
             UserDefaults.standard.set(selected?.workerId, forKey: "selectedPropertyWorkerId")
             UserDefaults.standard.set(selected?.landlordId, forKey: "selectedPropertyLandlordId")
+            UserDefaults.standard.synchronize()
             self.performSegue(withIdentifier: "selectPropertyToUpdateProperty", sender: nil)
         }
     }

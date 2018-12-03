@@ -123,12 +123,12 @@ class HabitatAPI {
             propURL += String(propId)
             var returnedProperty: Property?
             let parameters: [String: AnyObject] = [
-                "id_property" : property?.propertyId as AnyObject,
+                "idProperty" : property?.propertyId as AnyObject,
                 "landlord" : property?.landlordId as AnyObject,
-                "living_status" : property?.livingStatus as AnyObject,
+                "livingStatus" : property?.livingStatus as AnyObject,
                 "address" : property?.address as AnyObject,
                 "worker" : property?.workerId as AnyObject,
-                "rent_due_date" : property?.rentDueDate as AnyObject ]
+                "rentDueDate" : property?.rentDueDate as AnyObject ]
             
             Alamofire.request(propURL, method: .post, parameters: parameters, encoding: JSONEncoding.default)
                 .responseJSON { response in
@@ -150,7 +150,7 @@ class HabitatAPI {
         }
         
         func landlordPropertiesTable(propId: Int, completion: @escaping ([Property]?) -> Void) {
-            var properties =  [Property()]
+            var properties = [Property()]
             var count = 0
             var landlordURL = "http://proj309-pp-01.misc.iastate.edu:8080/properties/landlord/"
             landlordURL += String(propId)
@@ -262,7 +262,7 @@ class HabitatAPI {
         func updateWorker(worker: Worker, completion: @escaping (Worker?) -> Void) {
             var returnedWorker: Worker?
             let parameters: [String: AnyObject] = [
-                "id_worker" : worker.workerId as AnyObject,
+                "idWorker" : worker.workerId as AnyObject,
                 "company" : worker.company as AnyObject ]
             
             let updateURL = "http://proj309-pp-01.misc.iastate.edu:8080/worker/update/"
@@ -285,10 +285,10 @@ class HabitatAPI {
         func updateTenant(tenant: Tenant, completion: @escaping (Tenant?) -> Void) {
             var returnedTenant: Tenant?
             let parameters: [String: AnyObject] = [
-                "idtenant" : tenant.tenantId as AnyObject,
+                "idTenant" : tenant.tenantId as AnyObject,
                 "landlord" : tenant.landlordId as AnyObject,
                 "residence" : tenant.residence as AnyObject,
-                "monthly_rent" : tenant.monthlyRent as AnyObject ]
+                "monthlyRent" : tenant.monthlyRent as AnyObject ]
             
             let updateURL = "http://proj309-pp-01.misc.iastate.edu:8080/tenant/update"
             Alamofire.request(updateURL, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
