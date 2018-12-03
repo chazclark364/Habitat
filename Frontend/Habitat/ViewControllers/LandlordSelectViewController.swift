@@ -33,7 +33,7 @@ class LandlordSelectViewController: UITableViewController {
                self.tableView.reloadData()
                 self.tableView.dataSource = self
             } else {
-                self.present(AlertViews().errorAlert(msg: "There are no avilible landlords."), animated: true)
+                self.present(AlertViews().errorAlert(msg: "There are no available landlords."), animated: true)
             }
         })
     }

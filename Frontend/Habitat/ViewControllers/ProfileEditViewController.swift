@@ -18,12 +18,14 @@ class ProfileEditViewController: UIViewController {
     @IBOutlet weak var userTypeSegment: UISegmentedControl!
     @IBOutlet weak var submitButton: UIButton!
     @IBOutlet var profileEditView: UIView!
+    @IBOutlet weak var propertiesButton: UIButton!
     @IBOutlet weak var mutableLabel: UILabel!
     @IBOutlet weak var darkModeButton: UIButton!
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var changePassButton: UIButton!
     @IBOutlet weak var mutableField: UITextField!
     @IBOutlet weak var landlordNameLabel: UILabel!
+    @IBOutlet weak var propertySelectButton: UIButton!
     var selectedLandlord: Landlord?
     
     override func viewDidLoad() {
@@ -35,6 +37,8 @@ class ProfileEditViewController: UIViewController {
             backButton.backgroundColor = #colorLiteral(red: 0.2352941176, green: 0.2352941176, blue: 0.3529411765, alpha: 1)
             darkModeButton.backgroundColor = #colorLiteral(red: 0.2352941176, green: 0.2352941176, blue: 0.3529411765, alpha: 1)
             changePassButton.backgroundColor = #colorLiteral(red: 0.2352941176, green: 0.2352941176, blue: 0.3529411765, alpha: 1)
+            propertiesButton.backgroundColor = #colorLiteral(red: 0.2352941176, green: 0.2352941176, blue: 0.3529411765, alpha: 1)
+            propertySelectButton.backgroundColor = #colorLiteral(red: 0.2352941176, green: 0.2352941176, blue: 0.3529411765, alpha: 1)
             darkModeButton.setTitle("Light Mode", for: .normal)
         }
         else {
@@ -44,6 +48,8 @@ class ProfileEditViewController: UIViewController {
             backButton.backgroundColor = #colorLiteral(red: 1, green: 0.7916666667, blue: 0.5, alpha: 1)
             darkModeButton.backgroundColor = #colorLiteral(red: 1, green: 0.7916666667, blue: 0.5, alpha: 1)
             changePassButton.backgroundColor = #colorLiteral(red: 1, green: 0.7916666667, blue: 0.5, alpha: 1)
+            propertiesButton.backgroundColor = #colorLiteral(red: 1, green: 0.7916666667, blue: 0.5, alpha: 1)
+            propertySelectButton.backgroundColor = #colorLiteral(red: 1, green: 0.7916666667, blue: 0.5, alpha: 1)
             darkModeButton.setTitle("Dark Mode", for: .normal)
         }
         submitButton.layer.cornerRadius = 5
@@ -63,6 +69,8 @@ class ProfileEditViewController: UIViewController {
             backButton.backgroundColor = #colorLiteral(red: 0.2352941176, green: 0.2352941176, blue: 0.3529411765, alpha: 1)
             darkModeButton.backgroundColor = #colorLiteral(red: 0.2352941176, green: 0.2352941176, blue: 0.3529411765, alpha: 1)
             changePassButton.backgroundColor = #colorLiteral(red: 0.2352941176, green: 0.2352941176, blue: 0.3529411765, alpha: 1)
+            propertiesButton.backgroundColor = #colorLiteral(red: 0.2352941176, green: 0.2352941176, blue: 0.3529411765, alpha: 1)
+            propertySelectButton.backgroundColor = #colorLiteral(red: 0.2352941176, green: 0.2352941176, blue: 0.3529411765, alpha: 1)
             darkModeButton.setTitle("Light Mode", for: .normal)
         }
         else {
@@ -72,6 +80,8 @@ class ProfileEditViewController: UIViewController {
             backButton.backgroundColor = #colorLiteral(red: 1, green: 0.7916666667, blue: 0.5, alpha: 1)
             darkModeButton.backgroundColor = #colorLiteral(red: 1, green: 0.7916666667, blue: 0.5, alpha: 1)
             changePassButton.backgroundColor = #colorLiteral(red: 1, green: 0.7916666667, blue: 0.5, alpha: 1)
+            propertiesButton.backgroundColor = #colorLiteral(red: 1, green: 0.7916666667, blue: 0.5, alpha: 1)
+            propertySelectButton.backgroundColor = #colorLiteral(red: 1, green: 0.7916666667, blue: 0.5, alpha: 1)
             darkModeButton.setTitle("Dark Mode", for: .normal)
         }
     }
@@ -86,15 +96,23 @@ class ProfileEditViewController: UIViewController {
     @IBAction func typeChange(_ sender: Any) {
         if (userTypeSegment.selectedSegmentIndex == 0) {
             buttonSelectLandlord.isHidden = false
+            propertiesButton.isHidden = true
             mutableLabel.text = "Landlord"
             mutableField.isHidden = true
             landlordNameLabel.text = UserDefaults.standard.string(forKey: "landlordName") ?? "Not Selected"
+            if (landlordNameLabel.text == "Not Selected") {
+                propertySelectButton.isHidden = true
+            } else {
+                propertySelectButton.isHidden = false
+            }
             landlordNameLabel.isHidden = false
             UserDefaults.standard.set("", forKey: "landlordAddress")
             UserDefaults.standard.set("", forKey: "workerCompany")
         }
         else if (userTypeSegment.selectedSegmentIndex == 1){
             buttonSelectLandlord.isHidden = true
+            propertiesButton.isHidden = false
+            propertySelectButton.isHidden = true
             mutableField.isHidden = false
             mutableLabel.text = "Address"
             landlordNameLabel.text = ""
@@ -106,6 +124,8 @@ class ProfileEditViewController: UIViewController {
         }
         else {
             buttonSelectLandlord.isHidden = true
+            propertiesButton.isHidden = true
+            propertySelectButton.isHidden = true
             mutableField.isHidden = false
             mutableLabel.text = "Company"
             landlordNameLabel.text = ""
@@ -168,7 +188,6 @@ class ProfileEditViewController: UIViewController {
             if let updateUser = possibleUser {
                 updateUser.password = UserDefaults.standard.string(forKey: "password")
                 self.saveData(user: updateUser)
-                //self.present(AlertViews().updateAlert(msg: "User information updated successfully.", identifier: "editProfileToProfile"), animated: true)
                 if (self.getTypeValue() == "Landlord") {
                     self.updateLandlordInfo()
                 }
@@ -254,13 +273,22 @@ class ProfileEditViewController: UIViewController {
         userTypeSegment.selectedSegmentIndex = getSegmentIndex(type: typeString)
         if (userTypeSegment.selectedSegmentIndex == 0) {
             buttonSelectLandlord.isHidden = false
+            propertiesButton.isHidden = true
+            
             mutableLabel.text = "Landlord"
             mutableField.isHidden = true
             landlordNameLabel.text = UserDefaults.standard.string(forKey: "landlordName") ?? "Not Selected"
+            if (landlordNameLabel.text == "Not Selected") {
+                propertySelectButton.isHidden = true
+            } else {
+                propertySelectButton.isHidden = false
+            }
             landlordNameLabel.isHidden = false
         }
         else if (userTypeSegment.selectedSegmentIndex == 1){
             buttonSelectLandlord.isHidden = true
+            propertiesButton.isHidden = false
+            propertySelectButton.isHidden = true
             mutableField.isHidden = false
             mutableLabel.text = "Address"
             landlordNameLabel.text = ""
@@ -268,6 +296,8 @@ class ProfileEditViewController: UIViewController {
         }
         else {
             buttonSelectLandlord.isHidden = true
+            propertiesButton.isHidden = true
+            propertySelectButton.isHidden = true
             mutableField.isHidden = false
             mutableLabel.text = "Company"
             landlordNameLabel.text = ""

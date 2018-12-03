@@ -62,14 +62,9 @@ class ProfileViewController: UIViewController {
     }
     
     func clearData() {
-        let savedData = UserDefaults.standard
-        savedData.set("", forKey: "userFirstName")
-        savedData.set("", forKey: "userLastName")
-        savedData.set("", forKey: "userEmail")
-        savedData.set("", forKey: "userPhoneNumber")
-        savedData.set("", forKey: "userType")
-        savedData.set("", forKey: "userID")
-        UserDefaults.standard.synchronize()
+        if let appDomain = Bundle.main.bundleIdentifier {
+            UserDefaults.standard.removePersistentDomain(forName: appDomain)
+        }
     }
     
     func saveData(user: User) {

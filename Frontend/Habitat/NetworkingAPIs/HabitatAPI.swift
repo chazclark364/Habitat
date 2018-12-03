@@ -74,7 +74,107 @@ class HabitatAPI {
                 }
             }
         }
-
+        
+        func vacantPropertiesTable(completion: @escaping ([Property]?) -> Void) {
+            var properties =  [Property()]
+            var count = 0
+            let propURL = "http://proj309-pp-01.misc.iastate.edu:8080/properties/vacant"
+            Alamofire.request(propURL).responseJSON { response in
+                switch response.result {
+                case .success:
+                    print ("Success")
+                case .failure(let error):
+                    print(error)
+                }
+                if let json = response.result.value as? [Any] {
+                    print("JSON: \(json)") // serialized json response
+                    //TODO: See if this grabs all the request and parse properly
+                    for object in json {
+                        let prop = Property().propertyFromJSON(json: object as! NSDictionary) ?? Property()
+                        properties.insert(prop, at: count)
+                        count += 1
+                    }
+                    completion(properties)
+                }
+            }
+        }
+        
+        func getProperty(propertyId: Int, completion: @escaping (Property?) -> Void) {
+            var returnedProperty: Property?
+            var propURL = "http://proj309-pp-01.misc.iastate.edu:8080/properties/"
+            propURL += String(propertyId)
+            Alamofire.request(propURL).responseJSON { response in
+                switch response.result {
+                case .success:
+                    print("Validation Successful")
+                case .failure(let error):
+                    print(error)
+                }
+                if let json = response.result.value {
+                    print("JSON: \(json)") // serialized json response
+                    returnedProperty = Property().propertyFromJSON(json: json as! NSDictionary)
+                    completion(returnedProperty)
+                }
+            }
+        }
+        
+        func updateProperty(property: Property?, propId: Int, completion: @escaping (Property?) -> Void) {
+            var propURL = "http://proj309-pp-01.misc.iastate.edu:8080/properties/update/"
+            propURL += String(propId)
+            var returnedProperty: Property?
+            let parameters: [String: AnyObject] = [
+                "id_property" : property?.propertyId as AnyObject,
+                "landlord" : property?.landlordId as AnyObject,
+                "living_status" : property?.livingStatus as AnyObject,
+                "address" : property?.address as AnyObject,
+                "worker" : property?.workerId as AnyObject,
+                "rent_due_date" : property?.rentDueDate as AnyObject ]
+            
+            Alamofire.request(propURL, method: .post, parameters: parameters, encoding: JSONEncoding.default)
+                .responseJSON { response in
+                    //See if status is good
+                    switch response.result {
+                    case .success:
+                        print("Success")
+                    case .failure(let error):
+                        print(error)
+                    }
+                    
+                    if let json = response.result.value {
+                        print("JSON: \(json)") // serialized json response
+                        //TODO: Test new USER to JSON Function
+                        returnedProperty = Property().propertyFromJSON(json: json as! NSDictionary)
+                        completion(returnedProperty)
+                    }
+            }
+        }
+        
+        func landlordPropertiesTable(propId: Int, completion: @escaping ([Property]?) -> Void) {
+            var properties =  [Property()]
+            var count = 0
+            var landlordURL = "http://proj309-pp-01.misc.iastate.edu:8080/properties/landlord/"
+            landlordURL += String(propId)
+            Alamofire.request(landlordURL).responseJSON { response in
+                switch response.result {
+                case .success:
+                    print("Success")
+                case .failure(let error):
+                    print(error)
+                }
+                
+                if let json = response.result.value as? [Any] {
+                    print("JSON: \(json)") // serialized json response
+                    //TODO: See if this grabs all the request and parse properly
+                    for object in json {
+                        let prop = Property().propertyFromJSON(json: object as! NSDictionary) ?? Property()
+                        properties.insert(prop, at: count)
+                        count += 1
+                    }
+                    completion(properties)
+                }
+            }
+        }
+        
         func loginUser(email: String, password: String, viewController: UIViewController, completion: @escaping (User?) -> Void) {
             var returnedUser: User?
             let parameters: [String: AnyObject] = [
@@ -137,7 +237,7 @@ class HabitatAPI {
         func updateLandlord(landlord: Landlord, completion: @escaping (Landlord?) -> Void) {
             var returnedLandlord: Landlord?
             let parameters: [String: AnyObject] = [
-                "id_landlord" : landlord.landlordId as AnyObject,
+                "idLandlord" : landlord.landlordId as AnyObject,
                 "address" : landlord.address as AnyObject ]
             
             let updateURL = "http://proj309-pp-01.misc.iastate.edu:8080/landlord/update"
@@ -185,10 +285,10 @@ class HabitatAPI {
         func updateTenant(tenant: Tenant, completion: @escaping (Tenant?) -> Void) {
             var returnedTenant: Tenant?
             let parameters: [String: AnyObject] = [
-                "idTenant" : tenant.tenantId as AnyObject,
+                "idtenant" : tenant.tenantId as AnyObject,
                 "landlord" : tenant.landlordId as AnyObject,
                 "residence" : tenant.residence as AnyObject,
-                "monthlyRent" : tenant.monthlyRent as AnyObject ]
+                "monthly_rent" : tenant.monthlyRent as AnyObject ]
             
             let updateURL = "http://proj309-pp-01.misc.iastate.edu:8080/tenant/update"
             Alamofire.request(updateURL, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
