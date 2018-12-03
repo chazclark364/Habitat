@@ -833,39 +833,6 @@
             </objects>
             <point key="canvasLocation" x="-2260" y="615.74212893553226"/>
         </scene>
-        <!--Request Update View Controller-->
-        <scene sceneID="3zZ-Dd-QDc">
-            <objects>
-                <viewController id="crs-gQ-ucs" customClass="RequestUpdateViewController" customModule="Habitat" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="ZKd-6i-8qx">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Op0-uz-6rd">
-                                <rect key="frame" x="35" y="60" width="80" height="36"/>
-                                <color key="backgroundColor" red="1" green="0.79166666669999997" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="0Ex-78-c74"/>
-                                    <constraint firstAttribute="height" constant="36" id="6L4-cA-oN1"/>
-                                    <constraint firstAttribute="width" constant="80" id="OlH-j9-QQU"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="Cancel">
-                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" red="1" green="0.72941176470588232" blue="0.36078431372549019" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="CMu-QS-f9I"/>
-                    </view>
-                    <connections>
-                        <outlet property="cancelButton" destination="Op0-uz-6rd" id="XuC-at-5xV"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="FAP-ED-4nD" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-2260" y="1361"/>
-        </scene>
         <!--Profile Edit View Controller-->
         <scene sceneID="LIx-5X-5mb">
             <objects>
@@ -1656,6 +1623,7 @@
                         <segue destination="tsx-wc-ed8" kind="relationship" relationship="viewControllers" id="M26-T9-paF"/>
                         <segue destination="qz8-lo-5IF" kind="relationship" relationship="viewControllers" id="2LB-q8-Wvt"/>
                         <segue destination="f3V-Of-3l9" kind="relationship" relationship="viewControllers" id="Pv5-FH-8k8"/>
+                        <segue destination="1Pt-wJ-nEn" kind="relationship" relationship="viewControllers" id="j7k-YB-f9w"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yIg-WZ-XOW" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1854,11 +1822,30 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MsI-F2-xSK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1108" y="653.52323838080963"/>
+            <point key="canvasLocation" x="-1521" y="616"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="9As-Gj-Kch">
+            <objects>
+                <viewController id="1Pt-wJ-nEn" customClass="ARViewController" customModule="Habitat" customModuleProvider="target" sceneMemberID="viewController">
+                    <arscnView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="KaQ-hp-h4g">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    </arscnView>
+                    <tabBarItem key="tabBarItem" image="arCamera" id="xcP-6A-BX6"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="sceneView" destination="KaQ-hp-h4g" id="wzO-SC-inn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SA9-h4-L1c" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1028" y="-979"/>
         </scene>
     </scenes>
     <resources>
         <image name="add" width="36" height="36"/>
+        <image name="arCamera" width="36" height="36"/>
         <image name="chat" width="36" height="36"/>
         <image name="home" width="36" height="36"/>
         <image name="money" width="36" height="36"/>
@@ -1866,9 +1853,9 @@
         <image name="tool" width="36" height="36"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="jd7-St-cf3"/>
-        <segue reference="qLd-di-FKh"/>
-        <segue reference="ZqE-78-lti"/>
+        <segue reference="zKT-Mf-ZBf"/>
+        <segue reference="UGg-YX-57o"/>
+        <segue reference="2LB-q8-Wvt"/>
         <segue reference="JuX-2x-rQZ"/>
     </inferredMetricsTieBreakers>
 </document>

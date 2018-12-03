@@ -287,7 +287,7 @@ class HabitatAPI {
     class RequestAPI {
         
         func createRequest(request: MaintenanceRequest?, completion: @escaping (MaintenanceRequest?) -> Void) {
-              var returnedRequest: MaintenanceRequest?
+            var returnedRequest: MaintenanceRequest?
             
             let parameters: [String: AnyObject] = [
                 "title" : request?.title as AnyObject,
