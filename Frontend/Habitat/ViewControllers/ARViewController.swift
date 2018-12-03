@@ -59,11 +59,11 @@ class ARViewController: UIViewController, ARSCNViewDelegate {
 //
 //        let cone = SCNCone()
 //
-//        let arrow = SCNScene(named: "art.scnassets/arrow.scn")!
+        let arrow = SCNScene(named: "art.scnassets/arrow.scn")!
 //
 //        sceneView.scene.rootNode.addChildNode(arrow as! SCNNode)
 //        arrow.attribute(forKey: "art.scnassets/arrow.scn")
-//      ` sceneView.scene = arrow
+        sceneView.scene = arrow
 //
 //        //Set transform of node to be 10cm infront of camera
 //        var translation = matrix_identity_float4x4
