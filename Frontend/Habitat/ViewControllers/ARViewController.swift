@@ -54,23 +54,10 @@ class ARViewController: UIViewController, ARSCNViewDelegate {
         imagePlane.firstMaterial?.diffuse.contents = sceneView.snapshot()
         imagePlane.firstMaterial?.lightingModel = .constant
 
-//      //  Create a plane node and add it to the scene
-//        let planeNode = SCNNode(geometry: imagePlane)
-//
-//        let cone = SCNCone()
-//
+
         let arrow = SCNScene(named: "art.scnassets/arrow.scn")!
-//
-//        sceneView.scene.rootNode.addChildNode(arrow as! SCNNode)
-//        arrow.attribute(forKey: "art.scnassets/arrow.scn")
+
         sceneView.scene = arrow
-//
-//        //Set transform of node to be 10cm infront of camera
-//        var translation = matrix_identity_float4x4
-//        translation.columns.3.z = -0.25 //10cm
-//        arrow.simdTransform = matrix_multiply(currentFrame.camera.transform, translation);
-//
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -97,15 +84,7 @@ class ARViewController: UIViewController, ARSCNViewDelegate {
     
     // MARK: - ARSCNViewDelegate
     
-    /*
-     // Override to create and configure nodes for anchors added to the view's session.
-     func renderer(_ renderer: SCNSceneRenderer, nodeFor anchor: ARAnchor) -> SCNNode? {
-     let node = SCNNode()
-     
-     return node
-     }
-     */
-    
+   
     func session(_ session: ARSession, didFailWithError error: Error) {
         // Present an error message to the user
         

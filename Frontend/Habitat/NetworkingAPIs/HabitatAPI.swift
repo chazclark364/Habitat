@@ -22,13 +22,10 @@ import Alamofire
  */
 
 class HabitatAPI {
-    
     //User API's
     class UserAPI {
-        //TODO: Return user once passed test
         func createUser(user: User, completion: @escaping (User?) -> Void) {
             var returnedUser: User?
-            //set the JSON parameters here
             let parameters: [String: AnyObject] = [
                 "firstName" : user.firstName as AnyObject,
                 "lastName" : user.lastName as AnyObject,
@@ -51,7 +48,6 @@ class HabitatAPI {
                     
                     if let json = response.result.value {
                         print("JSON: \(json)") // serialized json response
-                         //TODO: Test new USER to JSON Function
                         returnedUser = User().userFromJSON(json: json as! NSDictionary)
                         completion(returnedUser)
                     }
@@ -88,7 +84,6 @@ class HabitatAPI {
                 }
                 if let json = response.result.value as? [Any] {
                     print("JSON: \(json)") // serialized json response
-                    //TODO: See if this grabs all the request and parse properly
                     for object in json {
                         let prop = Property().propertyFromJSON(json: object as! NSDictionary) ?? Property()
                         properties.insert(prop, at: count)
@@ -142,7 +137,6 @@ class HabitatAPI {
                     
                     if let json = response.result.value {
                         print("JSON: \(json)") // serialized json response
-                        //TODO: Test new USER to JSON Function
                         returnedProperty = Property().propertyFromJSON(json: json as! NSDictionary)
                         completion(returnedProperty)
                     }
@@ -164,7 +158,6 @@ class HabitatAPI {
                 
                 if let json = response.result.value as? [Any] {
                     print("JSON: \(json)") // serialized json response
-                    //TODO: See if this grabs all the request and parse properly
                     for object in json {
                         let prop = Property().propertyFromJSON(json: object as! NSDictionary) ?? Property()
                         properties.insert(prop, at: count)
@@ -197,7 +190,6 @@ class HabitatAPI {
                     
                     if let json = response.result.value {
                         print("JSON: \(json)") // serialized json response
-                         //TODO: Test new USER to JSON Function
                         returnedUser = User().userFromJSON(json: json as! NSDictionary)
                         completion(returnedUser)
                     }
@@ -324,7 +316,6 @@ class HabitatAPI {
                     
                     if let json = response.result.value {
                         print("JSON: \(json)") // serialized json response
-                        //TODO: Test new USER to JSON Function
                         returnedUser = User().userFromJSON(json: json as! NSDictionary)
                         completion(returnedUser)
                     }
@@ -347,12 +338,10 @@ class HabitatAPI {
                     
                     if let json = response.result.value {
                         print("JSON: \(json)") // serialized json response
-                        //TODO: Test new USER to JSON Function
                         returnedTenant = Tenant().tenantFromJSON(json: json as! NSDictionary)
                         completion(returnedTenant)
                     }
             }
-            
         }
         
         func getLandlords(completion: @escaping ([Landlord]?) -> Void) {
@@ -371,7 +360,6 @@ class HabitatAPI {
                     
                     if let json = response.result.value as? [Any] {
                         print("JSON: \(json)") // serialized json response
-                        //TODO: See if this grabs all the request and parse properly
                         for object in json {
                             let boss = Landlord().landlordFromJSON(json: object as! NSDictionary) ?? Landlord()
                             landLords.insert(boss, at: count)
@@ -410,7 +398,6 @@ class HabitatAPI {
                     
                     if let json = response.result.value {
                         print("JSON: \(json)") // serialized json response
-                        //TODO: Test new USER to JSON Function
                         returnedRequest = MaintenanceRequest().requestFromJSON(json: json as! NSDictionary)
                         completion(returnedRequest)
                     }
@@ -434,7 +421,6 @@ class HabitatAPI {
                     
                     if let json = response.result.value as? [Any] {
                         print("JSON: \(json)") // serialized json response
-                        //TODO: See if this grabs all the request and parse properly
                         for object in json {
                             let service = MaintenanceRequest().requestFromJSON(json: object as! NSDictionary) ?? MaintenanceRequest()
                             requestService.insert(service, at: count)
@@ -471,7 +457,6 @@ class HabitatAPI {
                     
                     if let json = response.result.value {
                         print("JSON: \(json)") // serialized json response
-                        //TODO: Test new USER to JSON Function
                         returnedRequest = MaintenanceRequest().requestFromJSON(json: json as! NSDictionary)
                         completion(returnedRequest)
                     }
@@ -488,11 +473,11 @@ class HabitatAPI {
                 "term" : "Home Services" as AnyObject,
                 "location" : "Ames,Iowa" as AnyObject
             ]
-            //3UXmzpnn_LWkGWQgFVCdMtzR_t9Rcdkrd0fo3fTNsZmKUXB_DYn74rgi2g3Uwu6B0aGIRE5jLUkWHQU8KhUDVDeMNNmhiIl9GDWfvvHqqQ-w1J23-WSY3HTAM50BXHYx
             let headers: HTTPHeaders = [
-                "Authorization": "Bearer 3UXmzpnn_LWkGWQgFVCdMtzR_t9Rcdkrd0fo3fTNsZmKUXB_DYn74rgi2g3Uwu6B0aGIRE5jLUkWHQU8KhUDVDeMNNmhiIl9GDWfvvHqqQ-w1J23-WSY3HTAM50BXHYx"
+                "Authorization": ""
+                    /*Contact developers for API key or insert personal key*/
             ]
-            // https://api.yelp.com/v3/businesses/search?term=Home Services&location=Ames,Iowa
+
             Alamofire.request("https://api.yelp.com/v3/businesses/search", parameters: parameters, headers: headers).responseJSON { response in
                     //See if status is good
                     switch response.result {
@@ -518,5 +503,4 @@ class HabitatAPI {
                 }
             }
         }
-    
 }

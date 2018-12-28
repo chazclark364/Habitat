@@ -21,15 +21,14 @@ class YelpBusiness: NSObject  {
         buisness.rating = json?.object(forKey: "rating") as? Double ?? 0.0
         buisness.phoneNumber = json?.object(forKey: "display_phone") as? String ?? "Unknown"
         buisness.distance = json?.object(forKey: "distance") as? Double ?? 0.0
+        
         if let location = (json as AnyObject).object(forKey: "location") as? NSDictionary {
             buisness.address = location.object(forKey: "city") as? String
-                    
-            
         }
+        
         if(buisness.address == nil) {
             buisness.address = "Unknown"
         }
-        
         
         return buisness
     }

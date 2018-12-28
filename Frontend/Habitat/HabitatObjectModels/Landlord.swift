@@ -13,11 +13,6 @@ class Landlord: NSObject  {
     var landlordId: Int?
     var address: String?
     
-//    func Landlord(_ idLandlord: Int, _ addr: String) {
-//        landlordId = idLandlord
-//        address = addr
-//    }
-    
     func landlordFromJSON(json: NSDictionary) -> Landlord? {
         let landlord = Landlord()
         landlord.landlordId = json.object(forKey: "idLandlord") as? Int

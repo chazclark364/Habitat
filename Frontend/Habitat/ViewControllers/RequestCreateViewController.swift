@@ -50,8 +50,6 @@ class RequestCreateViewController: UIViewController {
         let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap))
         view.addGestureRecognizer(tap)
         submitButton.isEnabled = validation()
-        
-        //TODO: Get TenatnID
     }
     
     override func didReceiveMemoryWarning() {

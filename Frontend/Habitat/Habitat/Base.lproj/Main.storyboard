@@ -2201,14 +2201,11 @@
         <image name="tool" width="36" height="36"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="zKT-Mf-ZBf"/>
-        <segue reference="UGg-YX-57o"/>
-        <segue reference="2LB-q8-Wvt"/>
         <segue reference="vFc-dt-kBQ"/>
         <segue reference="qLd-di-FKh"/>
         <segue reference="RgD-1J-n4Y"/>
         <segue reference="ZqE-78-lti"/>
-        <segue reference="JuX-2x-rQZ"/>
+        <segue reference="deH-ug-xGH"/>
         <segue reference="Mdq-VP-2Mw"/>
     </inferredMetricsTieBreakers>
 </document>

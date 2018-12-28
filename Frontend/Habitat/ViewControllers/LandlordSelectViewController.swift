@@ -51,9 +51,9 @@ class LandlordSelectViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell() //1.
+        let cell = UITableViewCell()
         
-        let landLord = landlords?[indexPath.row] //2.
+        let landLord = landlords?[indexPath.row]
         
         var possibleUser: User?
         let userId = landLord?.landlordId
@@ -78,12 +78,12 @@ class LandlordSelectViewController: UITableViewController {
                 cell.textLabel?.text = landlordString
             } else {
                 //Alert with error message if anything goes wrong
-                cell.textLabel?.text = "Error" //TODO: Change API to send name
+                cell.textLabel?.text = "Error" 
                 self.present(AlertViews().errorAlert(msg: "Could not sign up user."), animated: true)
             }
         })
         
-        return cell //4.
+        return cell
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selected = landlords?[indexPath.row]

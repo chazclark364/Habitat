@@ -17,7 +17,6 @@ import Starscream
 
 
 class RequestDetailsViewController: UIViewController {
-    //TODO: Construct a user object
     @IBOutlet weak var stageSubmitted: UIView!
     @IBOutlet weak var stageInProgress: UIView!
     @IBOutlet weak var stageApproved: UIView!

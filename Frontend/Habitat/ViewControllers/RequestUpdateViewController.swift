@@ -16,7 +16,6 @@ import Foundation
 import UIKit
 
 class RequestUpdateViewController: UIViewController {
-    //TODO: Construct a user object
     
     @IBOutlet weak var cancelButton: UIButton!
     override func viewDidLoad() {

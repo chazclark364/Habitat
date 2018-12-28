@@ -10,13 +10,11 @@ import Foundation
 import UIKit
 
 class BusinessCell: UITableViewCell {
-
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var ratingLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var pNumberLabel: UILabel!
     @IBOutlet weak var distanceLabel: UILabel!
-    
 }
 
 class RequestBusinessTableViewController: UITableViewController {
@@ -63,8 +61,7 @@ class RequestBusinessTableViewController: UITableViewController {
         return 1
     }
     
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
-    {
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 200.0;
     }
     

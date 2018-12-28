@@ -117,9 +117,9 @@ class ProfileViewController: UIViewController {
             if (UserDefaults.standard.string(forKey: "userType") == "Tenant") {
                 rentLabel.isHidden = false
                 rentValue.isHidden = false
-                var rentString = UserDefaults.standard.string(forKey: "tenantMonthlyRent") ?? "???"
+                var rentString = UserDefaults.standard.string(forKey: "tenantMonthlyRent") ?? ""
                 rentString += " ("
-                rentString += UserDefaults.standard.string(forKey: "tenantDueDate") ?? "N/A"
+                rentString += UserDefaults.standard.string(forKey: "tenantDueDate") ?? "Last day of month"
                 rentString += ")"
                 rentValue.text = rentString
                 landlordLabel.isHidden = false

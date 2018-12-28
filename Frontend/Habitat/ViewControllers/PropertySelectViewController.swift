@@ -14,6 +14,7 @@ class PropertyCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var detailLabel: UILabel!
 }
+
 class PropertySelectViewController: UITableViewController {
     
 
@@ -89,14 +90,14 @@ class PropertySelectViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "propertyCell", for: indexPath) as! PropertyCell
         
-        let property = properties?[indexPath.row] //2.
+        let property = properties?[indexPath.row]
         
         let propertyId = property?.propertyId
         
         cell.titleLabel?.text = property?.address ?? "No Address"
         cell.detailLabel?.text = property?.livingStatus ?? ""
         
-        return cell //4.
+        return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

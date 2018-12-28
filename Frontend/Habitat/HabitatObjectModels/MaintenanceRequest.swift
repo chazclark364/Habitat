@@ -16,10 +16,8 @@ class MaintenanceRequest: NSObject  {
     var requestee: Int?
     var landlord: Int?
     var worker: Int?
-    //TODO: Change database to Int
     var status: String?
  
-    //TODO: Create request function
     func requestFromJSON(json: NSDictionary) -> MaintenanceRequest? {
         let request = MaintenanceRequest()
         request.requestId = json.object(forKey: "idRequest") as? Int
